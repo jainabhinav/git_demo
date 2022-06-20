@@ -45,8 +45,8 @@
       "id" : "uYrIp3StoS-QrfxGXHu9C$$cUDXS03KGC7HP07-OvDef",
       "component" : "Source",
       "metadata" : {
-        "label" : "Source_0",
-        "slug" : "Source_0",
+        "label" : "test",
+        "slug" : "test",
         "x" : 574,
         "y" : 317,
         "language" : "python",
@@ -64,7 +64,9 @@
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false
       },
-      "properties" : { }
+      "properties" : {
+        "datasetId" : "7395/datasets/test"
+      }
     }
   },
   "ports" : {
