@@ -16,7 +16,19 @@ pipelines:
       inputs: []
       outputs: []
     dependencies: {}
-datasets: {}
+datasets:
+  datasets/test:
+    name: test
+    description: ''
+    author: abhinav+1@simpledatalabs.com
+    createdAt: '2022-06-20 20:51:41'
+    physicalDatasets:
+      test_dev:
+        fabricId: 1146
+        datasetType: File
+        description: ''
+        author: abhinav+1@simpledatalabs.com
+        createdAt: '2022-06-20 20:51:41'
 templates: {}
 jobs: {}
 libraries: []
