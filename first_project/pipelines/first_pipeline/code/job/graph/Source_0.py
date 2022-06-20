@@ -8,4 +8,4 @@ def Source_0(spark: SparkSession) -> DataFrame:
     return spark.read\
         .option("header", True)\
         .option("sep", ",")\
-        .csv("dbfs:/Prophecy/abhinav+1@simpledatalabs.com/test/OrdersDatasetInput.csv")
+        .csv("dbfs:/Prophecy/abhinav+1@simpledatalabs.com/OrdersDatasetInput.csv")
