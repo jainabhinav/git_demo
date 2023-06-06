@@ -1,0 +1,49 @@
+name: new_proj_git
+description: ''
+version: 0.0.1
+author: abhinav+demo@prophecy.io
+language: python
+buildSystem: ''
+buildSystemDetails:
+  artefactID: new_proj_git
+  parentArtefactID: abhinavdemoprophecy.io_team
+  buildSystem: wheel
+  author: null
+  createdAt: '2023-06-06 09:50:37'
+  modifiedAt: '2023-06-06 09:50:37'
+pipelines:
+  pipelines/first_pipeline:
+    name: first_pipeline
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2023-06-06 09:50:37'
+    modifiedAt: '2023-06-06 09:50:42'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+datasets: {}
+templates: {}
+jobs: {}
+functions:
+  author: null
+  createdAt: '2023-06-06 09:50:37'
+  modifiedAt: '2023-06-06 09:50:37'
+  gems: {}
+  udfs: {}
+  udafs: {}
+  expressions: {}
+subgraphs: {}
+sqlModels: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline: null
+dependencies: '[]'
+projectDependencies: {}
+pipelineConfigurations: {}
