@@ -1,0 +1,85 @@
+name: demo_scala_project
+description: ''
+version: 0.0.1
+author: abhinav+demo@prophecy.io
+language: scala
+buildSystem: ''
+buildSystemDetails:
+  artefactID: demo_scala_project
+  parentArtefactID: demo_team_abhinav
+  buildSystem: maven
+  author: null
+  createdAt: '2023-09-25 16:30:33'
+pipelines:
+  pipelines/customer_orders:
+    name: customer_orders
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2023-09-25 16:30:33'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+  pipelines/report_top_customers:
+    name: report_top_customers
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2023-09-25 16:30:48'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+datasets:
+  datasets/orders:
+    name: orders
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2023-09-25 16:32:17'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2023-09-25 16:32:17'
+  datasets/customers:
+    name: customers
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2023-09-25 16:32:51'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2023-09-25 16:32:51'
+templates: {}
+jobs: {}
+functions:
+  author: null
+  createdAt: '2023-09-25 16:30:33'
+  gems: {}
+  udfs: {}
+  udafs: {}
+  expressions: {}
+subgraphs: {}
+sqlModels: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline: null
+dependencies: '[]'
+projectDependencies: {}
+pipelineConfigurations: {}
