@@ -8,8 +8,11 @@ from prophecy.utils import *
 from gem_testing.graph import *
 
 def pipeline(spark: SparkSession) -> None:
+    df_deleted_customers = deleted_customers(spark)
     df_customers = customers(spark)
     df_Masking_1 = Masking_1(spark, df_customers)
+    df_Reformat_1 = Reformat_1(spark, df_customers)
+    df_Masking_2 = Masking_2(spark, df_customers)
 
 def main():
     spark = SparkSession.builder\

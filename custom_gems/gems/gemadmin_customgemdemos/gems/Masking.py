@@ -40,6 +40,7 @@ class Masking(ComponentSpec):
                 .addOption("MD5", "md5")
                 .addOption("Sha1", "sha1")
                 .addOption("Sha2", "sha2")
+                .addOption("Sha3", "sha3")
         )
 
         ruleTable = BasicTable(
@@ -102,6 +103,7 @@ class Masking(ComponentSpec):
 
     def onChange(self, context: WorkflowContext, oldState: Component[MaskingProperties], newState: Component[MaskingProperties]) -> Component[
     MaskingProperties]:
+        
         return newState
 
 
@@ -117,5 +119,7 @@ class Masking(ComponentSpec):
                 elif rules.maskingType == "sha1":
                     df = df.withColumn(rules.colName + "_" + rules.maskingType , sha1(col(rules.colName)))
                 elif rules.maskingType == "sha2":
+                    df = df.withColumn(rules.colName + "_" + rules.maskingType , sha2(col(rules.colName), int(rules.extraParams)))
+                elif rules.maskingType == "sha3":
                     df = df.withColumn(rules.colName + "_" + rules.maskingType , sha2(col(rules.colName), int(rules.extraParams)))
             return df

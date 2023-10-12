@@ -6,5 +6,5 @@ from prophecy.libs import typed_lit
 from gem_testing.config.ConfigStore import *
 from gem_testing.udfs.UDFs import *
 
-def Masking_1(spark: SparkSession, in0: DataFrame) -> DataFrame:
-    return in0.withColumn("customer_id_sha2", sha2(col("customer_id"), 224))
+def Reformat_1(spark: SparkSession, in0: DataFrame) -> DataFrame:
+    return in0.select(col("customer_id"))
