@@ -38,7 +38,6 @@ class Masking(ComponentSpec):
         selectBox = (
             SelectBox("")
                 .addOption("MD5", "md5")
-                .addOption("Sha1", "sha1")
                 .addOption("Sha2", "sha2")
                 .addOption("Sha3", "sha3")
         )
@@ -116,8 +115,6 @@ class Masking(ComponentSpec):
             for rules in self.props.rulesColumns:
                 if rules.maskingType == "md5":
                     df = df.withColumn(rules.colName + "_" + rules.maskingType , md5(col(rules.colName)))
-                elif rules.maskingType == "sha1":
-                    df = df.withColumn(rules.colName + "_" + rules.maskingType , sha1(col(rules.colName)))
                 elif rules.maskingType == "sha2":
                     df = df.withColumn(rules.colName + "_" + rules.maskingType , sha2(col(rules.colName), int(rules.extraParams)))
                 elif rules.maskingType == "sha3":
