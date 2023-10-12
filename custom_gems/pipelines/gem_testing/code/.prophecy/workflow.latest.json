@@ -1,0 +1,229 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "id" : "1",
+    "uri" : "pipelines/gem_testing",
+    "language" : "python",
+    "fabricId" : "5694",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "gemadmin.customgemdemos.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "gem_testing",
+    "configurationVersion" : "v1"
+  },
+  "connections" : [ {
+    "id" : "tZPfxWBlerFgYtXDOeCil$$k8xkGt7Ep7l6uYV3PfSGk",
+    "source" : "zRkruLPPwTmRAvRwYuNfI$$ZYiLET4YU0smCdVqIARTS",
+    "sourcePort" : "2PnO07kTJWNDT2LM6-YPd$$CzoP4weBYmdiaSQLbFEa3",
+    "target" : "upor6IoBTcINNSpLUKin3$$_LvyOvGZSsCgCh01fT_5s",
+    "targetPort" : "hajI9FBXtUV-xWtUKTntw$$nAjNG8a9kgMFJbfz7jvA0"
+  } ],
+  "processes" : {
+    "zRkruLPPwTmRAvRwYuNfI$$ZYiLET4YU0smCdVqIARTS" : {
+      "id" : "zRkruLPPwTmRAvRwYuNfI$$ZYiLET4YU0smCdVqIARTS",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers",
+        "slug" : "customers",
+        "x" : -680,
+        "y" : -220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "2PnO07kTJWNDT2LM6-YPd$$CzoP4weBYmdiaSQLbFEa3",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customers"
+      }
+    },
+    "upor6IoBTcINNSpLUKin3$$_LvyOvGZSsCgCh01fT_5s" : {
+      "id" : "upor6IoBTcINNSpLUKin3$$_LvyOvGZSsCgCh01fT_5s",
+      "component" : "Masking",
+      "metadata" : {
+        "label" : "Masking_1",
+        "slug" : "Masking_1",
+        "x" : -460,
+        "y" : -220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "hajI9FBXtUV-xWtUKTntw$$nAjNG8a9kgMFJbfz7jvA0",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "uKnmRXzlm7u0NbgSZ_cbL$$N1xg7EgkdhjB9MJJKoRWz",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "rulesColumns" : [ {
+          "colName" : "phone",
+          "maskingType" : "sha1",
+          "extraParams" : null
+        }, {
+          "colName" : "email",
+          "maskingType" : "md5",
+          "extraParams" : null
+        }, {
+          "colName" : "email",
+          "maskingType" : "sha2",
+          "extraParams" : "0"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gems/Masking",
+        "projectName" : "custom_gem_demos"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}
