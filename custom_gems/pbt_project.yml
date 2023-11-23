@@ -1,6 +1,6 @@
 name: custom_gem_demos
 description: ''
-version: '0.5'
+version: '0.6'
 author: abhinav+gems@prophecy.io
 language: python
 buildSystem: ''
