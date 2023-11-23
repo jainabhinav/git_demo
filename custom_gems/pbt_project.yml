@@ -57,7 +57,7 @@ templates: {}
 jobs: {}
 gemContainer:
   languageVersion: '3.10'
-  gemLibsVersion: 1.3.2.0
+  gemLibsVersion: 1.3.4.0
   gems:
     gems/Masking:
       name: Masking
@@ -69,6 +69,16 @@ gemContainer:
       files:
       - gemadmin_customgemdemos/gems/Masking.py
       createdAt: '2023-10-12 14:00:57'
+    gems/Limit:
+      name: Limit
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+gems@prophecy.io
+      mode: batch
+      files:
+      - gemadmin_customgemdemos/gems/Limit.py
+      createdAt: '2023-10-12 18:03:26'
 functions:
   author: null
   createdAt: '2023-10-12 14:00:06'

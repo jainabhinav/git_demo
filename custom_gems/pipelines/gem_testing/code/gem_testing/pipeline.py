@@ -11,6 +11,8 @@ def pipeline(spark: SparkSession) -> None:
     df_deleted_customers = deleted_customers(spark)
     df_customers = customers(spark)
     df_Masking_1 = Masking_1(spark, df_customers)
+    df_RestAPIEnrich_1 = RestAPIEnrich_1(spark)
+    df_RowDistributor_1_out0, df_RowDistributor_1_out1 = RowDistributor_1(spark, df_RestAPIEnrich_1)
     df_Reformat_1 = Reformat_1(spark, df_customers)
     df_Masking_2 = Masking_2(spark, df_customers)
 

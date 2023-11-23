@@ -77,6 +77,12 @@
     "sourcePort" : "2PnO07kTJWNDT2LM6-YPd$$CzoP4weBYmdiaSQLbFEa3",
     "target" : "WmAU76rec8ZTYzFCypAgN$$hef3OFrtUXk5YMWmi-HzA",
     "targetPort" : "UqIu4bAwV5hZqIeRzYvLo$$XqtXlZv4pF7Lj-IbYGB2z"
+  }, {
+    "id" : "m6bvj50I7zuPgLeNWjVoq",
+    "source" : "8eN6ww3-jdbs8qtHrGxrR$$-xx6pjCfmsf3FGQ7nJiP2",
+    "sourcePort" : "4ymq-po6XZguT7UnNoUnq$$ta-UHYuwNfgzPIMviPKLG",
+    "target" : "yTSluLCdPIVi2kNHlyg6h$$6SaADEWJfy8mbJg6lGIzc",
+    "targetPort" : "BEwrNJPq1MtjjRMdTNwVr$$SkGKgCkZdj9gnD7sPGtfa"
   } ],
   "processes" : {
     "B7wGnbIPwp3V-KMrNRJj7$$D2rHuZ3Mi30op45w0LJmb" : {
@@ -105,6 +111,31 @@
       "properties" : {
         "datasetId" : "datasets/deleted_customers"
       }
+    },
+    "WauCtDwpswLrts3D1ChHh$$60BVWwBZsCvYRSVcY6e2_" : {
+      "id" : "WauCtDwpswLrts3D1ChHh$$60BVWwBZsCvYRSVcY6e2_",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "Source_1",
+        "slug" : "Source_1",
+        "x" : -1820,
+        "y" : -440,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Pd1SMY6GLVVX0yPkB6_a1$$RZn0EzKuWNKp4AUwxFAK9",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : { }
     },
     "LJftuvYRht0_dxhd1_wWG$$s1RYBKeahFPfKdWSCWIEr" : {
       "id" : "LJftuvYRht0_dxhd1_wWG$$s1RYBKeahFPfKdWSCWIEr",
@@ -220,6 +251,127 @@
       "componentInfo" : {
         "gemId" : "gems/Masking",
         "projectName" : "custom_gem_demos"
+      }
+    },
+    "8eN6ww3-jdbs8qtHrGxrR$$-xx6pjCfmsf3FGQ7nJiP2" : {
+      "id" : "8eN6ww3-jdbs8qtHrGxrR$$-xx6pjCfmsf3FGQ7nJiP2",
+      "component" : "RestAPIEnrich",
+      "metadata" : {
+        "label" : "RestAPIEnrich_1",
+        "slug" : "RestAPIEnrich_1",
+        "x" : -1840,
+        "y" : -620,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "sp_sOLvd9_rXF9ogUf1Lj$$u8_gSpIfRBdLzva0xIFI6",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "4ymq-po6XZguT7UnNoUnq$$ta-UHYuwNfgzPIMviPKLG",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "awaitTime" : null,
+        "method" : "GET",
+        "proxies" : null,
+        "verify" : null,
+        "streamFrom" : null,
+        "headersFrom" : null,
+        "auth" : null,
+        "url" : "https://www.boredapi.com/api/activity",
+        "json" : null,
+        "jsonSchemaConfigCheckbox" : null,
+        "cert" : null,
+        "data" : null,
+        "params" : null,
+        "allow_redirectsFrom" : null,
+        "authFrom" : null,
+        "proxiesFrom" : null,
+        "files" : null,
+        "awaitTimeFrom" : null,
+        "cookies" : null,
+        "jsonFrom" : null,
+        "urlFrom" : "staticValue",
+        "parseContent" : null,
+        "jsonSchemaConfig" : null,
+        "activeTab" : "basicTab",
+        "allow_redirects" : null,
+        "certFrom" : null,
+        "stream" : null,
+        "filesFrom" : null,
+        "paramsFrom" : null,
+        "dataFrom" : null,
+        "timeoutFrom" : null,
+        "verifyFrom" : null,
+        "headers" : null,
+        "methodFrom" : "staticValue",
+        "timeout" : null,
+        "cookiesFrom" : null
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.0.4&projectSubscriptionProjectId=12654&path=gems/RestAPIEnrich",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "yTSluLCdPIVi2kNHlyg6h$$6SaADEWJfy8mbJg6lGIzc" : {
+      "id" : "yTSluLCdPIVi2kNHlyg6h$$6SaADEWJfy8mbJg6lGIzc",
+      "component" : "RowDistributor",
+      "metadata" : {
+        "label" : "RowDistributor_1",
+        "slug" : "RowDistributor_1",
+        "x" : -1540,
+        "y" : -560,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "BEwrNJPq1MtjjRMdTNwVr$$SkGKgCkZdj9gnD7sPGtfa",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "4Y89JtJY7aA-5-rL8cFYg$$w5jzzaCh4mQOkKS2J7VlL",
+          "slug" : "out0"
+        }, {
+          "id" : "Rhj3TvjW8I55lfa6drXk4$$qKWmL2ckSs1Y6rCBr7zbx",
+          "slug" : "out1"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "outports" : [ {
+          "path" : "out0",
+          "id" : "4Y89JtJY7aA-5-rL8cFYg$$w5jzzaCh4mQOkKS2J7VlL",
+          "model" : {
+            "format" : "sql",
+            "expression" : ""
+          }
+        }, {
+          "path" : "out1",
+          "id" : "Rhj3TvjW8I55lfa6drXk4$$qKWmL2ckSs1Y6rCBr7zbx",
+          "model" : {
+            "format" : "sql",
+            "expression" : ""
+          }
+        } ],
+        "distributeUnmatchedRows" : null
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.0.4&projectSubscriptionProjectId=12654&path=gems/RowDistributor",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "zRkruLPPwTmRAvRwYuNfI$$ZYiLET4YU0smCdVqIARTS" : {
@@ -502,5 +654,86 @@
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
     "autoUpdateOnRun" : false
-  }
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.WauCtDwpswLrts3D1ChHh$$60BVWwBZsCvYRSVcY6e2_.properties.datasetId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "dataset id missing",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.8eN6ww3-jdbs8qtHrGxrR$$-xx6pjCfmsf3FGQ7nJiP2",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Please connect input port in0",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.yTSluLCdPIVi2kNHlyg6h$$6SaADEWJfy8mbJg6lGIzc",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.yTSluLCdPIVi2kNHlyg6h$$6SaADEWJfy8mbJg6lGIzc.properties.outports[0]",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "out0 is empty",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.yTSluLCdPIVi2kNHlyg6h$$6SaADEWJfy8mbJg6lGIzc.properties.outports[1]",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "out1 is empty",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
 }
