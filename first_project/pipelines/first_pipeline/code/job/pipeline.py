@@ -6,6 +6,7 @@ from job.udfs.UDFs import *
 from job.graph import *
 
 def pipeline(spark: SparkSession) -> None:
+    df_third_dataset = third_dataset(spark)
     df_Source_0 = Source_0(spark)
 
 def main():
