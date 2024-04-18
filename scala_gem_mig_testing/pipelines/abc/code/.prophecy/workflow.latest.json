@@ -32,7 +32,16 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "asd",
+          "kind" : {
+            "type" : "string",
+            "value" : "asd"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -70,12 +79,83 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ ],
-  "processes" : { },
+  "processes" : {
+    "DA9wfPV5-EZWj_FtfY1PA$$k4xMgZTgn-WjgEE_HEIR5" : {
+      "id" : "DA9wfPV5-EZWj_FtfY1PA$$k4xMgZTgn-WjgEE_HEIR5",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "jdbc_query",
+        "slug" : "jdbc_query",
+        "x" : -660,
+        "y" : -240,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "tMdt08ZgFxYUxHmtfqoTU$$Gw8eygMvll2lipc2Y6D-m",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/jdbc_query"
+      }
+    },
+    "f2iGTEPI0h1IvYRUvrea2$$70RQlQ5LA1vB5mzyH3lw5" : {
+      "id" : "f2iGTEPI0h1IvYRUvrea2$$70RQlQ5LA1vB5mzyH3lw5",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "Source_1",
+        "slug" : "Source_1",
+        "x" : -1280,
+        "y" : -440,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "IDz0FpnRCx385aaEVtr-i$$5QFdXGz0K_rXXRnn33FAk",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : { }
+    }
+  },
   "ports" : {
     "inputs" : [ ],
     "outputs" : [ ],
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
     "autoUpdateOnRun" : false
-  }
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.f2iGTEPI0h1IvYRUvrea2$$70RQlQ5LA1vB5mzyH3lw5.properties.datasetId",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "dataset id missing",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  } ]
 }

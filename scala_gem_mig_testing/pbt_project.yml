@@ -20,11 +20,25 @@ pipelines:
     language: scala
     createdAt: '2024-04-16 06:17:37'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/jdbc_query
       outputs: []
     subgraphs: []
     dependencies: {}
-datasets: {}
+datasets:
+  datasets/jdbc_query:
+    name: jdbc_query
+    description: ''
+    author: abhinav@prophecy.io
+    createdAt: '2024-04-18 07:53:31'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 2453
+        datasetType: File
+        description: ''
+        author: abhinav@prophecy.io
+        createdAt: '2024-04-18 07:53:31'
 templates: {}
 jobs: {}
 gemContainer:
@@ -51,10 +65,34 @@ gemContainer:
       author: abhinav@prophecy.io
       mode: batch
       files:
-      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/jdbcQuery.scala
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/JDBC_QUERY.scala
       gemType: DatasetGem
       dependencies: []
-      createdAt: '2024-04-16 06:18:24'
+      createdAt: '2024-04-18 07:50:38'
+    gems/CompareColumns:
+      name: CompareColumns
+      category: Join/Split
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/CompareColumns.scala
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-04-18 09:51:41'
+    gems/RenameColumns:
+      name: RenameColumns
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/RenameColumns.scala
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-04-18 11:07:28'
   dependencies: null
 functions:
   author: null
