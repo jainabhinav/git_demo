@@ -141,6 +141,23 @@
     "autoUpdateOnRun" : false
   },
   "diagnostics" : [ {
+    "property" : "$.workflow.processes.DA9wfPV5-EZWj_FtfY1PA$$k4xMgZTgn-WjgEE_HEIR5.properties.format",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "format: JDBC_QUERY not supported",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  }, {
     "property" : "$.workflow.processes.f2iGTEPI0h1IvYRUvrea2$$70RQlQ5LA1vB5mzyH3lw5.properties.datasetId",
     "range" : {
       "start" : {
