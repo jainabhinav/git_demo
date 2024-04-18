@@ -1,0 +1,75 @@
+name: scala_mig_Testing_git
+description: ''
+version: 0.0.1
+author: abhinav@prophecy.io
+language: scala
+buildSystem: ''
+buildSystemDetails:
+  artefactID: scalamigtestinggit
+  parentArtefactID: abhinavprophecyioteam
+  buildSystem: maven
+  author: null
+  createdAt: '2024-04-18 12:29:05'
+pipelines: {}
+datasets: {}
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: 2.12.15
+  gemLibsVersion: 1.0.4
+  gems:
+    gems/RenameColumns:
+      name: RenameColumns
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/RenameColumns.scala
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-04-18 12:29:38'
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2024-04-18 12:29:05'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+subgraphs: {}
+sqlModels: {}
+sqlSnapshots: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline: null
+dependencies:
+- modifiedAt: '2024-04-18T12:29:05.668563Z'
+  name: plibMaven
+  version: 7.1.88
+  id: '908077158'
+  createdAt: '2024-04-18T12:29:05.668563Z'
+  type: plibMaven
+projectDependencies:
+  '39':
+    projectUID: 39
+    projectName: ProphecySparkBasicsScala
+    repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=
+    version: 0.1.2
+    isDefault: true
+    author: null
+    createdAt: '2024-03-21 13:00:22'
+  '40':
+    projectUID: 40
+    projectName: ProphecyWarehouseScala
+    repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_40.git&subPath=
+    version: 0.0.3
+    isDefault: true
+    author: null
+    createdAt: '2024-03-21 13:00:22'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}
