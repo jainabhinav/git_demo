@@ -112,7 +112,7 @@ sqlPipeline: null
 dependencies:
 - modifiedAt: '2024-03-22T06:11:36.956322Z'
   name: plibMaven
-  version: 7.1.82
+  version: 7.1.91
   createdAt: '2024-03-22T06:11:36.956322Z'
   type: plibMaven
 projectDependencies:
