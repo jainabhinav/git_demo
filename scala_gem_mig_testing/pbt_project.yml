@@ -43,7 +43,7 @@ templates: {}
 jobs: {}
 gemContainer:
   languageVersion: 2.12.15
-  gemLibsVersion: 1.1.3
+  gemLibsVersion: 1.1.9
   gems:
     gems/Snowflake:
       name: Snowflake
