@@ -10,7 +10,20 @@ buildSystemDetails:
   buildSystem: maven
   author: null
   createdAt: '2024-03-22 06:11:36'
-pipelines: {}
+pipelines:
+  pipelines/abc:
+    name: abc
+    description: ''
+    author: abhinav@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2024-04-16 06:17:37'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets: {}
 templates: {}
 jobs: {}
@@ -30,6 +43,18 @@ gemContainer:
       gemType: DatasetGem
       dependencies: []
       createdAt: '2024-03-22 06:12:00'
+    gems/JDBC_QUERY:
+      name: JDBC_QUERY
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/jdbcQuery.scala
+      gemType: DatasetGem
+      dependencies: []
+      createdAt: '2024-04-16 06:18:24'
   dependencies: null
 functions:
   author: null
@@ -40,6 +65,7 @@ functions:
   airflowFunctions: {}
 subgraphs: {}
 sqlModels: {}
+sqlSnapshots: {}
 sqlMacros: {}
 sqlSeeds: {}
 sqlSources: {}
