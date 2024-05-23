@@ -10,8 +10,35 @@ buildSystemDetails:
   buildSystem: maven
   author: null
   createdAt: '2024-04-18 12:29:05'
-pipelines: {}
-datasets: {}
+pipelines:
+  pipelines/abc:
+    name: abc
+    description: ''
+    author: abhinav@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2024-04-19 07:34:29'
+    datasets:
+      inputs:
+      - datasets/asd
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+datasets:
+  datasets/asd:
+    name: asd
+    description: ''
+    author: abhinav@prophecy.io
+    createdAt: '2024-04-19 08:40:51'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 2453
+        datasetType: File
+        description: ''
+        author: abhinav@prophecy.io
+        createdAt: '2024-04-19 08:40:51'
 templates: {}
 jobs: {}
 gemContainer:
@@ -30,6 +57,89 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-04-18 12:29:38'
+    gems/MultiFieldExpression:
+      name: MultiFieldExpression
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/MultiFieldExpression.scala
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-04-19 10:28:39'
+    gems/Repartition:
+      name: Repartition
+      category: Join/Split
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/Repartition.scala
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-04-22 08:23:20'
+    gems/ProtobufTest:
+      name: ProtobufTest
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/ProtobufTest.scala
+      gemType: DatasetGem
+      dependencies:
+      - type: coordinates
+        modifiedAt: '2024-04-24T13:37:16.662Z'
+        coordinates: org.apache.spark:spark-protobuf_2.12:3.5.1
+        name: protobuf
+        description: ''
+        enabled: true
+        id: f0rz4mvzNZoTUUJ4TSUJH
+        createdAt: '2024-04-24T13:37:16.662Z'
+        entity: Gem
+        exclusions: []
+        editable: true
+      createdAt: '2024-04-24 13:34:51'
+    gems/Reformat:
+      name: Reformat
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/Reformat.scala
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-05-17 09:43:00'
+    gems/SQLStatement:
+      name: SQLStatement
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/SQLStatement.scala
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-05-17 11:34:51'
+    gems/TestAnandDQV:
+      name: TestAnandDQV
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/Deequ.scala
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-05-21 07:13:21'
   dependencies: null
 functions:
   author: null
@@ -38,9 +148,11 @@ functions:
   udafs: {}
   expressions: {}
   airflowFunctions: {}
+  businessRules: {}
 subgraphs: {}
 sqlModels: {}
 sqlSnapshots: {}
+sqlTests: {}
 sqlMacros: {}
 sqlSeeds: {}
 sqlSources: {}

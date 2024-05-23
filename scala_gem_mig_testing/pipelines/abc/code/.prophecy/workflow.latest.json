@@ -1,0 +1,345 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "7.1.88"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/abc",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "abc",
+      "hasApplication" : true
+    },
+    "language" : "scala",
+    "fabricId" : "2500",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "scala",
+      "udfs" : [ ],
+      "functionPackageName" : "abhinavprophecyioteam.scalamigtestinggit.functions",
+      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions", "io.prophecy.warehousegems.functions" ]
+    },
+    "udafs" : {
+      "language" : "scala",
+      "code" : "package udfs\n\nimport org.apache.spark.sql.expressions._\nimport org.apache.spark.sql.types._\nimport org.apache.spark.sql._\n\n/**\n  * Here you can define your custom aggregate functions.\n  *\n  * Make sure to register your `udafs` in the register_udafs function below.\n  *\n  * Example:\n  *\n  * object GeometricMean extends UserDefinedAggregateFunction {\n  *   // This is the input fields for your aggregate function.\n  *   override def inputSchema: org.apache.spark.sql.types.StructType =\n  *     StructType(StructField(\"value\", DoubleType) :: Nil)\n  *\n  *   // This is the internal fields you keep for computing your aggregate.\n  *   override def bufferSchema: StructType = StructType(\n  *     StructField(\"count\", LongType) ::\n  *     StructField(\"product\", DoubleType) :: Nil\n  *   )\n  *\n  *   // This is the output type of your aggregatation function.\n  *   override def dataType: DataType = DoubleType\n  *\n  *   override def deterministic: Boolean = true\n  *\n  *   // This is the initial value for your buffer schema.\n  *   override def initialize(buffer: MutableAggregationBuffer): Unit = {\n  *     buffer(0) = 0L\n  *     buffer(1) = 1.0\n  *   }\n  *\n  *   // This is how to update your buffer schema given an input.\n  *   override def update(buffer: MutableAggregationBuffer, input: Row): Unit = {\n  *     buffer(0) = buffer.getAs[Long](0) + 1\n  *     buffer(1) = buffer.getAs[Double](1) * input.getAs[Double](0)\n  *   }\n  *\n  *   // This is how to merge two objects with the bufferSchema type.\n  *   override def merge(buffer1: MutableAggregationBuffer, buffer2: Row): Unit = {\n  *     buffer1(0) = buffer1.getAs[Long](0) + buffer2.getAs[Long](0)\n  *     buffer1(1) = buffer1.getAs[Double](1) * buffer2.getAs[Double](1)\n  *   }\n  *\n  *   // This is where you output the final value, given the final value of your bufferSchema.\n  *   override def evaluate(buffer: Row): Any = {\n  *     math.pow(buffer.getDouble(1), 1.toDouble / buffer.getLong(0))\n  *   }\n  * }\n  *\n  */\n\n\nobject UDAFs {\n  /**\n    * Registers UDAFs with Spark SQL\n    */\n  def registerUDAFs(spark: SparkSession): Unit = {\n    /**\n      * Example:\n      *\n      * spark.udf.register(\"gm\", GeometricMean)\n      *\n      */\n\n\n  }\n}\n"
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "39",
+      "projectName" : "ProphecySparkBasicsScala",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "40",
+      "projectName" : "ProphecyWarehouseScala",
+      "externalDependencies" : [ ]
+    } ],
+    "topLevelPackage" : "io.prophecy.pipelines.abc",
+    "configurationVersion" : "v2",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "interimModeEnabled" : true,
+    "isImported" : false,
+    "visualCodeInterimMode" : "Disabled",
+    "interimMode" : "Full"
+  },
+  "connections" : [ {
+    "id" : "Xz4qUzn-mdDWylm05whqY$$l9iPSCwWgSRlxmO-y44KV",
+    "source" : "8KhoXiaqGirkZVkExrTQi$$2MlhPh36Yjov_nPOFQz5W",
+    "sourcePort" : "Mvq1VJLsXof8JWkEKCqwp$$3FZPg4AVNxn301k4ig08A",
+    "target" : "Edmf0FuCV0sXk9Mc64DeB$$iIIA_Sy4nhRVslMRb29iz",
+    "targetPort" : "3rFyF7aZJo4kZA8N2jVHd$$feIgvp2XzQbQ5OCUPt3Th"
+  }, {
+    "id" : "s1HXow2D2ADuYobgZvHmJ$$GUsHkuh7e05ham9B_JRj0",
+    "source" : "88OlPJIXpOadP15y5CT1W$$C-m_sGfEWv5QJNCHyk7W0",
+    "sourcePort" : "COaxmXURlCgh_CIpHvOn5$$knmzdNDrOs3GTc6Eqk6eG",
+    "target" : "Edmf0FuCV0sXk9Mc64DeB$$iIIA_Sy4nhRVslMRb29iz",
+    "targetPort" : "WjFOTaf2NQ66cQW9SxYF0$$dDMSPiNbVrWxX5GMzNVUH"
+  }, {
+    "id" : "FSWXWw4h-lvsZ8Tlo4Qkk",
+    "source" : "8KhoXiaqGirkZVkExrTQi$$2MlhPh36Yjov_nPOFQz5W",
+    "sourcePort" : "Mvq1VJLsXof8JWkEKCqwp$$3FZPg4AVNxn301k4ig08A",
+    "target" : "9mOGGQGYX00Z7OhIMy1Iu$$xTMuYkaVLCS6Ud35BWER-",
+    "targetPort" : "_dtuETV3QJwZ_A2bh4lig$$JUgV8Y057C5Fu83OWxusi"
+  } ],
+  "processes" : {
+    "88OlPJIXpOadP15y5CT1W$$C-m_sGfEWv5QJNCHyk7W0" : {
+      "id" : "88OlPJIXpOadP15y5CT1W$$C-m_sGfEWv5QJNCHyk7W0",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "generate_range_dataframe_1",
+        "slug" : "generate_range_dataframe_1",
+        "x" : -1480,
+        "y" : -180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "COaxmXURlCgh_CIpHvOn5$$knmzdNDrOs3GTc6Eqk6eG",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "script" : "val out0 = spark.range(10).toDF(\"a\")",
+        "scriptMethodHeader" : "def apply(spark: SparkSession): DataFrame = {",
+        "scriptMethodFooter" : "    out0\n}"
+      }
+    },
+    "Edmf0FuCV0sXk9Mc64DeB$$iIIA_Sy4nhRVslMRb29iz" : {
+      "id" : "Edmf0FuCV0sXk9Mc64DeB$$iIIA_Sy4nhRVslMRb29iz",
+      "component" : "SetOperation",
+      "metadata" : {
+        "label" : "SetOperation_1",
+        "slug" : "SetOperation_1",
+        "x" : -1280,
+        "y" : -300,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "3rFyF7aZJo4kZA8N2jVHd$$feIgvp2XzQbQ5OCUPt3Th",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "WjFOTaf2NQ66cQW9SxYF0$$dDMSPiNbVrWxX5GMzNVUH",
+          "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "L_zzYRbQNRGOld1_w3sp2$$bYjgJRvHBIN72k3cIpgN8",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "operationType" : "unionAll",
+        "allowMissingColumns" : false
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.1.2&projectSubscriptionProjectId=39&path=gems/SetOperation",
+        "projectName" : "ProphecySparkBasicsScala"
+      }
+    },
+    "x5Fr6TxUzPi6c4C06dWfW$$PMGwgqFkHDsW5xcWwKd5i" : {
+      "id" : "x5Fr6TxUzPi6c4C06dWfW$$PMGwgqFkHDsW5xcWwKd5i",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "asd",
+        "slug" : "asd",
+        "x" : -900,
+        "y" : -240,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "lPP3_BKnQAP5Pl4IsMLp7$$BTVOLAwYO3VCI3aMdJjax",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/asd"
+      }
+    },
+    "8KhoXiaqGirkZVkExrTQi$$2MlhPh36Yjov_nPOFQz5W" : {
+      "id" : "8KhoXiaqGirkZVkExrTQi$$2MlhPh36Yjov_nPOFQz5W",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "generate_range_dataframe",
+        "slug" : "generate_range_dataframe",
+        "x" : -1480,
+        "y" : -420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "removalCondition" : "false"
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Mvq1VJLsXof8JWkEKCqwp$$3FZPg4AVNxn301k4ig08A",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "script" : "val out0 = spark.range(10).toDF(\"a\")",
+        "scriptMethodHeader" : "def apply(spark: SparkSession): DataFrame = {",
+        "scriptMethodFooter" : "    out0\n}"
+      }
+    },
+    "9mOGGQGYX00Z7OhIMy1Iu$$xTMuYkaVLCS6Ud35BWER-" : {
+      "id" : "9mOGGQGYX00Z7OhIMy1Iu$$xTMuYkaVLCS6Ud35BWER-",
+      "component" : "RowDistributor",
+      "metadata" : {
+        "label" : "distribute_rows",
+        "slug" : "distribute_rows",
+        "x" : -1280,
+        "y" : -500,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "_dtuETV3QJwZ_A2bh4lig$$JUgV8Y057C5Fu83OWxusi",
+          "slug" : "in",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "N1OLQ2Tl3-o530ePtlWZp$$1o-PkRAvjYRWQ4By3w-9P",
+          "slug" : "out057"
+        }, {
+          "id" : "iqk_Hba8PDcqdNyNsrcRb$$Y-gUOEHKuyUquwVvrn8lT",
+          "slug" : "out1"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "outports" : [ {
+          "path" : "out057",
+          "id" : "N1OLQ2Tl3-o530ePtlWZp$$1o-PkRAvjYRWQ4By3w-9P",
+          "model" : {
+            "format" : "sql",
+            "expression" : "false"
+          }
+        }, {
+          "path" : "out1",
+          "id" : "iqk_Hba8PDcqdNyNsrcRb$$Y-gUOEHKuyUquwVvrn8lT",
+          "model" : {
+            "format" : "sql",
+            "expression" : "true"
+          }
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.1.2&projectSubscriptionProjectId=39&path=gems/RowDistributor",
+        "projectName" : "ProphecySparkBasicsScala"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}
