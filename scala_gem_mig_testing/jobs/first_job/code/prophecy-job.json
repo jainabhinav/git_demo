@@ -1,0 +1,97 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "2453",
+    "jobId" : "jobs/first_job",
+    "name" : "first_job",
+    "schedule" : "None",
+    "scheduleTimeZone" : "UTC",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "small",
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "type" : "Inherited",
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      }
+    },
+    "availableFabrics" : [ {
+      "id" : "2453",
+      "name" : "dev",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    }, {
+      "id" : "2500",
+      "name" : "dev_fabric",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    } ]
+  },
+  "processes" : {
+    "5HnA7vMPcrPFiWEam-TPt$$49xDDNsOr-NKbqtqym2GB" : {
+      "id" : "5HnA7vMPcrPFiWEam-TPt$$49xDDNsOr-NKbqtqym2GB",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "Pipeline_0",
+        "slug" : "Pipeline_0",
+        "x" : -660,
+        "y" : -240
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "L8vLqLzfApjG5KCls2KqU$$G-4GwZJgQng98r2IYUTX4",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "QhCnSE2BzA3jXmm-kIaKp$$ZMeVulN3d7gNnRAaLGVDc",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "",
+        "configurations" : {
+          "instances" : { }
+        }
+      }
+    }
+  },
+  "connections" : [ ]
+}

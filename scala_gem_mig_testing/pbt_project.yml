@@ -21,7 +21,7 @@ pipelines:
     createdAt: '2024-04-19 07:34:29'
     datasets:
       inputs:
-      - datasets/asd
+      - datasets/customers
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -39,8 +39,44 @@ datasets:
         description: ''
         author: abhinav@prophecy.io
         createdAt: '2024-04-19 08:40:51'
+  datasets/customers:
+    name: customers
+    description: ''
+    author: abhinav@prophecy.io
+    createdAt: '2024-05-23 12:00:41'
+    mode: batch
+    physicalDatasets:
+      dev_fabric:
+        fabricId: 2500
+        datasetType: File
+        description: ''
+        author: abhinav@prophecy.io
+        createdAt: '2024-05-23 12:00:41'
 templates: {}
-jobs: {}
+jobs:
+  jobs/first_job:
+    name: first_job
+    description: ''
+    fabricUID: 2453
+    scheduler:
+      Databricks: {}
+    cloudProvider: null
+    jobSize: small
+    scheduleCron: None
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-05-23 12:43:45'
+    author: abhinav@prophecy.io
 gemContainer:
   languageVersion: 2.12.15
   gemLibsVersion: 1.1.6
@@ -161,27 +197,29 @@ sqlPipeline: null
 dependencies:
 - modifiedAt: '2024-04-18T12:29:05.668563Z'
   name: plibMaven
-  version: 7.1.88
+  version: 8.0.0
   id: '908077158'
   createdAt: '2024-04-18T12:29:05.668563Z'
   type: plibMaven
+  enabled: true
+  entity: Project
 projectDependencies:
   '39':
     projectUID: 39
     projectName: ProphecySparkBasicsScala
     repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=
-    version: 0.1.2
+    version: 0.2.2.dev
     isDefault: true
     author: null
-    createdAt: '2024-03-21 13:00:22'
+    createdAt: '2024-05-23 11:05:41'
   '40':
     projectUID: 40
     projectName: ProphecyWarehouseScala
     repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_40.git&subPath=
-    version: 0.0.3
+    version: 0.0.4.dev
     isDefault: true
     author: null
-    createdAt: '2024-03-21 13:00:22'
+    createdAt: '2024-05-23 11:05:49'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

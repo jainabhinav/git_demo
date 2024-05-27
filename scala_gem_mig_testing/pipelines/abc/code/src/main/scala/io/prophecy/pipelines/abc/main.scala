@@ -15,6 +15,14 @@ import java.time._
 object Main {
 
   def apply(context: Context): Unit = {
+    val df_customers =
+      if (false)
+        customers(context)
+      else null
+    val df_identity_transformation =
+      if (false)
+        identity_transformation(context, df_customers)
+      else null
     val df_generate_range_dataframe_1 = generate_range_dataframe_1(context)
     val df_generate_range_dataframe =
       if (false)
@@ -24,7 +32,9 @@ object Main {
                                            df_generate_range_dataframe,
                                            df_generate_range_dataframe_1
     )
-    val df_asd = asd(context)
+    val df_customers_1 = customers_1(context)
+    val df_SetOperation_2 =
+      SetOperation_2(context, df_customers, df_customers_1)
     val (df_distribute_rows_out057, df_distribute_rows_out1) =
       if (false)
         distribute_rows(context, df_generate_range_dataframe)
