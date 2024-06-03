@@ -75,7 +75,13 @@
     "topLevelPackage" : "io.prophecy.pipelines.mongo_db",
     "configurationVersion" : "v2"
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "VF5Pe-c9KVuM4V0jyZ4If$$cnXtYAm_BE5Ot22lQx3VL",
+    "source" : "HSa5v4o5Kq9fRAz1k2SEs$$royi8Zlk0a9Xv4-3N-yjy",
+    "sourcePort" : "Sx7ECrD1R97aN6-LjMouM$$duDqUnWjTsYldIPYUKptY",
+    "target" : "ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y",
+    "targetPort" : "_3l2-ARW4sQP8R-zq6AuP$$E3BQEqHt2GnF-Zx2NLBiy"
+  } ],
   "processes" : {
     "xVua3Ohhjqs11Q4b6-ad1$$BqQmhtAnyWqKxk13FltL2" : {
       "id" : "xVua3Ohhjqs11Q4b6-ad1$$BqQmhtAnyWqKxk13FltL2",
@@ -83,8 +89,8 @@
       "metadata" : {
         "label" : "mongodb_old_us_ps",
         "slug" : "mongodb_old_us_ps",
-        "x" : -1160,
-        "y" : -320,
+        "x" : -1200,
+        "y" : -260,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -102,6 +108,60 @@
       },
       "properties" : {
         "datasetId" : "datasets/mongodb_old_us_ps"
+      }
+    },
+    "qJiIX2vF1gTIeh3cwnXqY$$yGziEe3rlnmu4IDMPzxLs" : {
+      "id" : "qJiIX2vF1gTIeh3cwnXqY$$yGziEe3rlnmu4IDMPzxLs",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "mongodb_old_db_sec_1",
+        "slug" : "mongodb_old_db_sec_1",
+        "x" : -1300,
+        "y" : -420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "pQDOrnsMu2HOAGaKrtRyK$$gEHqqfT71wLNIgb-XAdcU",
+          "slug" : "in"
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/mongodb_old_db_sec"
+      }
+    },
+    "kQJ35YA8vaWTUvJJ8kAv_$$nHmgAVaJAi5Q9yYOgNzVf" : {
+      "id" : "kQJ35YA8vaWTUvJJ8kAv_$$nHmgAVaJAi5Q9yYOgNzVf",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers",
+        "slug" : "customers",
+        "x" : -1460,
+        "y" : -640,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "FRoL_iIUdQSyCoapAjYoT$$0775xl7833WoyNYI9vCMG",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customers"
       }
     },
     "HSa5v4o5Kq9fRAz1k2SEs$$royi8Zlk0a9Xv4-3N-yjy" : {
@@ -131,18 +191,49 @@
         "datasetId" : "datasets/mongodb_old_config"
       }
     },
+    "o2uRfAA3HGff8dTVsV9vc$$sLQFpLBsXsoH_--GeoEc1" : {
+      "id" : "o2uRfAA3HGff8dTVsV9vc$$sLQFpLBsXsoH_--GeoEc1",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "mongodb_old_us_ps_1",
+        "slug" : "mongodb_old_us_ps_1",
+        "x" : -1280,
+        "y" : -680,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Writes data from a DataFrame to a MongoDB database and collection.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "M6aicw49dkwe-Z_Ln-IAJ$$wcFltIkuMMvbWIQ-nDyng",
+          "slug" : "in"
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/mongodb_old_us_ps"
+      }
+    },
     "Zi0wFu-u0_AetDE1pj980$$spfqdQ3vrV-bO9WMlIMaR" : {
       "id" : "Zi0wFu-u0_AetDE1pj980$$spfqdQ3vrV-bO9WMlIMaR",
       "component" : "Source",
       "metadata" : {
         "label" : "mongodb_old_db_sec",
         "slug" : "mongodb_old_db_sec",
-        "x" : -1340,
-        "y" : -480,
+        "x" : -1520,
+        "y" : -400,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Reads data from a MongoDB database with secure credentials, using the provided username and password.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],
@@ -157,6 +248,33 @@
       "properties" : {
         "datasetId" : "datasets/mongodb_old_db_sec"
       }
+    },
+    "ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y" : {
+      "id" : "ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "mongodb_old_config_1",
+        "slug" : "mongodb_old_config_1",
+        "x" : -940,
+        "y" : -640,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "_3l2-ARW4sQP8R-zq6AuP$$E3BQEqHt2GnF-Zx2NLBiy",
+          "slug" : "in"
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/mongodb_old_config"
+      }
     }
   },
   "ports" : {
@@ -167,7 +285,7 @@
     "autoUpdateOnRun" : false
   },
   "diagnostics" : [ {
-    "property" : "$.workflow.processes.xVua3Ohhjqs11Q4b6-ad1$$BqQmhtAnyWqKxk13FltL2.properties.dataset.schema",
+    "property" : "$.workflow.processes.xVua3Ohhjqs11Q4b6-ad1$$BqQmhtAnyWqKxk13FltL2.properties.secretPassword",
     "range" : {
       "start" : {
         "line" : 0,
@@ -178,13 +296,13 @@
         "character" : 0
       }
     },
-    "severity" : 2,
-    "message" : "Missing Schema. Please infer schema or provide it manually.",
+    "severity" : 1,
+    "message" : "Storing plain-text passwords poses a security risk and is not recommended. Please see https://docs.prophecy.io/low-code-spark/best-practices/use-dbx-secrets for suggested alternatives",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1
   }, {
-    "property" : "$.workflow.processes.HSa5v4o5Kq9fRAz1k2SEs$$royi8Zlk0a9Xv4-3N-yjy.properties.dataset.schema",
+    "property" : "$.workflow.processes.qJiIX2vF1gTIeh3cwnXqY$$yGziEe3rlnmu4IDMPzxLs",
     "range" : {
       "start" : {
         "line" : 0,
@@ -195,8 +313,76 @@
         "character" : 0
       }
     },
-    "severity" : 2,
-    "message" : "Missing Schema. Please infer schema or provide it manually.",
+    "severity" : 1,
+    "message" : "Please connect input port in",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  }, {
+    "property" : "$.workflow.processes.HSa5v4o5Kq9fRAz1k2SEs$$royi8Zlk0a9Xv4-3N-yjy.properties.secretPassword",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Password field cannot be empty [Location]",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  }, {
+    "property" : "$.workflow.processes.HSa5v4o5Kq9fRAz1k2SEs$$royi8Zlk0a9Xv4-3N-yjy.properties.secretUsername",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Username field cannot be empty [Location]",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  }, {
+    "property" : "$.workflow.processes.o2uRfAA3HGff8dTVsV9vc$$sLQFpLBsXsoH_--GeoEc1",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Please connect input port in",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  }, {
+    "property" : "$.workflow.processes.o2uRfAA3HGff8dTVsV9vc$$sLQFpLBsXsoH_--GeoEc1.properties.secretPassword",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Storing plain-text passwords poses a security risk and is not recommended. Please see https://docs.prophecy.io/low-code-spark/best-practices/use-dbx-secrets for suggested alternatives",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1
@@ -214,6 +400,57 @@
     },
     "severity" : 2,
     "message" : "Missing Schema. Please infer schema or provide it manually.",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  }, {
+    "property" : "$.workflow.processes.ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  }, {
+    "property" : "$.workflow.processes.ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y.properties.secretPassword",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "Password field cannot be empty [Location]",
+    "tags" : [ ],
+    "relatedInformation" : [ ],
+    "diagnosticType" : 1
+  }, {
+    "property" : "$.workflow.processes.ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y.properties.secretUsername",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "Username field cannot be empty [Location]",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1

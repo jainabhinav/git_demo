@@ -90,10 +90,14 @@ pipelines:
     createdAt: '2024-06-03 12:23:54'
     datasets:
       inputs:
+      - datasets/customers
       - datasets/mongodb_old_config
       - datasets/mongodb_old_db_sec
       - datasets/mongodb_old_us_ps
-      outputs: []
+      outputs:
+      - datasets/mongodb_old_config
+      - datasets/mongodb_old_db_sec
+      - datasets/mongodb_old_us_ps
     subgraphs: []
     dependencies: {}
 datasets:

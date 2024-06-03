@@ -9,14 +9,15 @@ import org.apache.spark.sql.types._
 import org.apache.spark.sql.expressions._
 import java.time._
 
-object mongodb_old_us_ps {
+object mongodb_old_config_1 {
 
-  def apply(context: Context): DataFrame =
-    context.spark.read
+  def apply(context: Context, df: DataFrame): Unit =
+    df.write
       .format("mongodb")
-      .option("connection.uri", "asdcxvasd://asd:dfg@ert".trim)
-      .option("database",       "yuu")
-      .option("collection",     "vbn")
-      .load()
+      .mode("overwrite")
+      .option("connection.uri", "cvb://:@ewrn".trim)
+      .option("database",       "cnjmy")
+      .option("collection",     "cvnb")
+      .save()
 
 }

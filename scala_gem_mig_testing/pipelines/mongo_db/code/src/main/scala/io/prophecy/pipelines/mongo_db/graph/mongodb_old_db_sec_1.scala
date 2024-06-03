@@ -9,12 +9,13 @@ import org.apache.spark.sql.types._
 import org.apache.spark.sql.expressions._
 import java.time._
 
-object mongodb_old_db_sec {
+object mongodb_old_db_sec_1 {
 
-  def apply(context: Context): DataFrame = {
+  def apply(context: Context, df: DataFrame): Unit = {
     import com.databricks.dbutils_v1.DBUtilsHolder.dbutils
-    context.spark.read
+    df.write
       .format("mongodb")
+      .mode("overwrite")
       .option(
         "connection.uri",
         ("xcv://" + (s"${dbutils.secrets
@@ -23,7 +24,7 @@ object mongodb_old_db_sec {
       )
       .option("database",   "rty")
       .option("collection", "yui")
-      .load()
+      .save()
   }
 
 }

@@ -11,16 +11,12 @@ import java.time._
 
 object mongodb_old_config {
 
-  def apply(context: Context): DataFrame = {
-    import com.databricks.dbutils_v1.DBUtilsHolder.dbutils
+  def apply(context: Context): DataFrame =
     context.spark.read
       .format("mongodb")
-      .option("connection.uri",
-              f"${"cvb"}://${context.config.abc}:${"xcv"}@${"ewrn"}".trim
-      )
-      .option("database",   "cnjmy")
-      .option("collection", "cvnb")
+      .option("connection.uri", "cvb://:@ewrn".trim)
+      .option("database",       "cnjmy")
+      .option("collection",     "cvnb")
       .load()
-  }
 
 }
