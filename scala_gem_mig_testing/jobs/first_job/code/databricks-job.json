@@ -60,7 +60,7 @@
       },
       "libraries" : [ {
         "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.4.0-8.0.0"
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.4.0-8.0.4"
         }
       }, {
         "jar" : "dbfs:/FileStore/prophecy/artifacts/staging/cp/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/.jar"

@@ -1,0 +1,54 @@
+package config
+
+import pureconfig._
+import pureconfig.generic.ProductHint
+import io.prophecy.libs._
+import graph.Create_sup_lookup_files.config.{
+  Config => Create_sup_lookup_files_Config
+}
+import graph.xr_partition_key_filter_checkpointed_sort_log_impbus_preempt_auction_id_date_time.config.{
+  Config => xr_partition_key_filter_checkpointed_sort_log_impbus_preempt_auction_id_date_time_Config
+}
+import graph.xr_partition_key_filter_checkpointed_sort_log_impbus_impressions_pricing_auction_id_date_time.config.{
+  Config => xr_partition_key_filter_checkpointed_sort_log_impbus_impressions_pricing_auction_id_date_time_Config
+}
+import graph.xr_partition_key_filter_checkpointed_sort_log_impbus_view_auction_id_date_time.config.{
+  Config => xr_partition_key_filter_checkpointed_sort_log_impbus_view_auction_id_date_time_Config
+}
+import graph.xr_partition_key_filter_checkpointed_sort_log_impbus_auction_event_auction_id_date_time.config.{
+  Config => xr_partition_key_filter_checkpointed_sort_log_impbus_auction_event_auction_id_date_time_Config
+}
+import graph.xr_partition_key_filter_checkpointed_sort_log_dw_bid_auction_id_date_time.config.{
+  Config => xr_partition_key_filter_checkpointed_sort_log_dw_bid_auction_id_date_time_Config
+}
+import graph.xr_partition_key_filter_checkpointed_sort_log_dw_view_auction_id_date_time.config.{
+  Config => xr_partition_key_filter_checkpointed_sort_log_dw_view_auction_id_date_time_Config
+}
+import graph.Router_Reformatter.config.{Config => Router_Reformatter_Config}
+import graph.OLD_CODE_for_TLC_2405_Replaced_by_Router_Reformatter.config.{
+  Config => OLD_CODE_for_TLC_2405_Replaced_by_Router_Reformatter_Config
+}
+
+case class Config(
+  XR_LOOKUP_DATA:     String = "hdfs:/app_abinitio/dev",
+  XR_BUSINESS_HOUR:   String = "00",
+  XR_BUSINESS_DATE:   String = "20181225",
+  XR_ADI_MEMBER_INFO: String = "",
+  xr_partition_key_filter_checkpointed_sort_log_impbus_preempt_auction_id_date_time: xr_partition_key_filter_checkpointed_sort_log_impbus_preempt_auction_id_date_time_Config =
+    xr_partition_key_filter_checkpointed_sort_log_impbus_preempt_auction_id_date_time_Config(),
+  xr_partition_key_filter_checkpointed_sort_log_impbus_view_auction_id_date_time: xr_partition_key_filter_checkpointed_sort_log_impbus_view_auction_id_date_time_Config =
+    xr_partition_key_filter_checkpointed_sort_log_impbus_view_auction_id_date_time_Config(),
+  xr_partition_key_filter_checkpointed_sort_log_dw_view_auction_id_date_time: xr_partition_key_filter_checkpointed_sort_log_dw_view_auction_id_date_time_Config =
+    xr_partition_key_filter_checkpointed_sort_log_dw_view_auction_id_date_time_Config(),
+  Router_Reformatter: Router_Reformatter_Config = Router_Reformatter_Config(),
+  OLD_CODE_for_TLC_2405_Replaced_by_Router_Reformatter: OLD_CODE_for_TLC_2405_Replaced_by_Router_Reformatter_Config =
+    OLD_CODE_for_TLC_2405_Replaced_by_Router_Reformatter_Config(),
+  xr_partition_key_filter_checkpointed_sort_log_dw_bid_auction_id_date_time: xr_partition_key_filter_checkpointed_sort_log_dw_bid_auction_id_date_time_Config =
+    xr_partition_key_filter_checkpointed_sort_log_dw_bid_auction_id_date_time_Config(),
+  Create_sup_lookup_files: Create_sup_lookup_files_Config =
+    Create_sup_lookup_files_Config(),
+  xr_partition_key_filter_checkpointed_sort_log_impbus_impressions_pricing_auction_id_date_time: xr_partition_key_filter_checkpointed_sort_log_impbus_impressions_pricing_auction_id_date_time_Config =
+    xr_partition_key_filter_checkpointed_sort_log_impbus_impressions_pricing_auction_id_date_time_Config(),
+  xr_partition_key_filter_checkpointed_sort_log_impbus_auction_event_auction_id_date_time: xr_partition_key_filter_checkpointed_sort_log_impbus_auction_event_auction_id_date_time_Config =
+    xr_partition_key_filter_checkpointed_sort_log_impbus_auction_event_auction_id_date_time_Config()
+) extends ConfigBase

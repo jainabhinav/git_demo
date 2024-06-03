@@ -6,7 +6,7 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.0"
+        "mavenVersion" : "8.0.4"
       }
     },
     "id" : "1",
@@ -23,7 +23,7 @@
       "language" : "scala",
       "udfs" : [ ],
       "functionPackageName" : "abhinavprophecyioteam.scalamigtestinggit.functions",
-      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions", "io.prophecy.warehousegems.functions" ]
+      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions" ]
     },
     "udafs" : {
       "language" : "scala",
@@ -89,21 +89,17 @@
       "projectUID" : "39",
       "projectName" : "ProphecySparkBasicsScala",
       "externalDependencies" : [ ]
-    }, {
-      "projectUID" : "40",
-      "projectName" : "ProphecyWarehouseScala",
-      "externalDependencies" : [ ]
     } ],
-    "topLevelPackage" : "io.prophecy.pipelines.abc",
-    "configurationVersion" : "v2",
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
     "recordsLimit" : {
       "enabled" : false,
       "value" : 1000
     },
-    "interimModeEnabled" : true,
-    "isImported" : false,
-    "visualCodeInterimMode" : "Disabled",
-    "interimMode" : "Full"
+    "topLevelPackage" : "io.prophecy.pipelines.abc",
+    "configurationVersion" : "v2"
   },
   "connections" : [ {
     "id" : "Xz4qUzn-mdDWylm05whqY$$l9iPSCwWgSRlxmO-y44KV",
@@ -149,8 +145,8 @@
       "metadata" : {
         "label" : "identity_transformation",
         "slug" : "identity_transformation",
-        "x" : -1760,
-        "y" : -660,
+        "x" : -1700,
+        "y" : -820,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -274,7 +270,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.2.2.dev&projectSubscriptionProjectId=39&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.2.2.dev3&projectSubscriptionProjectId=39&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsScala"
       }
     },
@@ -284,8 +280,8 @@
       "metadata" : {
         "label" : "generate_range_dataframe_1",
         "slug" : "generate_range_dataframe_1",
-        "x" : -1360,
-        "y" : -240,
+        "x" : -1300,
+        "y" : -400,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -327,8 +323,8 @@
       "metadata" : {
         "label" : "customers",
         "slug" : "customers",
-        "x" : -1940,
-        "y" : -540,
+        "x" : -1880,
+        "y" : -700,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -355,8 +351,8 @@
       "metadata" : {
         "label" : "SetOperation_1",
         "slug" : "SetOperation_1",
-        "x" : -1160,
-        "y" : -360,
+        "x" : -1100,
+        "y" : -520,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -411,7 +407,7 @@
         "allowMissingColumns" : false
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.2.2.dev&projectSubscriptionProjectId=39&path=gems/SetOperation",
+        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.2.2.dev3&projectSubscriptionProjectId=39&path=gems/SetOperation",
         "projectName" : "ProphecySparkBasicsScala"
       }
     },
@@ -421,8 +417,8 @@
       "metadata" : {
         "label" : "customers_1",
         "slug" : "customers_1",
-        "x" : -1940,
-        "y" : -380,
+        "x" : -1880,
+        "y" : -540,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -448,8 +444,8 @@
       "metadata" : {
         "label" : "generate_range_dataframe",
         "slug" : "generate_range_dataframe",
-        "x" : -1360,
-        "y" : -480,
+        "x" : -1300,
+        "y" : -640,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -492,8 +488,8 @@
       "metadata" : {
         "label" : "SetOperation_2",
         "slug" : "SetOperation_2",
-        "x" : -1780,
-        "y" : -460,
+        "x" : -1720,
+        "y" : -620,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -674,7 +670,7 @@
         "allowMissingColumns" : false
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.2.2.dev&projectSubscriptionProjectId=39&path=gems/SetOperation",
+        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.2.2.dev3&projectSubscriptionProjectId=39&path=gems/SetOperation",
         "projectName" : "ProphecySparkBasicsScala"
       }
     },
@@ -684,8 +680,8 @@
       "metadata" : {
         "label" : "distribute_rows",
         "slug" : "distribute_rows",
-        "x" : -1160,
-        "y" : -560,
+        "x" : -1100,
+        "y" : -720,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -739,7 +735,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.2.2.dev&projectSubscriptionProjectId=39&path=gems/RowDistributor",
+        "gemId" : "gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=&tag=0.2.2.dev3&projectSubscriptionProjectId=39&path=gems/RowDistributor",
         "projectName" : "ProphecySparkBasicsScala"
       }
     }

@@ -11,13 +11,18 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <scalaBaseVersion>2.12</scalaBaseVersion>
         <scalaVersion>2.12.15</scalaVersion>
         <sparkVersion>3.3.0</sparkVersion>
-        <prophecyLibsVersion>7.1.97</prophecyLibsVersion>
+        <prophecyLibsVersion>8.0.4</prophecyLibsVersion>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-protobuf_2.12</artifactId>
             <version>3.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.databricks</groupId>
+            <artifactId>dbutils-api_2.12</artifactId>
+            <version>0.0.6</version>
         </dependency>
         <dependency>
             <groupId>org.pf4j</groupId>

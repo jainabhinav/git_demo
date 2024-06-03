@@ -25,6 +25,77 @@ pipelines:
       outputs: []
     subgraphs: []
     dependencies: {}
+  pipelines/fake_data:
+    name: fake_data
+    description: ''
+    author: abhinav@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2024-05-27 07:06:11'
+    datasets:
+      inputs:
+      - Create_sup_lookup_files__Read_Proto_Range_sup_bidder_campaign_pb_sup_bidder_campaign_dataset
+      - Create_sup_lookup_files__Read_Proto_Range_sup_bidder_insertion_order_pb_sup_bidder_insertion_order_dataset
+      - Create_sup_lookup_files__Read_Proto_Range_sup_bidder_member_sales_tax_rate_pb_sup_bidder_member_sales_tax_rate_dataset
+      - Create_sup_lookup_files__Read_Proto_Range_sup_buy_side_object_hierarchy_pb_sup_buy_side_object_hierarchy_dataset
+      - Create_sup_lookup_files__Read_Proto_Range_sup_common_deal_pb_sup_common_deal_dataset
+      - Create_sup_lookup_files__Read_Proto_Range_sup_ip_range_pb_sup_ip_range_dataset
+      - Create_sup_lookup_files__Read_Proto_Range_sup_placement_video_attributes_pb_sup_placement_video_attributes_dataset
+      - Create_sup_lookup_files__Read_Proto_Range_sup_sell_side_object_hierarchy_pb_sup_sell_side_object_hierarchy_dataset
+      - Create_sup_lookup_files__Read_Proto_Range_sup_tl_api_inventory_url_pb_sup_tl_api_inventory_url_dataset
+      - Read_Proto_Range_log_dw_bid_pb_log_dw_bid_dataset
+      - Read_Proto_Range_log_dw_imptracker_pb_log_dw_imptracker_dataset
+      - Read_Proto_Range_log_dw_view_pb_log_dw_view_dataset
+      - Read_Proto_Range_log_impbus_auction_event_pb_log_impbus_auction_event_dataset
+      - Read_Proto_Range_log_impbus_impressions_deferred_pb_log_impbus_impressions_5_dataset
+      - Read_Proto_Range_log_impbus_impressions_deferred_pricing_pb_log_impbus_impressions_pricing_5_dataset
+      - Read_Proto_Range_log_impbus_impressions_pb_log_impbus_impressions_dataset
+      - Read_Proto_Range_log_impbus_impressions_pricing_pb_log_impbus_impressions_pricing_dataset
+      - Read_Proto_Range_log_impbus_imptracker_pb_log_impbus_imptracker_dataset
+      - Read_Proto_Range_log_impbus_preempt_deferred_pb_log_impbus_preempt_deferred_5_dataset
+      - Read_Proto_Range_log_impbus_preempt_pb_log_impbus_preempt_dataset
+      - Read_Proto_Range_log_impbus_view_pb_log_impbus_view_dataset
+      - Read_Proto_Range_video_slot_pb_video_slot_5_dataset
+      outputs:
+      - Create_sup_lookup_files__advertiser_id_by_campaign_group_id_dataset
+      - Create_sup_lookup_files__advertiser_id_by_campaign_id_dataset
+      - Create_sup_lookup_files__advertiser_id_by_insertion_order_id_dataset
+      - Create_sup_lookup_files__inventory_url_by_id_dataset
+      - Create_sup_lookup_files__member_id_by_advertiser_id_dataset
+      - Create_sup_lookup_files__member_id_by_publisher_id_dataset
+      - Create_sup_lookup_files__publisher_id_by_site_id_dataset
+      - Create_sup_lookup_files__publisher_id_by_tag_id_dataset
+      - Create_sup_lookup_files__sup_bidder_campaign_dataset
+      - Create_sup_lookup_files__sup_bidder_member_sales_tax_rate_dataset
+      - Create_sup_lookup_files__sup_common_deal_dataset
+      - Create_sup_lookup_files__sup_ip_range_dataset
+      - Create_sup_lookup_files__sup_placement_video_attributes_pb_dataset
+      - Write_Proto_HDFS_ADI_agg_dw_impressions_pb_agg_dw_impressions_dataset
+      - Write_Proto_HDFS_IIPQ_stage_invalid_impressions_quarantine_pb_stage_invalid_impressions_quarantine_dataset
+      - Write_Proto_HDFS_SSPQ_stage_tl_trx_trans_denormalized_pb_stage_seen_denormalized_dataset
+      - Write_Proto_HDFS_agg_dw_curator_impressions_pb_agg_dw_curator_impressions_dataset
+      - Write_Proto_HDFS_stage_impbus_impression_sample_stage_impbus_impression_sample_trans_path_pb_dataset
+      - Write_Proto_HDFS_stage_seen_transacted_pb_stage_seen_denormalized_dataset
+      - Write_Proto_HDFS_stage_tl_trx_trans_combined_impressions_pb_agg_combined_impressions_dataset
+    subgraphs: []
+    dependencies: {}
+  pipelines/mongo_db:
+    name: mongo_db
+    description: ''
+    author: abhinav@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2024-06-03 12:23:54'
+    datasets:
+      inputs:
+      - datasets/mongodb_old_config
+      - datasets/mongodb_old_db_sec
+      - datasets/mongodb_old_us_ps
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/asd:
     name: asd
@@ -52,6 +123,58 @@ datasets:
         description: ''
         author: abhinav@prophecy.io
         createdAt: '2024-05-23 12:00:41'
+  datasets/mongodb_test:
+    name: mongodb_test
+    description: ''
+    author: abhinav@prophecy.io
+    createdAt: '2024-06-03 08:38:55'
+    mode: batch
+    physicalDatasets:
+      dev_fabric:
+        fabricId: 2500
+        datasetType: Warehouse
+        description: ''
+        author: abhinav@prophecy.io
+        createdAt: '2024-06-03 08:38:55'
+  datasets/mongodb_old_us_ps:
+    name: mongodb_old_us_ps
+    description: ''
+    author: abhinav@prophecy.io
+    createdAt: '2024-06-03 14:10:25'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 2453
+        datasetType: Warehouse
+        description: ''
+        author: abhinav@prophecy.io
+        createdAt: '2024-06-03 14:10:25'
+  datasets/mongodb_old_db_sec:
+    name: mongodb_old_db_sec
+    description: ''
+    author: abhinav@prophecy.io
+    createdAt: '2024-06-03 14:11:06'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 2453
+        datasetType: Warehouse
+        description: ''
+        author: abhinav@prophecy.io
+        createdAt: '2024-06-03 14:11:06'
+  datasets/mongodb_old_config:
+    name: mongodb_old_config
+    description: ''
+    author: abhinav@prophecy.io
+    createdAt: '2024-06-03 14:12:33'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 2453
+        datasetType: Warehouse
+        description: ''
+        author: abhinav@prophecy.io
+        createdAt: '2024-06-03 14:12:33'
 templates: {}
 jobs:
   jobs/first_job:
@@ -164,23 +287,58 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-05-17 11:34:51'
-    gems/TestAnandDQV:
-      name: TestAnandDQV
-      category: Custom
-      subCategory: ''
+    gems/mongodb:
+      name: mongodb
+      category: Source/Target
+      subCategory: Warehouse
       description: null
       author: abhinav@prophecy.io
       mode: batch
       files:
-      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/Deequ.scala
-      gemType: ComponentGem
-      dependencies: []
-      createdAt: '2024-05-21 07:13:21'
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/mongodb.scala
+      gemType: DatasetGem
+      dependencies:
+      - type: coordinates
+        modifiedAt: '2024-06-03T12:20:52.796Z'
+        coordinates: com.databricks:dbutils-api_2.12:0.0.6
+        name: dbutils
+        description: ''
+        enabled: true
+        id: 0oFILcFBdQSWpvox10NOT
+        createdAt: '2024-06-03T12:20:52.796Z'
+        entity: Gem
+        exclusions: []
+        editable: true
+      createdAt: '2024-06-03 14:06:03'
   dependencies: null
 functions:
   author: null
   createdAt: '2024-04-18 12:29:05'
-  udfs: {}
+  udfs:
+    udfs/rollup1615_UDF:
+      name: rollup1615_UDF
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
+    udfs/rollup1621_UDF:
+      name: rollup1621_UDF
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
+    udfs/rollup1627_UDF:
+      name: rollup1627_UDF
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
   udafs: {}
   expressions: {}
   airflowFunctions: {}
@@ -195,31 +353,21 @@ sqlSources: {}
 sqlUnreferencedSources: {}
 sqlPipeline: null
 dependencies:
-- modifiedAt: '2024-04-18T12:29:05.668563Z'
+- type: plibMaven
+  modifiedAt: '2024-06-03T08:37:16.405622Z'
   name: plibMaven
-  version: 8.0.0
-  id: '908077158'
-  createdAt: '2024-04-18T12:29:05.668563Z'
-  type: plibMaven
-  enabled: true
-  entity: Project
+  version: 8.0.4
+  id: '148767315'
+  createdAt: '2024-06-03T08:37:16.405552Z'
 projectDependencies:
   '39':
     projectUID: 39
     projectName: ProphecySparkBasicsScala
     repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=
-    version: 0.2.2.dev
+    version: 0.2.2.dev3
     isDefault: true
     author: null
-    createdAt: '2024-05-23 11:05:41'
-  '40':
-    projectUID: 40
-    projectName: ProphecyWarehouseScala
-    repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_40.git&subPath=
-    version: 0.0.4.dev
-    isDefault: true
-    author: null
-    createdAt: '2024-05-23 11:05:49'
+    createdAt: '2024-05-27 14:48:56'
 flags:
-  shouldAddDefaultDependenciesIfAbsent: true
+  shouldAddDefaultDependenciesIfAbsent: false
 pipelineConfigurations: {}
