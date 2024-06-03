@@ -202,7 +202,7 @@ jobs:
     author: abhinav@prophecy.io
 gemContainer:
   languageVersion: 2.12.15
-  gemLibsVersion: 1.1.6
+  gemLibsVersion: 1.1.14
   gems:
     gems/RenameColumns:
       name: RenameColumns
