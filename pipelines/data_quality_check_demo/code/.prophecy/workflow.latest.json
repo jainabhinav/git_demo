@@ -1,0 +1,1170 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.11",
+        "pyPiVersion" : "1.9.5"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/data_quality_check_demo",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "data_quality_check_demo",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "139",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "daisdeequdemo.deequdemo.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ {
+      "type" : "pypi",
+      "modifiedAt" : "2024-06-11T17:34:56.235Z",
+      "package" : "pydeequ",
+      "name" : "pydeequ",
+      "description" : "",
+      "enabled" : true,
+      "id" : "NXvJV9Otvxh0U5pdsJyWM",
+      "createdAt" : "2024-06-11T17:34:56.235Z",
+      "entity" : "Pipeline",
+      "editable" : true
+    }, {
+      "type" : "coordinates",
+      "modifiedAt" : "2024-06-11T17:35:13.807Z",
+      "coordinates" : "com.amazon.deequ:deequ:2.0.7-spark-3.3",
+      "name" : "deequ",
+      "description" : "",
+      "enabled" : true,
+      "id" : "iOYPvGtUfi5FxYip8G4HS",
+      "createdAt" : "2024-06-11T17:35:13.807Z",
+      "entity" : "Pipeline",
+      "exclusions" : [ ],
+      "editable" : true
+    } ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "224",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "225",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "data_quality_check_demo",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "wAXDMKs7jheNqum0UEMBa",
+    "source" : "8Yb8YLsppLnV_IR0a3v7r$$-PW3_goMvyHirpSG5ruSu",
+    "sourcePort" : "Inqbwnu45iidzMjpT-RN6$$Tv09LKoHSg1FEYmRh8ihH",
+    "target" : "PzWD3lwPyTLBlABLg0PPa$$WtWa5gBr_esvjtN9Djo47",
+    "targetPort" : "sdLYQazT4DcE2VNw_avh7$$wBVJjmf7UBBPHC1NOnGLX"
+  } ],
+  "processes" : {
+    "PzWD3lwPyTLBlABLg0PPa$$WtWa5gBr_esvjtN9Djo47" : {
+      "id" : "PzWD3lwPyTLBlABLg0PPa$$WtWa5gBr_esvjtN9Djo47",
+      "component" : "dataQualtiyCheck",
+      "metadata" : {
+        "label" : "data_quality_checks",
+        "slug" : "data_quality_checks",
+        "x" : -560,
+        "y" : -340,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Performs data quality checks on customer data, ensuring completeness, uniqueness, and proper formatting of key fields.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "sdLYQazT4DcE2VNw_avh7$$wBVJjmf7UBBPHC1NOnGLX",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "39OR-J-hUBOjmAn7BhxAy$$xYyj5taKLpMibs-N7Rjw3",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "z7XlKxto9ybIpSvt5wFB_$$6bzWip-fWLc2m64n27QbM",
+          "slug" : "out1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "check_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "constraint_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "constraint_message",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "dq_check" : [ {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ "customer_id", "first_name", "last_name" ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddCompletenessCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "10",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddRowCountCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ "account_flags" ],
+            "threshold" : "4",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddDistinctCountCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddIsUniqueCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ "customer_id" ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ "first_name", "last_name" ],
+            "minLength" : "2",
+            "maxLength" : "50",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddHasMinMaxLengthCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ "phone" ],
+            "dataType" : "String",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddHasDataTypeCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ "country_code" ],
+            "lookup_list" : [ "CN", "MX", "ID" ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddLookupCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        } ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "customer_id",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Unique identifier for the customer",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "first_name",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "The first name of the customer",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "last_name",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "The last name of the customer",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "phone",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Phone number of the customer",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "email",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Email address of the customer",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "country_code",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "The country code associated with the customer's location",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "account_open_date",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "The date when the customer's account was opened",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "account_flags",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "Flags associated with the customer's account",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "activeTab" : "dq_check_tab",
+        "columnsSelector" : [ ],
+        "minFailedChecks" : "",
+        "postAction" : "byPass"
+      },
+      "componentInfo" : {
+        "gemId" : "gems/dataQualtiyCheck",
+        "projectName" : "deequ_demo"
+      }
+    },
+    "8Yb8YLsppLnV_IR0a3v7r$$-PW3_goMvyHirpSG5ruSu" : {
+      "id" : "8Yb8YLsppLnV_IR0a3v7r$$-PW3_goMvyHirpSG5ruSu",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers_data",
+        "slug" : "customers_data",
+        "x" : -900,
+        "y" : -340,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Loads customer data from a CSV file into a DataFrame, containing information such as customer ID, name, contact details, country code, account open date, and account flags.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Inqbwnu45iidzMjpT-RN6$$Tv09LKoHSg1FEYmRh8ihH",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customers_data"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}
