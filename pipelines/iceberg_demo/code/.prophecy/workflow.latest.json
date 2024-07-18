@@ -1,0 +1,318 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.11",
+        "pyPiVersion" : "1.9.5"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/iceberg_demo",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "iceberg_demo",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "14863",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "shashankprophecyioteam.deequdemo.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ {
+      "name" : "spark.sql.catalog.hadoop_catalog_1",
+      "value" : "org.apache.iceberg.spark.SparkCatalog"
+    }, {
+      "name" : "spark.sql.catalog.hadoop_catalog_1.type",
+      "value" : "hadoop"
+    }, {
+      "name" : "spark.sql.catalog.hadoop_catalog_1.warehouse",
+      "value" : "gs://bigquery-temp-demo/warehouse/hc_1/"
+    }, {
+      "name" : "spark.sql.catalog.hive",
+      "value" : "org.apache.iceberg.spark.SparkCatalog"
+    }, {
+      "name" : "spark.sql.catalog.hive.type",
+      "value" : "hive"
+    }, {
+      "name" : "spark.sql.catalog.hive.warehouse",
+      "value" : "gs://gcs-bucket-service-77fe-b99175ec-a32b-448c-ac67-62325308cb3a/hive-warehouse/"
+    }, {
+      "name" : "spark.sql.catalog.hive.uri",
+      "value" : "thrift://10.91.64.30:9083"
+    } ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "iceberg_demo",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "QUh8IE_23vL0zqQ18VsVg$$2bNu-ikYt7MJg3ITEwKio",
+    "source" : "981c_CCkYkhzHUovKEQpF$$pvg5ok16UNR9PtEHt4u7o",
+    "sourcePort" : "659VNoxDZWbnHNjfU9HnM$$I0vAvS1pHs19d2Gra-arS",
+    "target" : "rImMNjphPpnk8tiTHWlWZ$$13X_eJsX0BPYQ2LyJPoeY",
+    "targetPort" : "J5npheQ-Ge2ukYtpiq7Xe$$go-Y0NkV0ecKAADm0DEfS"
+  } ],
+  "processes" : {
+    "981c_CCkYkhzHUovKEQpF$$pvg5ok16UNR9PtEHt4u7o" : {
+      "id" : "981c_CCkYkhzHUovKEQpF$$pvg5ok16UNR9PtEHt4u7o",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "sample_data",
+        "slug" : "sample_data",
+        "x" : -580,
+        "y" : -340,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Creates a sample DataFrame containing employee data, including their ID, name, department, old salary, and new salary.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "659VNoxDZWbnHNjfU9HnM$$I0vAvS1pHs19d2Gra-arS",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EmployeeName",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Department",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "old_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "from py4j.java_gateway import java_import\njava_import(spark._sc._jvm, \"org.apache.spark.sql.api.python.*\")\n\ndata = [\n    (1, \"James\", \"Sales\", 3000, 3500),\n    (2, \"Michael\", \"Sales\", 4600, 5100),\n    (3, \"Shashank\", \"Hr\", 4000, 4500),\n    (4, \"Amit\", \"Finance\", 3000, 3500),\n    (5, \"Nitin\", \"Finance\", 5000, 5500)\n]\n\ncolumns = [\"id\", \"EmployeeName\", \"Department\", \"old_salary\", \"new_salary\"]\nout0 = spark.createDataFrame(data, schema=columns)\nreturn out0",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "rImMNjphPpnk8tiTHWlWZ$$13X_eJsX0BPYQ2LyJPoeY" : {
+      "id" : "rImMNjphPpnk8tiTHWlWZ$$13X_eJsX0BPYQ2LyJPoeY",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "iceberg_write",
+        "slug" : "iceberg_write",
+        "x" : -260,
+        "y" : -340,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Writes data from the input DataFrame to an Iceberg table named 'employees_test' in the 'prophecy_doc_demo' database. The data is partitioned by the 'Department' column and the table is created with the ability to accept any schema.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "J5npheQ-Ge2ukYtpiq7Xe$$go-Y0NkV0ecKAADm0DEfS",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EmployeeName",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Department",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "old_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/iceberg_write"
+      }
+    },
+    "L_vyENoy5AGukCCoeTQfh$$E_94mu4J0bIG5mrEvq7wf" : {
+      "id" : "L_vyENoy5AGukCCoeTQfh$$E_94mu4J0bIG5mrEvq7wf",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "iceberg_read",
+        "slug" : "iceberg_read",
+        "x" : -500,
+        "y" : -620,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads data from an Iceberg table named 'employees_test' in the 'prophecy_doc_demo' catalog.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "zjH2rotobOuo0l8Y8_XJf$$8rQwDMECGxwLZ9vAkaUh5",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/iceberg_read"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.L_vyENoy5AGukCCoeTQfh$$E_94mu4J0bIG5mrEvq7wf.properties.dataset.schema",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "Missing Schema. Please infer schema or provide it manually.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
+}

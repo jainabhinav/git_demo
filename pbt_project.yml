@@ -6,7 +6,7 @@ language: python
 buildSystem: ''
 buildSystemDetails:
   artefactID: deequdemo
-  parentArtefactID: ''
+  parentArtefactID: shashankprophecyioteam
   buildSystem: wheel
   author: null
   createdAt: '2024-06-12 09:45:46'
@@ -25,6 +25,21 @@ pipelines:
       outputs: []
     subgraphs: []
     dependencies: {}
+  pipelines/iceberg_demo:
+    name: iceberg_demo
+    description: ''
+    author: shashank@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-07-01 10:59:14'
+    datasets:
+      inputs:
+      - datasets/iceberg_read
+      outputs:
+      - datasets/iceberg_write
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/customers_data:
     name: customers_data
@@ -39,6 +54,32 @@ datasets:
         description: ''
         author: shashank@prophecy.io
         createdAt: '2024-06-12 07:36:26'
+  datasets/iceberg_write:
+    name: iceberg_write
+    description: ''
+    author: shashank@prophecy.io
+    createdAt: '2024-07-01 11:01:45'
+    mode: batch
+    physicalDatasets:
+      EvernorthUnityFabric:
+        fabricId: 3758
+        datasetType: Database
+        description: ''
+        author: shashank@prophecy.io
+        createdAt: '2024-07-01 11:01:45'
+  datasets/iceberg_read:
+    name: iceberg_read
+    description: ''
+    author: shashank@prophecy.io
+    createdAt: '2024-07-01 11:07:34'
+    mode: batch
+    physicalDatasets:
+      dataproc_dev:
+        fabricId: 14863
+        datasetType: Database
+        description: ''
+        author: shashank@prophecy.io
+        createdAt: '2024-07-01 11:07:34'
 templates: {}
 jobs: {}
 gemContainer:
@@ -110,18 +151,18 @@ dependencies:
   createdAt: '2024-06-11T17:16:05.754435Z'
   type: plibPypi
 projectDependencies:
-  '225':
-    projectUID: 225
+  '12655':
+    projectUID: 12655
     projectName: ProphecyWarehousePython
-    repositoryPath: gitUri=http://gitserver:3000/wDp16mGH_team_30/QWF0O8MX_project_225.git&subPath=
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=
     version: 0.0.8
     isDefault: true
     author: null
     createdAt: '2024-06-12 09:45:55'
-  '224':
-    projectUID: 224
+  '12654':
+    projectUID: 12654
     projectName: ProphecySparkBasicsPython
-    repositoryPath: gitUri=http://gitserver:3000/wDp16mGH_team_30/QWF0O8MX_project_224.git&subPath=
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
     version: 0.2.25
     isDefault: true
     author: null
