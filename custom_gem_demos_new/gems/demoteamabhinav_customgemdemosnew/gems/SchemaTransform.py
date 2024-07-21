@@ -516,16 +516,8 @@ class SchemaTransform(ComponentSpec):
 
         def apply(self, spark: SparkSession, in0: DataFrame) -> DataFrame:
             out = in0
+            transform_dict = {}
             for transformation in self.props.transformations:
                 if isinstance(transformation, SchemaTransform().AddReplaceColumn):
-                    out = out.withColumn(transformation.sourceColumn.value, transformation.expression.column())
-                elif isinstance(transformation, SchemaTransform().RenameColumn):
-                    out = out.withColumnRenamed(transformation.sourceColumn.value, transformation.targetColumn.value)
-                elif isinstance(transformation, SchemaTransform().DropColumn):
-                    out = out.drop(transformation.sourceColumn.value)
-                elif isinstance(transformation, SchemaTransform().MissingColumn):
-                    if transformation.sourceColumn.value not in in0.columns:
-                        out = out.withColumn(transformation.sourceColumn.value, transformation.defaultValue.column())
-                elif isinstance(transformation, SchemaTransform().AddRule):
-                    out = out.withColumn(get_alias(transformation.expression.column()), transformation.expression.column())
-            return out
+                    transform_dict[transformation.sourceColumn.value] = transformation.expression.column()
+            return out.withColumns(transform_dict)
