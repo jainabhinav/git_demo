@@ -19,7 +19,7 @@
       "isFunctionsPackageDirDefined" : true
     },
     "language" : "python",
-    "fabricId" : "11509",
+    "fabricId" : "2122",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
@@ -35,7 +35,16 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "api_input_path",
+          "kind" : {
+            "type" : "string",
+            "value" : "default"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -43,7 +52,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "default",
+      "selected" : "databricks",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -76,16 +85,28 @@
     "topLevelPackage" : "pipeline_across_fabric",
     "configurationVersion" : "v2"
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "Vo1h5dJb3OM-jUd9TrDhe$$5uAYlBJ-TshS_gBWvnECK",
+    "source" : "RuBvfOLxcXHOD1cOHKs4n$$ZU3hyx2U0zV8U65N7JBjN",
+    "sourcePort" : "LWTLk6SUJkXcJMMUiRHjy$$ugmA6ykGtQtpXcDI-i8pB",
+    "target" : "VzB0W3hPg7e-9h_BEvY_Y$$SfzZY0NeTOZ7ZZ6Ixhp9h",
+    "targetPort" : "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L"
+  }, {
+    "id" : "2kiKRe4YfUW5P7e1na8qz$$a5k_8-b2uuMbulJixQOgN",
+    "source" : "VzB0W3hPg7e-9h_BEvY_Y$$SfzZY0NeTOZ7ZZ6Ixhp9h",
+    "sourcePort" : "-R1qe5SoA7HdrU8ZLARTW$$m-rstnITxxc7SsIdAkiJX",
+    "target" : "K2htSey_tiy9yz10C7lx0$$HkePZuLicv9shEnd9vV1P",
+    "targetPort" : "Fv37UwhP2peKENnGXBTOW$$NVa3HUPlaHm1mF42lwYFm"
+  } ],
   "processes" : {
-    "1krgL9R4epKwasDre8ekD$$BjBsFI-E6z5XNqe2Biopa" : {
-      "id" : "1krgL9R4epKwasDre8ekD$$BjBsFI-E6z5XNqe2Biopa",
+    "RuBvfOLxcXHOD1cOHKs4n$$ZU3hyx2U0zV8U65N7JBjN" : {
+      "id" : "RuBvfOLxcXHOD1cOHKs4n$$ZU3hyx2U0zV8U65N7JBjN",
       "component" : "Source",
       "metadata" : {
-        "label" : "Source_0",
-        "slug" : "Source_0",
-        "x" : -420,
-        "y" : -200,
+        "label" : "catalog_api_input",
+        "slug" : "catalog_api_input",
+        "x" : -1220,
+        "y" : -240,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -94,14 +115,184 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "SIdCExXao43XOw3gUjB3b$$XNvhDlIyOefFMy0FPJC33",
+          "id" : "LWTLk6SUJkXcJMMUiRHjy$$ugmA6ykGtQtpXcDI-i8pB",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
         "isCustomOutputSchema" : false,
         "autoUpdateOnRun" : false
       },
-      "properties" : { }
+      "properties" : {
+        "datasetId" : "datasets/catalog_api_input"
+      }
+    },
+    "VzB0W3hPg7e-9h_BEvY_Y$$SfzZY0NeTOZ7ZZ6Ixhp9h" : {
+      "id" : "VzB0W3hPg7e-9h_BEvY_Y$$SfzZY0NeTOZ7ZZ6Ixhp9h",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "exchangerate_url",
+        "slug" : "exchangerate_url",
+        "x" : -1040,
+        "y" : -240,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Creates URLs for retrieving exchange rates between different coins and currencies.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "coin",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "currency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "-R1qe5SoA7HdrU8ZLARTW$$m-rstnITxxc7SsIdAkiJX",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "method",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "upper(method)"
+          },
+          "description" : ""
+        }, {
+          "target" : "coin",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "upper(coin)"
+          },
+          "description" : ""
+        }, {
+          "target" : "currency",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "upper(currency)"
+          },
+          "description" : ""
+        }, {
+          "target" : "url",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "concat(\"https://rest.coinapi.io/v1/exchangerate/\", coin, \"/\", currency)"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##currency", "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##coin", "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##method" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "K2htSey_tiy9yz10C7lx0$$HkePZuLicv9shEnd9vV1P" : {
+      "id" : "K2htSey_tiy9yz10C7lx0$$HkePZuLicv9shEnd9vV1P",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "api_input_dummy",
+        "slug" : "api_input_dummy",
+        "x" : -860,
+        "y" : -240,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Fv37UwhP2peKENnGXBTOW$$NVa3HUPlaHm1mF42lwYFm",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "coin",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "currency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "url",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/api_input_dummy"
+      }
     }
   },
   "ports" : {
@@ -110,22 +301,5 @@
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
     "autoUpdateOnRun" : false
-  },
-  "diagnostics" : [ {
-    "property" : "$.workflow.processes.1krgL9R4epKwasDre8ekD$$BjBsFI-E6z5XNqe2Biopa.properties.datasetId",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "dataset id missing",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  } ]
+  }
 }

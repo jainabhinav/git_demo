@@ -1,0 +1,796 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.25",
+        "pyPiVersion" : "1.9.9"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/rest_api_demo",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "rest_api_demo",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "2122",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "demoteamabhinav.usecasedemos.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.streaming.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "api_input_path",
+          "kind" : {
+            "type" : "string",
+            "value" : "dbfs:/Prophecy/abhinav@simpledatalabs.com/"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "coin_api_key",
+          "kind" : {
+            "type" : "string",
+            "value" : "{\"X-CoinAPI-Key\":\"AC878A71-0493-4883-AC6C-CAC126E84B3E\"}"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "rest_api_demo",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "kHpJuAikOplKEmr3TNwL5",
+    "source" : "_EabaciJWZRd8XIS5zr9w$$KiAtSw6FLncE8nSKpDYKf",
+    "sourcePort" : "dItobYcoPtR0-fV7Y4Lys$$vECPQ7LJtwIrI3cSdzkJ4",
+    "target" : "3-mo8-hJuRWWPlPHn_gSw$$kixNiWDDoYxkxrrsA3GgS",
+    "targetPort" : "v4udORtNkkITXabh21-lm$$U65JUgqIc4y8bKG-4pQyM"
+  }, {
+    "id" : "_qm2fZrEEizbCSHkVZR4T",
+    "source" : "3-mo8-hJuRWWPlPHn_gSw$$kixNiWDDoYxkxrrsA3GgS",
+    "sourcePort" : "KE7np1CAydB0JvMNIX9YA$$HObrYC3BDk7WDoys1Uw52",
+    "target" : "d66q8INHB__PZEWs0jscP$$cuX54zAWH7b9iBd7RTYYu",
+    "targetPort" : "AmwFvY0qm3OBsLh_bEO5a$$kSjtuYlz-8w3VCp5uXn7R"
+  }, {
+    "id" : "qe9wpaTsc0DjQ3_ww0tSd",
+    "source" : "d66q8INHB__PZEWs0jscP$$cuX54zAWH7b9iBd7RTYYu",
+    "sourcePort" : "MVXBojDZJG-4oOd0mSSq2$$iXKz371ynyZT-SriIS_dB",
+    "target" : "jAVTCjr5UcqgOv4demn46$$CRtDmrSqzXkBawc8xaeji",
+    "targetPort" : "F8RZPtN4rd3Iqq-0UQ7-U$$iUbWuRy7azozHlyo1TSgO"
+  }, {
+    "id" : "2hlGfNmpztZhidaw65vpy",
+    "source" : "jAVTCjr5UcqgOv4demn46$$CRtDmrSqzXkBawc8xaeji",
+    "sourcePort" : "vQAULKS5rGkHPt1eQVOiC$$BiWTGzIrSL71m3Lhh48jG",
+    "target" : "_b4-8nHfHSCJUbxEpi946$$_0-L0xiN-7XzO7xGRVWNv",
+    "targetPort" : "ZWIlyyWzHztD6iD694ITH$$PGgVvUVCDKXaN7ATUciGq"
+  } ],
+  "processes" : {
+    "jAVTCjr5UcqgOv4demn46$$CRtDmrSqzXkBawc8xaeji" : {
+      "id" : "jAVTCjr5UcqgOv4demn46$$CRtDmrSqzXkBawc8xaeji",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "coin_currency",
+        "slug" : "coin_currency",
+        "x" : 100,
+        "y" : -120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts relevant information from a DataFrame, including coin, currency, rate, time, and the timestamp of the data insertion.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "F8RZPtN4rd3Iqq-0UQ7-U$$iUbWuRy7azozHlyo1TSgO",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "coin",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "currency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "url",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "api_output",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "status_code",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "reason",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "url",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "content",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "content_parsed",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "asset_id_base",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "asset_id_quote",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "rate",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "time",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "vQAULKS5rGkHPt1eQVOiC$$BiWTGzIrSL71m3Lhh48jG",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "coin",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "coin"
+          },
+          "description" : ""
+        }, {
+          "target" : "currency",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "currency"
+          },
+          "description" : ""
+        }, {
+          "target" : "rate",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "content_parsed.rate"
+          },
+          "description" : ""
+        }, {
+          "target" : "time",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "content_parsed.time"
+          },
+          "description" : ""
+        }, {
+          "target" : "insert_ts",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "current_timestamp()"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "F8RZPtN4rd3Iqq-0UQ7-U$$iUbWuRy7azozHlyo1TSgO##content_parsed", "F8RZPtN4rd3Iqq-0UQ7-U$$iUbWuRy7azozHlyo1TSgO##coin", "F8RZPtN4rd3Iqq-0UQ7-U$$iUbWuRy7azozHlyo1TSgO##currency", "F8RZPtN4rd3Iqq-0UQ7-U$$iUbWuRy7azozHlyo1TSgO##content_parsed.rate", "F8RZPtN4rd3Iqq-0UQ7-U$$iUbWuRy7azozHlyo1TSgO##content_parsed.time" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "3-mo8-hJuRWWPlPHn_gSw$$kixNiWDDoYxkxrrsA3GgS" : {
+      "id" : "3-mo8-hJuRWWPlPHn_gSw$$kixNiWDDoYxkxrrsA3GgS",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "exchangerate_url",
+        "slug" : "exchangerate_url",
+        "x" : -240,
+        "y" : -120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Creates URLs for retrieving exchange rates between coins and currencies.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "v4udORtNkkITXabh21-lm$$U65JUgqIc4y8bKG-4pQyM",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "coin",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "currency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "KE7np1CAydB0JvMNIX9YA$$HObrYC3BDk7WDoys1Uw52",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "method",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "method"
+          },
+          "description" : ""
+        }, {
+          "target" : "coin",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "coin"
+          },
+          "description" : ""
+        }, {
+          "target" : "currency",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "currency"
+          },
+          "description" : ""
+        }, {
+          "target" : "url",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "concat(\"https://rest.coinapi.io/v1/exchangerate/\", coin, \"/\", currency)"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "v4udORtNkkITXabh21-lm$$U65JUgqIc4y8bKG-4pQyM##currency", "v4udORtNkkITXabh21-lm$$U65JUgqIc4y8bKG-4pQyM##coin", "v4udORtNkkITXabh21-lm$$U65JUgqIc4y8bKG-4pQyM##method" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "d66q8INHB__PZEWs0jscP$$cuX54zAWH7b9iBd7RTYYu" : {
+      "id" : "d66q8INHB__PZEWs0jscP$$cuX54zAWH7b9iBd7RTYYu",
+      "component" : "RestAPIEnrich",
+      "metadata" : {
+        "label" : "rest_api_enrichment",
+        "slug" : "rest_api_enrichment",
+        "x" : -60,
+        "y" : -120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Enriches data by making REST API calls and parsing the response content.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "AmwFvY0qm3OBsLh_bEO5a$$kSjtuYlz-8w3VCp5uXn7R",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "coin",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "currency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "url",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "MVXBojDZJG-4oOd0mSSq2$$iXKz371ynyZT-SriIS_dB",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "method",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "coin",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "currency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "url",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "api_output",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "status_code",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "reason",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "url",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "content",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "content_parsed",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "asset_id_base",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "asset_id_quote",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "rate",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "time",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "awaitTime" : null,
+        "method" : "GET",
+        "proxies" : null,
+        "verify" : null,
+        "streamFrom" : null,
+        "headersFrom" : "staticValue",
+        "auth" : null,
+        "url" : "url",
+        "json" : null,
+        "jsonSchemaConfigCheckbox" : null,
+        "cert" : null,
+        "data" : null,
+        "params" : null,
+        "allow_redirectsFrom" : null,
+        "authFrom" : null,
+        "proxiesFrom" : null,
+        "files" : null,
+        "awaitTimeFrom" : null,
+        "cookies" : null,
+        "jsonFrom" : null,
+        "urlFrom" : "existingColumn",
+        "parseContent" : true,
+        "jsonSchemaConfig" : null,
+        "activeTab" : "basicTab",
+        "allow_redirects" : null,
+        "certFrom" : null,
+        "stream" : null,
+        "filesFrom" : null,
+        "paramsFrom" : null,
+        "dataFrom" : null,
+        "timeoutFrom" : null,
+        "verifyFrom" : null,
+        "headers" : "${coin_api_key}",
+        "methodFrom" : "staticValue",
+        "timeout" : null,
+        "cookiesFrom" : null
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/RestAPIEnrich",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "_EabaciJWZRd8XIS5zr9w$$KiAtSw6FLncE8nSKpDYKf" : {
+      "id" : "_EabaciJWZRd8XIS5zr9w$$KiAtSw6FLncE8nSKpDYKf",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "catalog_api_input",
+        "slug" : "catalog_api_input",
+        "x" : -420,
+        "y" : -120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "dItobYcoPtR0-fV7Y4Lys$$vECPQ7LJtwIrI3cSdzkJ4",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/catalog_api_input"
+      }
+    },
+    "_b4-8nHfHSCJUbxEpi946$$_0-L0xiN-7XzO7xGRVWNv" : {
+      "id" : "_b4-8nHfHSCJUbxEpi946$$_0-L0xiN-7XzO7xGRVWNv",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "catalog_api_output",
+        "slug" : "catalog_api_output",
+        "x" : 260,
+        "y" : -120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ZWIlyyWzHztD6iD694ITH$$PGgVvUVCDKXaN7ATUciGq",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "coin",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "currency",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "rate",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "time",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "insert_ts",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/catalog_api_output"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}
