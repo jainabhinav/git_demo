@@ -4,9 +4,11 @@ from pyspark.sql.types import *
 from code_regeneration_demo.config.ConfigStore import *
 from code_regeneration_demo.functions import *
 from prophecy.utils import *
+from code_regeneration_demo.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    pass
+    df_customers = customers(spark)
+    df_name_transformation = name_transformation(spark, df_customers)
 
 def main():
     spark = SparkSession.builder\

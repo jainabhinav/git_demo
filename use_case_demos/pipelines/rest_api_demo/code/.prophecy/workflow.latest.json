@@ -26,7 +26,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "demoteamabhinav.usecasedemos.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.streaming.functions", "prophecy.warehouse.functions" ]
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecy.streaming.functions", "demoteamabhinav.customgemdemosnew.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -75,13 +75,31 @@
       "projectName" : "ProphecySparkBasicsPython",
       "externalDependencies" : [ ]
     }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
       "projectUID" : "12656",
       "projectName" : "ProphecyStreamingPython",
       "externalDependencies" : [ ]
     }, {
-      "projectUID" : "12655",
-      "projectName" : "ProphecyWarehousePython",
-      "externalDependencies" : [ ]
+      "projectUID" : "30492",
+      "projectName" : "custom_gem_demos_new",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-07-21T07:30:16.129693Z",
+        "name" : "plibMaven",
+        "version" : "8.0.25",
+        "id" : "848385427",
+        "createdAt" : "2024-07-21T07:30:16.129693Z"
+      }, {
+        "type" : "plibPypi",
+        "modifiedAt" : "2024-07-21T07:30:16.129693Z",
+        "name" : "plibPypi",
+        "version" : "1.9.9",
+        "id" : "1875097243",
+        "createdAt" : "2024-07-21T07:30:16.129693Z"
+      } ]
     } ],
     "isImported" : false,
     "interimMode" : "Full",
