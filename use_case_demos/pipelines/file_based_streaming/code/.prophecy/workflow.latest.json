@@ -1,0 +1,307 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.25",
+        "pyPiVersion" : "1.9.9"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/file_based_streaming",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "file_based_streaming",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "2122",
+    "frontEndLanguage" : "sql",
+    "mode" : "stream",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "demoteamabhinav.usecasedemos.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.streaming.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "file_based_streaming",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "bP0XrMmR1o9-LpLzRcd-r$$-jtxaELhJKwRx1_VpLzTC",
+    "source" : "7XBB5i2DjSeNLjtv07JZ0$$EAd4EoK3oMDWWaHJDf0nA",
+    "sourcePort" : "YJWWAziNkjUhL8w1klBjD$$Dh7sd_b0aBofZgRXyCtue",
+    "target" : "G5M9alpZ9X3rJrPuDU725$$0_KJ__jEnXO0W6IghvD5f",
+    "targetPort" : "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8"
+  }, {
+    "id" : "WGxDktHTYnd5THJpAB5pK$$s1E7u5Zc-BBAZ8C3vDXa2",
+    "source" : "G5M9alpZ9X3rJrPuDU725$$0_KJ__jEnXO0W6IghvD5f",
+    "sourcePort" : "oRnLWe62n9ZHR1bQGuuJi$$tujvfNYgHXunO5U6GUlwe",
+    "target" : "_qzabJRWfYIkFSksokLaW$$1Rt4ZG-G7lLcyb75nGTXM",
+    "targetPort" : "55oROedojtdhDQR4SH4I6$$vV86145bPBqnwirOKedhL"
+  } ],
+  "processes" : {
+    "7XBB5i2DjSeNLjtv07JZ0$$EAd4EoK3oMDWWaHJDf0nA" : {
+      "id" : "7XBB5i2DjSeNLjtv07JZ0$$EAd4EoK3oMDWWaHJDf0nA",
+      "component" : "StreamingSource",
+      "metadata" : {
+        "label" : "streaming_json",
+        "slug" : "streaming_json",
+        "x" : -380,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "YJWWAziNkjUhL8w1klBjD$$Dh7sd_b0aBofZgRXyCtue",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/streaming_json"
+      }
+    },
+    "G5M9alpZ9X3rJrPuDU725$$0_KJ__jEnXO0W6IghvD5f" : {
+      "id" : "G5M9alpZ9X3rJrPuDU725$$0_KJ__jEnXO0W6IghvD5f",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformatted_data",
+        "slug" : "reformatted_data",
+        "x" : -160,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reformats the input data by converting the ID to a long type, capitalizing the name and department, and casting the age to an integer type.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "age",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The age of the person",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "department",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The department to which the individual belongs",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for each record",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The name of the person",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : true
+        } ],
+        "outputs" : [ {
+          "id" : "oRnLWe62n9ZHR1bQGuuJi$$tujvfNYgHXunO5U6GUlwe",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "cast(id as long)"
+          },
+          "description" : ""
+        }, {
+          "target" : "name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "upper(name)"
+          },
+          "description" : ""
+        }, {
+          "target" : "age",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "cast(age as int)"
+          },
+          "description" : ""
+        }, {
+          "target" : "department",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "upper(department)"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8##age", "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8##id", "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8##name", "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8##department" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "_qzabJRWfYIkFSksokLaW$$1Rt4ZG-G7lLcyb75nGTXM" : {
+      "id" : "_qzabJRWfYIkFSksokLaW$$1Rt4ZG-G7lLcyb75nGTXM",
+      "component" : "StreamingTarget",
+      "metadata" : {
+        "label" : "streaming_catalog",
+        "slug" : "streaming_catalog",
+        "x" : 60,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Enables streaming data to be cataloged and merged into a Delta Lake table. If the table already exists, it performs a merge operation based on specified conditions. If the table does not exist, it creates a new table and writes the streaming data to it.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "55oROedojtdhDQR4SH4I6$$vV86145bPBqnwirOKedhL",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "department",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : true
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/streaming_catalog"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

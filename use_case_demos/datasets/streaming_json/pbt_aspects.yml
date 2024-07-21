@@ -1,0 +1,32 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: age
+    type: long
+    nullable: true
+    metadata:
+      description: The age of the person
+      mappings: []
+      tags: []
+  - name: department
+    type: string
+    nullable: true
+    metadata:
+      description: The department to which the individual belongs
+      mappings: []
+      tags: []
+  - name: id
+    type: long
+    nullable: true
+    metadata:
+      description: The unique identifier for each record
+      mappings: []
+      tags: []
+  - name: name
+    type: string
+    nullable: true
+    metadata:
+      description: The name of the person
+      mappings: []
+      tags: []
