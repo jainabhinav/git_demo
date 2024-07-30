@@ -20,11 +20,26 @@ pipelines:
     language: python
     createdAt: '2024-07-21 07:30:16'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/customers
       outputs: []
-    subgraphs: []
+    subgraphs:
+    - subgraphs/reusable_subgraph
     dependencies: {}
-datasets: {}
+datasets:
+  datasets/customers:
+    name: customers
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-07-21 20:10:33'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-07-21 20:10:33'
 templates: {}
 jobs: {}
 gemContainer:
@@ -43,16 +58,52 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-07-21 07:33:27'
+    gems/MaskColumns:
+      name: MaskColumns
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/MaskColumns.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-07-21 19:23:42'
   dependencies: null
 functions:
   author: null
   createdAt: '2024-07-21 07:30:16'
-  udfs: {}
+  udfs:
+    udfs/categorize_delay:
+      name: categorize_delay
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav+demo@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
+    udfs/square:
+      name: square
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav+demo@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
   udafs: {}
   expressions: {}
   airflowFunctions: {}
   businessRules: {}
-subgraphs: {}
+subgraphs:
+  subgraphs/reusable_subgraph:
+    name: reusable_subgraph
+    description: ''
+    author: abhinav+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-07-22 11:05:29'
 sqlModels: {}
 sqlSnapshots: {}
 sqlTests: {}

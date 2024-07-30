@@ -4,9 +4,13 @@ from pyspark.sql.types import *
 from gem_testing.config.ConfigStore import *
 from gem_testing.functions import *
 from prophecy.utils import *
+from gem_testing.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    pass
+    df_customers = customers(spark)
+    df_Reformat_1 = Reformat_1(spark, df_customers)
+    df_mask_names = mask_names(spark, df_customers)
+    Subgraph_1(spark, Config.Subgraph_1)
 
 def main():
     spark = SparkSession.builder\
