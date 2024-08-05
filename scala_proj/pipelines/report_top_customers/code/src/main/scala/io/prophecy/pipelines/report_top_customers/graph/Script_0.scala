@@ -3,7 +3,6 @@ package io.prophecy.pipelines.report_top_customers.graph
 import io.prophecy.libs._
 import io.prophecy.pipelines.report_top_customers.config.Context
 import io.prophecy.pipelines.report_top_customers.udfs.UDFs._
-import io.prophecy.pipelines.report_top_customers.udfs._
 import io.prophecy.pipelines.report_top_customers.udfs.PipelineInitCode._
 import org.apache.spark._
 import org.apache.spark.sql._

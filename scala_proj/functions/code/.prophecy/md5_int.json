@@ -1,0 +1,1 @@
+{"initCode":"def md5Int(str: String, littleEndian: Boolean): Long = {\r\n  import java.security.MessageDigest\r\n  val mdDigest = MessageDigest.getInstance(\"MD5\").digest(str.getBytes)\r\n  val buffer = java.nio.ByteBuffer.wrap(mdDigest)\r\n  if (littleEndian) buffer.order(java.nio.ByteOrder.LITTLE_ENDIAN).getLong\r\n  else buffer.getInt\r\n}","code":"udf(md5Int _)"}

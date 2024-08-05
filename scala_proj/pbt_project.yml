@@ -37,6 +37,19 @@ pipelines:
       outputs: []
     subgraphs: []
     dependencies: {}
+  pipelines/dxf_pipeline:
+    name: dxf_pipeline
+    description: ''
+    author: abhinav@simpledatalabs.com
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2024-08-05 06:38:30'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/orders:
     name: orders
@@ -66,20 +79,88 @@ datasets:
         createdAt: '2023-09-25 16:32:51'
 templates: {}
 jobs: {}
+gemContainer:
+  languageVersion: 2.12.15
+  gemLibsVersion: 1.0.4
+  gems:
+    gems/TestAnandDQV:
+      name: TestAnandDQV
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav@simpledatalabs.com
+      mode: batch
+      files:
+      - src/main/scala/demo_team_abhinav/demo_scala_project/gems/DataQualityValidator.scala
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-02-28 04:55:11'
+  dependencies: null
 functions:
   author: null
   createdAt: '2023-09-25 16:30:33'
-  gems: {}
-  udfs: {}
+  udfs:
+    udfs/md5_int:
+      name: md5_int
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav@simpledatalabs.com
+      createdAt: '2022-12-15 18:04:50'
+    udfs/mbr_id_encrypt:
+      name: mbr_id_encrypt
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav@simpledatalabs.com
+      createdAt: '2022-12-15 18:04:50'
+    udfs/ff3_encrypt_idwdata_new:
+      name: ff3_encrypt_idwdata_new
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav@simpledatalabs.com
+      createdAt: '2022-12-15 18:04:50'
   udafs: {}
   expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
 subgraphs: {}
 sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
 sqlMacros: {}
 sqlSeeds: {}
 sqlSources: {}
 sqlUnreferencedSources: {}
 sqlPipeline: null
-dependencies: '[]'
-projectDependencies: {}
+dependencies:
+- type: plibMaven
+  modifiedAt: '2024-08-05T06:36:32.437882Z'
+  name: plibMaven
+  version: 8.0.29
+  id: '1282734480'
+  createdAt: '2024-08-05T06:36:32.437774Z'
+projectDependencies:
+  '12651':
+    projectUID: 12651
+    projectName: ProphecySparkBasicsScala
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12651.git&subPath=
+    version: 0.2.5.2
+    isDefault: true
+    author: null
+    createdAt: '2024-08-05 06:39:18'
+  '12652':
+    projectUID: 12652
+    projectName: ProphecyWarehouseScala
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12652.git&subPath=
+    version: 0.0.5
+    isDefault: true
+    author: null
+    createdAt: '2024-08-05 06:38:47'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

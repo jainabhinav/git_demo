@@ -1,0 +1,23 @@
+version: 1
+pipelineVersion:
+  version: '2'
+configurations:
+- test_d_gpi
+- length_check
+- test
+- ht2_check
+- kt_demo
+- test_null_sk
+- test3
+- test_accumulated
+- sample_generate_load_ready_only
+- debug
+- test_d_carrier_acct
+- test_ht2_incremental
+- check_encrypt_decrypt
+- default
+- test_d_pos_rebate_detail
+- test_d_med_limit_threshold
+- test_2
+- ph_d_cag
+- test_d_member_diagnosis

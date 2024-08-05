@@ -1,0 +1,8 @@
+{
+  "pipeline_name" : "d_ms_hold_def",
+  "target_table" : "d_ms_hold_def",
+  "source_table" : "iris_view.v_xxiris_om_order_holds_v",
+  "target_table_db" : "temp",
+  "generate_only_load_ready_files" : "true",
+  "source_path" : "srcs = []"
+}
