@@ -71,7 +71,7 @@ class MaskColumns(ComponentSpec):
             self.props: MaskColumns.MaskColumnsProperties = newProps
 
         def apply(self, spark: SparkSession, in0: DataFrame) -> DataFrame:
-            # This method contains logic used to generate the spark code from the given inputs
+            import os
             final_df = in0
             for col_name in self.props.columnsToMask:
                 if self.props.maskingTechnique == "sha1":
