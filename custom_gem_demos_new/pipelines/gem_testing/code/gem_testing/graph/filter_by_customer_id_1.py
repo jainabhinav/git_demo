@@ -6,5 +6,5 @@ from prophecy.libs import typed_lit
 from gem_testing.config.ConfigStore import *
 from gem_testing.functions import *
 
-def Reformat_1(spark: SparkSession, in0: DataFrame) -> DataFrame:
-    return in0
+def filter_by_customer_id_1(spark: SparkSession, in0: DataFrame) -> DataFrame:
+    return in0.filter((col("customer_id") > lit(87)))

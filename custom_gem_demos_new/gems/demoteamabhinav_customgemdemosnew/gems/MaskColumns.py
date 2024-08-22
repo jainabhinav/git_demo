@@ -20,6 +20,7 @@ class MaskColumns(ComponentSpec):
         # properties for the component with default values
         columnsToMask: List[str] = field(default_factory=list)
         maskingTechnique: Optional[str] = None
+        sha2BitLength: Optional[str] = None
 
     def dialog(self) -> Dialog:
         # Define the UI dialog structure for the component
@@ -43,18 +44,26 @@ class MaskColumns(ComponentSpec):
                     "1fr"
                     )
                 ).addElement(maskingTechniqueSelectBox)
+                .addElement(Condition()
+                        .ifEqual(
+                        PropExpr("component.properties.maskingTechnique"), StringExpr("sha2")
+                    ).then(TextBox("SHA 2 Bits").bindPlaceholder("256").bindProperty("sha2BitLength")))
             )
         )
 
     def validate(self, context: WorkflowContext, component: Component[MaskColumnsProperties]) -> List[Diagnostic]:
         # Validate the component's state
-        return []
+        diagnostics = []
+        if component.properties.maskingTechnique == "sha2":
+            if component.properties.sha2BitLength is not None:
+                if not component.properties.sha2BitLength in ["224", "256", "384", "512"]:
+                    diagnostics.append(Diagnostic("properties.sha2BitLength", "SHA 2 bit length can be one of 224, 256, 384, 512", SeverityLevelEnum.Error))
+        return diagnostics
 
     def onChange(self, context: WorkflowContext, oldState: Component[MaskColumnsProperties], newState: Component[MaskColumnsProperties]) -> Component[
     MaskColumnsProperties]:
         # Handle changes in the component's state and return the new state
         return newState
-
 
     class MaskColumnsCode(ComponentCode):
         def __init__(self, newProps):
@@ -67,7 +76,10 @@ class MaskColumns(ComponentSpec):
                 if self.props.maskingTechnique == "sha1":
                     final_df = final_df.withColumn(col_name, sha1(col_name))
                 elif self.props.maskingTechnique == "sha2":
-                    final_df = final_df.withColumn(col_name, sha2(col_name, 256))
+                    if self.props.sha2BitLength is not None:
+                        final_df = final_df.withColumn(col_name, sha2(col_name, int(self.props.sha2BitLength)))
+                    else:
+                        final_df = final_df.withColumn(col_name, sha2(col_name, 256))
                 elif self.props.maskingTechnique == "hash":
                     final_df = final_df.withColumn(col_name, hash(col_name))
             return final_df

@@ -21,10 +21,11 @@ pipelines:
     createdAt: '2024-07-21 07:30:16'
     datasets:
       inputs:
+      - datasets/customer_catalog_scd2
       - datasets/customers
-      outputs: []
-    subgraphs:
-    - subgraphs/reusable_subgraph
+      outputs:
+      - datasets/customer_catalog_scd2
+    subgraphs: []
     dependencies: {}
 datasets:
   datasets/customers:
@@ -40,6 +41,19 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2024-07-21 20:10:33'
+  datasets/customer_catalog_scd2:
+    name: customer_catalog_scd2
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-07-30 21:02:58'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-07-30 21:02:58'
 templates: {}
 jobs: {}
 gemContainer:
@@ -70,6 +84,30 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-07-21 19:23:42'
+    gems/catalogTable:
+      name: catalogTable
+      category: Source/Target
+      subCategory: Database
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/CatalogTable.py
+      gemType: DatasetGem
+      dependencies: []
+      createdAt: '2024-07-30 21:00:41'
+    gems/NewGem:
+      name: NewGem
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/NewGem.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-08-08 14:35:19'
   dependencies: null
 functions:
   author: null

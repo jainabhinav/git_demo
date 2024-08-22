@@ -3,10 +3,8 @@ from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
-from .config import *
+from gem_testing.config.ConfigStore import *
 from gem_testing.functions import *
 
-def select_1(spark: SparkSession) -> DataFrame:
-    out0 = spark.sql("select 1")
-
-    return out0
+def filter_customer_id_range(spark: SparkSession, in0: DataFrame) -> DataFrame:
+    return in0.filter((col("customer_id") > lit(98)))
