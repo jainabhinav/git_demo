@@ -7,7 +7,7 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.25",
+        "mavenVersion" : "8.0.29",
         "pyPiVersion" : "1.9.9"
       }
     },
@@ -19,7 +19,7 @@
       "isFunctionsPackageDirDefined" : true
     },
     "language" : "python",
-    "fabricId" : "2121",
+    "fabricId" : "2122",
     "frontEndLanguage" : "sql",
     "mode" : "stream",
     "udfs" : {
@@ -71,16 +71,20 @@
         "type" : "plibMaven",
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
-        "version" : "8.0.25",
+        "enabled" : true,
+        "version" : "8.0.31",
         "id" : "848385427",
-        "createdAt" : "2024-07-21T07:30:16.129693Z"
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-07-21T07:30:16.129693Z",
-        "name" : "plibPypi",
+        "modifiedAt" : "2024-08-22T08:10:07.354Z",
+        "name" : "ProphecyLibsPython",
+        "enabled" : true,
         "version" : "1.9.9",
         "id" : "1875097243",
-        "createdAt" : "2024-07-21T07:30:16.129693Z"
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
       } ]
     } ],
     "isImported" : false,
@@ -94,8 +98,649 @@
     "topLevelPackage" : "kafka_streaming",
     "configurationVersion" : "v2"
   },
-  "connections" : [ ],
-  "processes" : { },
+  "connections" : [ {
+    "id" : "tvsh9qA4tR1vX85TJILHg$$3auRL9GKeBT-BZJegPvwe",
+    "source" : "HaWqdgEtzY5I1tluSq-q9$$NOB7T_yyLk2ai0MF0daGX",
+    "sourcePort" : "WxfUW8gEYYDF9qykEtwxA$$-NwWestohakTEp0y3VcGk",
+    "target" : "dqyYZXPeCsLZ_sO2GIIui$$-bBCqHJH3-z72Dw_wz7mh",
+    "targetPort" : "QWt9yW84zAkGBfE2ns4e6$$2jN_sjCtmw6A9mMyErNAd"
+  }, {
+    "id" : "kq84aFZyHrC6cjxJ0HjYz$$D86UBYACoEqWIh7Ybcp8V",
+    "source" : "LJ81lRmN2afuxYtACZv0m$$6LvxEHrTvK1f5YLxAEMMf",
+    "sourcePort" : "SK_D8T1DkDkAOZA70J3tu$$UileJUgD42avLKMUxKhWx",
+    "target" : "nitWssceuYyn9DmASmVlS$$TX2_BpZrc_7XEsaMvmETX",
+    "targetPort" : "laxn8IOBJjzISOn0br4CY$$kSwdDDtjr6iBl9jPDyCwz"
+  }, {
+    "id" : "btNyGYK17epf4RT90ZzPn",
+    "source" : "dqyYZXPeCsLZ_sO2GIIui$$-bBCqHJH3-z72Dw_wz7mh",
+    "sourcePort" : "zvEoXNxqbsFHJZhAuqNf3$$_tG6UK36jIEDdd4KctSlP",
+    "target" : "znS-yd4LHkkfYEwpzmuzH$$LN8mQsG0zh5x2w5gbFAQK",
+    "targetPort" : "tv1fwMO3oUTEl6IQCsIw_$$Tgwo0eUgNxngrrMkJcWUQ"
+  }, {
+    "id" : "-ChyBKvu0EWHKJKbmaQkh",
+    "source" : "znS-yd4LHkkfYEwpzmuzH$$LN8mQsG0zh5x2w5gbFAQK",
+    "sourcePort" : "wBG3HU58Oa-Z2wfC-0CAd$$8J6IhY1NPY7cTZL9nBb6M",
+    "target" : "LJ81lRmN2afuxYtACZv0m$$6LvxEHrTvK1f5YLxAEMMf",
+    "targetPort" : "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat"
+  } ],
+  "processes" : {
+    "dqyYZXPeCsLZ_sO2GIIui$$-bBCqHJH3-z72Dw_wz7mh" : {
+      "id" : "dqyYZXPeCsLZ_sO2GIIui$$-bBCqHJH3-z72Dw_wz7mh",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformat_data",
+        "slug" : "reformat_data",
+        "x" : -380,
+        "y" : 0,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reformats data by extracting specific fields from a nested structure and selecting relevant columns.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "QWt9yW84zAkGBfE2ns4e6$$2jN_sjCtmw6A9mMyErNAd",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "key",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "topic",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "partition",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "offset",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "timestamp",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "timestampType",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : true
+        } ],
+        "outputs" : [ {
+          "id" : "zvEoXNxqbsFHJZhAuqNf3$$_tG6UK36jIEDdd4KctSlP",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "key",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "key"
+          },
+          "description" : ""
+        }, {
+          "target" : "value",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "from_json(value, 'STRUCT<\n  ordertime: LONG,\n  orderid: INT,\n  itemid: STRING,\n  address: STRUCT<\n    city: STRING,\n    state: STRING,\n    zipcode: INT\n  >\n>')"
+          },
+          "description" : ""
+        }, {
+          "target" : "timestamp",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "timestamp"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "QWt9yW84zAkGBfE2ns4e6$$2jN_sjCtmw6A9mMyErNAd##timestamp", "QWt9yW84zAkGBfE2ns4e6$$2jN_sjCtmw6A9mMyErNAd##value", "QWt9yW84zAkGBfE2ns4e6$$2jN_sjCtmw6A9mMyErNAd##key" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "LJ81lRmN2afuxYtACZv0m$$6LvxEHrTvK1f5YLxAEMMf" : {
+      "id" : "LJ81lRmN2afuxYtACZv0m$$6LvxEHrTvK1f5YLxAEMMf",
+      "component" : "FlattenSchema",
+      "metadata" : {
+        "label" : "flatten_schema",
+        "slug" : "flatten_schema",
+        "x" : -180,
+        "y" : 0,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Flattens a nested schema by selecting specific columns and renaming them if necessary.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "key",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "ordertime",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "orderid",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "itemid",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "address",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "state",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "zipcode",
+                      "type" : "integer",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "timestamp",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : true
+        } ],
+        "outputs" : [ {
+          "id" : "SK_D8T1DkDkAOZA70J3tu$$UileJUgD42avLKMUxKhWx",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "explodedColsNewName" : [ ],
+        "fsExpressions" : [ {
+          "exploded" : "",
+          "flattenedExpression" : "key",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "key"
+          },
+          "targetTokens" : [ "key" ],
+          "target" : "key"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "value.ordertime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "value.ordertime"
+          },
+          "targetTokens" : [ "value", "ordertime" ],
+          "target" : "value-ordertime"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "value.orderid",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "value.orderid"
+          },
+          "targetTokens" : [ "value", "orderid" ],
+          "target" : "value-orderid"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "value.itemid",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "value.itemid"
+          },
+          "targetTokens" : [ "value", "itemid" ],
+          "target" : "value-itemid"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "value.address.city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "value.address.city"
+          },
+          "targetTokens" : [ "value", "address", "city" ],
+          "target" : "value-address-city"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "value.address.state",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "value.address.state"
+          },
+          "targetTokens" : [ "value", "address", "state" ],
+          "target" : "value-address-state"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "value.address.zipcode",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "value.address.zipcode"
+          },
+          "targetTokens" : [ "value", "address", "zipcode" ],
+          "target" : "value-address-zipcode"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "timestamp",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "timestamp"
+          },
+          "targetTokens" : [ "timestamp" ],
+          "target" : "timestamp"
+        } ],
+        "columnsSelector" : [ "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##value.address.state", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##timestamp", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##value.orderid", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##value.itemid", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##value.address", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##value.address.zipcode", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##value.address.city", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##key", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##value.ordertime", "R2yac4UGcxOUJcVpaX2p4$$jAHpwjxgK9OOTBF2Rvoat##value" ],
+        "explodeColumns" : [ ],
+        "delimiter" : "-"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "nitWssceuYyn9DmASmVlS$$TX2_BpZrc_7XEsaMvmETX" : {
+      "id" : "nitWssceuYyn9DmASmVlS$$TX2_BpZrc_7XEsaMvmETX",
+      "component" : "StreamingTarget",
+      "metadata" : {
+        "label" : "streaming_kafka_target",
+        "slug" : "streaming_kafka_target",
+        "x" : 0,
+        "y" : 0,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Streams data from a Kafka source and writes it to a Delta table for further analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "laxn8IOBJjzISOn0br4CY$$kSwdDDtjr6iBl9jPDyCwz",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "key",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value-ordertime",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value-orderid",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value-itemid",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value-address-city",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value-address-state",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value-address-zipcode",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "timestamp",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : true
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/streaming_kafka_target"
+      }
+    },
+    "znS-yd4LHkkfYEwpzmuzH$$LN8mQsG0zh5x2w5gbFAQK" : {
+      "id" : "znS-yd4LHkkfYEwpzmuzH$$LN8mQsG0zh5x2w5gbFAQK",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "Filter_1",
+        "slug" : "Filter_1",
+        "x" : -280,
+        "y" : 0,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "tv1fwMO3oUTEl6IQCsIw_$$Tgwo0eUgNxngrrMkJcWUQ",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "key",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "ordertime",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "orderid",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "itemid",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "address",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "state",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "zipcode",
+                      "type" : "integer",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "timestamp",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : true
+        } ],
+        "outputs" : [ {
+          "id" : "wBG3HU58Oa-Z2wfC-0CAd$$8J6IhY1NPY7cTZL9nBb6M",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "true"
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "HaWqdgEtzY5I1tluSq-q9$$NOB7T_yyLk2ai0MF0daGX" : {
+      "id" : "HaWqdgEtzY5I1tluSq-q9$$NOB7T_yyLk2ai0MF0daGX",
+      "component" : "StreamingSource",
+      "metadata" : {
+        "label" : "streaming_kafka",
+        "slug" : "streaming_kafka",
+        "x" : -580,
+        "y" : 0,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Sets up a streaming Kafka consumer to read data from a Kafka topic, applying necessary security configurations and converting the data types of the key and value columns.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "WxfUW8gEYYDF9qykEtwxA$$-NwWestohakTEp0y3VcGk",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/streaming_kafka"
+      }
+    }
+  },
   "ports" : {
     "inputs" : [ ],
     "outputs" : [ ],

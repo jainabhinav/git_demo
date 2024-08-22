@@ -7,7 +7,7 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.25",
+        "mavenVersion" : "8.0.29",
         "pyPiVersion" : "1.9.9"
       }
     },
@@ -19,7 +19,7 @@
       "isFunctionsPackageDirDefined" : true
     },
     "language" : "python",
-    "fabricId" : "2122",
+    "fabricId" : "11509",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
@@ -52,7 +52,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "databricks",
+      "selected" : "livy",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -80,16 +80,20 @@
         "type" : "plibMaven",
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
-        "version" : "8.0.25",
+        "enabled" : true,
+        "version" : "8.0.31",
         "id" : "848385427",
-        "createdAt" : "2024-07-21T07:30:16.129693Z"
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-07-21T07:30:16.129693Z",
-        "name" : "plibPypi",
+        "modifiedAt" : "2024-08-22T08:10:07.354Z",
+        "name" : "ProphecyLibsPython",
+        "enabled" : true,
         "version" : "1.9.9",
         "id" : "1875097243",
-        "createdAt" : "2024-07-21T07:30:16.129693Z"
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
       } ]
     } ],
     "isImported" : false,
@@ -104,17 +108,17 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "Vo1h5dJb3OM-jUd9TrDhe$$5uAYlBJ-TshS_gBWvnECK",
-    "source" : "RuBvfOLxcXHOD1cOHKs4n$$ZU3hyx2U0zV8U65N7JBjN",
-    "sourcePort" : "LWTLk6SUJkXcJMMUiRHjy$$ugmA6ykGtQtpXcDI-i8pB",
-    "target" : "VzB0W3hPg7e-9h_BEvY_Y$$SfzZY0NeTOZ7ZZ6Ixhp9h",
-    "targetPort" : "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L"
-  }, {
-    "id" : "2kiKRe4YfUW5P7e1na8qz$$a5k_8-b2uuMbulJixQOgN",
+    "id" : "wUM0m_avGF2i7LNuugMYd$$fa2jrs69kzDUmgDZFJW-r",
     "source" : "VzB0W3hPg7e-9h_BEvY_Y$$SfzZY0NeTOZ7ZZ6Ixhp9h",
     "sourcePort" : "-R1qe5SoA7HdrU8ZLARTW$$m-rstnITxxc7SsIdAkiJX",
     "target" : "K2htSey_tiy9yz10C7lx0$$HkePZuLicv9shEnd9vV1P",
     "targetPort" : "Fv37UwhP2peKENnGXBTOW$$NVa3HUPlaHm1mF42lwYFm"
+  }, {
+    "id" : "ytbgrUlNdVd4wovcjZ7Xx",
+    "source" : "RuBvfOLxcXHOD1cOHKs4n$$ZU3hyx2U0zV8U65N7JBjN",
+    "sourcePort" : "LWTLk6SUJkXcJMMUiRHjy$$ugmA6ykGtQtpXcDI-i8pB",
+    "target" : "VzB0W3hPg7e-9h_BEvY_Y$$SfzZY0NeTOZ7ZZ6Ixhp9h",
+    "targetPort" : "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L"
   } ],
   "processes" : {
     "RuBvfOLxcXHOD1cOHKs4n$$ZU3hyx2U0zV8U65N7JBjN" : {
@@ -237,7 +241,7 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##currency", "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##coin", "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##method" ]
+        "columnsSelector" : [ "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##coin", "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##method", "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##currency" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",

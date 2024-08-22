@@ -1,0 +1,18 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: xml_column
+    type: string
+    nullable: true
+    metadata:
+      description: The XML column containing the source data
+      mappings: []
+      tags: []
+  - name: id
+    type: long
+    nullable: true
+    metadata:
+      description: Unique identifier for the XML parsing source
+      mappings: []
+      tags: []

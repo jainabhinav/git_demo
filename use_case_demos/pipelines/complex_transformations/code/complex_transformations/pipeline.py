@@ -4,9 +4,10 @@ from pyspark.sql.types import *
 from complex_transformations.config.ConfigStore import *
 from complex_transformations.functions import *
 from prophecy.utils import *
+from complex_transformations.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    pass
+    df_xml_string_input = xml_string_input(spark)
 
 def main():
     spark = SparkSession.builder\

@@ -7,7 +7,7 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.25",
+        "mavenVersion" : "8.0.29",
         "pyPiVersion" : "1.9.9"
       }
     },
@@ -71,16 +71,20 @@
         "type" : "plibMaven",
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
-        "version" : "8.0.25",
+        "enabled" : true,
+        "version" : "8.0.31",
         "id" : "848385427",
-        "createdAt" : "2024-07-21T07:30:16.129693Z"
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-07-21T07:30:16.129693Z",
-        "name" : "plibPypi",
+        "modifiedAt" : "2024-08-22T08:10:07.354Z",
+        "name" : "ProphecyLibsPython",
+        "enabled" : true,
         "version" : "1.9.9",
         "id" : "1875097243",
-        "createdAt" : "2024-07-21T07:30:16.129693Z"
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
       } ]
     } ],
     "isImported" : false,
@@ -95,7 +99,35 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ ],
-  "processes" : { },
+  "processes" : {
+    "ah3f66MOsaYGcaHpO7Dd2$$YIQr2xnMg5gfTRkaDNvUD" : {
+      "id" : "ah3f66MOsaYGcaHpO7Dd2$$YIQr2xnMg5gfTRkaDNvUD",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "xml_string_input",
+        "slug" : "xml_string_input",
+        "x" : -980,
+        "y" : -240,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "5oOgSsiab81eVBjaqwBFl$$lsrn8_zmXkJFICnjHJMdW",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/xml_string_input"
+      }
+    }
+  },
   "ports" : {
     "inputs" : [ ],
     "outputs" : [ ],

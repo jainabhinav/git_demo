@@ -14,8 +14,27 @@ from prophecy.lookups import (
 )
 
 def registerUDFs(spark: SparkSession):
+    spark.udf.register("categorize_delay", categorize_delay)
+    spark.udf.register("square", square)
+    
+
     try:
         from prophecy.utils import ScalaUtil
         ScalaUtil.initializeUDFs(spark)
     except :
         pass
+
+@udf(returnType = StringType())
+def categorize_delay(arrival_delay: int):
+    if arrival_delay < 0:
+        return "Early"
+    elif 0 <= arrival_delay <= 15:
+        return "On Time"
+    elif 16 <= arrival_delay <= 60:
+        return "Slight Delay"
+    else:
+        return "Major Delay"
+
+@udf(returnType = IntegerType())
+def square(value: int, xyz: int):
+    return value * value

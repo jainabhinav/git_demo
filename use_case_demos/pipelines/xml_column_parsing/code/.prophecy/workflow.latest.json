@@ -1,0 +1,1672 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.29",
+        "pyPiVersion" : "1.9.9"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/xml_column_parsing",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "xml_column_parsing",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "2122",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "demoteamabhinav.usecasedemos.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecy.streaming.functions", "demoteamabhinav.customgemdemosnew.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "jdbc_username",
+          "kind" : {
+            "type" : "string",
+            "value" : "postgres"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "jdbc_password",
+          "kind" : {
+            "type" : "string",
+            "value" : "Pr0phecy!23"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "30492",
+      "projectName" : "custom_gem_demos_new",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-07-21T07:30:16.129693Z",
+        "name" : "plibMaven",
+        "enabled" : true,
+        "version" : "8.0.31",
+        "id" : "848385427",
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
+      }, {
+        "type" : "plibPypi",
+        "modifiedAt" : "2024-08-22T08:10:07.354Z",
+        "name" : "ProphecyLibsPython",
+        "enabled" : true,
+        "version" : "1.9.9",
+        "id" : "1875097243",
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
+      } ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "xml_column_parsing",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "OPd3WrUlZXpzZCxSN1UKc$$9A6vPnI3ax23Prk1hAyhP",
+    "source" : "E7B6eMn2u77nVE_h9mbRF$$QJPCqKK6KmTRdhHiUO7tn",
+    "sourcePort" : "eHEDDI9y4V_7pFkFSHMav$$J7huh5ZjTGM1GuM8buOln",
+    "target" : "44beJt71CYNwLOmovcCWf$$4EChVlKB6_H7_aL2Hgc-x",
+    "targetPort" : "l-DnXE2mnt4kkvhQrtIT2$$qXhBD2vOXYXfxlk4v04wY"
+  }, {
+    "id" : "6EMsLqcAPUED-6aC88be5$$tTF6YCXCRhJ43wyzJyNbA",
+    "source" : "44beJt71CYNwLOmovcCWf$$4EChVlKB6_H7_aL2Hgc-x",
+    "sourcePort" : "s8CKw0EvzXw5Ar350Pj94$$7ohmAMLxPAxFFz2z3vfS_",
+    "target" : "MXwWU2NE0vBMQWTMrl_iH$$TN0L763ija2OVk9p2V4fm",
+    "targetPort" : "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u"
+  }, {
+    "id" : "tS07Hq7EzjHDPLKcBUtVZ",
+    "source" : "44beJt71CYNwLOmovcCWf$$4EChVlKB6_H7_aL2Hgc-x",
+    "sourcePort" : "s8CKw0EvzXw5Ar350Pj94$$7ohmAMLxPAxFFz2z3vfS_",
+    "target" : "utHFVuFwgmJr3q2x6gWfW$$gNqqQj5DS6dDPSI14qsPL",
+    "targetPort" : "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-"
+  }, {
+    "id" : "C_0lz4oQpEflnCKWNvuwm",
+    "source" : "E7B6eMn2u77nVE_h9mbRF$$QJPCqKK6KmTRdhHiUO7tn",
+    "sourcePort" : "eHEDDI9y4V_7pFkFSHMav$$J7huh5ZjTGM1GuM8buOln",
+    "target" : "gJkSWKKPtSdfrZ0FozWCP$$e669eETKIqQl2vjaPpAne",
+    "targetPort" : "2XDd6Fe5ItoY2FJsUY_cI$$0UaIn5RQ5rBsxJQ9V-KrS"
+  }, {
+    "id" : "CHNHqdc-_oNMEnfAH0b5r$$T5yj-cyGlj01qxJxMJW6d",
+    "source" : "gJkSWKKPtSdfrZ0FozWCP$$e669eETKIqQl2vjaPpAne",
+    "sourcePort" : "rPDPicCn-5R6S9TCdHFcH$$IVzViyxEHEA6UPXNemRkA",
+    "target" : "5RL3mVqkUYEmZsbcDhl-w$$oGhdnefY7t38yJ-H2Wf3b",
+    "targetPort" : "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg"
+  }, {
+    "id" : "WrhTMhW220lMeO-J3ReGJ",
+    "source" : "E7B6eMn2u77nVE_h9mbRF$$QJPCqKK6KmTRdhHiUO7tn",
+    "sourcePort" : "eHEDDI9y4V_7pFkFSHMav$$J7huh5ZjTGM1GuM8buOln",
+    "target" : "-lVjZS-T2z49S_JUz26qy$$6M1QxaPKO-IQAyK6CiZzP",
+    "targetPort" : "vgD_GfVSENiN2BMKFsCsO$$kc74qpkis7yMHf_cJDWh8"
+  }, {
+    "id" : "m1UWj7ij6piCOu-KnVa9m$$WquS5k-8ALXY659UrM6Ux",
+    "source" : "-lVjZS-T2z49S_JUz26qy$$6M1QxaPKO-IQAyK6CiZzP",
+    "sourcePort" : "Q8AxY_WiJFvLcymwaWjOs$$PrV5a-JrplgZ5YUZKDCnc",
+    "target" : "X0smi9IyMZDZoU78nvYJQ$$JZWmBpNIc08csxGCMj_WC",
+    "targetPort" : "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ"
+  } ],
+  "processes" : {
+    "MXwWU2NE0vBMQWTMrl_iH$$TN0L763ija2OVk9p2V4fm" : {
+      "id" : "MXwWU2NE0vBMQWTMrl_iH$$TN0L763ija2OVk9p2V4fm",
+      "component" : "FlattenSchema",
+      "metadata" : {
+        "label" : "flatten_schema",
+        "slug" : "flatten_schema",
+        "x" : -400,
+        "y" : -60,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Flattens a nested schema by selecting specific columns and renaming them based on a predefined naming convention.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "_XOEw5sVMnqsBF7aky-Yt$$D_X1GRg9ZlUrN2gEexm1O",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "explodedColsNewName" : [ ],
+        "fsExpressions" : [ {
+          "exploded" : "",
+          "flattenedExpression" : "xml_column",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_column"
+          },
+          "targetTokens" : [ "xml_column" ],
+          "target" : "xml_column"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "id"
+          },
+          "targetTokens" : [ "id" ],
+          "target" : "id"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.id"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "id" ],
+          "target" : "xml_parsed_content-person-id"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.name.first",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.name.first"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "name", "first" ],
+          "target" : "xml_parsed_content-person-name-first"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.name.last",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.name.last"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "name", "last" ],
+          "target" : "xml_parsed_content-person-name-last"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.street",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.street"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "street" ],
+          "target" : "xml_parsed_content-person-address-street"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.city"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "city" ],
+          "target" : "xml_parsed_content-person-address-city"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.zip",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.zip"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "zip" ],
+          "target" : "xml_parsed_content-person-address-zip"
+        } ],
+        "columnsSelector" : [ "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##id", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name.last", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.street", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_column", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.city", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name.first", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.zip", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.id", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person" ],
+        "explodeColumns" : [ ],
+        "delimiter" : "-"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "X0smi9IyMZDZoU78nvYJQ$$JZWmBpNIc08csxGCMj_WC" : {
+      "id" : "X0smi9IyMZDZoU78nvYJQ$$JZWmBpNIc08csxGCMj_WC",
+      "component" : "FlattenSchema",
+      "metadata" : {
+        "label" : "flatten_schema_2",
+        "slug" : "flatten_schema_2",
+        "x" : -400,
+        "y" : -460,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Flattens a nested schema by selecting specific columns and renaming them to a flattened structure.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "integer",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "QRFwIRhDtReo115mqf4m3$$2E8aTuZC5uRWzfYSHQwnx",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "explodedColsNewName" : [ ],
+        "fsExpressions" : [ {
+          "exploded" : "",
+          "flattenedExpression" : "xml_column",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_column"
+          },
+          "targetTokens" : [ "xml_column" ],
+          "target" : "xml_column"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "id"
+          },
+          "targetTokens" : [ "id" ],
+          "target" : "id"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.id"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "id" ],
+          "target" : "xml_parsed_content-person-id"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.name.first",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.name.first"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "name", "first" ],
+          "target" : "xml_parsed_content-person-name-first"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.name.last",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.name.last"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "name", "last" ],
+          "target" : "xml_parsed_content-person-name-last"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.street",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.street"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "street" ],
+          "target" : "xml_parsed_content-person-address-street"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.city"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "city" ],
+          "target" : "xml_parsed_content-person-address-city"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.zip",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.zip"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "zip" ],
+          "target" : "xml_parsed_content-person-address-zip"
+        } ],
+        "columnsSelector" : [ "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.city", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name.first", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_column", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.street", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##id", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name.last", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.id", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.zip" ],
+        "explodeColumns" : [ ],
+        "delimiter" : "-"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "-lVjZS-T2z49S_JUz26qy$$6M1QxaPKO-IQAyK6CiZzP" : {
+      "id" : "-lVjZS-T2z49S_JUz26qy$$6M1QxaPKO-IQAyK6CiZzP",
+      "component" : "XMLColumnParser",
+      "metadata" : {
+        "label" : "xml_column_parser_1",
+        "slug" : "xml_column_parser_1",
+        "x" : -580,
+        "y" : -460,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Parses XML content in a column and extracts structured information, such as person details and address, for further analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "vgD_GfVSENiN2BMKFsCsO$$kc74qpkis7yMHf_cJDWh8",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Q8AxY_WiJFvLcymwaWjOs$$PrV5a-JrplgZ5YUZKDCnc",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "integer",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "xmlColumnToParse" : "xml_column",
+        "parsingMethod" : "parseFromSchema",
+        "sampleRecord" : null,
+        "xmlSchema" : "STRUCT< person: STRUCT< id: INT, name: STRUCT< first: STRING, last: STRING >, address: STRUCT< street: STRING, city: STRING, zip: STRING > > >"
+      },
+      "componentInfo" : {
+        "gemId" : "gems/XMLColumnParser",
+        "projectName" : "use_case_demos"
+      }
+    },
+    "E7B6eMn2u77nVE_h9mbRF$$QJPCqKK6KmTRdhHiUO7tn" : {
+      "id" : "E7B6eMn2u77nVE_h9mbRF$$QJPCqKK6KmTRdhHiUO7tn",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "xml_column_parsing_source",
+        "slug" : "xml_column_parsing_source",
+        "x" : -800,
+        "y" : -180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads data from a table named 'xml_input' in the 'abhinav_demo' database, which contains XML data.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "eHEDDI9y4V_7pFkFSHMav$$J7huh5ZjTGM1GuM8buOln",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/xml_column_parsing_source"
+      }
+    },
+    "5RL3mVqkUYEmZsbcDhl-w$$oGhdnefY7t38yJ-H2Wf3b" : {
+      "id" : "5RL3mVqkUYEmZsbcDhl-w$$oGhdnefY7t38yJ-H2Wf3b",
+      "component" : "FlattenSchema",
+      "metadata" : {
+        "label" : "flatten_schema_1",
+        "slug" : "flatten_schema_1",
+        "x" : -400,
+        "y" : -280,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Flattens a nested schema by selecting specific columns and renaming them, ensuring a consistent structure for further analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "HEgEbUYBd_NfMuZ9tjpz5$$cyj9d2HNEwoCDGx06fW51",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "explodedColsNewName" : [ ],
+        "fsExpressions" : [ {
+          "exploded" : "",
+          "flattenedExpression" : "xml_column",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_column"
+          },
+          "targetTokens" : [ "xml_column" ],
+          "target" : "xml_column"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "id"
+          },
+          "targetTokens" : [ "id" ],
+          "target" : "id"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.id"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "id" ],
+          "target" : "xml_parsed_content-person-id"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.name.first",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.name.first"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "name", "first" ],
+          "target" : "xml_parsed_content-person-name-first"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.name.last",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.name.last"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "name", "last" ],
+          "target" : "xml_parsed_content-person-name-last"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.street",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.street"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "street" ],
+          "target" : "xml_parsed_content-person-address-street"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.city"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "city" ],
+          "target" : "xml_parsed_content-person-address-city"
+        }, {
+          "exploded" : "",
+          "flattenedExpression" : "xml_parsed_content.person.address.zip",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.zip"
+          },
+          "targetTokens" : [ "xml_parsed_content", "person", "address", "zip" ],
+          "target" : "xml_parsed_content-person-address-zip"
+        } ],
+        "columnsSelector" : [ "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_column", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.id", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.zip", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.city", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##id", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.street", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name.last", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name.first" ],
+        "explodeColumns" : [ ],
+        "delimiter" : "-"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "44beJt71CYNwLOmovcCWf$$4EChVlKB6_H7_aL2Hgc-x" : {
+      "id" : "44beJt71CYNwLOmovcCWf$$4EChVlKB6_H7_aL2Hgc-x",
+      "component" : "XMLColumnParser",
+      "metadata" : {
+        "label" : "xml_column_parser",
+        "slug" : "xml_column_parser",
+        "x" : -580,
+        "y" : -60,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Parses XML data in a column and extracts structured information by inferring the schema dynamically.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "l-DnXE2mnt4kkvhQrtIT2$$qXhBD2vOXYXfxlk4v04wY",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "s8CKw0EvzXw5Ar350Pj94$$7ohmAMLxPAxFFz2z3vfS_",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "xmlColumnToParse" : "xml_column",
+        "parsingMethod" : "parseAuto",
+        "sampleRecord" : null,
+        "xmlSchema" : "STRUCT< person: STRUCT< id: INT, name: STRUCT< first: STRING, last: STRING >, address: STRUCT< street: STRING, city: STRING, zip: STRING > > >"
+      },
+      "componentInfo" : {
+        "gemId" : "gems/XMLColumnParser",
+        "projectName" : "use_case_demos"
+      }
+    },
+    "gJkSWKKPtSdfrZ0FozWCP$$e669eETKIqQl2vjaPpAne" : {
+      "id" : "gJkSWKKPtSdfrZ0FozWCP$$e669eETKIqQl2vjaPpAne",
+      "component" : "XMLColumnParser",
+      "metadata" : {
+        "label" : "parse_xml_column",
+        "slug" : "parse_xml_column",
+        "x" : -580,
+        "y" : -280,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Parses XML data in a column and extracts structured information, creating a new column with the parsed content.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "2XDd6Fe5ItoY2FJsUY_cI$$0UaIn5RQ5rBsxJQ9V-KrS",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "rPDPicCn-5R6S9TCdHFcH$$IVzViyxEHEA6UPXNemRkA",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "xmlColumnToParse" : "xml_column",
+        "parsingMethod" : "parseFromSampleRecord",
+        "sampleRecord" : "<root>\n  <person>\n    <id>1</id>\n    <name>\n      <first>John</first>\n      <last>Doe</last>\n    </name>\n    <address>\n      <street>Main St</street>\n      <city>Springfield</city>\n      <zip>12345</zip>\n    </address>\n  </person>\n</root>",
+        "xmlSchema" : null
+      },
+      "componentInfo" : {
+        "gemId" : "gems/XMLColumnParser",
+        "projectName" : "use_case_demos"
+      }
+    },
+    "utHFVuFwgmJr3q2x6gWfW$$gNqqQj5DS6dDPSI14qsPL" : {
+      "id" : "utHFVuFwgmJr3q2x6gWfW$$gNqqQj5DS6dDPSI14qsPL",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformatted_person_data",
+        "slug" : "reformatted_person_data",
+        "x" : -400,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts and reformats person data from XML format, including their ID, first name, last name, city, and zip code.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "VM4R17uqr9OQ_g-qEzkzk$$VkPI1MHjYWgIhdJgLCskf",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.id"
+          },
+          "description" : ""
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.name.first"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.name.last"
+          },
+          "description" : ""
+        }, {
+          "target" : "city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.city"
+          },
+          "description" : ""
+        }, {
+          "target" : "zip",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "xml_parsed_content.person.address.zip"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address.city", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name.last", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name.first", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address.zip", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.id" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

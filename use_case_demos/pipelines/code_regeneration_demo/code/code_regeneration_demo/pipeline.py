@@ -9,6 +9,7 @@ from code_regeneration_demo.graph import *
 def pipeline(spark: SparkSession) -> None:
     df_customers = customers(spark)
     df_name_transformation = name_transformation(spark, df_customers)
+    df_mask_columns_sha1 = mask_columns_sha1(spark, df_customers)
 
 def main():
     spark = SparkSession.builder\
