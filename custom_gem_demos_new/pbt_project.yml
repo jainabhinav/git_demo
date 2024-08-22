@@ -82,7 +82,7 @@ gemContainer:
       files:
       - demoteamabhinav_customgemdemosnew/gems/MaskColumns.py
       gemType: ComponentGem
-      dependencies: null
+      dependencies: []
       createdAt: '2024-07-21 19:23:42'
     gems/catalogTable:
       name: catalogTable
@@ -108,6 +108,18 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-08-08 14:35:19'
+    gems/NewDataset:
+      name: NewDataset
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/NewDataset.py
+      gemType: DatasetGem
+      dependencies: null
+      createdAt: '2024-08-22 08:21:17'
   dependencies: null
 functions:
   author: null
@@ -153,16 +165,23 @@ sqlPipeline: null
 dependencies:
 - modifiedAt: '2024-07-21T07:30:16.129693Z'
   name: plibMaven
-  version: 8.0.25
+  version: 8.0.31
   id: '848385427'
   createdAt: '2024-07-21T07:30:16.129693Z'
   type: plibMaven
-- modifiedAt: '2024-07-21T07:30:16.129693Z'
-  name: plibPypi
+  enabled: true
+  entity: Project
+- modifiedAt: '2024-08-22T08:10:07.354Z'
+  name: ProphecyLibsPython
   version: 1.9.9
   id: '1875097243'
   createdAt: '2024-07-21T07:30:16.129693Z'
   type: plibPypi
+  enabled: true
+  entity: Project
+  description: Default dependency for Prophecy Libs
+  scope: Project
+  editable: true
 projectDependencies:
   '12654':
     projectUID: 12654

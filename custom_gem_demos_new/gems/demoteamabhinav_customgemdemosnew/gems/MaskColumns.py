@@ -54,6 +54,7 @@ class MaskColumns(ComponentSpec):
     def validate(self, context: WorkflowContext, component: Component[MaskColumnsProperties]) -> List[Diagnostic]:
         # Validate the component's state
         diagnostics = []
+        
         if component.properties.maskingTechnique == "sha2":
             if component.properties.sha2BitLength is not None:
                 if not component.properties.sha2BitLength in ["224", "256", "384", "512"]:
