@@ -486,7 +486,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique identifier for the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1056,7 +1056,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique identifier for the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
