@@ -1,0 +1,1119 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.1.4",
+        "pyPiVersion" : "1.9.14"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/pydeequ_data_quality_check",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "pydeequ_data_quality_check",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "2512",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "shashankprophecyioteam.sodadqcheck.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "42",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "43",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "pydeequ_data_quality_check",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "wDpKMJVo4u3yZe7ibWzhn",
+    "source" : "2kRhLnpDEPwPHUDCnqWvL$$aIlDsCcviGgWsnQ59I1Og",
+    "sourcePort" : "OwV_ObM2PK7Zr_gTlkA6T$$CnGOsXAxJNwexpw2Apc8K",
+    "target" : "Xop1FeRM1CI5Nh62XoTLX$$Npr2xhry9HSYe1j2YEkX-",
+    "targetPort" : "olFH2Dc5tVjzp8p56iKme$$jMcanDNwszpnrniYQaJDe"
+  } ],
+  "processes" : {
+    "2kRhLnpDEPwPHUDCnqWvL$$aIlDsCcviGgWsnQ59I1Og" : {
+      "id" : "2kRhLnpDEPwPHUDCnqWvL$$aIlDsCcviGgWsnQ59I1Og",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "dummy_data",
+        "slug" : "dummy_data",
+        "x" : -340,
+        "y" : -160,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Generates sample employee data for testing and analysis, including salary information across different departments.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "OwV_ObM2PK7Zr_gTlkA6T$$CnGOsXAxJNwexpw2Apc8K",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EmployeeName",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Department",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "old_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "from py4j.java_gateway import java_import\njava_import(spark._sc._jvm, \"org.apache.spark.sql.api.python.*\")\n\ndata = [\n    (1, \"James\", \"Sales\", 3000, 3500),\n    (2, \"Michael\", \"Sales\", 4600, 5100),\n    (3, \"Shashank\", \"Hr\", 4000, 4500),\n    (4, \"Amit\", \"Finance\", 3000, 3500),\n    (5, \"Nitin\", \"Finance\", 5000, 5500)\n]\n\ncolumns = [\"id\", \"EmployeeName\", \"Department\", \"old_salary\", \"new_salary\"]\nout0 = spark.createDataFrame(data, schema=columns)\nreturn out0",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "Xop1FeRM1CI5Nh62XoTLX$$Npr2xhry9HSYe1j2YEkX-" : {
+      "id" : "Xop1FeRM1CI5Nh62XoTLX$$Npr2xhry9HSYe1j2YEkX-",
+      "component" : "dataQualtiyCheck",
+      "metadata" : {
+        "label" : "data_quality_checks",
+        "slug" : "data_quality_checks",
+        "x" : -20,
+        "y" : -160,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Conducts comprehensive data quality checks to ensure the integrity and reliability of employee data, identifying any issues that could affect business decisions.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "olFH2Dc5tVjzp8p56iKme$$jMcanDNwszpnrniYQaJDe",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EmployeeName",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Department",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "old_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "PoMPCEaOzFi3aedmXinZS$$vfr7VeKsU9se2TNsE6FFs",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EmployeeName",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Department",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "old_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_salary",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "YBZKfXdCwWYeWOBcKe-Y8$$v4xksKhloBP_5usgS6OKT",
+          "slug" : "out1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "check_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "constraint_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "constraint_message",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "dq_check" : [ {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ "id", "EmployeeName" ],
+            "threshold" : "",
+            "hint" : "There are some null values in the column"
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddCompletenessCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "3",
+            "hint" : "Dataframe contains rows less than 3"
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddRowCountCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddIsUniqueCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ "id" ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ "Department" ],
+            "threshold" : "2",
+            "hint" : "Department column should have 2 distinct values"
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddDistinctCountCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ "EmployeeName" ],
+            "dataType" : "String",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddHasDataTypeCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ "new_salary" ],
+            "threshold" : "1000",
+            "hint" : "Sum of salary should be 1000"
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ ],
+            "minLength" : "",
+            "maxLength" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddHasSumCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        }, {
+          "AddIsLessThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasStandardDeviationCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddDistinctCountCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddRowCountCheck" : {
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsPositiveCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasSumCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddHasDataTypeCheck" : {
+            "columns" : [ ],
+            "dataType" : "",
+            "hint" : ""
+          },
+          "AddCompletenessCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddHasMinMaxLengthCheck" : {
+            "columns" : [ "EmployeeName" ],
+            "minLength" : "2",
+            "maxLength" : "4",
+            "hint" : ""
+          },
+          "AddIsGreaterThanCheckColumnToConst" : {
+            "left_column" : "",
+            "const_value" : "",
+            "hint" : ""
+          },
+          "AddHasMeanCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddLookupCheck" : {
+            "columns" : [ ],
+            "lookup_list" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          },
+          "AddIsLessThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "AddIsGreaterThanOrEqualToCheckColumnToColumn" : {
+            "left_column" : "",
+            "right_column" : "",
+            "hint" : ""
+          },
+          "kind" : "AddHasMinMaxLengthCheck",
+          "AddIsUniqueCheck" : {
+            "columns" : [ ],
+            "hint" : ""
+          },
+          "AddIsNonNegativeCheck" : {
+            "columns" : [ ],
+            "threshold" : "",
+            "hint" : ""
+          }
+        } ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "id",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "EmployeeName",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "Department",
+            "type" : "string",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "old_salary",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          }, {
+            "name" : "new_salary",
+            "type" : "long",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "activeTab" : "settings",
+        "columnsSelector" : [ ],
+        "minFailedChecks" : "1",
+        "postAction" : "terminate_execution"
+      },
+      "componentInfo" : {
+        "gemId" : "gems/dataQualtiyCheck",
+        "projectName" : "soda_dq_check"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

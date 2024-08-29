@@ -1,0 +1,161 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.1.4",
+        "pyPiVersion" : "1.9.14"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/data_generator",
+    "sourceSuggestions" : [ {
+      "sourceLabel" : "Customers",
+      "sourceDatasetId" : "datasets/Customers",
+      "canJoinWith" : [ {
+        "processLabel" : "data_generator",
+        "processId" : "I9izglDlDIjD0s-fKyKx1$$7LO7SDaEmYfUSlQhEuNRT",
+        "joinColumns" : [ "name" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "name" ],
+          "conditions" : [ {
+            "alias" : "Customers",
+            "expression" : "(data_generator.name = Customers.customer_id)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "first_name",
+            "expression" : "Customers.first_name"
+          }, {
+            "alias" : "last_name",
+            "expression" : "Customers.last_name"
+          }, {
+            "alias" : "phone",
+            "expression" : "Customers.phone"
+          }, {
+            "alias" : "email",
+            "expression" : "Customers.email"
+          }, {
+            "alias" : "country_code",
+            "expression" : "Customers.country_code"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "Customers.account_open_date"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "Customers.account_flags"
+          }, {
+            "alias" : "name",
+            "expression" : "data_generator.name"
+          }, {
+            "alias" : "age",
+            "expression" : "data_generator.age"
+          } ],
+          "headAlias" : "datasets/Customers"
+        }
+      } ]
+    } ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "data_generator",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "2512",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "shashankprophecyioteam.sodadqcheck.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "42",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "43",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "data_generator",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ ],
+  "processes" : {
+    "I9izglDlDIjD0s-fKyKx1$$7LO7SDaEmYfUSlQhEuNRT" : {
+      "id" : "I9izglDlDIjD0s-fKyKx1$$7LO7SDaEmYfUSlQhEuNRT",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "data_generator",
+        "slug" : "data_generator",
+        "x" : -820,
+        "y" : -220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Generates synthetic customer data for testing purposes, including names, ages, emails, and customer types.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "B-OiSaYrqPr2KyJVqTIh2$$Mr65jNBAUFevzIrDgiDac",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/data_generator"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

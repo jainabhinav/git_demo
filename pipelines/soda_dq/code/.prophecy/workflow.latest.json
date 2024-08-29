@@ -1,0 +1,316 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.1.4",
+        "pyPiVersion" : "1.9.14"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/soda_dq",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "soda_dq",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "2512",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "shashankprophecyioteam.sodadqcheck.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "42",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "43",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "soda_dq",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "J2rH2oC7knXBchwUTaA8X",
+    "source" : "EeF_DyK9WUDFXC1vNOtoG$$myKeGnglXcADulUwCzzrY",
+    "sourcePort" : "cXKIZYsAMIrt3JE2hxjCX$$fSEULTvK96XVcRi-ZGsJS",
+    "target" : "0RYqyZTWEI2R26mIPtEVS$$RjvU-wPgqOOImNgCzAyiu",
+    "targetPort" : "7K1zACKj2ISwRTDr172L9$$8uZWIqn4_rMgOjJwldwpC"
+  } ],
+  "processes" : {
+    "0RYqyZTWEI2R26mIPtEVS$$RjvU-wPgqOOImNgCzAyiu" : {
+      "id" : "0RYqyZTWEI2R26mIPtEVS$$RjvU-wPgqOOImNgCzAyiu",
+      "component" : "SodaDataQualityCheck",
+      "metadata" : {
+        "label" : "soda_data_quality_checks",
+        "slug" : "soda_data_quality_checks",
+        "x" : -200,
+        "y" : -420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Conducts data quality checks on customer data to ensure accuracy and reliability.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "7K1zACKj2ISwRTDr172L9$$8uZWIqn4_rMgOjJwldwpC",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "pxDfF6cnJH37zAc-VDYiT$$hMIqJ7jbPkV1ySfruvXw-",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "check_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "check_type",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data_source",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "table_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "column_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "result",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "sodaDatasourceName" : "soda_dq_check_demo1",
+        "sodaSecretKey" : [ {
+          "type" : "literal",
+          "value" : "46R2sbV-TJCqbxs0J93t9ihHrLGc2085YiENY7QVf1ZM24W59pAUgw"
+        } ],
+        "scanDefinitioName" : "Data Quality Checks",
+        "ymlFilePath" : "dbfs:/FileStore/data_engg/shashank/soda_details/soda_checks.yml",
+        "activeTab" : "soda_details",
+        "sodaHost" : [ {
+          "type" : "literal",
+          "value" : "cloud.us.soda.io"
+        } ],
+        "checks" : "checks for customers_df:\n    - failed rows:\n        fail condition: customer_id = 1\n        name: customer_check\n    - failed rows:\n        fail condition: email = 'celes1@usa.gov'\n        name: email_check_new\n    - row_count > 10\n    - missing_count(customer_id) = 0\n    - duplicate_count(customer_id):\n        fail: when > 0",
+        "ymlProvider" : "ymlFile",
+        "credsProvider" : "connStringUI",
+        "connStringFilePath" : "dbfs:/FileStore/data_engg/shashank/soda_details/soda_creds.yml",
+        "failedChecksFilePath" : "",
+        "sodaAPIKey" : [ {
+          "type" : "literal",
+          "value" : "a99bc557-7d18-432e-80b3-09d5b7c88e3f"
+        } ],
+        "connStringUI" : [ {
+          "type" : "vaultSecret",
+          "value" : {
+            "providerId" : "999",
+            "secretScope" : "soda-creds-scope",
+            "providerType" : "Databricks",
+            "providerName" : "Databricks",
+            "secretKey" : "soda_creds"
+          }
+        } ],
+        "datasetAliases" : [ {
+          "id" : "in0",
+          "alias" : "in0",
+          "tempViewName" : "customers_df"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gems/SodaDataQualityCheck",
+        "projectName" : "soda_dq_check"
+      }
+    },
+    "EeF_DyK9WUDFXC1vNOtoG$$myKeGnglXcADulUwCzzrY" : {
+      "id" : "EeF_DyK9WUDFXC1vNOtoG$$myKeGnglXcADulUwCzzrY",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "generate_customer_emails",
+        "slug" : "generate_customer_emails",
+        "x" : -620,
+        "y" : -420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Generates customer email addresses based on their IDs, ensuring a specific email for a key customer, which aids in personalized communication strategies.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "cXKIZYsAMIrt3JE2hxjCX$$fSEULTvK96XVcRi-ZGsJS",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "from pyspark.sql.functions import col, concat, lit, when\nfrom pyspark.sql.types import IntegerType\nimport random\n\n# Generate 9 records with sequential customer_id, email, and age\ndata = [(i, random.randint(18, 70)) for i in range(2, 11)]\n\n# Add the specific record with customer_id 1 and the email \"celes1@usa.gov\"\ndata.insert(0, (1, random.randint(18, 70)))\n\n# Create DataFrame\ndf = spark.createDataFrame(data, [\"customer_id\", \"age\"])\n\n# Add email column, ensuring \"celes1@usa.gov\" for customer_id 1\nout0 = df.withColumn(\"email\", when(col(\"customer_id\") == 1, lit(\"celes1@usa.gov\"))\n                             .otherwise(concat(col(\"customer_id\").cast(StringType()), lit(\"@example.com\"))))\n",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

@@ -1,0 +1,18 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: name
+    type: string
+    nullable: true
+    metadata:
+      description: The name of the individual
+      mappings: []
+      tags: []
+  - name: age
+    type: integer
+    nullable: true
+    metadata:
+      description: The age of the individual
+      mappings: []
+      tags: []
