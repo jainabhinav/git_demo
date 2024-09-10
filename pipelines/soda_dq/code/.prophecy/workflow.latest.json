@@ -86,13 +86,13 @@
       "metadata" : {
         "label" : "soda_data_quality_checks",
         "slug" : "soda_data_quality_checks",
-        "x" : -200,
-        "y" : -420,
+        "x" : -240,
+        "y" : -500,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Conducts data quality checks on customer data to ensure accuracy and reliability.",
+        "comment" : "Conducts data quality checks on customer data, ensuring accuracy and reliability for business decisions.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -202,24 +202,42 @@
       "properties" : {
         "sodaDatasourceName" : "soda_dq_check_demo1",
         "sodaSecretKey" : [ {
-          "type" : "literal",
-          "value" : "46R2sbV-TJCqbxs0J93t9ihHrLGc2085YiENY7QVf1ZM24W59pAUgw"
+          "type" : "vaultSecret",
+          "value" : {
+            "providerId" : "999",
+            "secretScope" : "soda-creds",
+            "providerType" : "Databricks",
+            "providerName" : "Databricks",
+            "secretKey" : "soda_secret_key"
+          }
         } ],
         "scanDefinitioName" : "Data Quality Checks",
         "ymlFilePath" : "dbfs:/FileStore/data_engg/shashank/soda_details/soda_checks.yml",
-        "activeTab" : "soda_details",
+        "activeTab" : "checks",
         "sodaHost" : [ {
-          "type" : "literal",
-          "value" : "cloud.us.soda.io"
+          "type" : "vaultSecret",
+          "value" : {
+            "providerId" : "999",
+            "secretScope" : "soda-creds",
+            "providerType" : "Databricks",
+            "providerName" : "Databricks",
+            "secretKey" : "soda_host"
+          }
         } ],
         "checks" : "checks for customers_df:\n    - failed rows:\n        fail condition: customer_id = 1\n        name: customer_check\n    - failed rows:\n        fail condition: email = 'celes1@usa.gov'\n        name: email_check_new\n    - row_count > 10\n    - missing_count(customer_id) = 0\n    - duplicate_count(customer_id):\n        fail: when > 0",
         "ymlProvider" : "ymlFile",
-        "credsProvider" : "connStringUI",
+        "credsProvider" : "connStringFilePath",
         "connStringFilePath" : "dbfs:/FileStore/data_engg/shashank/soda_details/soda_creds.yml",
-        "failedChecksFilePath" : "",
+        "failedChecksFilePath" : "dbfs:/FileStore/data_engg/shashank/soda_demo",
         "sodaAPIKey" : [ {
-          "type" : "literal",
-          "value" : "a99bc557-7d18-432e-80b3-09d5b7c88e3f"
+          "type" : "vaultSecret",
+          "value" : {
+            "providerId" : "999",
+            "secretScope" : "soda-creds",
+            "providerType" : "Databricks",
+            "providerName" : "Databricks",
+            "secretKey" : "soda_api_key"
+          }
         } ],
         "connStringUI" : [ {
           "type" : "vaultSecret",
@@ -248,8 +266,8 @@
       "metadata" : {
         "label" : "generate_customer_emails",
         "slug" : "generate_customer_emails",
-        "x" : -620,
-        "y" : -420,
+        "x" : -680,
+        "y" : -500,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
