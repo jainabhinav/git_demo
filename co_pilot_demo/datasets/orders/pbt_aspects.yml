@@ -1,0 +1,50 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: order_id
+    type: integer
+    nullable: true
+    metadata:
+      description: The unique identifier for an order
+      mappings: []
+      tags: []
+  - name: customer_id
+    type: integer
+    nullable: true
+    metadata:
+      description: The unique ID of the customer who placed the order
+      mappings:
+      - columnName: customer_id
+        type: foreign
+        datasetName: customers
+        datasetId: datasets/customers
+      tags: []
+  - name: order_status
+    type: string
+    nullable: true
+    metadata:
+      description: The status of the order
+      mappings: []
+      tags: []
+  - name: order_category
+    type: string
+    nullable: true
+    metadata:
+      description: The category or type of the order
+      mappings: []
+      tags: []
+  - name: order_date
+    type: date
+    nullable: true
+    metadata:
+      description: The date when the order was placed
+      mappings: []
+      tags: []
+  - name: amount
+    type: double
+    nullable: true
+    metadata:
+      description: The total amount of the order
+      mappings: []
+      tags: []

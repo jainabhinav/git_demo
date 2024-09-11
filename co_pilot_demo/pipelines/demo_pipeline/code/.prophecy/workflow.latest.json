@@ -1,0 +1,459 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.1.4",
+        "pyPiVersion" : "1.9.14"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/demo_pipeline",
+    "sourceSuggestions" : [ ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "demo_pipeline",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true
+    },
+    "language" : "python",
+    "fabricId" : "2121",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "abhinavdemoprophecyioteam.copilotdemo.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "demo_pipeline",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "WlEeyFUQM_QQJ2E7KNhtD$$vfSi9wHvUq86AgPxDJZ_D",
+    "source" : "qAQstqIpUdGg6Tg8OaPQh$$ZHYWIKgIn7FMSSlAM1zz1",
+    "sourcePort" : "N2035dlTzXN0QAUStc4t3$$_BnLqQMaQek8FdtB2Ot-o",
+    "target" : "UFbVEJB-UlqTi6C7Ot5E_$$3IPSj23JUVWZ1pyp85jQ5",
+    "targetPort" : "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE"
+  }, {
+    "id" : "PBwSYYAi9MGOShZ7tajEs$$my-HFVZ-tq0Jxu7qpx-Dn",
+    "source" : "It0OQ0vVBgvYESc4ddQ0V",
+    "sourcePort" : "P15rQAHOWPubNhZRSYtR_",
+    "target" : "UFbVEJB-UlqTi6C7Ot5E_$$3IPSj23JUVWZ1pyp85jQ5",
+    "targetPort" : "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe"
+  } ],
+  "processes" : {
+    "qAQstqIpUdGg6Tg8OaPQh$$ZHYWIKgIn7FMSSlAM1zz1" : {
+      "id" : "qAQstqIpUdGg6Tg8OaPQh$$ZHYWIKgIn7FMSSlAM1zz1",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders",
+        "slug" : "orders",
+        "x" : -900,
+        "y" : -280,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "N2035dlTzXN0QAUStc4t3$$_BnLqQMaQek8FdtB2Ot-o",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/orders"
+      }
+    },
+    "It0OQ0vVBgvYESc4ddQ0V" : {
+      "id" : "It0OQ0vVBgvYESc4ddQ0V",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers",
+        "slug" : "customers",
+        "x" : -900,
+        "y" : -80,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "P15rQAHOWPubNhZRSYtR_",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customers"
+      }
+    },
+    "UFbVEJB-UlqTi6C7Ot5E_$$3IPSj23JUVWZ1pyp85jQ5" : {
+      "id" : "UFbVEJB-UlqTi6C7Ot5E_$$3IPSj23JUVWZ1pyp85jQ5",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "by_customer_id",
+        "slug" : "by_customer_id",
+        "x" : -700,
+        "y" : -180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE",
+          "slug" : "orders",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for an order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ {
+                  "columnName" : "customer_id",
+                  "type" : "foreign",
+                  "datasetName" : "customers",
+                  "datasetId" : "datasets/customers"
+                } ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The status of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The category or type of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The total amount of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe",
+          "slug" : "customers",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "W0QavfWPRFlj-2g7sgpdy$$wl_IIxDWri-FSLuvbFTm6",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "customers",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "(orders.customer_id = customers.customer_id)"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.first_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.last_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "phone",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.phone"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.email"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "country_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.country_code"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.account_open_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "account_flags",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customers.account_flags"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "orders.order_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_status",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "orders.order_status"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "orders.amount"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "orders.order_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "orders.customer_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "order_category",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "orders.order_category"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE",
+          "alias" : "orders",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe",
+          "alias" : "customers",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe##customer_id", "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE##customer_id", "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe##email", "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE##order_category", "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe##account_flags", "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE##order_date", "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe##account_open_date", "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe##country_code", "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe##last_name", "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE##order_id", "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe##first_name", "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE##customer_id", "LtniM72eo7A1kFGNb_UYQ$$WysJvPHXQI75TkP6QAAxe##phone", "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE##amount", "DRM9u6NXxg1Lhu_kQP8fu$$ivstsN846QqEtexCDt-yE##order_status" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "orders"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}
