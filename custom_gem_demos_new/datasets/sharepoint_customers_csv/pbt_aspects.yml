@@ -6,7 +6,7 @@ schema:
     type: integer
     nullable: true
     metadata:
-      description: The unique identifier for the customer
+      description: Unique identifier for each customer
       mappings: []
       tags: []
   - name: first_name
@@ -20,28 +20,28 @@ schema:
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: The last name of the customer
       mappings: []
       tags: []
   - name: phone
     type: string
     nullable: true
     metadata:
-      description: Phone number associated with the customer
+      description: Contact phone number of the customer
       mappings: []
       tags: []
   - name: email
     type: string
     nullable: true
     metadata:
-      description: The email address of the customer
+      description: Email address of the customer
       mappings: []
       tags: []
   - name: country_code
     type: string
     nullable: true
     metadata:
-      description: The country code associated with the customer's location
+      description: Code representing the customer's country
       mappings: []
       tags: []
   - name: account_open_date
@@ -55,20 +55,7 @@ schema:
     type: string
     nullable: true
     metadata:
-      description: Flags associated with the customer's account
-      mappings: []
-      tags: []
-  - name: from_time
-    type: timestamp
-    nullable: false
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: to_time
-    type: timestamp
-    nullable: true
-    metadata:
-      description: ''
+      description: Flags indicating the status or characteristics of the customer's
+        account
       mappings: []
       tags: []

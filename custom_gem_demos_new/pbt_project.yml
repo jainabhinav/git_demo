@@ -27,6 +27,20 @@ pipelines:
       - datasets/customer_catalog_scd2
     subgraphs: []
     dependencies: {}
+  pipelines/sharepoint:
+    name: sharepoint
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-09-30 10:43:39'
+    datasets:
+      inputs:
+      - datasets/sharepoint_customers_csv
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/customers:
     name: customers
@@ -54,6 +68,19 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2024-07-30 21:02:58'
+  datasets/sharepoint_customers_csv:
+    name: sharepoint_customers_csv
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-09-30 10:45:33'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-09-30 10:45:33'
 templates: {}
 jobs: {}
 gemContainer:
@@ -120,6 +147,30 @@ gemContainer:
       gemType: DatasetGem
       dependencies: null
       createdAt: '2024-08-22 08:21:17'
+    gems/csv:
+      name: csv
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/csv.py
+      gemType: DatasetGem
+      dependencies: null
+      createdAt: '2024-09-30 10:43:52'
+    gems/SFTPCopy:
+      name: SFTPCopy
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/SFTPCopy.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-09-30 21:07:01'
   dependencies: null
 functions:
   author: null
