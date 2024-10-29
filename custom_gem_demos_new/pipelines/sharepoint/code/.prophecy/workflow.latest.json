@@ -7,106 +7,14 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.31",
-        "pyPiVersion" : "1.9.9"
+        "mavenVersion" : "8.1.8",
+        "pyPiVersion" : "1.9.14"
       },
       "sparkConfigJinjaEnabled" : true
     },
     "id" : "1",
     "uri" : "pipelines/sharepoint",
-    "sourceSuggestions" : [ {
-      "sourceLabel" : "customers",
-      "sourceDatasetId" : "datasets/customers",
-      "canJoinWith" : [ {
-        "processLabel" : "sharepoint_customers_csv",
-        "processId" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
-        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
-        "isRecommended" : true,
-        "properties" : {
-          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
-          "conditions" : [ {
-            "alias" : "customers",
-            "expression" : "(((sharepoint_customers_csv.account_flags = customers.account_flags) AND (sharepoint_customers_csv.country_code = customers.country_code)) AND (sharepoint_customers_csv.customer_id = customers.customer_id))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "customer_id",
-            "expression" : "sharepoint_customers_csv.customer_id"
-          }, {
-            "alias" : "country_code",
-            "expression" : "sharepoint_customers_csv.country_code"
-          }, {
-            "alias" : "last_name",
-            "expression" : "sharepoint_customers_csv.last_name"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "sharepoint_customers_csv.account_open_date"
-          }, {
-            "alias" : "first_name",
-            "expression" : "sharepoint_customers_csv.first_name"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "sharepoint_customers_csv.account_flags"
-          }, {
-            "alias" : "phone",
-            "expression" : "sharepoint_customers_csv.phone"
-          }, {
-            "alias" : "email",
-            "expression" : "sharepoint_customers_csv.email"
-          } ],
-          "headAlias" : "datasets/customers"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "customer_catalog_scd2",
-      "sourceDatasetId" : "datasets/customer_catalog_scd2",
-      "canJoinWith" : [ {
-        "processLabel" : "sharepoint_customers_csv",
-        "processId" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
-        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
-        "isRecommended" : true,
-        "properties" : {
-          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
-          "conditions" : [ {
-            "alias" : "customer_catalog_scd2",
-            "expression" : "(((sharepoint_customers_csv.account_flags = customer_catalog_scd2.account_flags) AND (sharepoint_customers_csv.country_code = customer_catalog_scd2.country_code)) AND (sharepoint_customers_csv.customer_id = customer_catalog_scd2.customer_id))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "from_time",
-            "expression" : "customer_catalog_scd2.from_time"
-          }, {
-            "alias" : "to_time",
-            "expression" : "customer_catalog_scd2.to_time"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "sharepoint_customers_csv.customer_id"
-          }, {
-            "alias" : "country_code",
-            "expression" : "sharepoint_customers_csv.country_code"
-          }, {
-            "alias" : "last_name",
-            "expression" : "sharepoint_customers_csv.last_name"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "sharepoint_customers_csv.account_open_date"
-          }, {
-            "alias" : "first_name",
-            "expression" : "sharepoint_customers_csv.first_name"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "sharepoint_customers_csv.account_flags"
-          }, {
-            "alias" : "phone",
-            "expression" : "sharepoint_customers_csv.phone"
-          }, {
-            "alias" : "email",
-            "expression" : "sharepoint_customers_csv.email"
-          } ],
-          "headAlias" : "datasets/customer_catalog_scd2"
-        }
-      } ]
-    } ],
+    "sourceSuggestions" : [ ],
     "pipelineSettingsInfo" : {
       "applicationName" : "sharepoint",
       "hasApplication" : true,
@@ -213,21 +121,214 @@
     "topLevelPackage" : "sharepoint",
     "configurationVersion" : "v2"
   },
-  "connections" : [ ],
+  "connections" : [ {
+    "id" : "UFZ1XFaWJeVqpYZmW_J1v$$zpHs1tDIc8CfbGKLH97RX",
+    "source" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
+    "sourcePort" : "ZT6CfztL72xuEBtyp1bYH$$fTykSln-4kImlUF_S8rFr",
+    "target" : "DBPKz0f8zaAGutBP-pZ_A$$MpRxmmhTne7_daA8_jJPC",
+    "targetPort" : "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG"
+  } ],
   "processes" : {
+    "DBPKz0f8zaAGutBP-pZ_A$$MpRxmmhTne7_daA8_jJPC" : {
+      "id" : "DBPKz0f8zaAGutBP-pZ_A$$MpRxmmhTne7_daA8_jJPC",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "customer_info_reformat",
+        "slug" : "customer_info_reformat",
+        "x" : -1200,
+        "y" : -400,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reformats customer information for better organization and clarity, ensuring all relevant details are easily accessible.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Contact phone number of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the customer's country",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags indicating the status or characteristics of the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "QokUn3uKoJbc8hZAYFgm8$$I04H2Uf1hevyj1ML5HwiI",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "asd",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "1"
+          },
+          "description" : ""
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customer_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "customer_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "first_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "last_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "phone",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "phone"
+          },
+          "description" : ""
+        }, {
+          "target" : "email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "email"
+          },
+          "description" : ""
+        }, {
+          "target" : "country_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "country_code"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_open_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_flags",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_flags"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG##first_name", "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG##account_open_date", "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG##phone", "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG##customer_id", "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG##account_flags", "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG##last_name", "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG##email", "JIBBQ_e5K5ezb7nvAmuhb$$TdvS0G_wDi1YYSj4rFLHG##country_code" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc" : {
       "id" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
       "component" : "Source",
       "metadata" : {
         "label" : "sharepoint_customers_csv",
         "slug" : "sharepoint_customers_csv",
-        "x" : -980,
-        "y" : -220,
+        "x" : -1360,
+        "y" : -400,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Downloads customer data from a secure server and makes it accessible for analysis.",
+        "comment" : "Imports customer data from a CSV file for analysis.",
         "autoUpdateComment" : true
       },
       "ports" : {

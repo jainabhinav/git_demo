@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.31",
-        "pyPiVersion" : "1.9.9"
+        "mavenVersion" : "8.1.8",
+        "pyPiVersion" : "1.9.14"
       }
     },
     "id" : "1",
@@ -486,7 +486,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The unique identifier for the customer",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1056,7 +1056,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The unique identifier for the customer",
                 "mappings" : [ ],
                 "tags" : [ ]
               }

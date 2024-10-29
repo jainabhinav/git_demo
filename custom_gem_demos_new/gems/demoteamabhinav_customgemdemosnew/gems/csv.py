@@ -310,7 +310,7 @@ class csv(DatasetSpec):
                 diagnostics.append(
                     Diagnostic("properties.separator", message, SeverityLevelEnum.Error))
 
-        if len(component.properties.path) == 0:
+        if (component.properties.pathSelection == "sharepoint" or component.properties.pathSelection == "fileLocation") and len(component.properties.path) == 0:
             diagnostics.append(
                 Diagnostic("properties.path", "path variable cannot be empty [Location]", SeverityLevelEnum.Error))
 
@@ -318,13 +318,31 @@ class csv(DatasetSpec):
             if not component.properties.secretUsername.parts:
                 diagnostics.append(Diagnostic("properties.secretUsername", "Username cannot be empty [Location]",
                                               SeverityLevelEnum.Error))
-            elif not component.properties.secretPassword.parts:
+            if not component.properties.secretPassword.parts:
                 diagnostics.append(Diagnostic("properties.secretPassword", "Password cannot be empty [Location]",
                                               SeverityLevelEnum.Error))
 
             if not component.properties.secretUrl.parts:
                 diagnostics.append(
-                    Diagnostic("properties.secretUrl", "Sharepoint relative URL cannot be empty [Location]",
+                    Diagnostic("properties.secretUrl", f"Sharepoint URL cannot be empty [Location]",
+                               SeverityLevelEnum.Error))
+
+        if component.properties.pathSelection == "sftp":
+            if not component.properties.sftpSecretUsername.parts:
+                diagnostics.append(Diagnostic("properties.sftpSecretUsername", "Username cannot be empty [Location]",
+                                              SeverityLevelEnum.Error))
+            if not component.properties.sftpSecretPassword.parts:
+                diagnostics.append(Diagnostic("properties.sftpSecretPassword", "Password cannot be empty [Location]",
+                                              SeverityLevelEnum.Error))
+
+            if not component.properties.sftpSecretUrl.parts:
+                diagnostics.append(
+                    Diagnostic("properties.sftpSecretUrl", f"Host cannot be empty [Location]",
+                               SeverityLevelEnum.Error))
+
+            if not component.properties.sftpSourcePath:
+                diagnostics.append(
+                    Diagnostic("properties.sftpSourcePath", f"Source path cannot be empty [Location]",
                                SeverityLevelEnum.Error))
 
         if component.properties.samplingRatio is not None:

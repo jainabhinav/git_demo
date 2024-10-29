@@ -5,6 +5,7 @@ setup(
     version = '0.4',
     packages = packages_to_include,
     description = '',
-    install_requires = [],
+    install_requires = [
+'pyhocon', ],
     data_files = ["resources/extensions.idx"]
 )

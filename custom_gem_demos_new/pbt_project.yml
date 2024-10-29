@@ -109,7 +109,17 @@ gemContainer:
       files:
       - demoteamabhinav_customgemdemosnew/gems/MaskColumns.py
       gemType: ComponentGem
-      dependencies: []
+      dependencies:
+      - type: pypi
+        modifiedAt: '2024-10-29T17:33:36.134Z'
+        package: pyhocon
+        name: pyhocon
+        description: ''
+        enabled: true
+        id: ymIbpUxpEMq8QYNHrhl5Q
+        createdAt: '2024-10-29T17:33:36.134Z'
+        entity: Gem
+        editable: true
       createdAt: '2024-07-21 19:23:42'
     gems/catalogTable:
       name: catalogTable
@@ -171,6 +181,30 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-09-30 21:07:01'
+    gems/newDemoGem:
+      name: newDemoGem
+      category: Transform
+      subCategory: null
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/newDemoGem.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-10-29 17:11:33'
+    gems/newSourceDemo:
+      name: newSourceDemo
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/newSourceDemo.py
+      gemType: DatasetGem
+      dependencies: null
+      createdAt: '2024-10-29 17:36:09'
   dependencies: null
 functions:
   author: null
@@ -216,15 +250,15 @@ sqlPipeline: null
 dependencies:
 - modifiedAt: '2024-07-21T07:30:16.129693Z'
   name: plibMaven
-  version: 8.0.31
+  version: 8.1.8
   id: '848385427'
   createdAt: '2024-07-21T07:30:16.129693Z'
   type: plibMaven
   enabled: true
   entity: Project
-- modifiedAt: '2024-08-22T08:10:07.354Z'
+- modifiedAt: '2024-10-01T19:25:32.987Z'
   name: ProphecyLibsPython
-  version: 1.9.9
+  version: 1.9.14
   id: '1875097243'
   createdAt: '2024-07-21T07:30:16.129693Z'
   type: plibPypi

@@ -7,8 +7,8 @@ from prophecy.cb.server.base.DatasetBuilderBase import DatasetSpec, DatasetPrope
 from prophecy.cb.ui.uispec import *
 
 
-class NewDatasetFormat(DatasetSpec):
-    name: str = "NewDataset"
+class NewSourceDemoFormat(DatasetSpec):
+    name: str = "newSourceDemo"
     datasetType: str = "File"
     mode: str = "batch"
     
@@ -17,14 +17,14 @@ class NewDatasetFormat(DatasetSpec):
         return True
 
     @dataclass(frozen=True)
-    class NewDatasetProperties(DatasetProperties):
+    class NewSourceDemoProperties(DatasetProperties):
         schema: Optional[StructType] = None
         description: Optional[str] = ""
         path: str = ""
         uri: Optional[str] = None
 
     def sourceDialog(self) -> DatasetDialog:
-        return (DatasetDialog("NewDataset")
+        return (DatasetDialog("newSourceDemo")
         .addSection("LOCATION", TargetLocation("path"))
         .addSection(
             "PROPERTIES",
@@ -48,7 +48,7 @@ class NewDatasetFormat(DatasetSpec):
             PreviewTable("").bindProperty("schema")))
 
     def targetDialog(self) -> DatasetDialog:
-        return (DatasetDialog("NewDataset")
+        return (DatasetDialog("newSourceDemo")
         .addSection("LOCATION", TargetLocation("path"))
         .addSection(
             "PROPERTIES",
@@ -72,13 +72,14 @@ class NewDatasetFormat(DatasetSpec):
     def onChange(self, context: WorkflowContext, oldState: Component, newState: Component) -> Component:
         return newState
 
-    class NewDatasetFormatCode(ComponentCode):
+    class NewSourceDemoFormatCode(ComponentCode):
         def __init__(self, props):
-            self.props: NewDatasetFormat.NewDatasetProperties = props
+            self.props: NewSourceDemoFormat.NewSourceDemoProperties = props
 
         def sourceApply(self, spark: SparkSession) -> DataFrame:
-            reader = spark.read.parquet("asd")
+            
+            reader = spark.read.parquet("asdasdf")
             return reader
 
         def targetApply(self, spark: SparkSession, in0: DataFrame):
-            in0.write.parquet("asd")
+            in0.write.parquet("asdasd")
