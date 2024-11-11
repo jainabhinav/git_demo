@@ -44,6 +44,42 @@
           "optional" : false,
           "isWorkflowNodeConfiguration" : false,
           "isReferenced" : false
+        }, {
+          "name" : "secret_test",
+          "kind" : {
+            "type" : "secret",
+            "fields" : [ {
+              "name" : "secretScope",
+              "kind" : {
+                "type" : "string",
+                "value" : "abhinav_demo"
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            }, {
+              "name" : "secretKey",
+              "kind" : {
+                "type" : "string",
+                "value" : "kafka_api_key"
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            }, {
+              "name" : "providerType",
+              "kind" : {
+                "type" : "string",
+                "value" : "Databricks"
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            } ]
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
         } ]
       },
       "oldCommon" : {
@@ -52,7 +88,7 @@
       },
       "fabrics" : { },
       "instances" : { },
-      "selected" : "dev",
+      "selected" : "default",
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
@@ -334,6 +370,34 @@
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "MA3UTECIMKToBddjHdotl$$PWPRdmKxbbkgkIWpR_W3m" : {
+      "id" : "MA3UTECIMKToBddjHdotl$$PWPRdmKxbbkgkIWpR_W3m",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "empty_script",
+        "slug" : "empty_script",
+        "x" : -240,
+        "y" : -300,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Outputs characters from a secure configuration setting, possibly for testing or verification purposes.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "for char in Config.secret_test:\n    print(char, end=\" \")",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> None:",
+        "scriptMethodFooter" : "    return "
       }
     },
     "lvvU_3FB0M9oow-DmV7Jb$$PEpZWxKSIKVYpBRqfSXOP" : {
@@ -925,7 +989,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Filters customers based on a specific range of customer IDs, focusing on those with IDs greater than 98.",
+        "comment" : "Filters customers to include only those with IDs greater than 98.",
         "autoUpdateComment" : true
       },
       "ports" : {

@@ -267,6 +267,17 @@ dependencies:
   description: Default dependency for Prophecy Libs
   scope: Project
   editable: true
+- description: ''
+  id: TQDUzgWG43xWmTWFD6fdZ
+  editable: true
+  enabled: true
+  type: pypi
+  name: sftp
+  scope: Project
+  package: paramiko
+  entity: Project
+  modifiedAt: '2024-11-11T09:57:24.549Z'
+  createdAt: '2024-11-11T09:57:24.549Z'
 projectDependencies:
   '12654':
     projectUID: 12654

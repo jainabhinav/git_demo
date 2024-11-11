@@ -10,6 +10,7 @@ def pipeline(spark: SparkSession) -> None:
     df_customers = customers(spark)
     df_distribute_rows_out0, df_distribute_rows_out1 = distribute_rows(spark, df_customers)
     df_reformatted_customers_1 = reformatted_customers_1(spark, df_distribute_rows_out1)
+    empty_script(spark)
     df_reformatted_customers = reformatted_customers(spark, df_distribute_rows_out0)
     df_SetOperation_1 = SetOperation_1(spark, df_reformatted_customers, df_reformatted_customers_1)
     customer_catalog_scd2(spark, df_SetOperation_1)

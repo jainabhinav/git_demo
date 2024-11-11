@@ -10,5 +10,6 @@ from .reformatted_customers_2 import reformatted_customers_2
 from .filter_by_customer_id_1 import filter_by_customer_id_1
 from .customers import customers
 from .filter_by_customer_id import filter_by_customer_id
+from .empty_script import empty_script
 from .customers_1 import customers_1
 from .distribute_rows import distribute_rows

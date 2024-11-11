@@ -33,7 +33,7 @@ class MaskColumns(ComponentSpec):
 
         return Dialog("MaskColumns").addElement(
             ColumnsLayout(gap="1rem", height="100%")
-                .addColumn(Ports(), "content")
+                .addColumn(Ports(allowCustomOutputSchema=True, defaultCustomOutputSchema=False), "content")
                 .addColumn(StackLayout(height=("100%")).addElement(ColumnsLayout(("1rem"))
                     .addColumn(
                     SchemaColumnsDropdown("Column Names")
@@ -48,7 +48,7 @@ class MaskColumns(ComponentSpec):
                 .addElement(Condition()
                         .ifEqual(
                         PropExpr("component.properties.maskingTechnique"), StringExpr("sha2")
-                    ).then(TextBox("SHA 2 Bits").bindPlaceholder("256").bindProperty("sha2BitLength"))).addElement(SecretBox("Username").bindPlaceholder("username").bindProperty("newProp"))
+                    ).then(TextBox("SHA 2 Bits").bindPlaceholder("256").bindProperty("sha2BitLength"))).addElement(SecretBox("Secret Box Example").bindPlaceholder("username").bindProperty("newProp"))
             )
         )
 
@@ -65,7 +65,7 @@ class MaskColumns(ComponentSpec):
     def onChange(self, context: WorkflowContext, oldState: Component[MaskColumnsProperties], newState: Component[MaskColumnsProperties]) -> Component[
     MaskColumnsProperties]:
         # Handle changes in the component's state and return the new state
-        # newState = replace(newState, ports=replace(newState.ports, isCustomOutputSchema=True))
+        newState = replace(newState, ports=replace(newState.ports, isCustomOutputSchema=True))
         return newState
 
     class MaskColumnsCode(ComponentCode):

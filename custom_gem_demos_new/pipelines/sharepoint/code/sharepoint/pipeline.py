@@ -8,7 +8,7 @@ from sharepoint.graph import *
 
 def pipeline(spark: SparkSession) -> None:
     df_sharepoint_customers_csv = sharepoint_customers_csv(spark)
-    df_customer_info_reformat = customer_info_reformat(spark, df_sharepoint_customers_csv)
+    Subgraph_1(spark, Config.Subgraph_1)
 
 def main():
     spark = SparkSession.builder\

@@ -7,7 +7,7 @@ setup(
     package_data = {'prophecy_config_instances' : ['*.json', '*.py', '*.conf']},
     description = 'workflow',
     install_requires = [
-'prophecy-libs==1.9.14'],
+'paramiko', 'prophecy-libs==1.9.14'],
     entry_points = {
 'console_scripts' : [
 'main = gem_testing.pipeline:main'], },
