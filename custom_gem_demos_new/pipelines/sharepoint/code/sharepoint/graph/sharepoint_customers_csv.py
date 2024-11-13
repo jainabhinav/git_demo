@@ -33,8 +33,9 @@ def sharepoint_customers_csv(spark: SparkSession) -> DataFrame:
         local_file_path = os.path.join("/tmp", os.path.basename("/uploads/customers.csv"))
     )
 
-    return spark.read\
-        .option("header", True)\
-        .option("inferSchema", True)\
-        .option("sep", ",")\
-        .csv("file://{}".format(os.path.join("/tmp", os.path.basename("/uploads/customers.csv"))))
+    with open(os.path.join("/tmp", os.path.basename("/uploads/customers.csv")), 'r') as f:
+        lines = f.readlines()
+
+    rdd = spark.sparkContext.parallelize(lines)
+
+    return spark.read.option("header", True).option("inferSchema", True).option("sep", ",").csv(rdd)

@@ -1,7 +1,7 @@
 from pyspark.sql import SparkSession, DataFrame
 from pyspark.sql.types import StructType, StructField, StringType
 
-from prophecy.cb.server.base.ComponentBuilderBase import ComponentCode, Diagnostic, SeverityLevelEnum
+from prophecy.cb.server.base.ComponentBuilderBase import ComponentCode, Diagnostic, SeverityLevelEnum, SubstituteDisabled
 from prophecy.cb.server.base.DatasetBuilderBase import DatasetSpec, DatasetProperties, Component
 from prophecy.cb.server.base.datatypes import SString, SFloat
 from prophecy.cb.ui.uispec import *
@@ -83,7 +83,9 @@ class csv(DatasetSpec):
                 variant="info",
                 _children=[
                     Markdown(
-                        "This Gem has the following requirement(s): Configure the [Office365-REST-Python-Client](https://pypi.org/project/Office365-REST-Python-Client/) PyPi dependency on the Spark cluster"
+                        "This Gem has the following requirement(s): \n"
+                        "(1) It is not supported on Databricks unity catalog shared clusters \n"
+                        "(2) Configure the [Office365-REST-Python-Client](https://pypi.org/project/Office365-REST-Python-Client/) PyPi dependency on the Spark cluster"
                     )
                 ]
             )
@@ -115,7 +117,9 @@ class csv(DatasetSpec):
                 variant="info",
                 _children=[
                     Markdown(
-                        "This Gem has the following requirement(s): Configure the [paramiko](https://pypi.org/project/paramiko/) PyPi dependency on the Spark cluster"
+                        "This Gem has the following requirement(s): \n"
+                        "(1) It is not supported on Databricks unity catalog shared clusters \n"
+                        "(2) Configure the [paramiko](https://pypi.org/project/paramiko/) PyPi dependency on the Spark cluster"
                     )
                 ]
             )
@@ -141,7 +145,7 @@ class csv(DatasetSpec):
                                   )
                       )
 
-        locationSelection = (RadioGroup("Read from:")
+        locationSelection = (SelectBox("Read from")
                              .addOption("File Location", "fileLocation")
                              .addOption("Sharepoint", "sharepoint")
                              .addOption("SFTP", "sftp")
@@ -467,7 +471,11 @@ class csv(DatasetSpec):
                 with open(download_path, "wb") as local_file:
                     ctx.web.get_file_by_server_relative_url(file_url).download(local_file).execute_query()
 
-                finalPath = f"file://{download_path}"
+                with open(download_path, 'r') as f:
+                    lines: SubstituteDisabled = f.readlines()
+
+                rdd: SubstituteDisabled = spark.sparkContext.parallelize(lines)
+                finalPath = rdd
             elif self.props.pathSelection == "sftp":
                 import paramiko
                 import os
@@ -490,7 +498,12 @@ class csv(DatasetSpec):
                 download_file_from_sftp(username=self.props.sftpSecretUsername, password=self.props.sftpSecretPassword,
                                         host=self.props.sftpSecretUrl, remote_file_path=self.props.sftpSourcePath,
                                         local_file_path=download_path)
-                finalPath = f"file://{download_path}"
+
+                with open(download_path, 'r') as f:
+                    lines: SubstituteDisabled = f.readlines()
+
+                rdd: SubstituteDisabled = spark.sparkContext.parallelize(lines)
+                finalPath = rdd
 
             reader = spark.read
             if self.props.schema is not None and self.props.useSchema:

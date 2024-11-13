@@ -113,7 +113,7 @@
       "isFunctionsPackageDirDefined" : true
     },
     "language" : "python",
-    "fabricId" : "18961",
+    "fabricId" : "18045",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
