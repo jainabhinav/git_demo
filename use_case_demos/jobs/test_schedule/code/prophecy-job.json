@@ -27,64 +27,7 @@
         "onSuccess" : false,
         "onFailure" : false
       }
-    },
-    "availableFabrics" : [ {
-      "id" : "2121",
-      "name" : "unity_fabric",
-      "clusterSizes" : {
-        "default" : "small",
-        "availableClusterSizes" : [ "small", "unity-single", "unity-shared", "new-unity-single" ]
-      },
-      "pylibsResolutionMode" : {
-        "PublicCentral" : { }
-      },
-      "scalalibsResolutionMode" : {
-        "PublicCentral" : { }
-      }
-    }, {
-      "id" : "2122",
-      "name" : "non_unity_fabric",
-      "clusterSizes" : {
-        "default" : "small",
-        "availableClusterSizes" : [ "small", "advanced", "lib_install" ]
-      },
-      "pylibsResolutionMode" : {
-        "PublicCentral" : { }
-      },
-      "scalalibsResolutionMode" : {
-        "PublicCentral" : { }
-      }
-    }, {
-      "id" : "4770",
-      "name" : "first_fabric",
-      "clusterSizes" : {
-        "default" : "Small",
-        "availableClusterSizes" : [ "Small" ]
-      },
-      "pylibsResolutionMode" : {
-        "PublicCentral" : { }
-      },
-      "scalalibsResolutionMode" : {
-        "PublicCentral" : { }
-      }
-    }, {
-      "id" : "14766",
-      "name" : "new_fabric",
-      "clusterSizes" : {
-        "default" : "small",
-        "availableClusterSizes" : [ "small" ]
-      },
-      "pylibsResolutionMode" : {
-        "DBFS" : {
-          "path" : "s3_path"
-        }
-      },
-      "scalalibsResolutionMode" : {
-        "DBFS" : {
-          "path" : "s3_path"
-        }
-      }
-    } ]
+    }
   },
   "processes" : {
     "rgKpJUc7gaQ28Pr0EIX-r" : {
@@ -129,7 +72,7 @@
             "isWorkflowNodeConfiguration" : false
           } ],
           "instances" : {
-            "use_case_demos" : [ "default", "livy", "databricks" ]
+            "use_case_demos" : [ "databricks", "default", "livy" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"

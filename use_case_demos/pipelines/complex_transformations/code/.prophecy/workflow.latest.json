@@ -7,12 +7,106 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.29",
-        "pyPiVersion" : "1.9.9"
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
       }
     },
     "id" : "1",
     "uri" : "pipelines/complex_transformations",
+    "sourceSuggestions" : [ {
+      "sourceLabel" : "xml_column_parsing_source",
+      "sourceDatasetId" : "datasets/xml_column_parsing_source",
+      "canJoinWith" : [ {
+        "processLabel" : "xml_string_input",
+        "processId" : "ah3f66MOsaYGcaHpO7Dd2$$YIQr2xnMg5gfTRkaDNvUD",
+        "joinColumns" : [ "id", "xml_column" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "id", "xml_column" ],
+          "conditions" : [ {
+            "alias" : "xml_column_parsing_source",
+            "expression" : "((xml_string_input.id = xml_column_parsing_source.id) AND (xml_string_input.xml_column = xml_column_parsing_source.xml_column))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "xml_column",
+            "expression" : "xml_string_input.xml_column"
+          }, {
+            "alias" : "id",
+            "expression" : "xml_string_input.id"
+          } ],
+          "headAlias" : "datasets/xml_column_parsing_source"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "streaming_catalog",
+      "sourceDatasetId" : "datasets/streaming_catalog",
+      "canJoinWith" : [ {
+        "processLabel" : "xml_string_input",
+        "processId" : "ah3f66MOsaYGcaHpO7Dd2$$YIQr2xnMg5gfTRkaDNvUD",
+        "joinColumns" : [ "id" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "id" ],
+          "conditions" : [ {
+            "alias" : "streaming_catalog",
+            "expression" : "(xml_string_input.id = streaming_catalog.id)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "name",
+            "expression" : "streaming_catalog.name"
+          }, {
+            "alias" : "age",
+            "expression" : "streaming_catalog.age"
+          }, {
+            "alias" : "department",
+            "expression" : "streaming_catalog.department"
+          }, {
+            "alias" : "xml_column",
+            "expression" : "xml_string_input.xml_column"
+          }, {
+            "alias" : "id",
+            "expression" : "xml_string_input.id"
+          } ],
+          "headAlias" : "datasets/streaming_catalog"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "streaming_json",
+      "sourceDatasetId" : "datasets/streaming_json",
+      "canJoinWith" : [ {
+        "processLabel" : "xml_string_input",
+        "processId" : "ah3f66MOsaYGcaHpO7Dd2$$YIQr2xnMg5gfTRkaDNvUD",
+        "joinColumns" : [ "id" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "id" ],
+          "conditions" : [ {
+            "alias" : "streaming_json",
+            "expression" : "(xml_string_input.id = streaming_json.id)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "age",
+            "expression" : "streaming_json.age"
+          }, {
+            "alias" : "department",
+            "expression" : "streaming_json.department"
+          }, {
+            "alias" : "name",
+            "expression" : "streaming_json.name"
+          }, {
+            "alias" : "xml_column",
+            "expression" : "xml_string_input.xml_column"
+          }, {
+            "alias" : "id",
+            "expression" : "xml_string_input.id"
+          } ],
+          "headAlias" : "datasets/streaming_json"
+        }
+      } ]
+    } ],
     "pipelineSettingsInfo" : {
       "applicationName" : "complex_transformations",
       "hasApplication" : true,
@@ -72,19 +166,30 @@
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
         "enabled" : true,
-        "version" : "8.0.31",
+        "version" : "8.1.8",
         "id" : "848385427",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-08-22T08:10:07.354Z",
+        "modifiedAt" : "2024-10-01T19:25:32.987Z",
         "name" : "ProphecyLibsPython",
         "enabled" : true,
-        "version" : "1.9.9",
+        "version" : "1.9.14",
         "id" : "1875097243",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
+      }, {
+        "type" : "pypi",
+        "modifiedAt" : "2024-11-11T09:57:24.549Z",
+        "package" : "paramiko",
+        "name" : "sftp",
+        "description" : "",
+        "enabled" : true,
+        "id" : "TQDUzgWG43xWmTWFD6fdZ",
+        "createdAt" : "2024-11-11T09:57:24.549Z",
+        "entity" : "Project",
+        "editable" : true
       } ]
     } ],
     "isImported" : false,

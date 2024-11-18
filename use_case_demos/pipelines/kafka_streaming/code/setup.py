@@ -7,7 +7,7 @@ setup(
     package_data = {'prophecy_config_instances' : ['*.json', '*.py', '*.conf']},
     description = 'workflow',
     install_requires = [
-'prophecy-libs==1.9.9'],
+'paramiko', 'prophecy-libs==1.9.24'],
     entry_points = {
 'console_scripts' : [
 'main = kafka_streaming.pipeline:main'], },

@@ -11,7 +11,9 @@ def rest_api_enrichment(spark: SparkSession, in0: DataFrame) -> DataFrame:
     requestDF = in0.withColumn(
         "api_output",
         get_rest_api(
-          to_json(struct(lit("GET").alias("method"), col("url"), lit(Config.coin_api_key).alias("headers"))),
+          to_json(
+            struct(lit("GET").alias("method"), expr("url").alias("url"), lit(Config.coin_api_key).alias("headers"))
+          ),
           lit("")
         )
     )

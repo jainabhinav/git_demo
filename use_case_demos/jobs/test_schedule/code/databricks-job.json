@@ -29,8 +29,11 @@
           "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKsgsSM3JzEuNT0wuyi8ujk9LTCrKTFaygksU6+NQUgsAwdw2xT0AAAA=",
           "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
           "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
-          "spark.prophecy.execution.metrics.disabled" : "true",
-          "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws"
+          "spark.prophecy.execution.metrics.disabled" : "false",
+          "spark.prophecy.execution.metrics.component-metrics.table" : "abhinav_demo.component_runs_1",
+          "spark.prophecy.execution.metrics.pipeline-metrics.table" : "abhinav_demo.pipeline_runs_1",
+          "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
+          "spark.prophecy.execution.metrics.interims.table" : "abhinav_demo.interims_1"
         }
       }
     } ],
@@ -45,17 +48,20 @@
       },
       "libraries" : [ {
         "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-8.0.29"
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-8.4.0"
         }
       }, {
         "pypi" : {
-          "package" : "prophecy-libs==1.9.9"
+          "package" : "prophecy-libs==1.9.24"
         }
       }, {
         "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pipeline_across_fabric-1.0-py3-none-any.whl"
+      }, {
+        "pypi" : {
+          "package" : "paramiko"
+        }
       } ],
-      "email_notifications" : { },
-      "max_retries" : 0
+      "email_notifications" : { }
     } ],
     "max_concurrent_runs" : 1,
     "schedule" : {

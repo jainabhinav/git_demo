@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.0.29",
-        "pyPiVersion" : "1.9.9"
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
       }
     },
     "id" : "1",
@@ -81,19 +81,30 @@
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
         "enabled" : true,
-        "version" : "8.0.31",
+        "version" : "8.1.8",
         "id" : "848385427",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-08-22T08:10:07.354Z",
+        "modifiedAt" : "2024-10-01T19:25:32.987Z",
         "name" : "ProphecyLibsPython",
         "enabled" : true,
-        "version" : "1.9.9",
+        "version" : "1.9.14",
         "id" : "1875097243",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
+      }, {
+        "type" : "pypi",
+        "modifiedAt" : "2024-11-11T09:57:24.549Z",
+        "package" : "paramiko",
+        "name" : "sftp",
+        "description" : "",
+        "enabled" : true,
+        "id" : "TQDUzgWG43xWmTWFD6fdZ",
+        "createdAt" : "2024-11-11T09:57:24.549Z",
+        "entity" : "Project",
+        "editable" : true
       } ]
     } ],
     "isImported" : false,
@@ -244,7 +255,7 @@
         "columnsSelector" : [ "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##coin", "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##method", "BzmgCZhBGiifv_SCzSrkg$$e4WLmTBCKzv7gyJ5A-a3L##currency" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.33&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
