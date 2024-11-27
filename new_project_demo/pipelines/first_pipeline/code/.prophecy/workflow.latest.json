@@ -1,0 +1,252 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : {
+      "businessRules" : {
+        "rules" : [ ],
+        "sharedRules" : [ ]
+      }
+    },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.29",
+        "pyPiVersion" : "1.9.9"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/first_pipeline",
+    "language" : "python",
+    "fabricId" : "2121",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "abhinavdemoprophecy.io_team.first_project.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "asd",
+          "kind" : {
+            "type" : "string",
+            "value" : "sd"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "first_pipeline",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "IK-lTXz57DLCFNQ7NItvc$$n3eb0zWN9onOemXoVx_tu",
+    "source" : "YcMNvGA0AtnvSyiKgHH5O$$jztNUsIjIhopA5_PMBP99",
+    "sourcePort" : "ipiFhY3J0o9J8EFYAJgbF$$eWOXT0qQnbYpobXKZ9jSu",
+    "target" : "WeaY2FfQfc1U4dDsr8lOc$$MzXN5yfVyAMffbWmfN52C",
+    "targetPort" : "QLj60iYn2pznPT_x-KZBA$$DOmBlFCAZBYJSvZkt2Hzg"
+  } ],
+  "processes" : {
+    "1ctl9IN5ponc-_3psPRdH$$0kAgZS6pIx5PyXADRi_0L" : {
+      "id" : "1ctl9IN5ponc-_3psPRdH$$0kAgZS6pIx5PyXADRi_0L",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "asd",
+        "slug" : "asd",
+        "x" : -480,
+        "y" : -20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads data from a Kafka topic, with optional offset management and security configurations.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "EMnuMdLSHfIYfUIka4sza$$oNxthZ0tVRMsDvmFgKXGS",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/asd"
+      }
+    },
+    "YcMNvGA0AtnvSyiKgHH5O$$jztNUsIjIhopA5_PMBP99" : {
+      "id" : "YcMNvGA0AtnvSyiKgHH5O$$jztNUsIjIhopA5_PMBP99",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "new_kafka",
+        "slug" : "new_kafka",
+        "x" : -1100,
+        "y" : -260,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads data from a Kafka topic, handling different scenarios such as checking if the table exists, retrieving offset information, and loading the data into a DataFrame with appropriate column casting.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ipiFhY3J0o9J8EFYAJgbF$$eWOXT0qQnbYpobXKZ9jSu",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/new_kafka"
+      }
+    },
+    "WeaY2FfQfc1U4dDsr8lOc$$MzXN5yfVyAMffbWmfN52C" : {
+      "id" : "WeaY2FfQfc1U4dDsr8lOc$$MzXN5yfVyAMffbWmfN52C",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "write_kafka",
+        "slug" : "write_kafka",
+        "x" : -940,
+        "y" : -260,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Writes data to a Kafka topic, using specified security protocols and credentials.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "QLj60iYn2pznPT_x-KZBA$$DOmBlFCAZBYJSvZkt2Hzg",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/write_kafka"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Error in defining schema context object\n  File \"<console>\", line 22\n,    def new_rule(def: Column=lambda: col(\"def\"), zxc: Column=lambda: col(\"zxc\")):\n,                 ^^^\n,SyntaxError: invalid syntax\n",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.1ctl9IN5ponc-_3psPRdH$$0kAgZS6pIx5PyXADRi_0L.properties.dataset.schema",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "Missing Schema. Please infer schema or provide it manually.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.YcMNvGA0AtnvSyiKgHH5O$$jztNUsIjIhopA5_PMBP99.properties.dataset.schema",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "Missing Schema. Please infer schema or provide it manually.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.WeaY2FfQfc1U4dDsr8lOc$$MzXN5yfVyAMffbWmfN52C",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
+}
