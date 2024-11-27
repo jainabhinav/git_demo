@@ -21,12 +21,11 @@ class MaskColumns(ComponentSpec):
         columnsToMask: List[str] = field(default_factory=list)
         maskingTechnique: Optional[str] = None
         sha2BitLength: Optional[str] = None
-        newProp: SecretValue = field(default_factory=list)
 
     def dialog(self) -> Dialog:
         # Define the UI dialog structure for the component
         maskingTechniqueSelectBox = SelectBox("Masking Technique") \
-                                        .addOption("sha1", "abc") \
+                                        .addOption("sha1", "shaabc") \
                                         .addOption("sha2", "sha2") \
                                         .addOption("hash", "hash") \
                                         .bindProperty("maskingTechnique")
@@ -48,7 +47,7 @@ class MaskColumns(ComponentSpec):
                 .addElement(Condition()
                         .ifEqual(
                         PropExpr("component.properties.maskingTechnique"), StringExpr("sha2")
-                    ).then(TextBox("SHA 2 Bits").bindPlaceholder("256").bindProperty("sha2BitLength"))).addElement(SecretBox("Secret Box Example").bindPlaceholder("username").bindProperty("newProp"))
+                    ).then(TextBox("SHA 2 Bits").bindPlaceholder("256").bindProperty("sha2BitLength")))
             )
         )
 
@@ -76,9 +75,8 @@ class MaskColumns(ComponentSpec):
             import os
             import pyhocon
             final_df = in0
-            dbutils.fs.ls("asd")
             for col_name in self.props.columnsToMask:
-                if self.props.maskingTechnique == "abc":
+                if self.props.maskingTechnique == "shaabc":
                     final_df = final_df.withColumn(col_name, sha1(col_name))
                 elif self.props.maskingTechnique == "sha2":
                     if self.props.sha2BitLength is not None:

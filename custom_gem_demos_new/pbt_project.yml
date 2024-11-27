@@ -205,6 +205,18 @@ gemContainer:
       gemType: DatasetGem
       dependencies: null
       createdAt: '2024-10-29 17:36:09'
+    gems/jdbc_update:
+      name: jdbc_update
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/jdbc_update.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-11-21 09:29:17'
   dependencies: null
 functions:
   author: null
