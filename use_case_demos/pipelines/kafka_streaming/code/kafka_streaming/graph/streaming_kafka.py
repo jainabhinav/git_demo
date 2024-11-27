@@ -9,7 +9,7 @@ from kafka_streaming.functions import *
 def streaming_kafka(spark: SparkSession) -> DataFrame:
     from pyspark.dbutils import DBUtils
 
-    return spark.read\
+    return spark.readStream\
         .format("kafka")\
         .option("kafka.sasl.mechanism", "PLAIN")\
         .option("kafka.security.protocol", "SASL_SSL")\

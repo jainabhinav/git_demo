@@ -29,7 +29,7 @@
           "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKsgsSM3JzEuNT0wuyi8ujk9LTCrKTFaygksU6+NQUgsAwdw2xT0AAAA=",
           "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
           "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
-          "spark.prophecy.execution.metrics.disabled" : "false",
+          "spark.prophecy.execution.metrics.disabled" : "true",
           "spark.prophecy.execution.metrics.component-metrics.table" : "abhinav_demo.component_runs_1",
           "spark.prophecy.execution.metrics.pipeline-metrics.table" : "abhinav_demo.pipeline_runs_1",
           "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
@@ -61,7 +61,8 @@
           "package" : "paramiko"
         }
       } ],
-      "email_notifications" : { }
+      "email_notifications" : { },
+      "max_retries" : 0
     } ],
     "max_concurrent_runs" : 1,
     "schedule" : {

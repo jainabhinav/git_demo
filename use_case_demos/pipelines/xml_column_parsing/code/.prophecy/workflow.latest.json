@@ -169,15 +169,269 @@
     "sourcePort" : "Q8AxY_WiJFvLcymwaWjOs$$PrV5a-JrplgZ5YUZKDCnc",
     "target" : "X0smi9IyMZDZoU78nvYJQ$$JZWmBpNIc08csxGCMj_WC",
     "targetPort" : "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ"
+  }, {
+    "id" : "uqbbxegyIkEkOnDHqy5DX",
+    "source" : "E7B6eMn2u77nVE_h9mbRF$$QJPCqKK6KmTRdhHiUO7tn",
+    "sourcePort" : "eHEDDI9y4V_7pFkFSHMav$$J7huh5ZjTGM1GuM8buOln",
+    "target" : "5Tr6jh3ptYSw6WmM1S1FH$$w0D1ZaF_3MVGbexMoXwrj",
+    "targetPort" : "JSl1_SeZC0Tnzmrn549zR$$7NXJguj208L0JziAjjkHQ"
+  }, {
+    "id" : "UcKegrQkYEuBZc81zGZr1",
+    "source" : "E7B6eMn2u77nVE_h9mbRF$$QJPCqKK6KmTRdhHiUO7tn",
+    "sourcePort" : "eHEDDI9y4V_7pFkFSHMav$$J7huh5ZjTGM1GuM8buOln",
+    "target" : "jSAXUHKxvnFuD4gWBPwWR$$Ti_N1zV487lAnmdITOfIl",
+    "targetPort" : "G7fQkA8RdhAWjYtSpTjux$$JTrEHDGQouAGF-POaounD"
+  }, {
+    "id" : "5NYiu6N5ekE7DMn45plSj",
+    "source" : "E7B6eMn2u77nVE_h9mbRF$$QJPCqKK6KmTRdhHiUO7tn",
+    "sourcePort" : "eHEDDI9y4V_7pFkFSHMav$$J7huh5ZjTGM1GuM8buOln",
+    "target" : "ZjlwVgopaO2lm3u5j38Mf$$Vr8EuwThAvsh8qttdmu3a",
+    "targetPort" : "OD9bV3o5k2H_nElVwaZ9F$$rAucmIClwDR1TLVg_0Wpv"
+  }, {
+    "id" : "DzkhX22-jvEXDNj805cqW",
+    "source" : "23abiVeBs_FRMqhQBpJSo$$Eit1KVw0vh7OOEkzIMyWs",
+    "sourcePort" : "oCbs4nbqfni3X8ViCTiUX$$4z-G5XJ1xpleUV9y3k5sK",
+    "target" : "PCWAJ0H6RP6XEe2ggLrQ4$$9IGuK74aBJuztU2siwzPu",
+    "targetPort" : "iZI2-66IaMUw-s152HGSb$$7-t0CoZBzCgabDRkNUzY-"
+  }, {
+    "id" : "iocyaL2H1lgjYie3SQJXX",
+    "source" : "23abiVeBs_FRMqhQBpJSo$$Eit1KVw0vh7OOEkzIMyWs",
+    "sourcePort" : "oCbs4nbqfni3X8ViCTiUX$$4z-G5XJ1xpleUV9y3k5sK",
+    "target" : "jk8pCgL0DWTHimwZd_c6C$$SnLEvVdXXpG4KeMEZakRN",
+    "targetPort" : "_l30u-YIRQQnoF3-NhNAk$$Cfrdc5dLQPWKjfop3jiXa"
+  }, {
+    "id" : "4tOk11mGs9v45eHGbXi9P",
+    "source" : "23abiVeBs_FRMqhQBpJSo$$Eit1KVw0vh7OOEkzIMyWs",
+    "sourcePort" : "oCbs4nbqfni3X8ViCTiUX$$4z-G5XJ1xpleUV9y3k5sK",
+    "target" : "irl8VzSCSYH3AXgqXLsPP$$0BZncWCOpEc1n4DmSInmk",
+    "targetPort" : "MONSlUwQX6xeDiZ8TzvM3$$VGF0-zjMmA8qy9VliiGej"
   } ],
   "processes" : {
+    "23abiVeBs_FRMqhQBpJSo$$Eit1KVw0vh7OOEkzIMyWs" : {
+      "id" : "23abiVeBs_FRMqhQBpJSo$$Eit1KVw0vh7OOEkzIMyWs",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "xml_column_parsing_source_1",
+        "slug" : "xml_column_parsing_source_1",
+        "x" : -1120,
+        "y" : -880,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads data from a table named 'xml_input' in the 'abhinav_demo' database, which contains XML data.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "oCbs4nbqfni3X8ViCTiUX$$4z-G5XJ1xpleUV9y3k5sK",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/xml_column_parsing_source"
+      }
+    },
+    "jk8pCgL0DWTHimwZd_c6C$$SnLEvVdXXpG4KeMEZakRN" : {
+      "id" : "jk8pCgL0DWTHimwZd_c6C$$SnLEvVdXXpG4KeMEZakRN",
+      "component" : "ColumnParser",
+      "metadata" : {
+        "label" : "parse_schema",
+        "slug" : "parse_schema",
+        "x" : -840,
+        "y" : -880,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts structured information from XML data, enabling better data organization and analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "_l30u-YIRQQnoF3-NhNAk$$Cfrdc5dLQPWKjfop3jiXa",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "ECNtiKDbAHTVZSuQHCC7N$$9nlxzWGf92e6u3TOETz71",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "integer",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "parsingMethod" : "parseFromSchema",
+        "schema" : "STRUCT< person: STRUCT< id: INT, name: STRUCT< first: STRING, last: STRING >, address: STRUCT< street: STRING, city: STRING, zip: STRING > > >",
+        "columnToParse" : "xml_column",
+        "sampleRecord" : null,
+        "schemaInferCount" : 40,
+        "parserType" : "XML"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "MXwWU2NE0vBMQWTMrl_iH$$TN0L763ija2OVk9p2V4fm" : {
       "id" : "MXwWU2NE0vBMQWTMrl_iH$$TN0L763ija2OVk9p2V4fm",
       "component" : "FlattenSchema",
       "metadata" : {
         "label" : "flatten_schema",
         "slug" : "flatten_schema",
-        "x" : -400,
+        "x" : 380,
         "y" : -60,
         "phase" : 0,
         "cache" : false,
@@ -399,12 +653,81 @@
           "targetTokens" : [ "xml_parsed_content", "person", "address", "zip" ],
           "target" : "xml_parsed_content-person-address-zip"
         } ],
-        "columnsSelector" : [ "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##id", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name.last", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.street", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_column", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.city", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name.first", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.zip", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.id", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person" ],
+        "columnsSelector" : [ "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.zip", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name.last", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.street", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##id", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.name.first", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.id", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_column", "4Y-L7fcjVgzU-kXzWCmjl$$Ds3pz_3-T00ETliKZ124u##xml_parsed_content.person.address.city" ],
         "explodeColumns" : [ ],
         "delimiter" : "-"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.33&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "5Tr6jh3ptYSw6WmM1S1FH$$w0D1ZaF_3MVGbexMoXwrj" : {
+      "id" : "5Tr6jh3ptYSw6WmM1S1FH$$w0D1ZaF_3MVGbexMoXwrj",
+      "component" : "ColumnParser",
+      "metadata" : {
+        "label" : "parse_xml_column_1",
+        "slug" : "parse_xml_column_1",
+        "x" : -900,
+        "y" : -260,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts and processes data from XML formatted columns for better usability in analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "JSl1_SeZC0Tnzmrn549zR$$7NXJguj208L0JziAjjkHQ",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "CTpcsyulgXVI3DPCq3Y_M$$mt5G-bx4gu-j4YTlh00ha",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "parsingMethod" : "parseAuto",
+        "schema" : null,
+        "columnToParse" : "xml_column",
+        "sampleRecord" : null,
+        "schemaInferCount" : 40,
+        "parserType" : "XML"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -414,7 +737,7 @@
       "metadata" : {
         "label" : "flatten_schema_2",
         "slug" : "flatten_schema_2",
-        "x" : -400,
+        "x" : 380,
         "y" : -460,
         "phase" : 0,
         "cache" : false,
@@ -636,12 +959,12 @@
           "targetTokens" : [ "xml_parsed_content", "person", "address", "zip" ],
           "target" : "xml_parsed_content-person-address-zip"
         } ],
-        "columnsSelector" : [ "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.city", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name.first", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_column", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.street", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##id", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name.last", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.id", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.zip" ],
+        "columnsSelector" : [ "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name.last", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_column", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##id", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.city", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.zip", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name.first", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.id", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.address.street", "xjsfZGeHNNHgG2tB1X1Zd$$vw_GWF-B2KhyKoyuJVDvQ##xml_parsed_content.person.name" ],
         "explodeColumns" : [ ],
         "delimiter" : "-"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.33&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -651,8 +974,8 @@
       "metadata" : {
         "label" : "xml_column_parser_1",
         "slug" : "xml_column_parser_1",
-        "x" : -580,
-        "y" : -460,
+        "x" : 40,
+        "y" : -140,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -838,8 +1161,8 @@
       "metadata" : {
         "label" : "xml_column_parsing_source",
         "slug" : "xml_column_parsing_source",
-        "x" : -800,
-        "y" : -180,
+        "x" : -1160,
+        "y" : -200,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -861,13 +1184,80 @@
         "datasetId" : "datasets/xml_column_parsing_source"
       }
     },
+    "ZjlwVgopaO2lm3u5j38Mf$$Vr8EuwThAvsh8qttdmu3a" : {
+      "id" : "ZjlwVgopaO2lm3u5j38Mf$$Vr8EuwThAvsh8qttdmu3a",
+      "component" : "ColumnParser",
+      "metadata" : {
+        "label" : "ColumnParser_2",
+        "slug" : "ColumnParser_2",
+        "x" : -940,
+        "y" : 100,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "OD9bV3o5k2H_nElVwaZ9F$$rAucmIClwDR1TLVg_0Wpv",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "jEiRCnbBvJ0iFPm49u21T$$v7SB5dXbVm-nCp7RdTJt5",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "parsingMethod" : "parseAuto",
+        "schema" : null,
+        "columnToParse" : "",
+        "sampleRecord" : null,
+        "schemaInferCount" : 40,
+        "parserType" : "JSON"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "5RL3mVqkUYEmZsbcDhl-w$$oGhdnefY7t38yJ-H2Wf3b" : {
       "id" : "5RL3mVqkUYEmZsbcDhl-w$$oGhdnefY7t38yJ-H2Wf3b",
       "component" : "FlattenSchema",
       "metadata" : {
         "label" : "flatten_schema_1",
         "slug" : "flatten_schema_1",
-        "x" : -400,
+        "x" : 380,
         "y" : -280,
         "phase" : 0,
         "cache" : false,
@@ -1089,12 +1479,79 @@
           "targetTokens" : [ "xml_parsed_content", "person", "address", "zip" ],
           "target" : "xml_parsed_content-person-address-zip"
         } ],
-        "columnsSelector" : [ "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_column", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.id", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.zip", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.city", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##id", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.street", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name.last", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name.first" ],
+        "columnsSelector" : [ "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name.last", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##id", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.name.first", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.city", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_column", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.street", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.address.zip", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person", "Leyjo6qi9gwPtxMRMt5sK$$CPJVNL596HIoeiHVOvNgg##xml_parsed_content.person.id" ],
         "explodeColumns" : [ ],
         "delimiter" : "-"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.33&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "jSAXUHKxvnFuD4gWBPwWR$$Ti_N1zV487lAnmdITOfIl" : {
+      "id" : "jSAXUHKxvnFuD4gWBPwWR$$Ti_N1zV487lAnmdITOfIl",
+      "component" : "ColumnParser",
+      "metadata" : {
+        "label" : "ColumnParser_1",
+        "slug" : "ColumnParser_1",
+        "x" : -880,
+        "y" : -60,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "G7fQkA8RdhAWjYtSpTjux$$JTrEHDGQouAGF-POaounD",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "8wiIJgUf15Hl1j5HRgyXg$$ssIOGXnBPgohBl12AUb3U",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "parsingMethod" : "parseAuto",
+        "schema" : null,
+        "columnToParse" : "",
+        "sampleRecord" : null,
+        "schemaInferCount" : 40,
+        "parserType" : "JSON"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1104,7 +1561,7 @@
       "metadata" : {
         "label" : "xml_column_parser",
         "slug" : "xml_column_parser",
-        "x" : -580,
+        "x" : 200,
         "y" : -60,
         "phase" : 0,
         "cache" : false,
@@ -1285,13 +1742,202 @@
         "projectName" : "use_case_demos"
       }
     },
+    "PCWAJ0H6RP6XEe2ggLrQ4$$9IGuK74aBJuztU2siwzPu" : {
+      "id" : "PCWAJ0H6RP6XEe2ggLrQ4$$9IGuK74aBJuztU2siwzPu",
+      "component" : "ColumnParser",
+      "metadata" : {
+        "label" : "parse_auto",
+        "slug" : "parse_auto",
+        "x" : -840,
+        "y" : -1040,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts and processes data from XML formatted columns for better usability in analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "iZI2-66IaMUw-s152HGSb$$7-t0CoZBzCgabDRkNUzY-",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "zGIlJLkzC5OjmjOeIEkgv$$tpotKPNNSPr8Dp5a7vvZZ",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "parsingMethod" : "parseAuto",
+        "schema" : null,
+        "columnToParse" : "xml_column",
+        "sampleRecord" : null,
+        "schemaInferCount" : 40,
+        "parserType" : "XML"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
     "gJkSWKKPtSdfrZ0FozWCP$$e669eETKIqQl2vjaPpAne" : {
       "id" : "gJkSWKKPtSdfrZ0FozWCP$$e669eETKIqQl2vjaPpAne",
       "component" : "XMLColumnParser",
       "metadata" : {
         "label" : "parse_xml_column",
         "slug" : "parse_xml_column",
-        "x" : -580,
+        "x" : 200,
         "y" : -280,
         "phase" : 0,
         "cache" : false,
@@ -1478,7 +2124,7 @@
       "metadata" : {
         "label" : "reformatted_person_data",
         "slug" : "reformatted_person_data",
-        "x" : -400,
+        "x" : 380,
         "y" : 120,
         "phase" : 0,
         "cache" : false,
@@ -1665,10 +2311,199 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address.city", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name.last", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name.first", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address.zip", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.id" ]
+        "columnsSelector" : [ "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address.zip", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name.last", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address.city", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.id", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name.first", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.33&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "irl8VzSCSYH3AXgqXLsPP$$0BZncWCOpEc1n4DmSInmk" : {
+      "id" : "irl8VzSCSYH3AXgqXLsPP$$0BZncWCOpEc1n4DmSInmk",
+      "component" : "ColumnParser",
+      "metadata" : {
+        "label" : "parse_sample_record",
+        "slug" : "parse_sample_record",
+        "x" : -840,
+        "y" : -720,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts and organizes data from XML columns for better usability in analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "MONSlUwQX6xeDiZ8TzvM3$$VGF0-zjMmA8qy9VliiGej",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The XML column containing the source data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the XML parsing source",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "NHlP7OMszl3d0swChmAcY$$vTBjlDo6b5K77xASTHukA",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "xml_column",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "parsingMethod" : "parseFromSampleRecord",
+        "schema" : null,
+        "columnToParse" : "xml_column",
+        "sampleRecord" : "<root>\n  <person>\n    <id>1</id>\n    <name>\n      <first>John</first>\n      <last>Doe</last>\n    </name>\n    <address>\n      <street>Main St</street>\n      <city>Springfield</city>\n      <zip>12345</zip>\n    </address>\n  </person>\n</root>",
+        "schemaInferCount" : 40,
+        "parserType" : "XML"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }

@@ -397,18 +397,18 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.33
+    version: 0.2.35
     isDefault: true
     author: null
-    createdAt: '2024-11-12 08:50:12'
+    createdAt: '2024-11-27 05:56:32'
   '12656':
     projectUID: 12656
     projectName: ProphecyStreamingPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12656.git&subPath=
-    version: 0.0.4
+    version: 0.0.6
     isDefault: false
     author: null
-    createdAt: '2024-11-12 08:50:18'
+    createdAt: '2024-11-27 05:56:36'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
