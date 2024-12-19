@@ -1,14 +1,15 @@
 {
   "metainfo" : {
     "migrationVersions" : {
-      "gemBuilderVersion" : "v1"
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
     },
     "functions" : { },
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.4.0",
-        "pyPiVersion" : "1.9.24"
+        "mavenVersion" : "8.6.0",
+        "pyPiVersion" : "1.9.28"
       }
     },
     "id" : "1",
@@ -110,7 +111,8 @@
     "pipelineSettingsInfo" : {
       "applicationName" : "complex_transformations",
       "hasApplication" : true,
-      "isFunctionsPackageDirDefined" : true
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true
     },
     "language" : "python",
     "fabricId" : "2122",

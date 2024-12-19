@@ -1,14 +1,15 @@
 {
   "metainfo" : {
     "migrationVersions" : {
-      "gemBuilderVersion" : "v1"
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
     },
     "functions" : { },
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.4.0",
-        "pyPiVersion" : "1.9.24"
+        "mavenVersion" : "8.6.0",
+        "pyPiVersion" : "1.9.28"
       }
     },
     "id" : "1",
@@ -73,7 +74,8 @@
     "pipelineSettingsInfo" : {
       "applicationName" : "code_regeneration_demo",
       "hasApplication" : true,
-      "isFunctionsPackageDirDefined" : true
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true
     },
     "language" : "python",
     "fabricId" : "2122",
@@ -376,7 +378,7 @@
         "columnsSelector" : [ "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##email", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##account_flags", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##customer_id", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##country_code", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##phone", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##first_name", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##account_open_date", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##last_name" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.35&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },

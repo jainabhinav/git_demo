@@ -115,6 +115,24 @@ pipelines:
       outputs: []
     subgraphs: []
     dependencies: {}
+  pipelines/scd2_demo:
+    name: scd2_demo
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-11-27 05:57:22'
+    datasets:
+      inputs:
+      - datasets/scd2_custom_target
+      - datasets/scd2_uc_test
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customers
+      outputs:
+      - datasets/scd2_custom_target
+      - datasets/scd2_uc_test
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/streaming_json:
     name: streaming_json
@@ -298,6 +316,32 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2024-11-13 10:15:33'
+  datasets/scd2_uc_test:
+    name: scd2_uc_test
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-11-27 14:39:48'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-11-27 14:39:48'
+  datasets/scd2_custom_target:
+    name: scd2_custom_target
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-12-02 05:27:10'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-12-02 05:27:10'
 templates: {}
 jobs:
   jobs/test_schedule:
@@ -354,6 +398,18 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-07-22 10:42:05'
+    gems/catalogTable:
+      name: catalogTable
+      category: Source/Target
+      subCategory: Database
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_usecasedemos/gems/CatalogTable.py
+      gemType: DatasetGem
+      dependencies: []
+      createdAt: '2024-12-02 05:25:39'
   dependencies: null
 functions:
   author: null
@@ -376,7 +432,7 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-07-21T10:38:10.097808Z'
   name: plibMaven
-  version: 8.4.0
+  version: 8.6.0
   id: '1008364593'
   createdAt: '2024-07-21T10:38:10.097748Z'
   enabled: true
@@ -384,7 +440,7 @@ dependencies:
 - type: plibPypi
   modifiedAt: '2024-07-23T05:48:35.961Z'
   name: ProphecyLibsPython
-  version: 1.9.24
+  version: 1.9.28
   id: '513410055'
   createdAt: '2024-07-21T10:38:10.097841Z'
   enabled: true
@@ -397,10 +453,10 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.35
+    version: 0.2.38
     isDefault: true
     author: null
-    createdAt: '2024-11-27 05:56:32'
+    createdAt: '2024-12-18 06:20:27'
   '12656':
     projectUID: 12656
     projectName: ProphecyStreamingPython

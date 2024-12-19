@@ -7,7 +7,7 @@ setup(
     package_data = {'prophecy_config_instances' : ['*.json', '*.py', '*.conf']},
     description = 'workflow',
     install_requires = [
-'paramiko', 'prophecy-libs==1.9.24'],
+'paramiko', 'prophecy-libs==1.9.28'],
     entry_points = {
 'console_scripts' : [
 'main = pipeline_across_fabric.pipeline:main'], },
