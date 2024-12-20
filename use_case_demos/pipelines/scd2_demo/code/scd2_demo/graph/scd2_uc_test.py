@@ -33,7 +33,7 @@ def scd2_uc_test(spark: SparkSession, in0: DataFrame):
         stagedUpdatesDF = updatesDF\
                               .alias("updatesDF")\
                               .join(existingDF.alias("existingDF"), ["customer_id"])\
-                              .filter((col("existingDF.max_flag") == lit("1")) & (cond))\
+                              .filter((col("existingDF.is_max") == lit("1")) & (cond))\
                               .select(*[col("updatesDF." + val) for val in updateColumns])\
                               .withColumn("is_min", lit("0"))\
                               .withColumn("mergeKey", lit(None))\

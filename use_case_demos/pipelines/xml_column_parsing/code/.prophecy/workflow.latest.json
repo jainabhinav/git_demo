@@ -423,7 +423,7 @@
         "parserType" : "XML"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -660,7 +660,7 @@
         "delimiter" : "-"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -729,7 +729,7 @@
         "parserType" : "XML"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -966,7 +966,7 @@
         "delimiter" : "-"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1249,7 +1249,7 @@
         "parserType" : "JSON"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1486,7 +1486,7 @@
         "delimiter" : "-"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/FlattenSchema",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1553,7 +1553,7 @@
         "parserType" : "JSON"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1929,7 +1929,7 @@
         "parserType" : "XML"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2316,7 +2316,7 @@
         "columnsSelector" : [ "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address.zip", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name.last", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address.city", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.id", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name.first", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.name", "vtxljkYVmFwXgNp3Llh81$$PvmM0nuANCQBr7j7u_gg-##xml_parsed_content.person.address" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2505,7 +2505,7 @@
         "parserType" : "XML"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.38&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }
