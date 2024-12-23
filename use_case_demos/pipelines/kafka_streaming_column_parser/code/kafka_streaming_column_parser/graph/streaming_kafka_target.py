@@ -3,8 +3,8 @@ from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
-from kafka_streaming.config.ConfigStore import *
-from kafka_streaming.functions import *
+from kafka_streaming_column_parser.config.ConfigStore import *
+from kafka_streaming_column_parser.functions import *
 
 def streaming_kafka_target(spark: SparkSession, in0: DataFrame):
     in0.writeStream\

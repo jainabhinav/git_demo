@@ -1,0 +1,894 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.6.0",
+        "pyPiVersion" : "1.9.28"
+      },
+      "sparkConfigJinjaEnabled" : true
+    },
+    "id" : "1",
+    "uri" : "pipelines/json_column_parser",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "json_column_parser",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true
+    },
+    "language" : "python",
+    "fabricId" : "2122",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "demoteamabhinav.usecasedemos.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecy.streaming.functions", "demoteamabhinav.customgemdemosnew.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "30492",
+      "projectName" : "custom_gem_demos_new",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-07-21T07:30:16.129693Z",
+        "name" : "plibMaven",
+        "enabled" : true,
+        "version" : "8.1.8",
+        "id" : "848385427",
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
+      }, {
+        "type" : "plibPypi",
+        "modifiedAt" : "2024-10-01T19:25:32.987Z",
+        "name" : "ProphecyLibsPython",
+        "enabled" : true,
+        "version" : "1.9.14",
+        "id" : "1875097243",
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
+      }, {
+        "type" : "pypi",
+        "modifiedAt" : "2024-11-11T09:57:24.549Z",
+        "package" : "paramiko",
+        "name" : "sftp",
+        "description" : "",
+        "enabled" : true,
+        "id" : "TQDUzgWG43xWmTWFD6fdZ",
+        "createdAt" : "2024-11-11T09:57:24.549Z",
+        "entity" : "Project",
+        "editable" : true
+      } ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "json_column_parser",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "z_Vih_j4ETb4hoWxcJzRJ$$YV6gQLdqWFyzXZ4dHzpaB",
+    "source" : "pB5czsb0FQjyuMmeIakVv$$TSMD35A9zJLJZ6TYooXNB",
+    "sourcePort" : "EIB9510xkxH2Y_SaQ5Iyw$$AM509iNlpoPlg9QfD5Pea",
+    "target" : "lV0NNGuVhYdTBXrW30Kdn$$jJEvlVyUXfKQTN96coK49",
+    "targetPort" : "YPZ8YI9BXjg_Rfv5uff0Z$$-qO-aRDl6a89tQDte1QvN"
+  }, {
+    "id" : "D7Rw_o3OtaM8OKxkq5p2t",
+    "source" : "pB5czsb0FQjyuMmeIakVv$$TSMD35A9zJLJZ6TYooXNB",
+    "sourcePort" : "EIB9510xkxH2Y_SaQ5Iyw$$AM509iNlpoPlg9QfD5Pea",
+    "target" : "PXlDvdayqPknhQwY-7GLj$$Grz9N_eydZntY-DCcTyGw",
+    "targetPort" : "N8Kto1PgaO8L0lAiM6gK1$$JCUpW40sZrfO9ncQBv2iG"
+  }, {
+    "id" : "8gJkT0RWz28wefmmPY2Ry",
+    "source" : "pB5czsb0FQjyuMmeIakVv$$TSMD35A9zJLJZ6TYooXNB",
+    "sourcePort" : "EIB9510xkxH2Y_SaQ5Iyw$$AM509iNlpoPlg9QfD5Pea",
+    "target" : "IyihNVQKyEjydUIt8e3V9$$NkWCk02ggHDoXhobFK4Jr",
+    "targetPort" : "pCyn_D4KTtqES0lGSUZCN$$ALznR5BQYancyzhl_houN"
+  }, {
+    "id" : "BJPeBrz-kPfH7YYHPu5TQ$$V-ob3C_wXM-W-oJ_cKRPL",
+    "source" : "PXlDvdayqPknhQwY-7GLj$$Grz9N_eydZntY-DCcTyGw",
+    "sourcePort" : "mAKDUMN9_0Lh_pB7HF8DN$$paftNm7Aqt3f6UUm0BWGp",
+    "target" : "sk02IMge1K1b2v8oA68wM$$F06PbXHrKQk1d9nA_C14b",
+    "targetPort" : "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_"
+  } ],
+  "processes" : {
+    "sk02IMge1K1b2v8oA68wM$$F06PbXHrKQk1d9nA_C14b" : {
+      "id" : "sk02IMge1K1b2v8oA68wM$$F06PbXHrKQk1d9nA_C14b",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformat_json_parsed_content",
+        "slug" : "reformat_json_parsed_content",
+        "x" : -240,
+        "y" : -100,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Enhances customer data by extracting and restructuring information from JSON content for better accessibility and analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_string",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "age",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "orderid",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "id",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "address",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "state",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "zipcode",
+                      "type" : "integer",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "JPj_sJrHZg1xJVfGI73wZ$$RYDhzheXIBc648uaLjjKt",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "id"
+          },
+          "description" : ""
+        }, {
+          "target" : "name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "name"
+          },
+          "description" : ""
+        }, {
+          "target" : "age",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "age"
+          },
+          "description" : ""
+        }, {
+          "target" : "json_string",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "json_string"
+          },
+          "description" : ""
+        }, {
+          "target" : "json_parsed_content",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "cast(json_parsed_content as string)"
+          },
+          "description" : ""
+        }, {
+          "target" : "json_parsed_content.age",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "json_parsed_content.age"
+          },
+          "description" : ""
+        }, {
+          "target" : "json_parsed_content.id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "json_parsed_content.id"
+          },
+          "description" : ""
+        }, {
+          "target" : "city",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "json_parsed_content.address.city"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content.id", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content.age", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_string", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content.address.city", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##id", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##age", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content.address", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##name" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "pB5czsb0FQjyuMmeIakVv$$TSMD35A9zJLJZ6TYooXNB" : {
+      "id" : "pB5czsb0FQjyuMmeIakVv$$TSMD35A9zJLJZ6TYooXNB",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "create_json_string_column",
+        "slug" : "create_json_string_column",
+        "x" : -920,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Generates a JSON string representation of customer data, enhancing data portability and integration with other systems.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "EIB9510xkxH2Y_SaQ5Iyw$$AM509iNlpoPlg9QfD5Pea",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_string",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "from pyspark.sql import SparkSession\nfrom pyspark.sql.functions import col, lit, struct, to_json\nfrom pyspark.sql.types import StructType, StructField, StringType, IntegerType\n\n# Define schema for the dummy data\nschema = StructType([\n    StructField(\"id\", IntegerType(), True),\n    StructField(\"name\", StringType(), True),\n    StructField(\"age\", IntegerType(), True)\n])\n\n# Create a list of dummy data\ndata = [\n    (1, \"Alice\", None),\n    (2, \"Bob\", 25),\n    (3, \"Charlie\", 35)\n]\n\n# Create a DataFrame with the dummy data\ndf = spark.createDataFrame(data, schema)\n\n# Convert the DataFrame to include a JSON string column\nout0 = df.withColumn(\"json_string\", to_json(struct([col(c) for c in df.columns])))",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "PXlDvdayqPknhQwY-7GLj$$Grz9N_eydZntY-DCcTyGw" : {
+      "id" : "PXlDvdayqPknhQwY-7GLj$$Grz9N_eydZntY-DCcTyGw",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "json_parsing_with_schema",
+        "slug" : "json_parsing_with_schema",
+        "x" : -440,
+        "y" : -100,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Parses JSON data from a specified column, allowing for flexible schema inference based on sample records, which enhances data usability for analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "N8Kto1PgaO8L0lAiM6gK1$$JCUpW40sZrfO9ncQBv2iG",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_string",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "mAKDUMN9_0Lh_pB7HF8DN$$paftNm7Aqt3f6UUm0BWGp",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_string",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "age",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "orderid",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "id",
+                  "type" : "integer",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "address",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "state",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "zipcode",
+                      "type" : "integer",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "def json_parse_new(in0, column_to_parse, parsingMethod, sampleRecord, schema, schemaInferCount):\n    try:\n        from pyspark.sql.functions import from_json, schema_of_json, lit\n        from pyspark.sql.types import StructType\n        if parsingMethod in [\"parseFromSampleRecord\", \"parseAuto\"]:\n            if parsingMethod == \"parseFromSampleRecord\":\n                sample_json = sampleRecord\n                json_schema = schema_of_json(lit(sample_json))\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           from_json(column_to_parse, json_schema))\n            else:\n                combined_json_df = in0.limit(schemaInferCount).select(\n                    concat_ws(\",\", collect_list(column_to_parse)).alias(\"combined_json\"))\n                sample_json = \"[\" + combined_json_df.collect()[0][\"combined_json\"] + \"]\"\n                json_schema = schema_of_json(lit(sample_json))\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           from_json(column_to_parse, json_schema).getItem(0))\n        else:\n            try:\n                print(\"here\")\n                json_schema = StructType.fromDDL(schema)\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           from_json(column_to_parse, json_schema))\n            except:\n                print(\"there\")\n                json_schema = schema\n                output_df = in0.withColumn(\"json_parsed_content\", expr(f\"from_json({column_to_parse}, '{json_schema}')\" ))\n        return output_df\n    except Exception as e:\n        print(f\"An error occurred while fetching data: {e}\")\n        raise e\n\nout0 = json_parse_new(\n        in0,\n        \"json_string\",\n        \"parseFromSampleRecord13\",\n        \"\"\"{\"id\":1,\"name\":\"Alice\",\"age123\":30}\"\"\",\n        \"\"\"STRUCT<\n  age: LONG,\n  orderid: INT,\n  id: INT,\n  address: STRUCT<\n    city: STRING,\n    state: STRING,\n    zipcode: INT\n  >\n>\"\"\",\n        2\n    )\n\n",
+        "scriptMethodHeader" : "def Script(spark: SparkSession, in0: DataFrame) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "lV0NNGuVhYdTBXrW30Kdn$$jJEvlVyUXfKQTN96coK49" : {
+      "id" : "lV0NNGuVhYdTBXrW30Kdn$$jJEvlVyUXfKQTN96coK49",
+      "component" : "ColumnParser",
+      "metadata" : {
+        "label" : "json_column_parsing",
+        "slug" : "json_column_parsing",
+        "x" : -240,
+        "y" : -380,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts and organizes customer information from JSON data, making it easier to analyze and utilize for business decisions.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "YPZ8YI9BXjg_Rfv5uff0Z$$-qO-aRDl6a89tQDte1QvN",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_string",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "0KwuGdeMDUaq54EBYLByy$$d8fN5GTOcPrLL_C6vcxHE",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_string",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "age",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "id",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "parsingMethod" : "parseFromSchema",
+        "schema" : "STRUCT<\n  person: STRUCT<\n    id: INT,\n    name: STRUCT<\n      first: STRING,\n      last: STRING\n    >,\n    address: STRUCT<\n      street: STRING,\n      city: STRING,\n      zip: STRING\n    >\n  >\n>",
+        "columnToParse" : "json_string",
+        "sampleRecord" : null,
+        "schemaInferCount" : 40,
+        "parserType" : "JSON"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "IyihNVQKyEjydUIt8e3V9$$NkWCk02ggHDoXhobFK4Jr" : {
+      "id" : "IyihNVQKyEjydUIt8e3V9$$NkWCk02ggHDoXhobFK4Jr",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformat_zip_to_state",
+        "slug" : "reformat_zip_to_state",
+        "x" : -560,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Converts ZIP codes into their corresponding US state names, enhancing data usability for location-based analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "pCyn_D4KTtqES0lGSUZCN$$ALznR5BQYancyzhl_houN",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "age",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_string",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "_QnqYQqtsY-1P-ChHZIjr$$9QS_gpQCUnp0VwRk99AYs",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "state_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "state_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "call_func('ai_query','databricks-meta-llama-3-1-70b-instruct', '\"Can you tell me the name of the US state that serves the provided ZIP code 27549?\"')"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

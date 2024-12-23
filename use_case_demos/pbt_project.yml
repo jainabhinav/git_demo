@@ -133,6 +133,34 @@ pipelines:
       - datasets/scd2_uc_test
     subgraphs: []
     dependencies: {}
+  pipelines/kafka_streaming_column_parser:
+    name: kafka_streaming_column_parser
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: stream
+    artefactID: ''
+    language: python
+    createdAt: '2024-12-20 09:39:26'
+    datasets:
+      inputs:
+      - datasets/streaming_kafka
+      outputs:
+      - datasets/streaming_kafka_target
+    subgraphs: []
+    dependencies: {}
+  pipelines/json_column_parser:
+    name: json_column_parser
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-12-20 10:16:29'
+    datasets:
+      inputs: []
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/streaming_json:
     name: streaming_json
