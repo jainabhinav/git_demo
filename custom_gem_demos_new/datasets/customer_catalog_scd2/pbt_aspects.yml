@@ -72,3 +72,10 @@ schema:
       description: ''
       mappings: []
       tags: []
+  - name: new_col
+    type: string
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

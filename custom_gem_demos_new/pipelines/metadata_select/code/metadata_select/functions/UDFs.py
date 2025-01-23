@@ -12,7 +12,6 @@ from prophecy.lookups import (
     lookup_row_reverse,
     lookup_nth
 )
-print("hello")
 
 def registerUDFs(spark: SparkSession):
     spark.udf.register("categorize_delay", categorize_delay)

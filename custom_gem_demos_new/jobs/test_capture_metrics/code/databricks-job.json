@@ -34,7 +34,7 @@
           "spark.prophecy.execution.metrics.disabled" : "true",
           "spark.prophecy.execution.metrics.component-metrics.table" : "abhinav_demo.component_runs_1",
           "spark.prophecy.execution.metrics.pipeline-metrics.table" : "abhinav_demo.pipeline_runs_1",
-          "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
+          "spark.prophecy.execution.service.url" : "wss://app.prophecy.io/execution/eventws",
           "spark.prophecy.execution.metrics.interims.table" : "abhinav_demo.interims_1",
           "spark.databricks.isv.product" : "prophecy"
         },
@@ -62,11 +62,11 @@
       },
       "libraries" : [ {
         "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.4.0-8.5.0"
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.4.0-8.7.1"
         }
       }, {
         "pypi" : {
-          "package" : "prophecy-libs==1.9.24"
+          "package" : "prophecy-libs==1.9.29"
         }
       }, {
         "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/gem_testing-1.0-py3-none-any.whl"

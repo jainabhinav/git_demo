@@ -1,14 +1,15 @@
 {
   "metainfo" : {
     "migrationVersions" : {
-      "gemBuilderVersion" : "v1"
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
     },
     "functions" : { },
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.5.0",
-        "pyPiVersion" : "1.9.24"
+        "mavenVersion" : "8.7.1",
+        "pyPiVersion" : "1.9.29"
       },
       "sparkConfigJinjaEnabled" : true
     },
@@ -79,6 +80,9 @@
             "alias" : "to_time",
             "expression" : "customer_catalog_scd2.to_time"
           }, {
+            "alias" : "new_col",
+            "expression" : "customer_catalog_scd2.new_col"
+          }, {
             "alias" : "customer_id",
             "expression" : "sharepoint_customers_csv.customer_id"
           }, {
@@ -110,7 +114,8 @@
     "pipelineSettingsInfo" : {
       "applicationName" : "sharepoint",
       "hasApplication" : true,
-      "isFunctionsPackageDirDefined" : true
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true
     },
     "language" : "python",
     "fabricId" : "18045",
@@ -284,8 +289,8 @@
       "metadata" : {
         "label" : "Subgraph_1",
         "slug" : "Subgraph_1",
-        "x" : -1140,
-        "y" : -400,
+        "x" : -1320,
+        "y" : -500,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,

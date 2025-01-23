@@ -132,7 +132,7 @@
             "isWorkflowNodeConfiguration" : false
           } ],
           "instances" : {
-            "custom_gem_demos_new" : [ "dev", "default" ]
+            "custom_gem_demos_new" : [ "default", "dev" ]
           },
           "overrides" : { },
           "selectedInstance" : "default"

@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 setup(
-    name = 'gem_testing',
+    name = 'metadata_select',
     version = '1.0',
-    packages = find_packages(include = ('gem_testing*', )) + ['prophecy_config_instances'],
+    packages = find_packages(include = ('metadata_select*', )) + ['prophecy_config_instances'],
     package_dir = {'prophecy_config_instances' : 'configs/resources/config'},
     package_data = {'prophecy_config_instances' : ['*.json', '*.py', '*.conf']},
     description = 'workflow',
@@ -10,7 +10,7 @@ setup(
 'paramiko', 'prophecy-libs==1.9.29'],
     entry_points = {
 'console_scripts' : [
-'main = gem_testing.pipeline:main'], },
+'main = metadata_select.pipeline:main'], },
     data_files = [(".prophecy", [".prophecy/workflow.latest.json"])],
     extras_require = {
 'test' : ['pytest', 'pytest-html', 'pytest-cov'], }

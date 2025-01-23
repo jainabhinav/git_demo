@@ -40,6 +40,23 @@ pipelines:
       outputs: []
     subgraphs: []
     dependencies: {}
+  pipelines/metadata_select:
+    name: metadata_select
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-01-08 21:29:36'
+    datasets:
+      inputs:
+      - datasets/customers
+      - datasets/customers_metadata_target
+      - datasets/metadata_columns
+      outputs:
+      - datasets/customers_metadata_target
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/customers:
     name: customers
@@ -80,6 +97,32 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2024-09-30 10:45:33'
+  datasets/metadata_columns:
+    name: metadata_columns
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-08 22:06:41'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-08 22:06:41'
+  datasets/customers_metadata_target:
+    name: customers_metadata_target
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-08 22:11:01'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-08 22:11:01'
 templates: {}
 jobs:
   jobs/test_capture_metrics:
@@ -254,6 +297,18 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-12-05 17:03:16'
+    gems/MetadataReformat:
+      name: MetadataReformat
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/MetadataReformat.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2025-01-08 21:30:58'
   dependencies: null
 functions:
   author: null
@@ -299,7 +354,7 @@ sqlPipeline: null
 dependencies:
 - modifiedAt: '2024-07-21T07:30:16.129693Z'
   name: plibMaven
-  version: 8.5.0
+  version: 8.7.1
   id: '848385427'
   createdAt: '2024-07-21T07:30:16.129693Z'
   type: plibMaven
@@ -307,7 +362,7 @@ dependencies:
   entity: Project
 - modifiedAt: '2024-12-11T07:41:57.169Z'
   name: ProphecyLibsPython
-  version: 1.9.24
+  version: 1.9.29
   id: '1875097243'
   createdAt: '2024-07-21T07:30:16.129693Z'
   type: plibPypi
@@ -332,10 +387,10 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.36
+    version: 0.2.39
     isDefault: true
     author: null
-    createdAt: '2024-12-06 07:50:08'
+    createdAt: '2025-01-08 21:29:52'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython

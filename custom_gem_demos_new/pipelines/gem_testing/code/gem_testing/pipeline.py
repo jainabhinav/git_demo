@@ -33,6 +33,7 @@ def main():
                 .getOrCreate()
     Utils.initializeFromArgs(spark, parse_args())
     spark.conf.set("prophecy.metadata.pipeline.uri", "pipelines/gem_testing")
+    spark.conf.set("spark.databricks.delta.schema.autoMerge.enabled", "true")
     registerUDFs(spark)
     
     MetricsCollector.instrument(spark = spark, pipelineId = "pipelines/gem_testing", config = Config)(pipeline)

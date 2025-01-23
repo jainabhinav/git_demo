@@ -1,14 +1,15 @@
 {
   "metainfo" : {
     "migrationVersions" : {
-      "gemBuilderVersion" : "v1"
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
     },
     "functions" : { },
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.5.0",
-        "pyPiVersion" : "1.9.24"
+        "mavenVersion" : "8.7.1",
+        "pyPiVersion" : "1.9.29"
       }
     },
     "id" : "1",
@@ -17,7 +18,8 @@
     "pipelineSettingsInfo" : {
       "applicationName" : "gem_testing",
       "hasApplication" : true,
-      "isFunctionsPackageDirDefined" : true
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true
     },
     "language" : "python",
     "fabricId" : "2122",
@@ -27,7 +29,8 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "demoteamabhinav.customgemdemosnew.functions",
-      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ],
+      "initialCode" : "print(\"hello\")"
     },
     "udafs" : {
       "language" : "python",
@@ -111,7 +114,10 @@
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
-    "sparkConf" : [ ],
+    "sparkConf" : [ {
+      "name" : "spark.databricks.delta.schema.autoMerge.enabled",
+      "value" : "true"
+    } ],
     "hadoopConf" : [ ],
     "codeMode" : "sparse",
     "buildSystem" : "maven",
@@ -174,8 +180,8 @@
       "metadata" : {
         "label" : "filter_customer_id_range",
         "slug" : "filter_customer_id_range",
-        "x" : 680,
-        "y" : -320,
+        "x" : 420,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -281,7 +287,7 @@
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.36&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Filter",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -291,8 +297,8 @@
       "metadata" : {
         "label" : "capture_metrics",
         "slug" : "capture_metrics",
-        "x" : 480,
-        "y" : -320,
+        "x" : 220,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -412,13 +418,13 @@
       "metadata" : {
         "label" : "reformatted_customers_2",
         "slug" : "reformatted_customers_2",
-        "x" : 1080,
-        "y" : -320,
+        "x" : 820,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Updates customer records by modifying specific IDs and formatting last names, while also adding timestamps for tracking changes.",
+        "comment" : "Updates customer records by modifying specific customer IDs and formatting last names, while adding timestamps and new fields for enhanced tracking.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -583,13 +589,20 @@
             "expression" : "cast(null as timestamp)"
           },
           "description" : ""
+        }, {
+          "target" : "new_col",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "\"new_value\""
+          },
+          "description" : ""
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##email", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##phone", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##first_name", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##account_flags", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##country_code", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##account_open_date", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##customer_id", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##last_name" ]
+        "columnsSelector" : [ "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##email", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##customer_id", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##phone", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##country_code", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##last_name", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##account_open_date", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##first_name", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##account_flags" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.36&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -599,8 +612,8 @@
       "metadata" : {
         "label" : "customer_catalog_scd2_2",
         "slug" : "customer_catalog_scd2_2",
-        "x" : 1280,
-        "y" : -320,
+        "x" : 1020,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -704,6 +717,15 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
+            }, {
+              "name" : "new_col",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
             } ]
           },
           "isStreaming" : false
@@ -723,8 +745,8 @@
       "metadata" : {
         "label" : "customers_1",
         "slug" : "customers_1",
-        "x" : 280,
-        "y" : -320,
+        "x" : 20,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -752,8 +774,8 @@
       "metadata" : {
         "label" : "capture_customer_filter_metrics",
         "slug" : "capture_customer_filter_metrics",
-        "x" : 880,
-        "y" : -320,
+        "x" : 620,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,

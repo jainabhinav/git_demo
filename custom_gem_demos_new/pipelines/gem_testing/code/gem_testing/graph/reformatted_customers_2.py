@@ -17,5 +17,6 @@ def reformatted_customers_2(spark: SparkSession, in0: DataFrame) -> DataFrame:
         col("account_open_date"), 
         col("account_flags"), 
         current_timestamp().alias("from_time"), 
-        lit(None).cast(TimestampType()).alias("to_time")
+        lit(None).cast(TimestampType()).alias("to_time"), 
+        lit("new_value").alias("new_col")
     )
