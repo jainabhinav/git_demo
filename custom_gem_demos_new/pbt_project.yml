@@ -309,6 +309,18 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2025-01-08 21:30:58'
+    gems/xlsx:
+      name: xlsx
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/xlsx.py
+      gemType: DatasetGem
+      dependencies: null
+      createdAt: '2025-01-23 11:15:40'
   dependencies: null
 functions:
   author: null
