@@ -1,0 +1,900 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.7.1",
+        "pyPiVersion" : "1.9.29"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/gem_testing",
+    "sourceSuggestions" : [ ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "gem_testing",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true
+    },
+    "language" : "python",
+    "fabricId" : "2122",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "demoteamabhinav.customgemdemosnew.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ],
+      "initialCode" : "print(\"hello\")"
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "var_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "20"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "secret_test",
+          "kind" : {
+            "type" : "secret",
+            "fields" : [ {
+              "name" : "secretScope",
+              "kind" : {
+                "type" : "string",
+                "value" : "abhinav_demo"
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            }, {
+              "name" : "secretKey",
+              "kind" : {
+                "type" : "string",
+                "value" : "kafka_api_key"
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            }, {
+              "name" : "providerType",
+              "kind" : {
+                "type" : "string",
+                "value" : "Databricks"
+              },
+              "optional" : false,
+              "isWorkflowNodeConfiguration" : false,
+              "isReferenced" : false
+            } ]
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "debug_flag",
+          "kind" : {
+            "type" : "string",
+            "value" : "false"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "debug_flag2",
+          "kind" : {
+            "type" : "boolean",
+            "value" : false
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ {
+      "name" : "spark.databricks.delta.schema.autoMerge.enabled",
+      "value" : "true"
+    } ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Vanilla",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "gem_testing",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "5nlyS7N3U7Jq819-W52nz",
+    "source" : "XqEk1UMKgjejFQm67DBS3$$lnzo54C_Th5gXRcCIomvX",
+    "sourcePort" : "ZBoURy7DyiKWuriPFcCMO$$1XSuK3M-lLHIdrcKQwMj9",
+    "target" : "swEx04Sxrn-8IwodPUyt9$$yDOE4Bhatwo4fiBp9ZLKx",
+    "targetPort" : "iIjAh0C7yJ-DUPzLWCp6k$$Ep25gB0ahwRWNFnyxz4so"
+  }, {
+    "id" : "03IE5efv-GJSVwe4ktgyy$$9nbsX_21vQK9U7VTmKF9m",
+    "source" : "UPWwmTfKinTqL574hXX-R$$Wt6eFhZyvHVb1a0Aqyn7a",
+    "sourcePort" : "r9MSEBaouOxTz9QhJpAEU$$FI8sS8F-oGHVUNNhVutGq",
+    "target" : "7But_HVLETTZbJ6chwdrc$$i4YB85blEVZy2iLfoT-fT",
+    "targetPort" : "n1q_SH6SROLn2YU_vtfDh$$eRHw0ST34ASsRdJb2VQzL"
+  }, {
+    "id" : "_R49snPZTCP6vxwxJ5vSc",
+    "source" : "j3Jhr7mEVNjffC4wCTF03$$bzj6N4vgSQAJHDTD_iqj1",
+    "sourcePort" : "JMjkF4tZfLg8clsDdSWCC$$_wVTbIJavngtEW4NJPYj3",
+    "target" : "UPWwmTfKinTqL574hXX-R$$Wt6eFhZyvHVb1a0Aqyn7a",
+    "targetPort" : "e2FocKkLsXvEgCEWHhg9l$$-VTu9c1XAhDjt9EUgyLy7"
+  }, {
+    "id" : "Xk52ZxFoGYNtu30wwuNh2",
+    "source" : "7But_HVLETTZbJ6chwdrc$$i4YB85blEVZy2iLfoT-fT",
+    "sourcePort" : "IRMecCzDFzi0kulEwQWdZ$$NAYXNoLzxr4zBKAM6c-gu",
+    "target" : "9tea83q9P-40D-ZSr-h-E$$HHLdFRF1mnPzSJHnudkGs",
+    "targetPort" : "IxaMdNMHYx_MXpRWeK7iO$$fw-HXP1WXpAJC28oiOrv4"
+  }, {
+    "id" : "3wvFccOSja64UZHmFUPrz",
+    "source" : "9tea83q9P-40D-ZSr-h-E$$HHLdFRF1mnPzSJHnudkGs",
+    "sourcePort" : "w-tvVVziH8OPMFglYfS6u$$Ges3g7riNcCgpmlN8i8lS",
+    "target" : "XqEk1UMKgjejFQm67DBS3$$lnzo54C_Th5gXRcCIomvX",
+    "targetPort" : "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG"
+  } ],
+  "processes" : {
+    "7But_HVLETTZbJ6chwdrc$$i4YB85blEVZy2iLfoT-fT" : {
+      "id" : "7But_HVLETTZbJ6chwdrc$$i4YB85blEVZy2iLfoT-fT",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "filter_customer_id_range",
+        "slug" : "filter_customer_id_range",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Filters customers to include only those with IDs greater than 98.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "n1q_SH6SROLn2YU_vtfDh$$eRHw0ST34ASsRdJb2VQzL",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number associated with the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "IRMecCzDFzi0kulEwQWdZ$$NAYXNoLzxr4zBKAM6c-gu",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "n1q_SH6SROLn2YU_vtfDh$$eRHw0ST34ASsRdJb2VQzL##customer_id" ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "customer_id > 98"
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "UPWwmTfKinTqL574hXX-R$$Wt6eFhZyvHVb1a0Aqyn7a" : {
+      "id" : "UPWwmTfKinTqL574hXX-R$$Wt6eFhZyvHVb1a0Aqyn7a",
+      "component" : "CaptureMetrics",
+      "metadata" : {
+        "label" : "capture_metrics",
+        "slug" : "capture_metrics",
+        "x" : 220,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Tracks the number of records in the customer data source for monitoring purposes.",
+        "autoUpdateComment" : true,
+        "passThrough" : "Config.debug_flag == \"true\""
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "e2FocKkLsXvEgCEWHhg9l$$-VTu9c1XAhDjt9EUgyLy7",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number associated with the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "r9MSEBaouOxTz9QhJpAEU$$FI8sS8F-oGHVUNNhVutGq",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "metricsName" : "customers_source",
+        "captureCount" : true,
+        "showData" : false,
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ ]
+        },
+        "showDataRows" : null
+      },
+      "componentInfo" : {
+        "gemId" : "gems/CaptureMetrics",
+        "projectName" : "custom_gem_demos_new"
+      }
+    },
+    "XqEk1UMKgjejFQm67DBS3$$lnzo54C_Th5gXRcCIomvX" : {
+      "id" : "XqEk1UMKgjejFQm67DBS3$$lnzo54C_Th5gXRcCIomvX",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformatted_customers_2",
+        "slug" : "reformatted_customers_2",
+        "x" : 820,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Updates customer records by modifying specific customer IDs and formatting last names, while adding timestamps and new fields for enhanced tracking.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number associated with the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "ZBoURy7DyiKWuriPFcCMO$$1XSuK3M-lLHIdrcKQwMj9",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "case when customer_id == 100 then 102 else customer_id end"
+          },
+          "description" : ""
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "first_name"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "upper(last_name)"
+          },
+          "description" : ""
+        }, {
+          "target" : "phone",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "phone"
+          },
+          "description" : ""
+        }, {
+          "target" : "email",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "email"
+          },
+          "description" : ""
+        }, {
+          "target" : "country_code",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "country_code"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_open_date"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_flags",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "account_flags"
+          },
+          "description" : ""
+        }, {
+          "target" : "from_time",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "current_timestamp()"
+          },
+          "description" : ""
+        }, {
+          "target" : "to_time",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "cast(null as timestamp)"
+          },
+          "description" : ""
+        }, {
+          "target" : "new_col",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "\"new_value\""
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##email", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##customer_id", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##phone", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##country_code", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##last_name", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##account_open_date", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##first_name", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##account_flags" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "swEx04Sxrn-8IwodPUyt9$$yDOE4Bhatwo4fiBp9ZLKx" : {
+      "id" : "swEx04Sxrn-8IwodPUyt9$$yDOE4Bhatwo4fiBp9ZLKx",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "customer_catalog_scd2_2",
+        "slug" : "customer_catalog_scd2_2",
+        "x" : 1020,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Implements Slowly Changing Dimension Type 2 (SCD2) for maintaining a historical catalog of customer information. The code checks if the target table exists and performs an update or insert operation accordingly. It uses Delta Lake merge operation to handle updates and inserts efficiently.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "iIjAh0C7yJ-DUPzLWCp6k$$Ep25gB0ahwRWNFnyxz4so",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number associated with the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "from_time",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "to_time",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customer_catalog_scd2"
+      }
+    },
+    "j3Jhr7mEVNjffC4wCTF03$$bzj6N4vgSQAJHDTD_iqj1" : {
+      "id" : "j3Jhr7mEVNjffC4wCTF03$$bzj6N4vgSQAJHDTD_iqj1",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers_1",
+        "slug" : "customers_1",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reads customer data from a CSV file, including information such as customer ID, name, contact details, country code, account open date, and account flags.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "JMjkF4tZfLg8clsDdSWCC$$_wVTbIJavngtEW4NJPYj3",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customers"
+      }
+    },
+    "9tea83q9P-40D-ZSr-h-E$$HHLdFRF1mnPzSJHnudkGs" : {
+      "id" : "9tea83q9P-40D-ZSr-h-E$$HHLdFRF1mnPzSJHnudkGs",
+      "component" : "CaptureMetrics",
+      "metadata" : {
+        "label" : "capture_customer_filter_metrics",
+        "slug" : "capture_customer_filter_metrics",
+        "x" : 620,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Records and displays metrics related to customer filtering, providing insights into the number of customers processed.",
+        "autoUpdateComment" : true,
+        "passThrough" : "Config.debug_flag == \"true\""
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "IxaMdNMHYx_MXpRWeK7iO$$fw-HXP1WXpAJC28oiOrv4",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number associated with the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "w-tvVVziH8OPMFglYfS6u$$Ges3g7riNcCgpmlN8i8lS",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "metricsName" : "customer_filter_count",
+        "captureCount" : true,
+        "showData" : true,
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ ]
+        },
+        "showDataRows" : "20"
+      },
+      "componentInfo" : {
+        "gemId" : "gems/CaptureMetrics",
+        "projectName" : "custom_gem_demos_new"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

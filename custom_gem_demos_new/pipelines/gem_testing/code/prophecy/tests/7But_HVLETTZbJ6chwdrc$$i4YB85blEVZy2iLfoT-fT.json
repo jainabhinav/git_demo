@@ -1,0 +1,44 @@
+{
+  "unitTests" : [ {
+    "data" : {
+      "n1q_SH6SROLn2YU_vtfDh$$eRHw0ST34ASsRdJb2VQzL" : {
+        "values" : [ [ "97" ], [ "99" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "customer_id",
+            "type" : "integer",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "The unique identifier for the customer",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "predicates" : [ ]
+      },
+      "IRMecCzDFzi0kulEwQWdZ$$NAYXNoLzxr4zBKAM6c-gu" : {
+        "values" : [ [ "99" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "customer_id",
+            "type" : "integer",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "The unique identifier for the customer",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "predicates" : [ ]
+      }
+    },
+    "name" : "Unit Test ",
+    "testType" : "outputRow",
+    "language" : "python"
+  } ],
+  "language" : "python"
+}

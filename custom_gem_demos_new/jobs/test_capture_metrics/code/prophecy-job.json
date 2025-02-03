@@ -1,0 +1,144 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "2122",
+    "jobId" : "jobs/test_capture_metrics",
+    "name" : "test_capture_metrics",
+    "schedule" : "0 0 0 1/1 * ? *",
+    "scheduleTimeZone" : "UTC",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "small",
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    }
+  },
+  "processes" : {
+    "2hCSQ6obeU1YtdnZu8MmO" : {
+      "id" : "2hCSQ6obeU1YtdnZu8MmO",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "gem_testing",
+        "slug" : "gem_testing",
+        "x" : 100,
+        "y" : 100
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "in",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "out",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/gem_testing",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "var_name",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "20"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          }, {
+            "name" : "secret_test",
+            "optional" : false,
+            "kind" : {
+              "type" : "secret",
+              "fields" : [ {
+                "name" : "secretScope",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : "abhinav_demo"
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              }, {
+                "name" : "secretKey",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : "kafka_api_key"
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              }, {
+                "name" : "providerType",
+                "optional" : false,
+                "kind" : {
+                  "type" : "string",
+                  "value" : "Databricks"
+                },
+                "isReferenced" : false,
+                "isWorkflowNodeConfiguration" : false
+              } ]
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          }, {
+            "name" : "debug_flag",
+            "optional" : false,
+            "kind" : {
+              "type" : "string",
+              "value" : "false"
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          }, {
+            "name" : "debug_flag2",
+            "optional" : false,
+            "kind" : {
+              "type" : "boolean",
+              "value" : false
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : false
+          } ],
+          "instances" : {
+            "custom_gem_demos_new" : [ "default", "dev" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    }
+  },
+  "connections" : [ ]
+}
