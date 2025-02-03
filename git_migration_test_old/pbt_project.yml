@@ -1,6 +1,6 @@
 name: git_migration_test_old
 description: ''
-version: '1.4'
+version: '1.5'
 author: abhinav+demo@prophecy.io
 language: scala
 buildSystem: ''
