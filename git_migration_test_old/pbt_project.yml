@@ -21,16 +21,17 @@ pipelines:
     createdAt: '2025-02-03 09:46:56'
     datasets:
       inputs:
-      - datasets/csv
+      - datasets/csv_test_old
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=datasets/csv
       outputs: []
     subgraphs: []
     dependencies: {}
 datasets:
-  datasets/csv:
-    name: csv
+  datasets/csv_test_old:
+    name: csv_test_old
     description: ''
     author: abhinav+demo@prophecy.io
-    createdAt: '2025-02-03 09:47:17'
+    createdAt: '2025-02-03 10:16:33'
     mode: batch
     physicalDatasets:
       unity_fabric:
@@ -38,7 +39,7 @@ datasets:
         datasetType: File
         description: ''
         author: abhinav+demo@prophecy.io
-        createdAt: '2025-02-03 09:47:17'
+        createdAt: '2025-02-03 10:16:33'
 templates: {}
 jobs: {}
 gemContainer:
@@ -71,14 +72,6 @@ dependencies:
   createdAt: '2025-02-03T09:22:21.121532Z'
   type: plibMaven
 projectDependencies:
-  '12652':
-    projectUID: 12652
-    projectName: ProphecyWarehouseScala
-    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12652.git&subPath=
-    version: 0.0.6
-    isDefault: true
-    author: null
-    createdAt: '2025-02-03 09:20:48'
   '12651':
     projectUID: 12651
     projectName: ProphecySparkBasicsScala
@@ -87,6 +80,14 @@ projectDependencies:
     isDefault: true
     author: null
     createdAt: '2025-02-03 09:20:48'
+  '12135':
+    projectUID: 12135
+    projectName: demo_scala_project
+    repositoryPath: gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj
+    version: demo_scala_project/1.2
+    isDefault: false
+    author: null
+    createdAt: '2025-02-03 10:09:10'
 flags:
-  shouldAddDefaultDependenciesIfAbsent: true
+  shouldAddDefaultDependenciesIfAbsent: false
 pipelineConfigurations: {}

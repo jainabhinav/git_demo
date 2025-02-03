@@ -14,6 +14,7 @@
     },
     "id" : "1",
     "uri" : "pipelines/test_pipeline",
+    "sourceSuggestions" : [ ],
     "pipelineSettingsInfo" : {
       "applicationName" : "test_pipeline",
       "hasApplication" : true,
@@ -28,7 +29,7 @@
       "language" : "scala",
       "udfs" : [ ],
       "functionPackageName" : "abhinavdemoprophecyioteam.gitmigrationtestold.functions",
-      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions", "io.prophecy.warehousegems.functions" ]
+      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions", "io.prophecy.warehousegems.functions", "demo_team_abhinav.demo_scala_project.functions" ]
     },
     "udafs" : {
       "language" : "scala",
@@ -62,6 +63,19 @@
       "projectUID" : "12652",
       "projectName" : "ProphecyWarehouseScala",
       "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12135",
+      "projectName" : "demo_scala_project",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-08-13T12:57:38.512199Z",
+        "name" : "plibMaven",
+        "enabled" : true,
+        "version" : "8.7.1",
+        "id" : "817591910",
+        "createdAt" : "2024-08-13T12:57:38.512153Z",
+        "entity" : "Project"
+      } ]
     } ],
     "isImported" : false,
     "interimMode" : "Full",
@@ -75,21 +89,27 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "h6jjvP3bGpBdvcrgEWijQ$$ayqlAZ2OtoTnycoJbkAGU",
-    "source" : "8GdvFubnv9OHf5MsuXtR8$$IWMTyellCnH4A46UbyBoV",
-    "sourcePort" : "ModbtuAFWhTjAaWd8yqsI$$LKwraOafhOdg3qyYRGfrh",
-    "target" : "akoS3wHxyoPRFobXH5jy5$$KmpJrUPZKMlfcawLGyh4q",
-    "targetPort" : "e-WqXY7A5WMmUUxciGxQI$$y2ZVj_ESOpIoT12VA2Y0U"
+    "id" : "GxhajrIluTxU5NaY88Xcn$$XsjVb1Id-AYo6lwPdYCys",
+    "source" : "BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-",
+    "sourcePort" : "vLbOdwfl1IAKWCU_TkPxR$$MCo9RTvcBaeXIb6FGZp8o",
+    "target" : "RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq",
+    "targetPort" : "x0XcTwewg_6yYIa2-OHFF$$b6-fNuO3Q8DEFTKS_GlAM"
+  }, {
+    "id" : "Gz7eevgxlkhXFUv9bBDC9",
+    "source" : "OPfjJaiwFGMNyJ1esF5oc$$3O7FP6XQzMHuESf9fssBM",
+    "sourcePort" : "WYKpUUYjhYKaukRJa-uXw$$4dB10xrSs8NdJVPPfr9Tm",
+    "target" : "ZSUMQgXIuqwYlJ524MXzy$$ii6wUx7Xf8-1SaAc1aWms",
+    "targetPort" : "PDp5tuDlZybYxnECRlmNW$$rjXYtxneniLd4Z81-q5IK"
   } ],
   "processes" : {
-    "8GdvFubnv9OHf5MsuXtR8$$IWMTyellCnH4A46UbyBoV" : {
-      "id" : "8GdvFubnv9OHf5MsuXtR8$$IWMTyellCnH4A46UbyBoV",
+    "OPfjJaiwFGMNyJ1esF5oc$$3O7FP6XQzMHuESf9fssBM" : {
+      "id" : "OPfjJaiwFGMNyJ1esF5oc$$3O7FP6XQzMHuESf9fssBM",
       "component" : "Source",
       "metadata" : {
-        "label" : "csv",
-        "slug" : "csv",
-        "x" : -420,
-        "y" : -240,
+        "label" : "csv_test_old",
+        "slug" : "csv_test_old",
+        "x" : -1180,
+        "y" : -380,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -98,7 +118,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "ModbtuAFWhTjAaWd8yqsI$$LKwraOafhOdg3qyYRGfrh",
+          "id" : "WYKpUUYjhYKaukRJa-uXw$$4dB10xrSs8NdJVPPfr9Tm",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -106,17 +126,44 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "datasets/csv"
+        "datasetId" : "datasets/csv_test_old"
       }
     },
-    "akoS3wHxyoPRFobXH5jy5$$KmpJrUPZKMlfcawLGyh4q" : {
-      "id" : "akoS3wHxyoPRFobXH5jy5$$KmpJrUPZKMlfcawLGyh4q",
+    "BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-" : {
+      "id" : "BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "csv",
+        "slug" : "csv",
+        "x" : -1200,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "vLbOdwfl1IAKWCU_TkPxR$$MCo9RTvcBaeXIb6FGZp8o",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=datasets/csv"
+      }
+    },
+    "RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq" : {
+      "id" : "RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq",
       "component" : "Filter",
       "metadata" : {
         "label" : "Filter_1",
         "slug" : "Filter_1",
-        "x" : -260,
-        "y" : -240,
+        "x" : -1020,
+        "y" : -140,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -124,7 +171,45 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "e-WqXY7A5WMmUUxciGxQI$$y2ZVj_ESOpIoT12VA2Y0U",
+          "id" : "x0XcTwewg_6yYIa2-OHFF$$b6-fNuO3Q8DEFTKS_GlAM",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "TVU3CtB68ZEgn-6GNedRr$$zIxJzx3KJBz-N7qIJyeAh",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "true"
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=gems/Filter",
+        "projectName" : "demo_scala_project"
+      }
+    },
+    "ZSUMQgXIuqwYlJ524MXzy$$ii6wUx7Xf8-1SaAc1aWms" : {
+      "id" : "ZSUMQgXIuqwYlJ524MXzy$$ii6wUx7Xf8-1SaAc1aWms",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "Filter_2",
+        "slug" : "Filter_2",
+        "x" : -960,
+        "y" : -380,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "PDp5tuDlZybYxnECRlmNW$$rjXYtxneniLd4Z81-q5IK",
           "slug" : "in",
           "schema" : {
             "type" : "struct",
@@ -146,12 +231,21 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
+            }, {
+              "name" : "c",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
             } ]
           },
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "P4VeyyH6MP6DZbVwMCM7z$$zHwWFBXNpA9oYhdGsIzTp",
+          "id" : "1pcVd7tFjNFXgE1bM6lhh$$b9_UDp8DvSIkKBmqNL5_C",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -177,5 +271,54 @@
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
     "autoUpdateOnRun" : false
-  }
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-.properties.dataset.schema",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "Missing Schema. Please infer schema or provide it manually.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-.properties.dataset",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "This dataset is owned by a different project. Please fix it in the project which owns it.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 2,
+    "message" : "One of the upstream gems is broken. Please, fix it first.",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
 }
