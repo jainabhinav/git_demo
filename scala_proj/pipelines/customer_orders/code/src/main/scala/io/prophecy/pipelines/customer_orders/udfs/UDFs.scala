@@ -8,8 +8,12 @@ import org.apache.spark.sql._
 
 object UDFs extends Serializable {
 
-  def registerUDFs(spark: SparkSession) =
-    registerAllUDFs(spark)
+  def registerUDFs(spark: SparkSession) = {
+    try registerAllUDFs(spark)
+    catch {
+      case _ => ()
+    }
+  }
 
 }
 
