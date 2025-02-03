@@ -240,7 +240,7 @@
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=gems/Filter",
+        "gemId" : "gitUri=https://github.com/jainabhinav/test_git_mig.git&subPath=/scala_proj&tag=demo_scala_project/1.6&projectSubscriptionProjectId=12135&path=gems/Filter",
         "projectName" : "demo_scala_project"
       }
     },
@@ -338,7 +338,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=datasets/customers"
+        "datasetId" : "gitUri=https://github.com/jainabhinav/test_git_mig.git&subPath=/scala_proj&tag=demo_scala_project/1.6&projectSubscriptionProjectId=12135&path=datasets/customers"
       }
     }
   },

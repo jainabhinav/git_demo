@@ -22,7 +22,7 @@ pipelines:
     datasets:
       inputs:
       - datasets/csv_test_old
-      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=datasets/customers
+      - gitUri=https://github.com/jainabhinav/test_git_mig.git&subPath=/scala_proj&tag=demo_scala_project/1.6&projectSubscriptionProjectId=12135&path=datasets/customers
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -83,11 +83,11 @@ projectDependencies:
   '12135':
     projectUID: 12135
     projectName: demo_scala_project
-    repositoryPath: gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj
-    version: demo_scala_project/1.2
+    repositoryPath: gitUri=https://github.com/jainabhinav/test_git_mig.git&subPath=/scala_proj
+    version: demo_scala_project/1.6
     isDefault: false
     author: null
-    createdAt: '2025-02-03 10:09:10'
+    createdAt: '2025-02-03 12:05:13'
 flags:
   shouldAddDefaultDependenciesIfAbsent: false
 pipelineConfigurations: {}
