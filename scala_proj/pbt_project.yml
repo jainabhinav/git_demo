@@ -1,6 +1,6 @@
 name: demo_scala_project
 description: ''
-version: '1.1'
+version: '1.2'
 author: abhinav+demo@prophecy.io
 language: scala
 buildSystem: ''
