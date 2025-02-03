@@ -22,7 +22,7 @@ pipelines:
     datasets:
       inputs:
       - datasets/csv_test_old
-      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=datasets/csv
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=datasets/customers
       outputs: []
     subgraphs: []
     dependencies: {}

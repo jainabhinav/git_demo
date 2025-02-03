@@ -89,17 +89,17 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "GxhajrIluTxU5NaY88Xcn$$XsjVb1Id-AYo6lwPdYCys",
-    "source" : "BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-",
-    "sourcePort" : "vLbOdwfl1IAKWCU_TkPxR$$MCo9RTvcBaeXIb6FGZp8o",
-    "target" : "RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq",
-    "targetPort" : "x0XcTwewg_6yYIa2-OHFF$$b6-fNuO3Q8DEFTKS_GlAM"
-  }, {
     "id" : "Gz7eevgxlkhXFUv9bBDC9",
     "source" : "OPfjJaiwFGMNyJ1esF5oc$$3O7FP6XQzMHuESf9fssBM",
     "sourcePort" : "WYKpUUYjhYKaukRJa-uXw$$4dB10xrSs8NdJVPPfr9Tm",
     "target" : "ZSUMQgXIuqwYlJ524MXzy$$ii6wUx7Xf8-1SaAc1aWms",
     "targetPort" : "PDp5tuDlZybYxnECRlmNW$$rjXYtxneniLd4Z81-q5IK"
+  }, {
+    "id" : "zC0IScQe5cILV6NIt3YKJ",
+    "source" : "fM42IUc878uvCdZtAxjNV$$eRdzyiUfE5qugbwm7US53",
+    "sourcePort" : "VTyYJupJD-4vOS3iZ3Xz2$$GmJZCy3o1QYq0IX9zVrfo",
+    "target" : "RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq",
+    "targetPort" : "x0XcTwewg_6yYIa2-OHFF$$b6-fNuO3Q8DEFTKS_GlAM"
   } ],
   "processes" : {
     "OPfjJaiwFGMNyJ1esF5oc$$3O7FP6XQzMHuESf9fssBM" : {
@@ -129,33 +129,6 @@
         "datasetId" : "datasets/csv_test_old"
       }
     },
-    "BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-" : {
-      "id" : "BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "csv",
-        "slug" : "csv",
-        "x" : -1200,
-        "y" : -140,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "vLbOdwfl1IAKWCU_TkPxR$$MCo9RTvcBaeXIb6FGZp8o",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=datasets/csv"
-      }
-    },
     "RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq" : {
       "id" : "RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq",
       "component" : "Filter",
@@ -172,7 +145,84 @@
       "ports" : {
         "inputs" : [ {
           "id" : "x0XcTwewg_6yYIa2-OHFF$$b6-fNuO3Q8DEFTKS_GlAM",
-          "slug" : "in"
+          "slug" : "in",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
         } ],
         "outputs" : [ {
           "id" : "TVU3CtB68ZEgn-6GNedRr$$zIxJzx3KJBz-N7qIJyeAh",
@@ -263,6 +313,33 @@
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12651.git&subPath=&tag=0.2.6&projectSubscriptionProjectId=12651&path=gems/Filter",
         "projectName" : "ProphecySparkBasicsScala"
       }
+    },
+    "fM42IUc878uvCdZtAxjNV$$eRdzyiUfE5qugbwm7US53" : {
+      "id" : "fM42IUc878uvCdZtAxjNV$$eRdzyiUfE5qugbwm7US53",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers",
+        "slug" : "customers",
+        "x" : -1240,
+        "y" : -160,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "VTyYJupJD-4vOS3iZ3Xz2$$GmJZCy3o1QYq0IX9zVrfo",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/scala_proj&tag=demo_scala_project/1.2&projectSubscriptionProjectId=12135&path=datasets/customers"
+      }
     }
   },
   "ports" : {
@@ -271,54 +348,5 @@
     "selectedInputFields" : [ ],
     "isCustomOutputSchema" : false,
     "autoUpdateOnRun" : false
-  },
-  "diagnostics" : [ {
-    "property" : "$.workflow.processes.BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-.properties.dataset.schema",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 2,
-    "message" : "Missing Schema. Please infer schema or provide it manually.",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.BVJJZYkr4opOfwkuwixTF$$Su2NEanNLE7j8ONVm3Ec-.properties.dataset",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 2,
-    "message" : "This dataset is owned by a different project. Please fix it in the project which owns it.",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.RB0iueS__0rSngyQU8ugv$$NJRUqP7k9o_9WgxQ2pBMq",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 2,
-    "message" : "One of the upstream gems is broken. Please, fix it first.",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  } ]
+  }
 }

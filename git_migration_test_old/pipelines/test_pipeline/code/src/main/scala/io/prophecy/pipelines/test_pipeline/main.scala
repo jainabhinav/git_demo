@@ -16,8 +16,8 @@ object Main {
 
   def apply(context: Context): Unit = {
     val df_csv_test_old = csv_test_old(context)
-    val df_csv          = csv(context)
-    val df_Filter_1     = Filter_1(context, df_csv)
+    val df_customers    = customers(context)
+    val df_Filter_1     = Filter_1(context, df_customers)
     val df_Filter_2     = Filter_2(context, df_csv_test_old)
   }
 
