@@ -3,7 +3,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <modelVersion>4.0.0</modelVersion>
     <groupId>demo_team_abhinav</groupId>
     <artifactId>demo_scala_project</artifactId>
-    <version>0.0.1</version>
+    <version>demo_scala_project_1.1</version>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
@@ -157,7 +157,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                     <archive>
                         <addMavenDescriptor>false</addMavenDescriptor>
                         <manifestEntries>
-                            <Plugin-Id>0.0.1</Plugin-Id>
+                            <Plugin-Id>demo_scala_project_1.1</Plugin-Id>
                             <Plugin-Provider>Decebal Suiu</Plugin-Provider>
                             <Plugin-Version>0.0.1</Plugin-Version>
                         </manifestEntries>
