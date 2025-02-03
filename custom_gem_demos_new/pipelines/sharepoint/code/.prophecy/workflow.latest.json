@@ -170,51 +170,6 @@
           "optional" : false,
           "isWorkflowNodeConfiguration" : false,
           "isReferenced" : false
-        }, {
-          "name" : "Subgraph_1",
-          "kind" : {
-            "type" : "record",
-            "fields" : [ {
-              "name" : "username",
-              "kind" : {
-                "type" : "string",
-                "value" : "rakesh@prophecy340.onmicrosoft.com"
-              },
-              "optional" : false,
-              "isWorkflowNodeConfiguration" : false,
-              "isReferenced" : true
-            }, {
-              "name" : "password",
-              "kind" : {
-                "type" : "string",
-                "value" : "Prophecy@2024"
-              },
-              "optional" : false,
-              "isWorkflowNodeConfiguration" : false,
-              "isReferenced" : true
-            }, {
-              "name" : "sftpusername",
-              "kind" : {
-                "type" : "string",
-                "value" : "sftpuser"
-              },
-              "optional" : false,
-              "isWorkflowNodeConfiguration" : false,
-              "isReferenced" : true
-            }, {
-              "name" : "sftppassword",
-              "kind" : {
-                "type" : "string",
-                "value" : "Prophecy@123"
-              },
-              "optional" : false,
-              "isWorkflowNodeConfiguration" : false,
-              "isReferenced" : true
-            } ]
-          },
-          "optional" : false,
-          "isWorkflowNodeConfiguration" : true,
-          "isReferenced" : false
         } ]
       },
       "oldCommon" : {
@@ -281,59 +236,6 @@
       },
       "properties" : {
         "datasetId" : "datasets/sharepoint_customers_csv"
-      }
-    },
-    "QE6-CVIZ9DkT7c2FZRrs3$$XFaDcn0GpWms6h5Vit57_" : {
-      "id" : "QE6-CVIZ9DkT7c2FZRrs3$$XFaDcn0GpWms6h5Vit57_",
-      "component" : "Subgraph",
-      "metadata" : {
-        "label" : "Subgraph_1",
-        "slug" : "Subgraph_1",
-        "x" : -1320,
-        "y" : -500,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : { },
-      "connections" : [ ],
-      "processes" : {
-        "BM-aBwB3Mrmys5ENFSfMr$$AURYGJx9NpzzRgxdAVdlF" : {
-          "id" : "BM-aBwB3Mrmys5ENFSfMr$$AURYGJx9NpzzRgxdAVdlF",
-          "component" : "Script",
-          "metadata" : {
-            "label" : "print_username",
-            "slug" : "print_username",
-            "x" : -140,
-            "y" : -80,
-            "phase" : 0,
-            "cache" : false,
-            "detailedStats" : false,
-            "isImported" : false,
-            "comment" : "Displays the username from the configuration settings.",
-            "autoUpdateComment" : true
-          },
-          "ports" : {
-            "inputs" : [ ],
-            "outputs" : [ ],
-            "selectedInputFields" : [ ],
-            "isCustomOutputSchema" : true,
-            "autoUpdateOnRun" : true
-          },
-          "properties" : {
-            "script" : "print(Config.username)",
-            "scriptMethodHeader" : "def Script(spark: SparkSession) -> None:",
-            "scriptMethodFooter" : "    return "
-          }
-        }
       }
     }
   },

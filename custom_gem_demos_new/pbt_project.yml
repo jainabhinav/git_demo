@@ -57,6 +57,23 @@ pipelines:
       - datasets/customers_metadata_target
     subgraphs: []
     dependencies: {}
+  pipelines/excel_testing:
+    name: excel_testing
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-01-23 14:08:18'
+    datasets:
+      inputs:
+      - datasets/customers
+      - datasets/xlsx_test
+      - datasets/xlsx_test_sheet2
+      outputs:
+      - datasets/xlsx_target_test
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/customers:
     name: customers
@@ -123,6 +140,71 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2025-01-08 22:11:01'
+  datasets/xlsx_test:
+    name: xlsx_test
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-23 14:09:01'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-23 14:09:01'
+  datasets/xlsx_target_test:
+    name: xlsx_target_test
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-23 14:09:27'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-23 14:09:27'
+  datasets/xlsx_test_sheet2:
+    name: xlsx_test_sheet2
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-23 16:33:14'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-23 16:33:14'
+  datasets/crealytics_target_xlsx:
+    name: crealytics_target_xlsx
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-27 15:08:37'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-27 15:08:37'
+  datasets/crealytics_source:
+    name: crealytics_source
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-27 15:45:11'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-27 15:45:11'
 templates: {}
 jobs:
   jobs/test_capture_metrics:
@@ -319,8 +401,8 @@ gemContainer:
       files:
       - demoteamabhinav_customgemdemosnew/gems/xlsx.py
       gemType: DatasetGem
-      dependencies: null
-      createdAt: '2025-01-23 11:15:40'
+      dependencies: []
+      createdAt: '2025-01-28 14:17:32'
   dependencies: null
 functions:
   author: null

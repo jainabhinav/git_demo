@@ -1,2 +1,1 @@
-from .Subgraph_1 import Subgraph_1
 from .sharepoint_customers_csv import sharepoint_customers_csv
