@@ -8,8 +8,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.7.1",
-        "pyPiVersion" : "1.9.29"
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
       }
     },
     "id" : "1",
@@ -287,7 +287,7 @@
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Filter",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -602,7 +602,7 @@
         "columnsSelector" : [ "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##email", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##customer_id", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##phone", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##country_code", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##last_name", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##account_open_date", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##first_name", "e0dKMpWtSxIuKog-tWOe3$$6UOouEBYXqfhGTTDODJJG##account_flags" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },

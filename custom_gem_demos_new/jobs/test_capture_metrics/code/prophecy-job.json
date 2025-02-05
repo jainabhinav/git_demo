@@ -136,7 +136,8 @@
           },
           "overrides" : { },
           "selectedInstance" : "default"
-        }
+        },
+        "projectId" : "30492"
       }
     }
   },

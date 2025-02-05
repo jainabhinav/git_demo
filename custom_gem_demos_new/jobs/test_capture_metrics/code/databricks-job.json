@@ -62,11 +62,11 @@
       },
       "libraries" : [ {
         "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.4.0-8.7.1"
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.4.0-8.8.0"
         }
       }, {
         "pypi" : {
-          "package" : "prophecy-libs==1.9.29"
+          "package" : "prophecy-libs==1.9.33"
         }
       }, {
         "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/gem_testing-1.0-py3-none-any.whl"
