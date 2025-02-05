@@ -1,0 +1,421 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
+      },
+      "sparkConfigJinjaEnabled" : true
+    },
+    "id" : "1",
+    "uri" : "pipelines/sharepoint",
+    "sourceSuggestions" : [ {
+      "sourceLabel" : "xlsx_target_test",
+      "sourceDatasetId" : "datasets/xlsx_target_test",
+      "canJoinWith" : [ {
+        "processLabel" : "sharepoint_customers_csv",
+        "processId" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "xlsx_target_test",
+            "expression" : "(((sharepoint_customers_csv.account_flags = xlsx_target_test.account_flags) AND (sharepoint_customers_csv.country_code = xlsx_target_test.country_code)) AND (sharepoint_customers_csv.customer_id = xlsx_target_test.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "customer_id",
+            "expression" : "sharepoint_customers_csv.customer_id"
+          }, {
+            "alias" : "country_code",
+            "expression" : "sharepoint_customers_csv.country_code"
+          }, {
+            "alias" : "last_name",
+            "expression" : "sharepoint_customers_csv.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "sharepoint_customers_csv.account_open_date"
+          }, {
+            "alias" : "first_name",
+            "expression" : "sharepoint_customers_csv.first_name"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "sharepoint_customers_csv.account_flags"
+          }, {
+            "alias" : "phone",
+            "expression" : "sharepoint_customers_csv.phone"
+          }, {
+            "alias" : "email",
+            "expression" : "sharepoint_customers_csv.email"
+          } ],
+          "headAlias" : "datasets/xlsx_target_test"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "crealytics_target_xlsx",
+      "sourceDatasetId" : "datasets/crealytics_target_xlsx",
+      "canJoinWith" : [ {
+        "processLabel" : "sharepoint_customers_csv",
+        "processId" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "crealytics_target_xlsx",
+            "expression" : "(((sharepoint_customers_csv.account_flags = crealytics_target_xlsx.account_flags) AND (sharepoint_customers_csv.country_code = crealytics_target_xlsx.country_code)) AND (sharepoint_customers_csv.customer_id = crealytics_target_xlsx.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "customer_id",
+            "expression" : "sharepoint_customers_csv.customer_id"
+          }, {
+            "alias" : "country_code",
+            "expression" : "sharepoint_customers_csv.country_code"
+          }, {
+            "alias" : "last_name",
+            "expression" : "sharepoint_customers_csv.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "sharepoint_customers_csv.account_open_date"
+          }, {
+            "alias" : "first_name",
+            "expression" : "sharepoint_customers_csv.first_name"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "sharepoint_customers_csv.account_flags"
+          }, {
+            "alias" : "phone",
+            "expression" : "sharepoint_customers_csv.phone"
+          }, {
+            "alias" : "email",
+            "expression" : "sharepoint_customers_csv.email"
+          } ],
+          "headAlias" : "datasets/crealytics_target_xlsx"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "xlsx_test_sheet2",
+      "sourceDatasetId" : "datasets/xlsx_test_sheet2",
+      "canJoinWith" : [ {
+        "processLabel" : "sharepoint_customers_csv",
+        "processId" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
+        "joinColumns" : [ "country_code", "account_flags", "email" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "country_code", "account_flags", "email" ],
+          "conditions" : [ {
+            "alias" : "xlsx_test_sheet2",
+            "expression" : "(((sharepoint_customers_csv.account_flags = xlsx_test_sheet2.account_flags) AND (sharepoint_customers_csv.country_code = xlsx_test_sheet2.country_code)) AND (sharepoint_customers_csv.email = xlsx_test_sheet2.email))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "customer_id",
+            "expression" : "sharepoint_customers_csv.customer_id"
+          }, {
+            "alias" : "country_code",
+            "expression" : "sharepoint_customers_csv.country_code"
+          }, {
+            "alias" : "last_name",
+            "expression" : "sharepoint_customers_csv.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "sharepoint_customers_csv.account_open_date"
+          }, {
+            "alias" : "first_name",
+            "expression" : "sharepoint_customers_csv.first_name"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "sharepoint_customers_csv.account_flags"
+          }, {
+            "alias" : "phone",
+            "expression" : "sharepoint_customers_csv.phone"
+          }, {
+            "alias" : "email",
+            "expression" : "sharepoint_customers_csv.email"
+          } ],
+          "headAlias" : "datasets/xlsx_test_sheet2"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "customers",
+      "sourceDatasetId" : "datasets/customers",
+      "canJoinWith" : [ {
+        "processLabel" : "sharepoint_customers_csv",
+        "processId" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "customers",
+            "expression" : "(((sharepoint_customers_csv.account_flags = customers.account_flags) AND (sharepoint_customers_csv.country_code = customers.country_code)) AND (sharepoint_customers_csv.customer_id = customers.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "customer_id",
+            "expression" : "sharepoint_customers_csv.customer_id"
+          }, {
+            "alias" : "country_code",
+            "expression" : "sharepoint_customers_csv.country_code"
+          }, {
+            "alias" : "last_name",
+            "expression" : "sharepoint_customers_csv.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "sharepoint_customers_csv.account_open_date"
+          }, {
+            "alias" : "first_name",
+            "expression" : "sharepoint_customers_csv.first_name"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "sharepoint_customers_csv.account_flags"
+          }, {
+            "alias" : "phone",
+            "expression" : "sharepoint_customers_csv.phone"
+          }, {
+            "alias" : "email",
+            "expression" : "sharepoint_customers_csv.email"
+          } ],
+          "headAlias" : "datasets/customers"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "customer_catalog_scd2",
+      "sourceDatasetId" : "datasets/customer_catalog_scd2",
+      "canJoinWith" : [ {
+        "processLabel" : "sharepoint_customers_csv",
+        "processId" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "customer_catalog_scd2",
+            "expression" : "(((sharepoint_customers_csv.account_flags = customer_catalog_scd2.account_flags) AND (sharepoint_customers_csv.country_code = customer_catalog_scd2.country_code)) AND (sharepoint_customers_csv.customer_id = customer_catalog_scd2.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "from_time",
+            "expression" : "customer_catalog_scd2.from_time"
+          }, {
+            "alias" : "to_time",
+            "expression" : "customer_catalog_scd2.to_time"
+          }, {
+            "alias" : "new_col",
+            "expression" : "customer_catalog_scd2.new_col"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "sharepoint_customers_csv.customer_id"
+          }, {
+            "alias" : "country_code",
+            "expression" : "sharepoint_customers_csv.country_code"
+          }, {
+            "alias" : "last_name",
+            "expression" : "sharepoint_customers_csv.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "sharepoint_customers_csv.account_open_date"
+          }, {
+            "alias" : "first_name",
+            "expression" : "sharepoint_customers_csv.first_name"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "sharepoint_customers_csv.account_flags"
+          }, {
+            "alias" : "phone",
+            "expression" : "sharepoint_customers_csv.phone"
+          }, {
+            "alias" : "email",
+            "expression" : "sharepoint_customers_csv.email"
+          } ],
+          "headAlias" : "datasets/customer_catalog_scd2"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "xlsx_test",
+      "sourceDatasetId" : "datasets/xlsx_test",
+      "canJoinWith" : [ {
+        "processLabel" : "sharepoint_customers_csv",
+        "processId" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
+        "joinColumns" : [ "country_code", "account_flags", "email" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "country_code", "account_flags", "email" ],
+          "conditions" : [ {
+            "alias" : "xlsx_test",
+            "expression" : "(((sharepoint_customers_csv.account_flags = xlsx_test.account_flags) AND (sharepoint_customers_csv.country_code = xlsx_test.country_code)) AND (sharepoint_customers_csv.email = xlsx_test.email))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "customer_id",
+            "expression" : "sharepoint_customers_csv.customer_id"
+          }, {
+            "alias" : "country_code",
+            "expression" : "sharepoint_customers_csv.country_code"
+          }, {
+            "alias" : "last_name",
+            "expression" : "sharepoint_customers_csv.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "sharepoint_customers_csv.account_open_date"
+          }, {
+            "alias" : "first_name",
+            "expression" : "sharepoint_customers_csv.first_name"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "sharepoint_customers_csv.account_flags"
+          }, {
+            "alias" : "phone",
+            "expression" : "sharepoint_customers_csv.phone"
+          }, {
+            "alias" : "email",
+            "expression" : "sharepoint_customers_csv.email"
+          } ],
+          "headAlias" : "datasets/xlsx_test"
+        }
+      } ]
+    } ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "sharepoint",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true
+    },
+    "language" : "python",
+    "fabricId" : "18045",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "demoteamabhinav.customgemdemosnew.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "username",
+          "kind" : {
+            "type" : "string",
+            "value" : "rakesh@prophecy340.onmicrosoft.com"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "password",
+          "kind" : {
+            "type" : "string",
+            "value" : "Prophecy@2024"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "sftpusername",
+          "kind" : {
+            "type" : "string",
+            "value" : "sftpuser"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "sftppassword",
+          "kind" : {
+            "type" : "string",
+            "value" : "Prophecy@123"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "sharepoint",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ ],
+  "processes" : {
+    "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc" : {
+      "id" : "u1nJ14v7zZ79MkiyVFekA$$C0hOEwI71heRMAFzGUsWc",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "sharepoint_customers_csv",
+        "slug" : "sharepoint_customers_csv",
+        "x" : -1660,
+        "y" : -500,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Downloads customer data from a secure server and prepares it for analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ZT6CfztL72xuEBtyp1bYH$$fTykSln-4kImlUF_S8rFr",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/sharepoint_customers_csv"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "var_name" : "30",
+  "secret_test" : {
+    "secretScope" : "abhinav_demo1",
+    "secretKey" : "test_secret",
+    "providerType" : "Databricks"
+  }
+}
