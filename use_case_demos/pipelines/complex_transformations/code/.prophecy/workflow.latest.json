@@ -74,6 +74,40 @@
         }
       } ]
     }, {
+      "sourceLabel" : "streaming_kafka_target",
+      "sourceDatasetId" : "datasets/streaming_kafka_target",
+      "canJoinWith" : [ {
+        "processLabel" : "xml_string_input",
+        "processId" : "ah3f66MOsaYGcaHpO7Dd2$$YIQr2xnMg5gfTRkaDNvUD",
+        "joinColumns" : [ "xml_column" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "xml_column" ],
+          "conditions" : [ {
+            "alias" : "streaming_kafka_target",
+            "expression" : "(xml_string_input.xml_column = streaming_kafka_target.xml)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "key",
+            "expression" : "streaming_kafka_target.key"
+          }, {
+            "alias" : "orderid",
+            "expression" : "streaming_kafka_target.orderid"
+          }, {
+            "alias" : "xml_parsed_content",
+            "expression" : "streaming_kafka_target.xml_parsed_content"
+          }, {
+            "alias" : "xml_column",
+            "expression" : "xml_string_input.xml_column"
+          }, {
+            "alias" : "id",
+            "expression" : "xml_string_input.id"
+          } ],
+          "headAlias" : "datasets/streaming_kafka_target"
+        }
+      } ]
+    }, {
       "sourceLabel" : "streaming_json",
       "sourceDatasetId" : "datasets/streaming_json",
       "canJoinWith" : [ {

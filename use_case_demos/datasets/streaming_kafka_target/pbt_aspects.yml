@@ -9,50 +9,102 @@ schema:
       description: ''
       mappings: []
       tags: []
-  - name: value-ordertime
-    type: long
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: value-orderid
+  - name: orderid
     type: integer
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: value-itemid
+  - name: xml
     type: string
     nullable: true
     metadata:
       description: ''
       mappings: []
       tags: []
-  - name: value-address-city
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: value-address-state
-    type: string
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: value-address-zipcode
-    type: integer
-    nullable: true
-    metadata:
-      description: ''
-      mappings: []
-      tags: []
-  - name: timestamp
-    type: timestamp
+  - name: xml_parsed_content
+    type:
+      type: struct
+      fields:
+      - name: person
+        type:
+          type: struct
+          fields:
+          - name: id
+            type: string
+            nullable: true
+            metadata:
+              description: ''
+              mappings: []
+              tags: []
+          - name: name
+            type:
+              type: struct
+              fields:
+              - name: first
+                type: string
+                nullable: true
+                metadata:
+                  description: ''
+                  mappings: []
+                  tags: []
+              - name: last
+                type: string
+                nullable: true
+                metadata:
+                  description: ''
+                  mappings: []
+                  tags: []
+            nullable: true
+            metadata:
+              description: ''
+              mappings: []
+              tags: []
+          - name: address
+            type:
+              type: struct
+              fields:
+              - name: street
+                type: string
+                nullable: true
+                metadata:
+                  description: ''
+                  mappings: []
+                  tags: []
+              - name: city
+                type:
+                  type: struct
+                  fields:
+                  - name: _VALUE
+                    type: string
+                    nullable: true
+                    metadata:
+                      description: ''
+                      mappings: []
+                      tags: []
+                  - name: city2
+                    type: string
+                    nullable: true
+                    metadata:
+                      description: ''
+                      mappings: []
+                      tags: []
+                nullable: true
+                metadata:
+                  description: ''
+                  mappings: []
+                  tags: []
+            nullable: true
+            metadata:
+              description: ''
+              mappings: []
+              tags: []
+        nullable: true
+        metadata:
+          description: ''
+          mappings: []
+          tags: []
     nullable: true
     metadata:
       description: ''
