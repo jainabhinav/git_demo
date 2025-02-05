@@ -8,8 +8,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.6.0",
-        "pyPiVersion" : "1.9.28"
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
       },
       "sparkConfigJinjaEnabled" : true
     },
@@ -75,16 +75,16 @@
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
         "enabled" : true,
-        "version" : "8.1.8",
+        "version" : "8.8.0",
         "id" : "848385427",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-10-01T19:25:32.987Z",
+        "modifiedAt" : "2024-12-11T07:41:57.169Z",
         "name" : "ProphecyLibsPython",
         "enabled" : true,
-        "version" : "1.9.14",
+        "version" : "1.9.33",
         "id" : "1875097243",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
@@ -113,241 +113,49 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "aneINB19pydATsxkf4KJ9$$vRoWiOs6hc4--KhrZ5UKN",
-    "source" : "Z0KyNuKu159v66J0mvsSq$$kvTVdK3_AMcyrbHNQUTpI",
-    "sourcePort" : "ZcvcXc0HuLpEF-reVw4tB$$0SV0aZK88oKr0KFScZTbH",
+    "id" : "CrBvClpslXliZrzX-0gLj",
+    "source" : "6z570rJDGUks2ZoVi9T1h$$TkONL401JQSj668qlhiRL",
+    "sourcePort" : "_NrSbv60Zj76Ckv2ckrHO$$CnXT8iXsvExU7dRltYwxr",
     "target" : "d382F8l6ZVthPAZZT9j_6$$Ng5-pCpsAMWmHfKAoUcfy",
     "targetPort" : "E0kZeVcSiJuqhHON67Qhj$$HwhBZe8I1klGMeXKt0vb3"
   }, {
-    "id" : "rGBD8n6IWIHCL7MrAza2h",
+    "id" : "CUOaXtzISII_OLKlJBxr6$$HFAlsM5Ohqr0zz3gvXPMl",
+    "source" : "t5IRll8ApucHgzT2vTMzy$$Vncs79m4kHWxGMfM9wBsM",
+    "sourcePort" : "eCrJXsDDDEDHwSp_ErYKX$$c7qCk9Lqaeg2NgtwcMXbh",
+    "target" : "6z570rJDGUks2ZoVi9T1h$$TkONL401JQSj668qlhiRL",
+    "targetPort" : "1DJK6Ci078km7XPATbIk7$$wyKwfK43qphqf-iwAFjsA"
+  }, {
+    "id" : "sQDdsRkMIG-g-4xr8sy27",
+    "source" : "rImrhZZHK7IdBFCOW0Ft0$$7ZojEC0B-5nLFIZGQi5jJ",
+    "sourcePort" : "pEWcXn_cg8dc0z1AuMGd9$$53r3-KTBpDlRjfHWkl-Vy",
+    "target" : "t5IRll8ApucHgzT2vTMzy$$Vncs79m4kHWxGMfM9wBsM",
+    "targetPort" : "EY6tLuSi-KQfComZXGsz0$$5MWAffbfxebhfXOK5UVfa"
+  }, {
+    "id" : "S2UqtF47aTwrkcsOfd9Zp",
     "source" : "aKmc4EHM_cJ0qU5Rvnwfc$$pTea54UpqXI1ukqlm1Ny7",
     "sourcePort" : "nFmdiu_3zy0PayB31qpgp$$Z4ZSSLxUQBZajqBfHR3oT",
-    "target" : "Z0KyNuKu159v66J0mvsSq$$kvTVdK3_AMcyrbHNQUTpI",
-    "targetPort" : "9DqpshjRYMlT3uNYuK5hp$$Zj4J-oSEWxFF-TMkmJEUn"
+    "target" : "rImrhZZHK7IdBFCOW0Ft0$$7ZojEC0B-5nLFIZGQi5jJ",
+    "targetPort" : "397WPe2oafWvMVDugiVW8$$okTyaSxIOfGtBb6wHwSES"
   } ],
   "processes" : {
-    "aKmc4EHM_cJ0qU5Rvnwfc$$pTea54UpqXI1ukqlm1Ny7" : {
-      "id" : "aKmc4EHM_cJ0qU5Rvnwfc$$pTea54UpqXI1ukqlm1Ny7",
-      "component" : "StreamingSource",
-      "metadata" : {
-        "label" : "streaming_kafka",
-        "slug" : "streaming_kafka",
-        "x" : -420,
-        "y" : -60,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false,
-        "comment" : "Sets up a streaming Kafka consumer to read data from a Kafka topic, applying necessary security configurations and converting the data types of the key and value columns.",
-        "autoUpdateComment" : true
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "nFmdiu_3zy0PayB31qpgp$$Z4ZSSLxUQBZajqBfHR3oT",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/streaming_kafka"
-      }
-    },
-    "d382F8l6ZVthPAZZT9j_6$$Ng5-pCpsAMWmHfKAoUcfy" : {
-      "id" : "d382F8l6ZVthPAZZT9j_6$$Ng5-pCpsAMWmHfKAoUcfy",
-      "component" : "StreamingTarget",
-      "metadata" : {
-        "label" : "streaming_kafka_target",
-        "slug" : "streaming_kafka_target",
-        "x" : 20,
-        "y" : -60,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false,
-        "comment" : "Streams data from a source into a Delta table, enabling real-time data processing and analysis.",
-        "autoUpdateComment" : true
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "E0kZeVcSiJuqhHON67Qhj$$HwhBZe8I1klGMeXKt0vb3",
-          "slug" : "in0",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "key",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "value",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "topic",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "partition",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "offset",
-              "type" : "long",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "timestamp",
-              "type" : "timestamp",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "timestampType",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "json_parsed_content",
-              "type" : {
-                "type" : "struct",
-                "fields" : [ {
-                  "name" : "ordertime",
-                  "type" : "long",
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                }, {
-                  "name" : "orderid",
-                  "type" : "long",
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                }, {
-                  "name" : "itemid",
-                  "type" : "string",
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                }, {
-                  "name" : "address",
-                  "type" : {
-                    "type" : "struct",
-                    "fields" : [ {
-                      "name" : "city",
-                      "type" : "string",
-                      "nullable" : true,
-                      "metadata" : {
-                        "description" : "",
-                        "mappings" : [ ],
-                        "tags" : [ ]
-                      }
-                    }, {
-                      "name" : "state",
-                      "type" : "string",
-                      "nullable" : true,
-                      "metadata" : {
-                        "description" : "",
-                        "mappings" : [ ],
-                        "tags" : [ ]
-                      }
-                    }, {
-                      "name" : "zipcode",
-                      "type" : "long",
-                      "nullable" : true,
-                      "metadata" : {
-                        "description" : "",
-                        "mappings" : [ ],
-                        "tags" : [ ]
-                      }
-                    } ]
-                  },
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                } ]
-              },
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/streaming_kafka_target"
-      }
-    },
-    "Z0KyNuKu159v66J0mvsSq$$kvTVdK3_AMcyrbHNQUTpI" : {
-      "id" : "Z0KyNuKu159v66J0mvsSq$$kvTVdK3_AMcyrbHNQUTpI",
+    "rImrhZZHK7IdBFCOW0Ft0$$7ZojEC0B-5nLFIZGQi5jJ" : {
+      "id" : "rImrhZZHK7IdBFCOW0Ft0$$7ZojEC0B-5nLFIZGQi5jJ",
       "component" : "Script",
       "metadata" : {
-        "label" : "json_parsing_with_inference",
-        "slug" : "json_parsing_with_inference",
-        "x" : -200,
-        "y" : -60,
+        "label" : "json_parsing_with_schema",
+        "slug" : "json_parsing_with_schema",
+        "x" : 220,
+        "y" : 20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Extracts and structures JSON data from a given dataset, enabling better analysis of order-related information.",
+        "comment" : "Parses JSON data from a DataFrame, extracting structured information for better data analysis and reporting.",
         "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "9DqpshjRYMlT3uNYuK5hp$$Zj4J-oSEWxFF-TMkmJEUn",
+          "id" : "397WPe2oafWvMVDugiVW8$$okTyaSxIOfGtBb6wHwSES",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -419,7 +227,7 @@
           "isStreaming" : true
         } ],
         "outputs" : [ {
-          "id" : "ZcvcXc0HuLpEF-reVw4tB$$0SV0aZK88oKr0KFScZTbH",
+          "id" : "pEWcXn_cg8dc0z1AuMGd9$$53r3-KTBpDlRjfHWkl-Vy",
           "slug" : "out0",
           "schema" : {
             "type" : "struct",
@@ -491,33 +299,6 @@
               "type" : {
                 "type" : "struct",
                 "fields" : [ {
-                  "name" : "ordertime",
-                  "type" : "long",
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                }, {
-                  "name" : "orderid",
-                  "type" : "long",
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                }, {
-                  "name" : "itemid",
-                  "type" : "string",
-                  "nullable" : true,
-                  "metadata" : {
-                    "description" : "",
-                    "mappings" : [ ],
-                    "tags" : [ ]
-                  }
-                }, {
                   "name" : "address",
                   "type" : {
                     "type" : "struct",
@@ -556,6 +337,499 @@
                     "mappings" : [ ],
                     "tags" : [ ]
                   }
+                }, {
+                  "name" : "itemid",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "orderid",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "ordertime",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "xml",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "script" : "def json_parse_new(in0, column_to_parse, parsingMethod, sampleRecord, schema, schemaInferCount):\n    try:\n        from pyspark.sql.functions import from_json, schema_of_json, lit\n        from pyspark.sql.types import StructType\n        if parsingMethod in [\"parseFromSampleRecord\", \"parseAuto\"]:\n            if parsingMethod == \"parseFromSampleRecord\":\n                sample_json = sampleRecord\n                json_schema = schema_of_json(lit(sample_json))\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           from_json(column_to_parse, json_schema))\n            else:\n                combined_json_df = in0.limit(schemaInferCount).select(\n                    concat_ws(\",\", collect_list(column_to_parse)).alias(\"combined_json\"))\n                sample_json = \"[\" + combined_json_df.collect()[0][\"combined_json\"] + \"]\"\n                json_schema = schema_of_json(lit(sample_json))\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           from_json(column_to_parse, json_schema).getItem(0))\n        else:\n            try:\n                json_schema = schema\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           expr(f\"from_json({column_to_parse}, '{json_schema}')\"))\n            except Exception as e:\n                json_schema = StructType.fromDDL(schema)\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           from_json(column_to_parse, json_schema))\n        return output_df\n    except Exception as e:\n        print(f\"An error occurred while fetching data: {e}\")\n        raise e\n\nout0 = json_parse_new(\n        in0,\n        \"value\",\n        \"parseAuto123\",\n        \"\"\"{\n  \"ordertime\": 1675293842,\n  \"orderid\": 5923,\n  \"itemid\": \"item_mtzfg\",\n  \"address\": {\n    \"city\": \"Welrax\",\n    \"state\": \"WA\",\n    \"zipcode\": 73925\n  }\n}\"\"\",\n        \"\"\"STRUCT<\n  age: LONG,\n  orderid: INT,\n  id: INT,\n  address: STRUCT<\n    city: STRING,\n    state: STRING,\n    zipcode: INT\n  >,\n  xml: STRING \n>\"\"\",\n        2\n    )",
+        "scriptMethodHeader" : "def Script(spark: SparkSession, in0: DataFrame) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "t5IRll8ApucHgzT2vTMzy$$Vncs79m4kHWxGMfM9wBsM" : {
+      "id" : "t5IRll8ApucHgzT2vTMzy$$Vncs79m4kHWxGMfM9wBsM",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformat_json_data",
+        "slug" : "reformat_json_data",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Transforms JSON data into a structured format, extracting key order information for easier analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "EY6tLuSi-KQfComZXGsz0$$5MWAffbfxebhfXOK5UVfa",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "key",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "value",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "topic",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "partition",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "offset",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "timestamp",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "timestampType",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "json_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "address",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "city",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "state",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "zipcode",
+                      "type" : "long",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "itemid",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "orderid",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "ordertime",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "xml",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "eCrJXsDDDEDHwSp_ErYKX$$c7qCk9Lqaeg2NgtwcMXbh",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "key",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "key"
+          },
+          "description" : ""
+        }, {
+          "target" : "orderid",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "json_parsed_content.orderid"
+          },
+          "description" : ""
+        }, {
+          "target" : "xml",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "json_parsed_content.xml"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "EY6tLuSi-KQfComZXGsz0$$5MWAffbfxebhfXOK5UVfa##json_parsed_content.xml", "EY6tLuSi-KQfComZXGsz0$$5MWAffbfxebhfXOK5UVfa##json_parsed_content.orderid", "EY6tLuSi-KQfComZXGsz0$$5MWAffbfxebhfXOK5UVfa##key", "EY6tLuSi-KQfComZXGsz0$$5MWAffbfxebhfXOK5UVfa##json_parsed_content" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "aKmc4EHM_cJ0qU5Rvnwfc$$pTea54UpqXI1ukqlm1Ny7" : {
+      "id" : "aKmc4EHM_cJ0qU5Rvnwfc$$pTea54UpqXI1ukqlm1Ny7",
+      "component" : "StreamingSource",
+      "metadata" : {
+        "label" : "streaming_kafka",
+        "slug" : "streaming_kafka",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Sets up a streaming Kafka consumer to read data from a Kafka topic, applying necessary security configurations and converting the data types of the key and value columns.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "nFmdiu_3zy0PayB31qpgp$$Z4ZSSLxUQBZajqBfHR3oT",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/streaming_kafka"
+      }
+    },
+    "6z570rJDGUks2ZoVi9T1h$$TkONL401JQSj668qlhiRL" : {
+      "id" : "6z570rJDGUks2ZoVi9T1h$$TkONL401JQSj668qlhiRL",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "xml_parsing_with_schema",
+        "slug" : "xml_parsing_with_schema",
+        "x" : 620,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts and structures XML data from a DataFrame, enabling better analysis of customer information contained within XML fields.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "1DJK6Ci078km7XPATbIk7$$wyKwfK43qphqf-iwAFjsA",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "key",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "orderid",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "_NrSbv60Zj76Ckv2ckrHO$$CnXT8iXsvExU7dRltYwxr",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "key",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "orderid",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : {
+                            "type" : "struct",
+                            "fields" : [ {
+                              "name" : "_VALUE",
+                              "type" : "string",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            }, {
+                              "name" : "city2",
+                              "type" : "string",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            } ]
+                          },
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
                 } ]
               },
               "nullable" : true,
@@ -573,9 +847,184 @@
         "autoUpdateOnRun" : true
       },
       "properties" : {
-        "script" : "def json_parse_new(in0, column_to_parse, parsingMethod, sampleRecord, schema, schemaInferCount):\n    try:\n        from pyspark.sql.functions import from_json, schema_of_json, lit\n        from pyspark.sql.types import StructType\n        if parsingMethod in [\"parseFromSampleRecord\", \"parseAuto\"]:\n            if parsingMethod == \"parseFromSampleRecord\":\n                sample_json = sampleRecord\n                json_schema = schema_of_json(lit(sample_json))\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           from_json(column_to_parse, json_schema))\n            else:\n                combined_json_df = in0.limit(schemaInferCount).select(\n                    concat_ws(\",\", collect_list(column_to_parse)).alias(\"combined_json\"))\n                sample_json = \"[\" + combined_json_df.collect()[0][\"combined_json\"] + \"]\"\n                json_schema = schema_of_json(lit(sample_json))\n                output_df = in0.withColumn(\"json_parsed_content\",\n                                           from_json(column_to_parse, json_schema).getItem(0))\n        else:\n            try:\n                print(\"here\")\n                json_schema = StructType.fromDDL(schema)\n                raise Exception\n            except:\n                print(\"there\")\n                json_schema = schema\n            output_df = in0.withColumn(\"json_parsed_content\", expr(f\"from_json({column_to_parse}, '{json_schema}')\" ))\n        return output_df\n    except Exception as e:\n        print(f\"An error occurred while fetching data: {e}\")\n        raise e\n\nout0 = json_parse_new(\n        in0,\n        \"value\",\n        \"parseFromSampleRecord123\",\n        \"\"\"{\"ordertime\": 1653429876, \"orderid\": 4271, \"itemid\": \"item_zqgty\", \"address\": {\"city\": \"Nerlus\", \"state\": \"CA\", \"zipcode\": 98321}}\"\"\",\n        \"STRUCT<\\n  ordertime: LONG,\\n  orderid: LONG,\\n  itemid: STRING,\\n  address: STRUCT<\\n    city: STRING,\\n    state: STRING,\\n    zipcode: LONG\\n  >\\n>\",\n        40\n    )\n",
+        "script" : "def xml_parse_new(in0, column_to_parse, parsingMethod, sampleRecord, schema):\n    try:\n        from pyspark.sql.functions import from_xml, schema_of_xml, lit\n        from pyspark.sql.types import StructType\n        if parsingMethod in [\"parseFromSampleRecord\", \"parseAuto\"]:\n            if parsingMethod == \"parseFromSampleRecord\":\n                sample_xml = sampleRecord\n            else:\n                sample_xml = in0.limit(1).select(column_to_parse).collect()[0][0]\n            xml_schema = schema_of_xml(lit(sample_xml))\n            output_df = in0.withColumn(\"xml_parsed_content\",\n                                        from_xml(column_to_parse, xml_schema))\n        else:\n            try:\n                xml_schema = schema\n                output_df = in0.withColumn(\"xml_parsed_content\",\n                                           expr(f\"from_xml({column_to_parse}, '{xml_schema}')\"))\n            except Exception as e:\n                xml_schema = StructType.fromDDL(schema)\n                output_df = in0.withColumn(\"xml_parsed_content\",\n                                           from_xml(column_to_parse, xml_schema))\n        return output_df\n    except Exception as e:\n        print(f\"An error occurred while fetching data: {e}\")\n        raise e\n\n\nout0 = xml_parse_new(\n        in0,\n        \"xml\",\n        \"parseAuto123\",\n        \"\"\"<root>\n             <person>\n               <id>1</id>\n               <name>\n                 <first>John</first>\n                 <last>Doe</last>\n               </name>\n               <address>\n                 <street> main </street>\n                 <city> springfield <city2>abc</city2></city>\n                 <zip>1343k</zip>\n               </address>\n             </person>\n           </root>\"\"\",\n        \"\"\"STRUCT<\n  person: STRUCT<\n    id: STRING,\n    name: STRUCT<\n      first: STRING,\n      last: STRING\n    >,\n    address: STRUCT<\n      street: STRING,\n      city: STRUCT<\n        _VALUE: STRING,\n        city2: STRING\n      >\n    >\n  >\n>\"\"\"\n    )\n",
         "scriptMethodHeader" : "def Script(spark: SparkSession, in0: DataFrame) -> DataFrame:",
         "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "d382F8l6ZVthPAZZT9j_6$$Ng5-pCpsAMWmHfKAoUcfy" : {
+      "id" : "d382F8l6ZVthPAZZT9j_6$$Ng5-pCpsAMWmHfKAoUcfy",
+      "component" : "StreamingTarget",
+      "metadata" : {
+        "label" : "streaming_kafka_target",
+        "slug" : "streaming_kafka_target",
+        "x" : 820,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Streams data from a source to a Delta table for real-time analytics, ensuring data reliability with a checkpoint mechanism.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "E0kZeVcSiJuqhHON67Qhj$$HwhBZe8I1klGMeXKt0vb3",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "key",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "orderid",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : {
+                            "type" : "struct",
+                            "fields" : [ {
+                              "name" : "_VALUE",
+                              "type" : "string",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            }, {
+                              "name" : "city2",
+                              "type" : "string",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            } ]
+                          },
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/streaming_kafka_target"
       }
     }
   },

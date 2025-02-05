@@ -1,3 +1,5 @@
-from .json_parsing_with_inference import json_parsing_with_inference
+from .json_parsing_with_schema import json_parsing_with_schema
+from .reformat_json_data import reformat_json_data
 from .streaming_kafka_target import streaming_kafka_target
+from .xml_parsing_with_schema import xml_parsing_with_schema
 from .streaming_kafka import streaming_kafka

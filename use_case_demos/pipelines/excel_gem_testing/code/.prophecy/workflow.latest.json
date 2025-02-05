@@ -1,0 +1,310 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
+      },
+      "sparkConfigJinjaEnabled" : true
+    },
+    "id" : "1",
+    "uri" : "pipelines/excel_gem_testing",
+    "sourceSuggestions" : [ ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "excel_gem_testing",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true,
+      "sparkConfigOptions" : {
+        "disableSparkCreationTimeConfigGeneration" : true
+      }
+    },
+    "language" : "python",
+    "fabricId" : "2121",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "demoteamabhinav.usecasedemos.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions", "prophecy.streaming.functions", "demoteamabhinav.customgemdemosnew.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ {
+      "name" : "spark.default.parallelism",
+      "value" : "4"
+    }, {
+      "name" : "spark.sql.legacy.allowUntypedScalaUDF",
+      "value" : "true"
+    } ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12656",
+      "projectName" : "ProphecyStreamingPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "30492",
+      "projectName" : "custom_gem_demos_new",
+      "externalDependencies" : [ {
+        "type" : "plibMaven",
+        "modifiedAt" : "2024-07-21T07:30:16.129693Z",
+        "name" : "plibMaven",
+        "enabled" : true,
+        "version" : "8.8.0",
+        "id" : "848385427",
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
+      }, {
+        "type" : "plibPypi",
+        "modifiedAt" : "2024-12-11T07:41:57.169Z",
+        "name" : "ProphecyLibsPython",
+        "enabled" : true,
+        "version" : "1.9.33",
+        "id" : "1875097243",
+        "createdAt" : "2024-07-21T07:30:16.129693Z",
+        "entity" : "Project"
+      }, {
+        "type" : "pypi",
+        "modifiedAt" : "2024-11-11T09:57:24.549Z",
+        "package" : "paramiko",
+        "name" : "sftp",
+        "description" : "",
+        "enabled" : true,
+        "id" : "TQDUzgWG43xWmTWFD6fdZ",
+        "createdAt" : "2024-11-11T09:57:24.549Z",
+        "entity" : "Project",
+        "editable" : true
+      } ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "excel_gem_testing",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "D_WCF5VBObSr-hD8FMids",
+    "source" : "lZMR-w0bq8yWAuTbNZOco$$I4AKJHFFhcLixLkRnYlQ2",
+    "sourcePort" : "i_iM65SruNSU2_BkYOuKf$$F4JEMLyrnPB2zJ5SdMGtM",
+    "target" : "gVa1xu_8ANMutkvh5T1J5$$-D7Wq8dARw8AbE8Siu0my",
+    "targetPort" : "O6TBcL_1DsU2RcKQcmMRK$$65kt62T_jBuBCFwUWtEq4"
+  }, {
+    "id" : "2BIbwJv6wLdMNEOqcTCR9$$tzFvq-TEt_PDZRg5ARpDF",
+    "source" : "8UkGWRizLmgyZ5G4UNWD7$$h_qYz8RnuZ_eOjkXedeoW",
+    "sourcePort" : "XcH1UrTt9y7MXLSUQbNFM$$Re5GDj07VQagKBFUY00g1",
+    "target" : "p0dxU25dSQ03bcfK6ieQ-$$COlpoVh6gaYZlzeHj61Aa",
+    "targetPort" : "C8oHBqkpSYza6fLdrzu8x$$yksSWAlSSyhbjjzc_uSrW"
+  } ],
+  "processes" : {
+    "lZMR-w0bq8yWAuTbNZOco$$I4AKJHFFhcLixLkRnYlQ2" : {
+      "id" : "lZMR-w0bq8yWAuTbNZOco$$I4AKJHFFhcLixLkRnYlQ2",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "excel_input",
+        "slug" : "excel_input",
+        "x" : -560,
+        "y" : -240,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "i_iM65SruNSU2_BkYOuKf$$F4JEMLyrnPB2zJ5SdMGtM",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/excel_input"
+      }
+    },
+    "gVa1xu_8ANMutkvh5T1J5$$-D7Wq8dARw8AbE8Siu0my" : {
+      "id" : "gVa1xu_8ANMutkvh5T1J5$$-D7Wq8dARw8AbE8Siu0my",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "excel_output",
+        "slug" : "excel_output",
+        "x" : -420,
+        "y" : -240,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "O6TBcL_1DsU2RcKQcmMRK$$65kt62T_jBuBCFwUWtEq4",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "b",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/excel_output"
+      }
+    },
+    "8UkGWRizLmgyZ5G4UNWD7$$h_qYz8RnuZ_eOjkXedeoW" : {
+      "id" : "8UkGWRizLmgyZ5G4UNWD7$$h_qYz8RnuZ_eOjkXedeoW",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "excel_input1",
+        "slug" : "excel_input1",
+        "x" : -560,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "XcH1UrTt9y7MXLSUQbNFM$$Re5GDj07VQagKBFUY00g1",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/excel_input1"
+      }
+    },
+    "p0dxU25dSQ03bcfK6ieQ-$$COlpoVh6gaYZlzeHj61Aa" : {
+      "id" : "p0dxU25dSQ03bcfK6ieQ-$$COlpoVh6gaYZlzeHj61Aa",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "excel_output1",
+        "slug" : "excel_output1",
+        "x" : -420,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "C8oHBqkpSYza6fLdrzu8x$$yksSWAlSSyhbjjzc_uSrW",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "b",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "c",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/excel_output1"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

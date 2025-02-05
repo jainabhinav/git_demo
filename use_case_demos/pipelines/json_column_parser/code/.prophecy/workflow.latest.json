@@ -8,8 +8,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.6.0",
-        "pyPiVersion" : "1.9.28"
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
       },
       "sparkConfigJinjaEnabled" : true
     },
@@ -75,16 +75,16 @@
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
         "enabled" : true,
-        "version" : "8.1.8",
+        "version" : "8.8.0",
         "id" : "848385427",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-10-01T19:25:32.987Z",
+        "modifiedAt" : "2024-12-11T07:41:57.169Z",
         "name" : "ProphecyLibsPython",
         "enabled" : true,
-        "version" : "1.9.14",
+        "version" : "1.9.33",
         "id" : "1875097243",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
@@ -136,6 +136,18 @@
     "sourcePort" : "mAKDUMN9_0Lh_pB7HF8DN$$paftNm7Aqt3f6UUm0BWGp",
     "target" : "sk02IMge1K1b2v8oA68wM$$F06PbXHrKQk1d9nA_C14b",
     "targetPort" : "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_"
+  }, {
+    "id" : "foktQwelkvnlH1svk7U7d$$ViTP6aNaPkPwNc16k7pNN",
+    "source" : "aVUA-4dsaKLJ7sZL1HRZY$$1iPljX-9hABHXz7Ic8hw7",
+    "sourcePort" : "1eSTzKCd7FX6kYA86pg3m$$eZe4gmg4ctc63APTxG5vp",
+    "target" : "f7zw04tdiV8mQ6K-qCCY4$$RR_46t0rCXQBjTYKm4YL8",
+    "targetPort" : "zGxrZODR55BVI6ID9QGtg$$SWsS-DY-fTHMFmAa1WcGL"
+  }, {
+    "id" : "PZfrfiamBoGC85eZssQ94",
+    "source" : "aVUA-4dsaKLJ7sZL1HRZY$$1iPljX-9hABHXz7Ic8hw7",
+    "sourcePort" : "1eSTzKCd7FX6kYA86pg3m$$eZe4gmg4ctc63APTxG5vp",
+    "target" : "5x_h3HNyqa_TSO7pEulRD$$3GM19NeXtlzB3R_NdKaxx",
+    "targetPort" : "EnP-jLDMdaxFuSToQotSE$$l01B082nZfyzhB3I0YIGY"
   } ],
   "processes" : {
     "sk02IMge1K1b2v8oA68wM$$F06PbXHrKQk1d9nA_C14b" : {
@@ -349,7 +361,7 @@
         "columnsSelector" : [ "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content.id", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content.age", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_string", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content.address.city", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##id", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##age", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##json_parsed_content.address", "Uc1kpuK3p07PgAHFic2-S$$iqwgMjOuW7GsJ9yBPoAx_##name" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -777,8 +789,53 @@
         "parserType" : "JSON"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "aVUA-4dsaKLJ7sZL1HRZY$$1iPljX-9hABHXz7Ic8hw7" : {
+      "id" : "aVUA-4dsaKLJ7sZL1HRZY$$1iPljX-9hABHXz7Ic8hw7",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "create_xml",
+        "slug" : "create_xml",
+        "x" : -1040,
+        "y" : 180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Generates sample XML data for testing or demonstration purposes.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "1eSTzKCd7FX6kYA86pg3m$$eZe4gmg4ctc63APTxG5vp",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "raw_xml",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "\nxml_example_1 = \"\"\"<root>\n             <person>\n               <id>1</id>\n               <name>\n                 <last>Doe</last>\n               </name>\n               <address>\n                 <street> main </street>\n                 <city> springfield <city2>abc</city2></city>\n               </address>\n             </person>\n           </root>\"\"\"\n\n\nxml_example_2 = \"\"\"<root>\n             <person>\n               <id>1</id>\n               <name>\n                 <first>John</first>\n                 <last>Doe</last>\n               </name>\n               <address>\n                 <street> main </street>\n                 <city> springfield <city2>abc</city2></city>\n                 <zip>1343k</zip>\n               </address>\n             </person>\n           </root>\"\"\"\n\nxml_data = [\n    (xml_example_1,),\n    (xml_example_2,)\n]\n\nout0 = spark.createDataFrame(xml_data, [\"raw_xml\"])\n\n\n\n",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
       }
     },
     "IyihNVQKyEjydUIt8e3V9$$NkWCk02ggHDoXhobFK4Jr" : {
@@ -879,7 +936,357 @@
         "columnsSelector" : [ ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "5x_h3HNyqa_TSO7pEulRD$$3GM19NeXtlzB3R_NdKaxx" : {
+      "id" : "5x_h3HNyqa_TSO7pEulRD$$3GM19NeXtlzB3R_NdKaxx",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "xml_parsing_with_schema",
+        "slug" : "xml_parsing_with_schema",
+        "x" : -820,
+        "y" : 280,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Processes XML data into a structured format, enabling easier analysis and reporting of customer information.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "EnP-jLDMdaxFuSToQotSE$$l01B082nZfyzhB3I0YIGY",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "raw_xml",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "XxC_9_16EaGLGK_4dfOzo$$HRfF9p7Q2i5unSLtwGcWj",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "raw_xml",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "city",
+                          "type" : {
+                            "type" : "struct",
+                            "fields" : [ {
+                              "name" : "_VALUE",
+                              "type" : "string",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            }, {
+                              "name" : "city2",
+                              "type" : "string",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            } ]
+                          },
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "id",
+                      "type" : "long",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "def xml_parse_new(in0, column_to_parse, parsingMethod, sampleRecord, schema):\n    try:\n        from pyspark.sql.functions import from_xml, schema_of_xml, lit\n        from pyspark.sql.types import StructType\n        if parsingMethod in [\"parseFromSampleRecord\", \"parseAuto\"]:\n            if parsingMethod == \"parseFromSampleRecord\":\n                sample_xml = sampleRecord\n            else:\n                sample_xml = in0.limit(1).select(column_to_parse).collect()[0][0]\n            xml_schema = schema_of_xml(lit(sample_xml))\n            output_df = in0.withColumn(\"xml_parsed_content\",\n                                        from_xml(column_to_parse, xml_schema))\n        else:\n            try:\n                xml_schema = schema\n                output_df = in0.withColumn(\"xml_parsed_content\",\n                                           expr(f\"from_xml({column_to_parse}, '{xml_schema}')\"))\n            except Exception as e:\n                xml_schema = StructType.fromDDL(schema)\n                output_df = in0.withColumn(\"xml_parsed_content\",\n                                           from_xml(column_to_parse, xml_schema))\n        return output_df\n    except Exception as e:\n        print(f\"An error occurred while fetching data: {e}\")\n        raise e\n\n\nout0 = xml_parse_new(\n        in0,\n        \"raw_xml\",\n        \"parseAuto\",\n        \"\"\"<root>\n             <person>\n               <id>1</id>\n               <name>\n                 <first>John</first>\n                 <last>Doe</last>\n               </name>\n               <address>\n                 <street> main </street>\n                 <city> springfield <city2>abc</city2></city>\n                 <zip>1343k</zip>\n               </address>\n             </person>\n           </root>\"\"\",\n        \"\"\"STRUCT<\n  person: STRUCT<\n    id: STRING,\n    name: STRUCT<\n      first: STRING,\n      last: STRING\n    >,\n    address: STRUCT<\n      street: STRING,\n      city: STRUCT<\n        _VALUE: STRING,\n        city2: STRING\n      >,\n      zip: STRING\n    >\n  >\n>\"\"\"\n    )\n",
+        "scriptMethodHeader" : "def Script(spark: SparkSession, in0: DataFrame) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "f7zw04tdiV8mQ6K-qCCY4$$RR_46t0rCXQBjTYKm4YL8" : {
+      "id" : "f7zw04tdiV8mQ6K-qCCY4$$RR_46t0rCXQBjTYKm4YL8",
+      "component" : "ColumnParser",
+      "metadata" : {
+        "label" : "parse_raw_xml",
+        "slug" : "parse_raw_xml",
+        "x" : -820,
+        "y" : 60,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Transforms raw XML data into a structured format for further analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "zGxrZODR55BVI6ID9QGtg$$SWsS-DY-fTHMFmAa1WcGL",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "raw_xml",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "BIjiXrQvqZL67iFQGyMNu$$z_tFlb0SFdmWDUMYTtrPX",
+          "slug" : "out",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "raw_xml",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "xml_parsed_content",
+              "type" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "person",
+                  "type" : {
+                    "type" : "struct",
+                    "fields" : [ {
+                      "name" : "id",
+                      "type" : "string",
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "name",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "first",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "last",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    }, {
+                      "name" : "address",
+                      "type" : {
+                        "type" : "struct",
+                        "fields" : [ {
+                          "name" : "street",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "city",
+                          "type" : {
+                            "type" : "struct",
+                            "fields" : [ {
+                              "name" : "city2",
+                              "type" : "string",
+                              "nullable" : true,
+                              "metadata" : {
+                                "description" : "",
+                                "mappings" : [ ],
+                                "tags" : [ ]
+                              }
+                            } ]
+                          },
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        }, {
+                          "name" : "zip",
+                          "type" : "string",
+                          "nullable" : true,
+                          "metadata" : {
+                            "description" : "",
+                            "mappings" : [ ],
+                            "tags" : [ ]
+                          }
+                        } ]
+                      },
+                      "nullable" : true,
+                      "metadata" : {
+                        "description" : "",
+                        "mappings" : [ ],
+                        "tags" : [ ]
+                      }
+                    } ]
+                  },
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "parsingMethod" : "parseAuto",
+        "schema" : null,
+        "columnToParse" : "raw_xml",
+        "sampleRecord" : null,
+        "schemaInferCount" : 40,
+        "parserType" : "XML"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/ColumnParser",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }

@@ -9,7 +9,7 @@ from kafka_streaming_column_parser.functions import *
 def streaming_kafka_target(spark: SparkSession, in0: DataFrame):
     in0.writeStream\
         .format("delta")\
-        .option("checkpointLocation", "dbfs:/FileStore/data_engg/abhinav/kafka_demo_checkpoint_new")\
+        .option("checkpointLocation", "dbfs:/FileStore/data_engg/abhinav/kafka_demo_checkpoint_new1")\
         .queryName("StreamingTarget_1_nitWssceuYyn9DmASmVlS$$TX2_BpZrc_7XEsaMvmETX")\
         .outputMode("append")\
-        .toTable("abhinav_demo.kafka_target_new_2")
+        .toTable("abhinav_demo.kafka_target_new_7_xml")

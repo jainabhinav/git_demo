@@ -8,8 +8,10 @@ from kafka_streaming_column_parser.graph import *
 
 def pipeline(spark: SparkSession) -> None:
     df_streaming_kafka = streaming_kafka(spark)
-    df_json_parsing_with_inference = json_parsing_with_inference(spark, df_streaming_kafka)
-    streaming_kafka_target(spark, df_json_parsing_with_inference)
+    df_json_parsing_with_schema = json_parsing_with_schema(spark, df_streaming_kafka)
+    df_reformat_json_data = reformat_json_data(spark, df_json_parsing_with_schema)
+    df_xml_parsing_with_schema = xml_parsing_with_schema(spark, df_reformat_json_data)
+    streaming_kafka_target(spark, df_xml_parsing_with_schema)
 
 def main():
     spark = SparkSession.builder\

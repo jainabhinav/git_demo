@@ -11,7 +11,10 @@ def pipeline(spark: SparkSession) -> None:
     df_json_parsing_with_schema = json_parsing_with_schema(spark, df_create_json_string_column)
     df_reformat_json_parsed_content = reformat_json_parsed_content(spark, df_json_parsing_with_schema)
     df_json_column_parsing = json_column_parsing(spark, df_create_json_string_column)
+    df_create_xml = create_xml(spark)
     df_reformat_zip_to_state = reformat_zip_to_state(spark, df_create_json_string_column)
+    df_xml_parsing_with_schema = xml_parsing_with_schema(spark, df_create_xml)
+    df_parse_raw_xml = parse_raw_xml(spark, df_create_xml)
 
 def main():
     spark = SparkSession.builder\

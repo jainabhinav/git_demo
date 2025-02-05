@@ -8,13 +8,65 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.6.0",
-        "pyPiVersion" : "1.9.28"
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
       }
     },
     "id" : "1",
     "uri" : "pipelines/code_regeneration_demo",
     "sourceSuggestions" : [ {
+      "sourceLabel" : "excel_output1",
+      "sourceDatasetId" : "datasets/excel_output1",
+      "canJoinWith" : [ {
+        "processLabel" : "csv_source_test",
+        "processId" : "1yemIvr6TtunCSbt9WHfz$$qcaKN7qiEGssIdog0emO5",
+        "joinColumns" : [ "a", "b" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "a", "b" ],
+          "conditions" : [ {
+            "alias" : "excel_output1",
+            "expression" : "((csv_source_test.a = excel_output1.a) AND (csv_source_test.b = excel_output1.b))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "c",
+            "expression" : "excel_output1.c"
+          }, {
+            "alias" : "a",
+            "expression" : "csv_source_test.a"
+          }, {
+            "alias" : "b",
+            "expression" : "csv_source_test.b"
+          } ],
+          "headAlias" : "datasets/excel_output1"
+        }
+      }, {
+        "processLabel" : "csv_source_test2",
+        "processId" : "H5AF9IJD4-korH7WWEOjr$$Ta0e8V-KAz4fTpBcDypkC",
+        "joinColumns" : [ "a", "c" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "a", "c" ],
+          "conditions" : [ {
+            "alias" : "excel_output1",
+            "expression" : "((csv_source_test2.a = excel_output1.a) AND (csv_source_test2.c = excel_output1.c))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "b",
+            "expression" : "excel_output1.b"
+          }, {
+            "alias" : "a",
+            "expression" : "csv_source_test2.a"
+          }, {
+            "alias" : "c",
+            "expression" : "csv_source_test2.c"
+          } ],
+          "headAlias" : "datasets/excel_output1"
+        }
+      } ]
+    }, {
       "sourceLabel" : "csv_source_test2_1",
       "sourceDatasetId" : "datasets/csv_source_test2",
       "canJoinWith" : [ {
@@ -43,13 +95,163 @@
         }
       } ]
     }, {
+      "sourceLabel" : "excel_input",
+      "sourceDatasetId" : "datasets/excel_input",
+      "canJoinWith" : [ {
+        "processLabel" : "csv_source_test",
+        "processId" : "1yemIvr6TtunCSbt9WHfz$$qcaKN7qiEGssIdog0emO5",
+        "joinColumns" : [ "a", "b" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "a", "b" ],
+          "conditions" : [ {
+            "alias" : "excel_input",
+            "expression" : "((csv_source_test.a = excel_input.a) AND (csv_source_test.b = excel_input.b))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "a",
+            "expression" : "csv_source_test.a"
+          }, {
+            "alias" : "b",
+            "expression" : "csv_source_test.b"
+          } ],
+          "headAlias" : "datasets/excel_input"
+        }
+      }, {
+        "processLabel" : "csv_source_test2",
+        "processId" : "H5AF9IJD4-korH7WWEOjr$$Ta0e8V-KAz4fTpBcDypkC",
+        "joinColumns" : [ "a" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "a" ],
+          "conditions" : [ {
+            "alias" : "excel_input",
+            "expression" : "(csv_source_test2.a = excel_input.a)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "b",
+            "expression" : "excel_input.b"
+          }, {
+            "alias" : "a",
+            "expression" : "csv_source_test2.a"
+          }, {
+            "alias" : "c",
+            "expression" : "csv_source_test2.c"
+          } ],
+          "headAlias" : "datasets/excel_input"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "excel_output",
+      "sourceDatasetId" : "datasets/excel_output",
+      "canJoinWith" : [ {
+        "processLabel" : "csv_source_test",
+        "processId" : "1yemIvr6TtunCSbt9WHfz$$qcaKN7qiEGssIdog0emO5",
+        "joinColumns" : [ "a", "b" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "a", "b" ],
+          "conditions" : [ {
+            "alias" : "excel_output",
+            "expression" : "((csv_source_test.a = excel_output.a) AND (csv_source_test.b = excel_output.b))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "a",
+            "expression" : "csv_source_test.a"
+          }, {
+            "alias" : "b",
+            "expression" : "csv_source_test.b"
+          } ],
+          "headAlias" : "datasets/excel_output"
+        }
+      }, {
+        "processLabel" : "csv_source_test2",
+        "processId" : "H5AF9IJD4-korH7WWEOjr$$Ta0e8V-KAz4fTpBcDypkC",
+        "joinColumns" : [ "a" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "a" ],
+          "conditions" : [ {
+            "alias" : "excel_output",
+            "expression" : "(csv_source_test2.a = excel_output.a)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "b",
+            "expression" : "excel_output.b"
+          }, {
+            "alias" : "a",
+            "expression" : "csv_source_test2.a"
+          }, {
+            "alias" : "c",
+            "expression" : "csv_source_test2.c"
+          } ],
+          "headAlias" : "datasets/excel_output"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "excel_input1",
+      "sourceDatasetId" : "datasets/excel_input1",
+      "canJoinWith" : [ {
+        "processLabel" : "csv_source_test",
+        "processId" : "1yemIvr6TtunCSbt9WHfz$$qcaKN7qiEGssIdog0emO5",
+        "joinColumns" : [ "a", "b" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "a", "b" ],
+          "conditions" : [ {
+            "alias" : "excel_input1",
+            "expression" : "((csv_source_test.a = excel_input1.a) AND (csv_source_test.b = excel_input1.b))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "c",
+            "expression" : "excel_input1.c"
+          }, {
+            "alias" : "a",
+            "expression" : "csv_source_test.a"
+          }, {
+            "alias" : "b",
+            "expression" : "csv_source_test.b"
+          } ],
+          "headAlias" : "datasets/excel_input1"
+        }
+      }, {
+        "processLabel" : "csv_source_test2",
+        "processId" : "H5AF9IJD4-korH7WWEOjr$$Ta0e8V-KAz4fTpBcDypkC",
+        "joinColumns" : [ "a", "c" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "a", "c" ],
+          "conditions" : [ {
+            "alias" : "excel_input1",
+            "expression" : "((csv_source_test2.a = excel_input1.a) AND (csv_source_test2.c = excel_input1.c))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "b",
+            "expression" : "excel_input1.b"
+          }, {
+            "alias" : "a",
+            "expression" : "csv_source_test2.a"
+          }, {
+            "alias" : "c",
+            "expression" : "csv_source_test2.c"
+          } ],
+          "headAlias" : "datasets/excel_input1"
+        }
+      } ]
+    }, {
       "sourceLabel" : "csv_source_test_1",
       "sourceDatasetId" : "datasets/csv_source_test",
       "canJoinWith" : [ {
         "processLabel" : "csv_source_test2",
         "processId" : "H5AF9IJD4-korH7WWEOjr$$Ta0e8V-KAz4fTpBcDypkC",
         "joinColumns" : [ "a" ],
-        "isRecommended" : true,
+        "isRecommended" : false,
         "properties" : {
           "columnsSelector" : [ "a" ],
           "conditions" : [ {
@@ -131,16 +333,16 @@
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
         "enabled" : true,
-        "version" : "8.1.8",
+        "version" : "8.8.0",
         "id" : "848385427",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-10-01T19:25:32.987Z",
+        "modifiedAt" : "2024-12-11T07:41:57.169Z",
         "name" : "ProphecyLibsPython",
         "enabled" : true,
-        "version" : "1.9.14",
+        "version" : "1.9.33",
         "id" : "1875097243",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
@@ -378,7 +580,7 @@
         "columnsSelector" : [ "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##email", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##account_flags", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##customer_id", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##country_code", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##phone", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##first_name", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##account_open_date", "qjyVKdid6Swou4VVWHtwF$$ITKTXRbsJOq7Ev1R31s92##last_name" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -433,7 +635,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customers"
+        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers"
       }
     },
     "4YhY8rKm7v9JcuJ1wRYBf$$t0jm-2rkTMf7qw2IITtkR" : {
@@ -609,7 +811,7 @@
         "columnsSelector" : [ ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=gems/SchemaTransform",
+        "gemId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=gems/SchemaTransform",
         "projectName" : "custom_gem_demos_new"
       }
     }

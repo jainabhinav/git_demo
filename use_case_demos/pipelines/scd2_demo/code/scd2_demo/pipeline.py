@@ -9,10 +9,15 @@ from scd2_demo.graph import *
 def pipeline(spark: SparkSession) -> None:
     df_customers = customers(spark)
     df_reformat_data = reformat_data(spark, df_customers)
+    scd2_delta_target(spark, df_reformat_data)
+    scd2_delta_custom_target(spark, df_reformat_data)
     scd2_uc_test(spark, df_reformat_data)
+    df_scd2_delta_custom_target_1 = scd2_delta_custom_target_1(spark)
+    df_filter_by_customer_id_1 = filter_by_customer_id_1(spark, df_scd2_delta_custom_target_1)
     df_scd2_custom_target_1 = scd2_custom_target_1(spark)
     df_filter_by_customer_id = filter_by_customer_id(spark, df_scd2_custom_target_1)
     scd2_custom_target(spark, df_reformat_data)
+    df_scd2_delta_target_1 = scd2_delta_target_1(spark)
     df_scd2_uc_test_1 = scd2_uc_test_1(spark)
 
 def main():
@@ -24,6 +29,7 @@ def main():
                 .getOrCreate()
     Utils.initializeFromArgs(spark, parse_args())
     spark.conf.set("prophecy.metadata.pipeline.uri", "pipelines/scd2_demo")
+    spark.conf.set("spark.databricks.delta.schema.autoMerge.enabled", "true")
     registerUDFs(spark)
     
     MetricsCollector.instrument(spark = spark, pipelineId = "pipelines/scd2_demo", config = Config)(pipeline)

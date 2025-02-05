@@ -8,64 +8,131 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.6.0",
-        "pyPiVersion" : "1.9.28"
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
       },
       "sparkConfigJinjaEnabled" : true
     },
     "id" : "1",
     "uri" : "pipelines/scd2_demo",
     "sourceSuggestions" : [ {
+      "sourceLabel" : "xlsx_test_sheet2",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_test_sheet2",
+      "canJoinWith" : [ {
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+        "joinColumns" : [ "country_code", "account_flags", "email" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "country_code", "account_flags", "email" ],
+          "conditions" : [ {
+            "alias" : "xlsx_test_sheet2",
+            "expression" : "(((scd2_delta_target_1.account_flags = xlsx_test_sheet2.account_flags) AND (scd2_delta_target_1.country_code = xlsx_test_sheet2.country_code)) AND (scd2_delta_target_1.email = xlsx_test_sheet2.email))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_delta_target_1.country_code"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_delta_target_1.is_min"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
+          } ],
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_test_sheet2"
+        }
+      } ]
+    }, {
       "sourceLabel" : "scd2_custom_target_2",
       "sourceDatasetId" : "datasets/scd2_custom_target",
       "canJoinWith" : [ {
-        "processLabel" : "scd2_uc_test_1",
-        "processId" : "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN",
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
         "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
         "isRecommended" : true,
         "properties" : {
           "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
           "conditions" : [ {
             "alias" : "scd2_custom_target_2",
-            "expression" : "(((scd2_uc_test_1.account_flags = scd2_custom_target_2.account_flags) AND (scd2_uc_test_1.country_code = scd2_custom_target_2.country_code)) AND (scd2_uc_test_1.customer_id = scd2_custom_target_2.customer_id))",
+            "expression" : "(((scd2_delta_target_1.account_flags = scd2_custom_target_2.account_flags) AND (scd2_delta_target_1.country_code = scd2_custom_target_2.country_code)) AND (scd2_delta_target_1.customer_id = scd2_custom_target_2.customer_id))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
-            "alias" : "is_max",
-            "expression" : "scd2_uc_test_1.is_max"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_uc_test_1.account_open_date"
-          }, {
-            "alias" : "last_name",
-            "expression" : "scd2_uc_test_1.last_name"
-          }, {
-            "alias" : "to_timestamp",
-            "expression" : "scd2_uc_test_1.to_timestamp"
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
           }, {
             "alias" : "country_code",
-            "expression" : "scd2_uc_test_1.country_code"
+            "expression" : "scd2_delta_target_1.country_code"
           }, {
-            "alias" : "first_name",
-            "expression" : "scd2_uc_test_1.first_name"
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
           }, {
             "alias" : "customer_id",
-            "expression" : "scd2_uc_test_1.customer_id"
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
           }, {
             "alias" : "is_min",
-            "expression" : "scd2_uc_test_1.is_min"
+            "expression" : "scd2_delta_target_1.is_min"
           }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_uc_test_1.account_flags"
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
           }, {
-            "alias" : "email",
-            "expression" : "scd2_uc_test_1.email"
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
           }, {
             "alias" : "phone",
-            "expression" : "scd2_uc_test_1.phone"
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
           }, {
             "alias" : "from_timestamp",
-            "expression" : "scd2_uc_test_1.from_timestamp"
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
           } ],
           "headAlias" : "datasets/scd2_custom_target"
         }
@@ -74,180 +141,499 @@
       "sourceLabel" : "customers_1",
       "sourceDatasetId" : "datasets/customers",
       "canJoinWith" : [ {
-        "processLabel" : "scd2_uc_test_1",
-        "processId" : "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN",
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
         "joinColumns" : [ "country_code", "account_flags", "email" ],
         "isRecommended" : true,
         "properties" : {
           "columnsSelector" : [ "country_code", "account_flags", "email" ],
           "conditions" : [ {
             "alias" : "customers_1",
-            "expression" : "(((scd2_uc_test_1.account_flags = customers_1.account_flags) AND (scd2_uc_test_1.country_code = customers_1.country_code)) AND (scd2_uc_test_1.email = customers_1.email))",
+            "expression" : "(((scd2_delta_target_1.account_flags = customers_1.account_flags) AND (scd2_delta_target_1.country_code = customers_1.country_code)) AND (scd2_delta_target_1.email = customers_1.email))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
-            "alias" : "is_max",
-            "expression" : "scd2_uc_test_1.is_max"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_uc_test_1.account_open_date"
-          }, {
-            "alias" : "last_name",
-            "expression" : "scd2_uc_test_1.last_name"
-          }, {
-            "alias" : "to_timestamp",
-            "expression" : "scd2_uc_test_1.to_timestamp"
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
           }, {
             "alias" : "country_code",
-            "expression" : "scd2_uc_test_1.country_code"
+            "expression" : "scd2_delta_target_1.country_code"
           }, {
-            "alias" : "first_name",
-            "expression" : "scd2_uc_test_1.first_name"
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
           }, {
             "alias" : "customer_id",
-            "expression" : "scd2_uc_test_1.customer_id"
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
           }, {
             "alias" : "is_min",
-            "expression" : "scd2_uc_test_1.is_min"
+            "expression" : "scd2_delta_target_1.is_min"
           }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_uc_test_1.account_flags"
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
           }, {
-            "alias" : "email",
-            "expression" : "scd2_uc_test_1.email"
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
           }, {
             "alias" : "phone",
-            "expression" : "scd2_uc_test_1.phone"
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
           }, {
             "alias" : "from_timestamp",
-            "expression" : "scd2_uc_test_1.from_timestamp"
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
           } ],
           "headAlias" : "datasets/customers"
         }
       } ]
     }, {
-      "sourceLabel" : "customers_1",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customers",
+      "sourceLabel" : "xlsx_test",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_test",
       "canJoinWith" : [ {
-        "processLabel" : "scd2_uc_test_1",
-        "processId" : "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN",
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+        "joinColumns" : [ "country_code", "account_flags", "email" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "country_code", "account_flags", "email" ],
+          "conditions" : [ {
+            "alias" : "xlsx_test",
+            "expression" : "(((scd2_delta_target_1.account_flags = xlsx_test.account_flags) AND (scd2_delta_target_1.country_code = xlsx_test.country_code)) AND (scd2_delta_target_1.email = xlsx_test.email))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_delta_target_1.country_code"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_delta_target_1.is_min"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
+          } ],
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_test"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "scd2_delta_custom_target_2",
+      "sourceDatasetId" : "datasets/scd2_delta_custom_target",
+      "canJoinWith" : [ {
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
         "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
         "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "scd2_delta_custom_target_2",
+            "expression" : "(((scd2_delta_target_1.account_flags = scd2_delta_custom_target_2.account_flags) AND (scd2_delta_target_1.country_code = scd2_delta_custom_target_2.country_code)) AND (scd2_delta_target_1.customer_id = scd2_delta_custom_target_2.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_delta_target_1.country_code"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_delta_target_1.is_min"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
+          } ],
+          "headAlias" : "datasets/scd2_delta_custom_target"
+        }
+      }, {
+        "processLabel" : "scd2_uc_test_1",
+        "processId" : "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN",
+        "joinColumns" : [ "first_name" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "first_name" ],
+          "conditions" : [ {
+            "alias" : "scd2_delta_custom_target_2",
+            "expression" : "(scd2_uc_test_1.first_name = scd2_delta_custom_target_2.first_name)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "new_col",
+            "expression" : "scd2_uc_test_1.new_col"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_uc_test_1.is_max"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_uc_test_1.account_open_date"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_uc_test_1.last_name"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_uc_test_1.to_timestamp"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_uc_test_1.country_code"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_uc_test_1.first_name"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_uc_test_1.customer_id"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_uc_test_1.is_min"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_uc_test_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_uc_test_1.email"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_uc_test_1.new_col2"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_uc_test_1.phone"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_uc_test_1.from_timestamp"
+          } ],
+          "headAlias" : "datasets/scd2_delta_custom_target"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "xlsx_target_test",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_target_test",
+      "canJoinWith" : [ {
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "xlsx_target_test",
+            "expression" : "(((scd2_delta_target_1.account_flags = xlsx_target_test.account_flags) AND (scd2_delta_target_1.country_code = xlsx_target_test.country_code)) AND (scd2_delta_target_1.customer_id = xlsx_target_test.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_delta_target_1.country_code"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_delta_target_1.is_min"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
+          } ],
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_target_test"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "crealytics_target_xlsx",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/crealytics_target_xlsx",
+      "canJoinWith" : [ {
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "crealytics_target_xlsx",
+            "expression" : "(((scd2_delta_target_1.account_flags = crealytics_target_xlsx.account_flags) AND (scd2_delta_target_1.country_code = crealytics_target_xlsx.country_code)) AND (scd2_delta_target_1.customer_id = crealytics_target_xlsx.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_delta_target_1.country_code"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_delta_target_1.is_min"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
+          } ],
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/crealytics_target_xlsx"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "scd2_uc_test_2",
+      "sourceDatasetId" : "datasets/scd2_uc_test",
+      "canJoinWith" : [ {
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "scd2_uc_test_2",
+            "expression" : "(((scd2_delta_target_1.account_flags = scd2_uc_test_2.account_flags) AND (scd2_delta_target_1.country_code = scd2_uc_test_2.country_code)) AND (scd2_delta_target_1.customer_id = scd2_uc_test_2.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_delta_target_1.country_code"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_delta_target_1.is_min"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
+          } ],
+          "headAlias" : "datasets/scd2_uc_test"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "customers_1",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers",
+      "canJoinWith" : [ {
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : false,
         "properties" : {
           "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
           "conditions" : [ {
             "alias" : "customers_1",
-            "expression" : "(((scd2_uc_test_1.account_flags = customers_1.account_flags) AND (scd2_uc_test_1.country_code = customers_1.country_code)) AND (scd2_uc_test_1.customer_id = customers_1.customer_id))",
+            "expression" : "(((scd2_delta_target_1.account_flags = customers_1.account_flags) AND (scd2_delta_target_1.country_code = customers_1.country_code)) AND (scd2_delta_target_1.customer_id = customers_1.customer_id))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
-            "alias" : "is_max",
-            "expression" : "scd2_uc_test_1.is_max"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_uc_test_1.account_open_date"
-          }, {
-            "alias" : "last_name",
-            "expression" : "scd2_uc_test_1.last_name"
-          }, {
-            "alias" : "to_timestamp",
-            "expression" : "scd2_uc_test_1.to_timestamp"
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
           }, {
             "alias" : "country_code",
-            "expression" : "scd2_uc_test_1.country_code"
-          }, {
-            "alias" : "first_name",
-            "expression" : "scd2_uc_test_1.first_name"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "scd2_uc_test_1.customer_id"
-          }, {
-            "alias" : "is_min",
-            "expression" : "scd2_uc_test_1.is_min"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_uc_test_1.account_flags"
-          }, {
-            "alias" : "email",
-            "expression" : "scd2_uc_test_1.email"
-          }, {
-            "alias" : "phone",
-            "expression" : "scd2_uc_test_1.phone"
-          }, {
-            "alias" : "from_timestamp",
-            "expression" : "scd2_uc_test_1.from_timestamp"
-          } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customers"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "sharepoint_customers_csv",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/sharepoint_customers_csv",
-      "canJoinWith" : [ {
-        "processLabel" : "scd2_uc_test_1",
-        "processId" : "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN",
-        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
-        "isRecommended" : true,
-        "properties" : {
-          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
-          "conditions" : [ {
-            "alias" : "sharepoint_customers_csv",
-            "expression" : "(((scd2_uc_test_1.account_flags = sharepoint_customers_csv.account_flags) AND (scd2_uc_test_1.country_code = sharepoint_customers_csv.country_code)) AND (scd2_uc_test_1.customer_id = sharepoint_customers_csv.customer_id))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "is_max",
-            "expression" : "scd2_uc_test_1.is_max"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_uc_test_1.account_open_date"
-          }, {
-            "alias" : "last_name",
-            "expression" : "scd2_uc_test_1.last_name"
+            "expression" : "scd2_delta_target_1.country_code"
           }, {
             "alias" : "to_timestamp",
-            "expression" : "scd2_uc_test_1.to_timestamp"
-          }, {
-            "alias" : "country_code",
-            "expression" : "scd2_uc_test_1.country_code"
-          }, {
-            "alias" : "first_name",
-            "expression" : "scd2_uc_test_1.first_name"
+            "expression" : "scd2_delta_target_1.to_timestamp"
           }, {
             "alias" : "customer_id",
-            "expression" : "scd2_uc_test_1.customer_id"
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
           }, {
             "alias" : "is_min",
-            "expression" : "scd2_uc_test_1.is_min"
+            "expression" : "scd2_delta_target_1.is_min"
           }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_uc_test_1.account_flags"
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
           }, {
-            "alias" : "email",
-            "expression" : "scd2_uc_test_1.email"
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
           }, {
             "alias" : "phone",
-            "expression" : "scd2_uc_test_1.phone"
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
           }, {
             "alias" : "from_timestamp",
-            "expression" : "scd2_uc_test_1.from_timestamp"
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
           } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/sharepoint_customers_csv"
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers"
         }
       } ]
     }, {
       "sourceLabel" : "customer_catalog_scd2",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customer_catalog_scd2",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customer_catalog_scd2",
       "canJoinWith" : [ {
-        "processLabel" : "scd2_uc_test_1",
-        "processId" : "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN",
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
         "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
-        "isRecommended" : true,
+        "isRecommended" : false,
         "properties" : {
           "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
           "conditions" : [ {
             "alias" : "customer_catalog_scd2",
-            "expression" : "(((scd2_uc_test_1.account_flags = customer_catalog_scd2.account_flags) AND (scd2_uc_test_1.country_code = customer_catalog_scd2.country_code)) AND (scd2_uc_test_1.customer_id = customer_catalog_scd2.customer_id))",
+            "expression" : "(((scd2_delta_target_1.account_flags = customer_catalog_scd2.account_flags) AND (scd2_delta_target_1.country_code = customer_catalog_scd2.country_code)) AND (scd2_delta_target_1.customer_id = customer_catalog_scd2.customer_id))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
@@ -257,192 +643,49 @@
             "alias" : "to_time",
             "expression" : "customer_catalog_scd2.to_time"
           }, {
-            "alias" : "is_max",
-            "expression" : "scd2_uc_test_1.is_max"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_uc_test_1.account_open_date"
-          }, {
-            "alias" : "last_name",
-            "expression" : "scd2_uc_test_1.last_name"
-          }, {
-            "alias" : "to_timestamp",
-            "expression" : "scd2_uc_test_1.to_timestamp"
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
           }, {
             "alias" : "country_code",
-            "expression" : "scd2_uc_test_1.country_code"
-          }, {
-            "alias" : "first_name",
-            "expression" : "scd2_uc_test_1.first_name"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "scd2_uc_test_1.customer_id"
-          }, {
-            "alias" : "is_min",
-            "expression" : "scd2_uc_test_1.is_min"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_uc_test_1.account_flags"
-          }, {
-            "alias" : "email",
-            "expression" : "scd2_uc_test_1.email"
-          }, {
-            "alias" : "phone",
-            "expression" : "scd2_uc_test_1.phone"
-          }, {
-            "alias" : "from_timestamp",
-            "expression" : "scd2_uc_test_1.from_timestamp"
-          } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customer_catalog_scd2"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "streaming_kafka",
-      "sourceDatasetId" : "datasets/streaming_kafka",
-      "canJoinWith" : [ {
-        "processLabel" : "scd2_uc_test_1",
-        "processId" : "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN",
-        "joinColumns" : [ "to_timestamp" ],
-        "isRecommended" : false,
-        "properties" : {
-          "columnsSelector" : [ "to_timestamp" ],
-          "conditions" : [ {
-            "alias" : "streaming_kafka",
-            "expression" : "(scd2_uc_test_1.to_timestamp = streaming_kafka.timestamp)",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "key",
-            "expression" : "streaming_kafka.key"
-          }, {
-            "alias" : "value",
-            "expression" : "streaming_kafka.value"
-          }, {
-            "alias" : "topic",
-            "expression" : "streaming_kafka.topic"
-          }, {
-            "alias" : "partition",
-            "expression" : "streaming_kafka.partition"
-          }, {
-            "alias" : "offset",
-            "expression" : "streaming_kafka.offset"
-          }, {
-            "alias" : "timestampType",
-            "expression" : "streaming_kafka.timestampType"
-          }, {
-            "alias" : "is_max",
-            "expression" : "scd2_uc_test_1.is_max"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_uc_test_1.account_open_date"
-          }, {
-            "alias" : "last_name",
-            "expression" : "scd2_uc_test_1.last_name"
+            "expression" : "scd2_delta_target_1.country_code"
           }, {
             "alias" : "to_timestamp",
-            "expression" : "scd2_uc_test_1.to_timestamp"
-          }, {
-            "alias" : "country_code",
-            "expression" : "scd2_uc_test_1.country_code"
-          }, {
-            "alias" : "first_name",
-            "expression" : "scd2_uc_test_1.first_name"
+            "expression" : "scd2_delta_target_1.to_timestamp"
           }, {
             "alias" : "customer_id",
-            "expression" : "scd2_uc_test_1.customer_id"
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
           }, {
             "alias" : "is_min",
-            "expression" : "scd2_uc_test_1.is_min"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_uc_test_1.account_flags"
-          }, {
-            "alias" : "email",
-            "expression" : "scd2_uc_test_1.email"
-          }, {
-            "alias" : "phone",
-            "expression" : "scd2_uc_test_1.phone"
-          }, {
-            "alias" : "from_timestamp",
-            "expression" : "scd2_uc_test_1.from_timestamp"
-          } ],
-          "headAlias" : "datasets/streaming_kafka"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "streaming_kafka_target",
-      "sourceDatasetId" : "datasets/streaming_kafka_target",
-      "canJoinWith" : [ {
-        "processLabel" : "scd2_uc_test_1",
-        "processId" : "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN",
-        "joinColumns" : [ "to_timestamp" ],
-        "isRecommended" : false,
-        "properties" : {
-          "columnsSelector" : [ "to_timestamp" ],
-          "conditions" : [ {
-            "alias" : "streaming_kafka_target",
-            "expression" : "(scd2_uc_test_1.to_timestamp = streaming_kafka_target.timestamp)",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "key",
-            "expression" : "streaming_kafka_target.key"
-          }, {
-            "alias" : "value-ordertime",
-            "expression" : "streaming_kafka_target.`value-ordertime`"
-          }, {
-            "alias" : "value-orderid",
-            "expression" : "streaming_kafka_target.`value-orderid`"
-          }, {
-            "alias" : "value-itemid",
-            "expression" : "streaming_kafka_target.`value-itemid`"
-          }, {
-            "alias" : "value-address-city",
-            "expression" : "streaming_kafka_target.`value-address-city`"
-          }, {
-            "alias" : "value-address-state",
-            "expression" : "streaming_kafka_target.`value-address-state`"
-          }, {
-            "alias" : "value-address-zipcode",
-            "expression" : "streaming_kafka_target.`value-address-zipcode`"
-          }, {
-            "alias" : "is_max",
-            "expression" : "scd2_uc_test_1.is_max"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_uc_test_1.account_open_date"
+            "expression" : "scd2_delta_target_1.is_min"
           }, {
             "alias" : "last_name",
-            "expression" : "scd2_uc_test_1.last_name"
+            "expression" : "scd2_delta_target_1.last_name"
           }, {
-            "alias" : "to_timestamp",
-            "expression" : "scd2_uc_test_1.to_timestamp"
-          }, {
-            "alias" : "country_code",
-            "expression" : "scd2_uc_test_1.country_code"
-          }, {
-            "alias" : "first_name",
-            "expression" : "scd2_uc_test_1.first_name"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "scd2_uc_test_1.customer_id"
-          }, {
-            "alias" : "is_min",
-            "expression" : "scd2_uc_test_1.is_min"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_uc_test_1.account_flags"
-          }, {
-            "alias" : "email",
-            "expression" : "scd2_uc_test_1.email"
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
           }, {
             "alias" : "phone",
-            "expression" : "scd2_uc_test_1.phone"
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
           }, {
             "alias" : "from_timestamp",
-            "expression" : "scd2_uc_test_1.from_timestamp"
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
           } ],
-          "headAlias" : "datasets/streaming_kafka_target"
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customer_catalog_scd2"
         }
       } ]
     } ],
@@ -481,7 +724,10 @@
       "nonEditable" : [ ],
       "isSubscribedPipelineWithPipelineConfigs" : false
     },
-    "sparkConf" : [ ],
+    "sparkConf" : [ {
+      "name" : "spark.databricks.delta.schema.autoMerge.enabled",
+      "value" : "true"
+    } ],
     "hadoopConf" : [ ],
     "codeMode" : "sparse",
     "buildSystem" : "maven",
@@ -506,16 +752,16 @@
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
         "enabled" : true,
-        "version" : "8.1.8",
+        "version" : "8.8.0",
         "id" : "848385427",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-10-01T19:25:32.987Z",
+        "modifiedAt" : "2024-12-11T07:41:57.169Z",
         "name" : "ProphecyLibsPython",
         "enabled" : true,
-        "version" : "1.9.14",
+        "version" : "1.9.33",
         "id" : "1875097243",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
@@ -533,7 +779,7 @@
       } ]
     } ],
     "isImported" : false,
-    "interimMode" : "Vanilla",
+    "interimMode" : "Full",
     "interimModeEnabled" : true,
     "visualCodeInterimMode" : "Disabled",
     "recordsLimit" : {
@@ -567,6 +813,24 @@
     "sourcePort" : "tU--ppu01BGsD2QFOlGFc$$ZSXnLA6FSAoAHilcySErf",
     "target" : "W96hfYn7HNRTV4-51cdfb$$BxcuF52nD6mBepgE2yf-a",
     "targetPort" : "DmNC5cGbn8g56N5kK20QM$$XwDY3efpMxtcwbMzga3pJ"
+  }, {
+    "id" : "8u8RX2k9EUBpr_zkXj9YK",
+    "source" : "bcOSJwR45jQdchUSvHCWZ$$EEPbcY57BvbSG0w0mY-fq",
+    "sourcePort" : "tVYZXkhrJ9i47qVgBiiQR$$agnpbbro-jVKwQQc1KJPl",
+    "target" : "i_uCbyG3yq6RXUHx3ApTv$$nfVfikJlkAkLcdCj-7nsJ",
+    "targetPort" : "JoQI7A8Xzq3I1W7wahoSA$$3PdnTcAKXL4bGqMJsbvRp"
+  }, {
+    "id" : "XKqLkc8HBM4SsOt232CDu",
+    "source" : "bcOSJwR45jQdchUSvHCWZ$$EEPbcY57BvbSG0w0mY-fq",
+    "sourcePort" : "tVYZXkhrJ9i47qVgBiiQR$$agnpbbro-jVKwQQc1KJPl",
+    "target" : "apC6SnclnMIzRT2nLImS9$$qbsoxDSfUVi03X5ACEyra",
+    "targetPort" : "YW-ur0lenE1JbqEYMbd_r$$GVX_hCYXV38jLI0Turk5t"
+  }, {
+    "id" : "JBrwdZOTv2sWJE5iZ90EX",
+    "source" : "1pBendsYirl1scwYyyr2x$$ZIoghbvALHcadBLrzF8k0",
+    "sourcePort" : "UOqi6pAH6rX421RcLBDhD$$wMth17fa92RbdShtQcDYe",
+    "target" : "JI66Sjhhop-Cm_6psKOXZ$$v_7Li64hjlNm0d7-vT7bA",
+    "targetPort" : "TsNa0KF-2u87lK7xuxsDk$$uMby0SbUWQOkrrNxdBZIv"
   } ],
   "processes" : {
     "9zK3gs0zgtdyUsHzeR_wU$$aS6V8ZP6WgIgrgm0lM0YN" : {
@@ -575,12 +839,14 @@
       "metadata" : {
         "label" : "scd2_uc_test_1",
         "slug" : "scd2_uc_test_1",
-        "x" : -1620,
-        "y" : 200,
+        "x" : -1920,
+        "y" : 80,
         "phase" : 1,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Retrieves historical data for analysis from a specific table, enabling insights into changes over time.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],
@@ -596,6 +862,166 @@
         "datasetId" : "datasets/scd2_uc_test"
       }
     },
+    "i_uCbyG3yq6RXUHx3ApTv$$nfVfikJlkAkLcdCj-7nsJ" : {
+      "id" : "i_uCbyG3yq6RXUHx3ApTv$$nfVfikJlkAkLcdCj-7nsJ",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "scd2_delta_target",
+        "slug" : "scd2_delta_target",
+        "x" : -1000,
+        "y" : 140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Updates customer records in a database, ensuring that changes are tracked over time for accurate historical data management.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "JoQI7A8Xzq3I1W7wahoSA$$3PdnTcAKXL4bGqMJsbvRp",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number associated with the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "from_timestamp",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "to_timestamp",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_min",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_max",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col2",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/scd2_delta_target"
+      }
+    },
     "bcOSJwR45jQdchUSvHCWZ$$EEPbcY57BvbSG0w0mY-fq" : {
       "id" : "bcOSJwR45jQdchUSvHCWZ$$EEPbcY57BvbSG0w0mY-fq",
       "component" : "Reformat",
@@ -608,7 +1034,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Reformats customer data by adjusting first names based on length and adding timestamps for tracking purposes.",
+        "comment" : "Transforms customer data by adjusting names and adding timestamps, ensuring consistency and enhancing data quality for further analysis.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -714,7 +1140,7 @@
           "target" : "first_name",
           "expression" : {
             "format" : "sql",
-            "expression" : "case when length(first_name) < 7 then concat(upper(first_name), '1') else first_name end"
+            "expression" : "case when length(first_name) < 6 then concat(upper(first_name), '12') else first_name end\n--first_name"
           },
           "description" : ""
         }, {
@@ -787,13 +1213,27 @@
             "expression" : "1"
           },
           "description" : ""
+        }, {
+          "target" : "new_col",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "1"
+          },
+          "description" : ""
+        }, {
+          "target" : "new_col2",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "2"
+          },
+          "description" : ""
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##first_name", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##account_open_date", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##email", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##last_name", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##phone", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##customer_id", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##country_code", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##account_flags" ]
+        "columnsSelector" : [ "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##email", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##country_code", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##customer_id", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##first_name", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##account_flags", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##phone", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##account_open_date", "GFxzoTBIRk0TYlUZ_haKJ$$THYJjgfJ2QCkl2-qBvf7q##last_name" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -803,13 +1243,13 @@
       "metadata" : {
         "label" : "scd2_custom_target_1",
         "slug" : "scd2_custom_target_1",
-        "x" : -1620,
-        "y" : 340,
+        "x" : -1980,
+        "y" : 440,
         "phase" : 1,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Retrieves customer data for analysis from a specified table.",
+        "comment" : "Retrieves data from a specific table for analysis or reporting purposes.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -836,19 +1276,177 @@
         "datasetId" : "datasets/scd2_custom_target"
       }
     },
+    "apC6SnclnMIzRT2nLImS9$$qbsoxDSfUVi03X5ACEyra" : {
+      "id" : "apC6SnclnMIzRT2nLImS9$$qbsoxDSfUVi03X5ACEyra",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "scd2_delta_custom_target",
+        "slug" : "scd2_delta_custom_target",
+        "x" : -1000,
+        "y" : 320,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "YW-ur0lenE1JbqEYMbd_r$$GVX_hCYXV38jLI0Turk5t",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number associated with the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "from_timestamp",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "to_timestamp",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_min",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_max",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col2",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/scd2_delta_custom_target"
+      }
+    },
     "UneTMsjT8OIfwaX8vt4GI$$nup4092a2GbjnJ_U6UKPY" : {
       "id" : "UneTMsjT8OIfwaX8vt4GI$$nup4092a2GbjnJ_U6UKPY",
       "component" : "Target",
       "metadata" : {
         "label" : "scd2_uc_test",
         "slug" : "scd2_uc_test",
-        "x" : -1240,
-        "y" : 80,
+        "x" : -1000,
+        "y" : -20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Updates customer records in a historical data table, ensuring accurate tracking of changes over time while maintaining data integrity.",
+        "comment" : "Manages customer data updates in a way that maintains historical records, ensuring accurate tracking of changes over time.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -965,6 +1563,24 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
+            }, {
+              "name" : "new_col",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col2",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
             } ]
           },
           "isStreaming" : false
@@ -1002,17 +1618,17 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customers"
+        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers"
       }
     },
-    "W96hfYn7HNRTV4-51cdfb$$BxcuF52nD6mBepgE2yf-a" : {
-      "id" : "W96hfYn7HNRTV4-51cdfb$$BxcuF52nD6mBepgE2yf-a",
+    "JI66Sjhhop-Cm_6psKOXZ$$v_7Li64hjlNm0d7-vT7bA" : {
+      "id" : "JI66Sjhhop-Cm_6psKOXZ$$v_7Li64hjlNm0d7-vT7bA",
       "component" : "Filter",
       "metadata" : {
-        "label" : "filter_by_customer_id",
-        "slug" : "filter_by_customer_id",
-        "x" : -1460,
-        "y" : 340,
+        "label" : "filter_by_customer_id_1",
+        "slug" : "filter_by_customer_id_1",
+        "x" : -1300,
+        "y" : 320,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -1022,7 +1638,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "DmNC5cGbn8g56N5kK20QM$$XwDY3efpMxtcwbMzga3pJ",
+          "id" : "TsNa0KF-2u87lK7xuxsDk$$uMby0SbUWQOkrrNxdBZIv",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -1134,6 +1750,141 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
+            }, {
+              "name" : "new_col",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col2",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "UTaC6ERmZSdHEdtVbp7yP$$4JnERhMK6j2y6LK60e7uV",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "TsNa0KF-2u87lK7xuxsDk$$uMby0SbUWQOkrrNxdBZIv##customer_id" ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "customer_id == \"1\""
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "W96hfYn7HNRTV4-51cdfb$$BxcuF52nD6mBepgE2yf-a" : {
+      "id" : "W96hfYn7HNRTV4-51cdfb$$BxcuF52nD6mBepgE2yf-a",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "filter_by_customer_id",
+        "slug" : "filter_by_customer_id",
+        "x" : -1820,
+        "y" : 440,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Filters records to retrieve data for a specific customer.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "DmNC5cGbn8g56N5kK20QM$$XwDY3efpMxtcwbMzga3pJ",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique identifier for the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The first name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The last name of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Phone number associated with the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The email address of the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The country code associated with the customer's location",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the customer's account was opened",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
             } ]
           },
           "isStreaming" : false
@@ -1154,7 +1905,7 @@
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Filter",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1164,13 +1915,13 @@
       "metadata" : {
         "label" : "scd2_custom_target",
         "slug" : "scd2_custom_target",
-        "x" : -1240,
-        "y" : -100,
+        "x" : -1020,
+        "y" : -200,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Updates customer information in a historical tracking table, ensuring accurate records of changes over time.",
+        "comment" : "Updates customer records in a historical data table, ensuring accurate tracking of changes over time while maintaining data integrity.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -1287,6 +2038,24 @@
                 "mappings" : [ ],
                 "tags" : [ ]
               }
+            }, {
+              "name" : "new_col",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col2",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
             } ]
           },
           "isStreaming" : false
@@ -1298,6 +2067,64 @@
       },
       "properties" : {
         "datasetId" : "datasets/scd2_custom_target"
+      }
+    },
+    "1pBendsYirl1scwYyyr2x$$ZIoghbvALHcadBLrzF8k0" : {
+      "id" : "1pBendsYirl1scwYyyr2x$$ZIoghbvALHcadBLrzF8k0",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "scd2_delta_custom_target_1",
+        "slug" : "scd2_delta_custom_target_1",
+        "x" : -1460,
+        "y" : 280,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Retrieves data from a specific Delta table for analysis or reporting purposes.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "UOqi6pAH6rX421RcLBDhD$$wMth17fa92RbdShtQcDYe",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/scd2_delta_custom_target"
+      }
+    },
+    "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT" : {
+      "id" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "scd2_delta_target_1",
+        "slug" : "scd2_delta_target_1",
+        "x" : -1680,
+        "y" : 260,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Retrieves data from a Delta table for analysis or reporting purposes.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "rUqN8oPWHrQy26OeNIgwK$$L7kbYIvNMn26b5OE1UCB1",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/scd2_delta_target"
       }
     }
   },

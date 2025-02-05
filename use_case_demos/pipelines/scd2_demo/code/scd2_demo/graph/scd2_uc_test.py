@@ -10,7 +10,7 @@ def scd2_uc_test(spark: SparkSession, in0: DataFrame):
     from pyspark.sql.utils import AnalysisException
 
     try:
-        desc_table = spark.sql("describe formatted `hive_metastore`.`abhinav_demo`.`scd2_uc_test2`")
+        desc_table = spark.sql("describe formatted `hive_metastore`.`abhinav_demo`.`scd2_uc_test23`")
         table_exists = True
     except AnalysisException as e:
         table_exists = False
@@ -19,7 +19,7 @@ def scd2_uc_test(spark: SparkSession, in0: DataFrame):
         from delta.tables import DeltaTable, DeltaMergeBuilder
         updatesDF = in0.withColumn("is_min", lit("1")).withColumn("is_max", lit("1"))
         updateColumns = updatesDF.columns
-        existingTable = DeltaTable.forName(spark, "`hive_metastore`.`abhinav_demo`.`scd2_uc_test2`")
+        existingTable = DeltaTable.forName(spark, "`hive_metastore`.`abhinav_demo`.`scd2_uc_test23`")
         existingDF = existingTable.toDF()
         cond = None
         scdHistoricColumns = ["first_name", "phone", "email", "last_name", "country_code"]
@@ -49,6 +49,12 @@ def scd2_uc_test(spark: SparkSession, in0: DataFrame):
                     | (~ (col("existingDF." + scdCol)).eqNullSafe(col("staged_updates." + scdCol)))
                 )
 
+        colsToInsert = [c for c in stagedUpdatesDF.columns if c != "mergeKey"]
+        colsToInsertDict = {}
+
+        for colName in colsToInsert:
+            colsToInsertDict[colName] = "staged_updates." + colName
+
         existingTable\
             .alias("existingDF")\
             .merge(
@@ -60,7 +66,7 @@ def scd2_uc_test(spark: SparkSession, in0: DataFrame):
               set = {
 "is_max" : "0", "to_timestamp" : "staged_updates.from_timestamp"}
             )\
-            .whenNotMatchedInsertAll()\
+            .whenNotMatchedInsert(values = colsToInsertDict)\
             .execute()
     else:
-        in0.write.format("delta").mode("overwrite").saveAsTable("`hive_metastore`.`abhinav_demo`.`scd2_uc_test2`")
+        in0.write.format("delta").mode("overwrite").saveAsTable("`hive_metastore`.`abhinav_demo`.`scd2_uc_test23`")

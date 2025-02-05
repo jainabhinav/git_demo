@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from kafka_streaming_column_parser.config.ConfigStore import *
 from kafka_streaming_column_parser.functions import *
 
-def json_parsing_with_inference(spark: SparkSession, in0: DataFrame) -> DataFrame:
+def json_parsing_with_schema(spark: SparkSession, in0: DataFrame) -> DataFrame:
 
     def json_parse_new(in0, column_to_parse, parsingMethod, sampleRecord, schema, schemaInferCount):
         try:
@@ -29,19 +29,15 @@ def json_parsing_with_inference(spark: SparkSession, in0: DataFrame) -> DataFram
                         from_json(column_to_parse, json_schema).getItem(0)
                     )
             else:
-
                 try:
-                    print("here")
-                    json_schema = StructType.fromDDL(schema)
-                    raise Exception
-                except :
-                    print("there")
                     json_schema = schema
-
-                output_df = in0.withColumn(
-                    "json_parsed_content",
-                    expr(f"from_json({column_to_parse}, '{json_schema}')")
-                )
+                    output_df = in0.withColumn(
+                        "json_parsed_content",
+                        expr(f"from_json({column_to_parse}, '{json_schema}')")
+                    )
+                except Exception as e:
+                    json_schema = StructType.fromDDL(schema)
+                    output_df = in0.withColumn("json_parsed_content", from_json(column_to_parse, json_schema))
 
             return output_df
         except Exception as e:
@@ -51,10 +47,29 @@ def json_parsing_with_inference(spark: SparkSession, in0: DataFrame) -> DataFram
     out0 = json_parse_new(
         in0,
         "value",
-        "parseFromSampleRecord123",
-        """{"ordertime": 1653429876, "orderid": 4271, "itemid": "item_zqgty", "address": {"city": "Nerlus", "state": "CA", "zipcode": 98321}}""",
-        "STRUCT<\n  ordertime: LONG,\n  orderid: LONG,\n  itemid: STRING,\n  address: STRUCT<\n    city: STRING,\n    state: STRING,\n    zipcode: LONG\n  >\n>",
-        40
+        "parseAuto123",
+        """{
+  "ordertime": 1675293842,
+  "orderid": 5923,
+  "itemid": "item_mtzfg",
+  "address": {
+    "city": "Welrax",
+    "state": "WA",
+    "zipcode": 73925
+  }
+}""",
+        """STRUCT<
+  age: LONG,
+  orderid: INT,
+  id: INT,
+  address: STRUCT<
+    city: STRING,
+    state: STRING,
+    zipcode: INT
+  >,
+  xml: STRING 
+>""",
+        2
     )
 
     return out0

@@ -804,6 +804,12 @@ class catalogTable(DatasetSpec):
                         updateCond = (updateCond | (
                             ~ (col("existingDF." + scdCol)).eqNullSafe(col("staged_updates." + scdCol))))
 
+                colsToInsert: SubstituteDisabled = [c for c in stagedUpdatesDF.columns if c != "mergeKey"]
+
+                colsToInsertDict = {}
+                for colName in colsToInsert:  # skipLoopUnRolling
+                    colsToInsertDict[colName] = "staged_updates." + colName
+
                 existingTable \
                     .alias("existingDF") \
                     .merge(
@@ -816,8 +822,9 @@ class catalogTable(DatasetSpec):
                         maxFlagColumn: flagN,
                         toTimeColumn: ("staged_updates." + fromTimeColumn)
                     }
-                ).whenNotMatchedInsertAll() \
-                    .execute()
+                ).whenNotMatchedInsert(
+                    values=colsToInsertDict
+                ).execute()
             else:
                 writer = in0.write.format(self.props.provider)
                 if self.props.provider == "delta" and self.props.optimizeWrite is not None:

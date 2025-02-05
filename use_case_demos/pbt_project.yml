@@ -53,7 +53,7 @@ pipelines:
       inputs:
       - datasets/csv_source_test
       - datasets/csv_source_test2
-      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customers
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -126,10 +126,14 @@ pipelines:
     datasets:
       inputs:
       - datasets/scd2_custom_target
+      - datasets/scd2_delta_custom_target
+      - datasets/scd2_delta_target
       - datasets/scd2_uc_test
-      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/0.8&projectSubscriptionProjectId=30492&path=datasets/customers
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers
       outputs:
       - datasets/scd2_custom_target
+      - datasets/scd2_delta_custom_target
+      - datasets/scd2_delta_target
       - datasets/scd2_uc_test
     subgraphs: []
     dependencies: {}
@@ -159,6 +163,38 @@ pipelines:
     datasets:
       inputs: []
       outputs: []
+    subgraphs: []
+    dependencies: {}
+  pipelines/conditional_execution:
+    name: conditional_execution
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-01-11 13:27:56'
+    datasets:
+      inputs:
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers
+      outputs:
+      - datasets/scd2_custom_target
+    subgraphs: []
+    dependencies: {}
+  pipelines/excel_gem_testing:
+    name: excel_gem_testing
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-02-05 06:52:00'
+    datasets:
+      inputs:
+      - datasets/excel_input
+      - datasets/excel_input1
+      outputs:
+      - datasets/excel_output
+      - datasets/excel_output1
     subgraphs: []
     dependencies: {}
 datasets:
@@ -370,34 +406,86 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2024-12-02 05:27:10'
-templates: {}
-jobs:
-  jobs/test_schedule:
-    name: test_schedule
+  datasets/scd2_delta_target:
+    name: scd2_delta_target
     description: ''
-    fabricUID: 2121
-    scheduler:
-      Databricks: {}
-    cloudProvider: null
-    jobSize: small
-    scheduleCron: 0 0 0 1/1 * ? *
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/pipeline_across_fabric
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: null
-    createdAt: '2024-07-22 11:19:34'
     author: abhinav+demo@prophecy.io
-    models: []
-    sqlProjects: []
+    createdAt: '2025-01-22 06:01:03'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-22 06:01:03'
+  datasets/scd2_delta_custom_target:
+    name: scd2_delta_custom_target
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-22 08:34:28'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-22 08:34:28'
+  datasets/excel_input:
+    name: excel_input
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-02-05 06:53:12'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-02-05 06:53:12'
+  datasets/excel_output:
+    name: excel_output
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-02-05 06:55:18'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-02-05 06:55:18'
+  datasets/excel_input1:
+    name: excel_input1
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-02-05 06:55:49'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-02-05 06:55:49'
+  datasets/excel_output1:
+    name: excel_output1
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-02-05 06:56:34'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-02-05 06:56:34'
+templates: {}
+jobs: {}
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0
@@ -438,6 +526,18 @@ gemContainer:
       gemType: DatasetGem
       dependencies: []
       createdAt: '2024-12-02 05:25:39'
+    gems/delta:
+      name: delta
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_usecasedemos/gems/delta.py
+      gemType: DatasetGem
+      dependencies: []
+      createdAt: '2025-01-22 08:32:50'
   dependencies: null
 functions:
   author: null
@@ -460,7 +560,7 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-07-21T10:38:10.097808Z'
   name: plibMaven
-  version: 8.6.0
+  version: 8.8.0
   id: '1008364593'
   createdAt: '2024-07-21T10:38:10.097748Z'
   enabled: true
@@ -468,7 +568,7 @@ dependencies:
 - type: plibPypi
   modifiedAt: '2024-07-23T05:48:35.961Z'
   name: ProphecyLibsPython
-  version: 1.9.28
+  version: 1.9.33
   id: '513410055'
   createdAt: '2024-07-21T10:38:10.097841Z'
   enabled: true
@@ -481,10 +581,10 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.39
+    version: 0.2.40
     isDefault: true
     author: null
-    createdAt: '2024-12-19 07:02:46'
+    createdAt: '2025-02-05 06:56:52'
   '12656':
     projectUID: 12656
     projectName: ProphecyStreamingPython
@@ -505,10 +605,10 @@ projectDependencies:
     projectUID: 30492
     projectName: custom_gem_demos_new
     repositoryPath: gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new
-    version: custom_gem_demos_new/0.8
+    version: custom_gem_demos_new/1.6
     isDefault: false
     author: null
-    createdAt: '2024-11-13 10:15:39'
+    createdAt: '2025-02-05 06:51:37'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

@@ -8,8 +8,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "8.6.0",
-        "pyPiVersion" : "1.9.28"
+        "mavenVersion" : "8.8.0",
+        "pyPiVersion" : "1.9.33"
       }
     },
     "id" : "1",
@@ -74,16 +74,16 @@
         "modifiedAt" : "2024-07-21T07:30:16.129693Z",
         "name" : "plibMaven",
         "enabled" : true,
-        "version" : "8.1.8",
+        "version" : "8.8.0",
         "id" : "848385427",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
       }, {
         "type" : "plibPypi",
-        "modifiedAt" : "2024-10-01T19:25:32.987Z",
+        "modifiedAt" : "2024-12-11T07:41:57.169Z",
         "name" : "ProphecyLibsPython",
         "enabled" : true,
-        "version" : "1.9.14",
+        "version" : "1.9.33",
         "id" : "1875097243",
         "createdAt" : "2024-07-21T07:30:16.129693Z",
         "entity" : "Project"
@@ -257,7 +257,7 @@
         "columnsSelector" : [ "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8##age", "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8##id", "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8##name", "QLIaTPPbBfbXK5gT1zyS9$$4PibhdILtT6mYLQm4GcZ8##department" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.39&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },

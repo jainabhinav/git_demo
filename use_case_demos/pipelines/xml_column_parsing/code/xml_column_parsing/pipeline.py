@@ -15,6 +15,7 @@ def pipeline(spark: SparkSession) -> None:
     df_parse_xml_column_1 = parse_xml_column_1(spark, df_xml_column_parsing_source)
     df_xml_column_parser_1 = xml_column_parser_1(spark, df_xml_column_parsing_source)
     df_flatten_schema_2 = flatten_schema_2(spark, df_xml_column_parser_1)
+    df_Reformat_1 = Reformat_1(spark, df_xml_column_parsing_source_1)
     df_ColumnParser_2 = ColumnParser_2(spark, df_xml_column_parsing_source)
     df_parse_xml_column = parse_xml_column(spark, df_xml_column_parsing_source)
     df_flatten_schema_1 = flatten_schema_1(spark, df_parse_xml_column)
