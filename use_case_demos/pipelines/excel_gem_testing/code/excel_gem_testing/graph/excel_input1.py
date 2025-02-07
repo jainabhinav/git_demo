@@ -7,4 +7,13 @@ from excel_gem_testing.config.ConfigStore import *
 from excel_gem_testing.functions import *
 
 def excel_input1(spark: SparkSession) -> DataFrame:
-    return spark.read.format("excel").option("header", True).option("dataAddress", "A1").load("hkj")
+    import pandas as pd
+    kwargs = {}
+    targetPath = "hkj"
+
+    if "hkj"[:5] == "dbfs:":
+        targetPath = "hkj"
+
+    pandasDf = pd.read_excel(targetPath, **kwargs)
+
+    return spark.createDataFrame(pandasDf)

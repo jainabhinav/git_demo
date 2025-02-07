@@ -26,7 +26,7 @@
       }
     },
     "language" : "python",
-    "fabricId" : "2121",
+    "fabricId" : "2122",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
@@ -224,7 +224,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Imports data from an Excel file into a Spark DataFrame for further analysis.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],

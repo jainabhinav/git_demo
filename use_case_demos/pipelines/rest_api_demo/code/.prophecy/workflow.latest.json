@@ -829,34 +829,6 @@
       "properties" : {
         "datasetId" : "datasets/catalog_api_output"
       }
-    },
-    "sEfPNYSigsdtSt_bMi_LA$$JfQGcqhb-pYPFT0_yhb-E" : {
-      "id" : "sEfPNYSigsdtSt_bMi_LA$$JfQGcqhb-pYPFT0_yhb-E",
-      "component" : "Script",
-      "metadata" : {
-        "label" : "disable_pipeline_start",
-        "slug" : "disable_pipeline_start",
-        "x" : -500,
-        "y" : -300,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false,
-        "comment" : "Disables the start of a pipeline by setting the pipeline_start configuration to False.",
-        "autoUpdateComment" : true
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : true,
-        "autoUpdateOnRun" : true
-      },
-      "properties" : {
-        "script" : "Config.pipeline_start = False",
-        "scriptMethodHeader" : "def Script(spark: SparkSession) -> None:",
-        "scriptMethodFooter" : "    return "
-      }
     }
   },
   "ports" : {

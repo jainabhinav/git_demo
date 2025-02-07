@@ -53,7 +53,7 @@ pipelines:
       inputs:
       - datasets/csv_source_test
       - datasets/csv_source_test2
-      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/customers
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -129,7 +129,7 @@ pipelines:
       - datasets/scd2_delta_custom_target
       - datasets/scd2_delta_target
       - datasets/scd2_uc_test
-      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/customers
       outputs:
       - datasets/scd2_custom_target
       - datasets/scd2_delta_custom_target
@@ -175,7 +175,7 @@ pipelines:
     createdAt: '2025-01-11 13:27:56'
     datasets:
       inputs:
-      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers
+      - gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/customers
       outputs:
       - datasets/scd2_custom_target
     subgraphs: []
@@ -566,7 +566,7 @@ dependencies:
   enabled: true
   entity: Project
 - type: plibPypi
-  modifiedAt: '2024-07-23T05:48:35.961Z'
+  modifiedAt: '2025-02-06T10:28:00.496Z'
   name: ProphecyLibsPython
   version: 1.9.33
   id: '513410055'
@@ -605,10 +605,10 @@ projectDependencies:
     projectUID: 30492
     projectName: custom_gem_demos_new
     repositoryPath: gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new
-    version: custom_gem_demos_new/1.6
+    version: custom_gem_demos_new/1.7
     isDefault: false
     author: null
-    createdAt: '2025-02-05 06:51:37'
+    createdAt: '2025-02-05 07:03:08'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

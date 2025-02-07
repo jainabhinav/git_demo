@@ -7,15 +7,12 @@ from prophecy.utils import *
 from rest_api_demo.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-
     if Config.pipeline_start:
         df_catalog_api_input = catalog_api_input(spark)
         df_exchangerate_url = exchangerate_url(spark, df_catalog_api_input)
         df_rest_api_enrichment = rest_api_enrichment(spark, df_exchangerate_url)
         df_coin_currency = coin_currency(spark, df_rest_api_enrichment)
         catalog_api_output(spark, df_coin_currency)
-
-    disable_pipeline_start(spark)
 
 def main():
     spark = SparkSession.builder\

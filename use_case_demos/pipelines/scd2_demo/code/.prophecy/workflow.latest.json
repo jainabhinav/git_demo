@@ -16,67 +16,6 @@
     "id" : "1",
     "uri" : "pipelines/scd2_demo",
     "sourceSuggestions" : [ {
-      "sourceLabel" : "xlsx_test_sheet2",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_test_sheet2",
-      "canJoinWith" : [ {
-        "processLabel" : "scd2_delta_target_1",
-        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
-        "joinColumns" : [ "country_code", "account_flags", "email" ],
-        "isRecommended" : true,
-        "properties" : {
-          "columnsSelector" : [ "country_code", "account_flags", "email" ],
-          "conditions" : [ {
-            "alias" : "xlsx_test_sheet2",
-            "expression" : "(((scd2_delta_target_1.account_flags = xlsx_test_sheet2.account_flags) AND (scd2_delta_target_1.country_code = xlsx_test_sheet2.country_code)) AND (scd2_delta_target_1.email = xlsx_test_sheet2.email))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "new_col",
-            "expression" : "scd2_delta_target_1.new_col"
-          }, {
-            "alias" : "country_code",
-            "expression" : "scd2_delta_target_1.country_code"
-          }, {
-            "alias" : "to_timestamp",
-            "expression" : "scd2_delta_target_1.to_timestamp"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "scd2_delta_target_1.customer_id"
-          }, {
-            "alias" : "first_name",
-            "expression" : "scd2_delta_target_1.first_name"
-          }, {
-            "alias" : "is_min",
-            "expression" : "scd2_delta_target_1.is_min"
-          }, {
-            "alias" : "last_name",
-            "expression" : "scd2_delta_target_1.last_name"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_delta_target_1.account_open_date"
-          }, {
-            "alias" : "phone",
-            "expression" : "scd2_delta_target_1.phone"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_delta_target_1.account_flags"
-          }, {
-            "alias" : "email",
-            "expression" : "scd2_delta_target_1.email"
-          }, {
-            "alias" : "is_max",
-            "expression" : "scd2_delta_target_1.is_max"
-          }, {
-            "alias" : "from_timestamp",
-            "expression" : "scd2_delta_target_1.from_timestamp"
-          }, {
-            "alias" : "new_col2",
-            "expression" : "scd2_delta_target_1.new_col2"
-          } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_test_sheet2"
-        }
-      } ]
-    }, {
       "sourceLabel" : "scd2_custom_target_2",
       "sourceDatasetId" : "datasets/scd2_custom_target",
       "canJoinWith" : [ {
@@ -138,18 +77,18 @@
         }
       } ]
     }, {
-      "sourceLabel" : "customers_1",
-      "sourceDatasetId" : "datasets/customers",
+      "sourceLabel" : "sharepoint_customers_csv",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/sharepoint_customers_csv",
       "canJoinWith" : [ {
         "processLabel" : "scd2_delta_target_1",
         "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
-        "joinColumns" : [ "country_code", "account_flags", "email" ],
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
         "isRecommended" : true,
         "properties" : {
-          "columnsSelector" : [ "country_code", "account_flags", "email" ],
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
           "conditions" : [ {
-            "alias" : "customers_1",
-            "expression" : "(((scd2_delta_target_1.account_flags = customers_1.account_flags) AND (scd2_delta_target_1.country_code = customers_1.country_code)) AND (scd2_delta_target_1.email = customers_1.email))",
+            "alias" : "sharepoint_customers_csv",
+            "expression" : "(((scd2_delta_target_1.account_flags = sharepoint_customers_csv.account_flags) AND (scd2_delta_target_1.country_code = sharepoint_customers_csv.country_code)) AND (scd2_delta_target_1.customer_id = sharepoint_customers_csv.customer_id))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
@@ -195,12 +134,12 @@
             "alias" : "new_col2",
             "expression" : "scd2_delta_target_1.new_col2"
           } ],
-          "headAlias" : "datasets/customers"
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/sharepoint_customers_csv"
         }
       } ]
     }, {
-      "sourceLabel" : "xlsx_test",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_test",
+      "sourceLabel" : "xlsx_test_sheet2",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/xlsx_test_sheet2",
       "canJoinWith" : [ {
         "processLabel" : "scd2_delta_target_1",
         "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
@@ -209,8 +148,8 @@
         "properties" : {
           "columnsSelector" : [ "country_code", "account_flags", "email" ],
           "conditions" : [ {
-            "alias" : "xlsx_test",
-            "expression" : "(((scd2_delta_target_1.account_flags = xlsx_test.account_flags) AND (scd2_delta_target_1.country_code = xlsx_test.country_code)) AND (scd2_delta_target_1.email = xlsx_test.email))",
+            "alias" : "xlsx_test_sheet2",
+            "expression" : "(((scd2_delta_target_1.account_flags = xlsx_test_sheet2.account_flags) AND (scd2_delta_target_1.country_code = xlsx_test_sheet2.country_code)) AND (scd2_delta_target_1.email = xlsx_test_sheet2.email))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
@@ -256,7 +195,74 @@
             "alias" : "new_col2",
             "expression" : "scd2_delta_target_1.new_col2"
           } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_test"
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/xlsx_test_sheet2"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "customer_catalog_scd2",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/customer_catalog_scd2",
+      "canJoinWith" : [ {
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "customer_catalog_scd2",
+            "expression" : "(((scd2_delta_target_1.account_flags = customer_catalog_scd2.account_flags) AND (scd2_delta_target_1.country_code = customer_catalog_scd2.country_code)) AND (scd2_delta_target_1.customer_id = customer_catalog_scd2.customer_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "from_time",
+            "expression" : "customer_catalog_scd2.from_time"
+          }, {
+            "alias" : "to_time",
+            "expression" : "customer_catalog_scd2.to_time"
+          }, {
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_delta_target_1.country_code"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_delta_target_1.is_min"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
+          } ],
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/customer_catalog_scd2"
         }
       } ]
     }, {
@@ -379,7 +385,7 @@
       } ]
     }, {
       "sourceLabel" : "xlsx_target_test",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_target_test",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/xlsx_target_test",
       "canJoinWith" : [ {
         "processLabel" : "scd2_delta_target_1",
         "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
@@ -435,12 +441,12 @@
             "alias" : "new_col2",
             "expression" : "scd2_delta_target_1.new_col2"
           } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/xlsx_target_test"
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/xlsx_target_test"
         }
       } ]
     }, {
       "sourceLabel" : "crealytics_target_xlsx",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/crealytics_target_xlsx",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/crealytics_target_xlsx",
       "canJoinWith" : [ {
         "processLabel" : "scd2_delta_target_1",
         "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
@@ -496,7 +502,68 @@
             "alias" : "new_col2",
             "expression" : "scd2_delta_target_1.new_col2"
           } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/crealytics_target_xlsx"
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/crealytics_target_xlsx"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "customers_1",
+      "sourceDatasetId" : "datasets/customers",
+      "canJoinWith" : [ {
+        "processLabel" : "scd2_delta_target_1",
+        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
+        "joinColumns" : [ "country_code", "account_flags", "email" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "country_code", "account_flags", "email" ],
+          "conditions" : [ {
+            "alias" : "customers_1",
+            "expression" : "(((scd2_delta_target_1.account_flags = customers_1.account_flags) AND (scd2_delta_target_1.country_code = customers_1.country_code)) AND (scd2_delta_target_1.email = customers_1.email))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "new_col",
+            "expression" : "scd2_delta_target_1.new_col"
+          }, {
+            "alias" : "country_code",
+            "expression" : "scd2_delta_target_1.country_code"
+          }, {
+            "alias" : "to_timestamp",
+            "expression" : "scd2_delta_target_1.to_timestamp"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "scd2_delta_target_1.customer_id"
+          }, {
+            "alias" : "first_name",
+            "expression" : "scd2_delta_target_1.first_name"
+          }, {
+            "alias" : "is_min",
+            "expression" : "scd2_delta_target_1.is_min"
+          }, {
+            "alias" : "last_name",
+            "expression" : "scd2_delta_target_1.last_name"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "scd2_delta_target_1.account_open_date"
+          }, {
+            "alias" : "phone",
+            "expression" : "scd2_delta_target_1.phone"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "scd2_delta_target_1.account_flags"
+          }, {
+            "alias" : "email",
+            "expression" : "scd2_delta_target_1.email"
+          }, {
+            "alias" : "is_max",
+            "expression" : "scd2_delta_target_1.is_max"
+          }, {
+            "alias" : "from_timestamp",
+            "expression" : "scd2_delta_target_1.from_timestamp"
+          }, {
+            "alias" : "new_col2",
+            "expression" : "scd2_delta_target_1.new_col2"
+          } ],
+          "headAlias" : "datasets/customers"
         }
       } ]
     }, {
@@ -561,18 +628,18 @@
         }
       } ]
     }, {
-      "sourceLabel" : "customers_1",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers",
+      "sourceLabel" : "xlsx_test",
+      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/xlsx_test",
       "canJoinWith" : [ {
         "processLabel" : "scd2_delta_target_1",
         "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
-        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "joinColumns" : [ "country_code", "account_flags", "email" ],
         "isRecommended" : false,
         "properties" : {
-          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "columnsSelector" : [ "country_code", "account_flags", "email" ],
           "conditions" : [ {
-            "alias" : "customers_1",
-            "expression" : "(((scd2_delta_target_1.account_flags = customers_1.account_flags) AND (scd2_delta_target_1.country_code = customers_1.country_code)) AND (scd2_delta_target_1.customer_id = customers_1.customer_id))",
+            "alias" : "xlsx_test",
+            "expression" : "(((scd2_delta_target_1.account_flags = xlsx_test.account_flags) AND (scd2_delta_target_1.country_code = xlsx_test.country_code)) AND (scd2_delta_target_1.email = xlsx_test.email))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
@@ -618,74 +685,7 @@
             "alias" : "new_col2",
             "expression" : "scd2_delta_target_1.new_col2"
           } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "customer_catalog_scd2",
-      "sourceDatasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customer_catalog_scd2",
-      "canJoinWith" : [ {
-        "processLabel" : "scd2_delta_target_1",
-        "processId" : "mncFdUO36qMOPFFPjDPRt$$tpP0O5WAzOovMNHTcmnkT",
-        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
-        "isRecommended" : false,
-        "properties" : {
-          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
-          "conditions" : [ {
-            "alias" : "customer_catalog_scd2",
-            "expression" : "(((scd2_delta_target_1.account_flags = customer_catalog_scd2.account_flags) AND (scd2_delta_target_1.country_code = customer_catalog_scd2.country_code)) AND (scd2_delta_target_1.customer_id = customer_catalog_scd2.customer_id))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "from_time",
-            "expression" : "customer_catalog_scd2.from_time"
-          }, {
-            "alias" : "to_time",
-            "expression" : "customer_catalog_scd2.to_time"
-          }, {
-            "alias" : "new_col",
-            "expression" : "scd2_delta_target_1.new_col"
-          }, {
-            "alias" : "country_code",
-            "expression" : "scd2_delta_target_1.country_code"
-          }, {
-            "alias" : "to_timestamp",
-            "expression" : "scd2_delta_target_1.to_timestamp"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "scd2_delta_target_1.customer_id"
-          }, {
-            "alias" : "first_name",
-            "expression" : "scd2_delta_target_1.first_name"
-          }, {
-            "alias" : "is_min",
-            "expression" : "scd2_delta_target_1.is_min"
-          }, {
-            "alias" : "last_name",
-            "expression" : "scd2_delta_target_1.last_name"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "scd2_delta_target_1.account_open_date"
-          }, {
-            "alias" : "phone",
-            "expression" : "scd2_delta_target_1.phone"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "scd2_delta_target_1.account_flags"
-          }, {
-            "alias" : "email",
-            "expression" : "scd2_delta_target_1.email"
-          }, {
-            "alias" : "is_max",
-            "expression" : "scd2_delta_target_1.is_max"
-          }, {
-            "alias" : "from_timestamp",
-            "expression" : "scd2_delta_target_1.from_timestamp"
-          }, {
-            "alias" : "new_col2",
-            "expression" : "scd2_delta_target_1.new_col2"
-          } ],
-          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customer_catalog_scd2"
+          "headAlias" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/xlsx_test"
         }
       } ]
     } ],
@@ -1618,7 +1618,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers"
+        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/customers"
       }
     },
     "JI66Sjhhop-Cm_6psKOXZ$$v_7Li64hjlNm0d7-vT7bA" : {
@@ -1827,7 +1827,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The first name of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1882,6 +1882,60 @@
               "nullable" : true,
               "metadata" : {
                 "description" : "Flags associated with the customer's account",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "from_timestamp",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "to_timestamp",
+              "type" : "timestamp",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_min",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "is_max",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "new_col2",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }

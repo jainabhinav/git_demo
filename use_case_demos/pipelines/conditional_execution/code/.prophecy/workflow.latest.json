@@ -147,7 +147,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.6&projectSubscriptionProjectId=30492&path=datasets/customers"
+        "datasetId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/custom_gem_demos_new&tag=custom_gem_demos_new/1.7&projectSubscriptionProjectId=30492&path=datasets/customers"
       }
     },
     "1QtKnOweXCLnzkXujV73B$$9JyRlrsTb1rQcEs47z7WA" : {
