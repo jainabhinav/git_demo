@@ -100,6 +100,35 @@ pipelines:
       - datasets/mongodb_old_us_ps
     subgraphs: []
     dependencies: {}
+  pipelines/redshift_test:
+    name: redshift_test
+    description: ''
+    author: abhinav@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2024-06-03 19:30:00'
+    datasets:
+      inputs:
+      - datasets/asd
+      - datasets/redshift_old
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+  pipelines/DQ_bug_test:
+    name: DQ_bug_test
+    description: ''
+    author: abhinav@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2024-06-14 09:36:50'
+    datasets:
+      inputs:
+      - datasets/customers
+      outputs: []
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/asd:
     name: asd
@@ -179,6 +208,19 @@ datasets:
         description: ''
         author: abhinav@prophecy.io
         createdAt: '2024-06-03 14:12:33'
+  datasets/redshift_old:
+    name: redshift_old
+    description: ''
+    author: abhinav@prophecy.io
+    createdAt: '2024-06-03 19:40:20'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 2453
+        datasetType: Warehouse
+        description: ''
+        author: abhinav@prophecy.io
+        createdAt: '2024-06-03 19:40:20'
 templates: {}
 jobs:
   jobs/first_job:
@@ -204,22 +246,11 @@ jobs:
     enabled: null
     createdAt: '2024-05-23 12:43:45'
     author: abhinav@prophecy.io
+    models: []
 gemContainer:
   languageVersion: 2.12.15
   gemLibsVersion: 1.1.14
   gems:
-    gems/RenameColumns:
-      name: RenameColumns
-      category: Transform
-      subCategory: ''
-      description: null
-      author: abhinav@prophecy.io
-      mode: batch
-      files:
-      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/RenameColumns.scala
-      gemType: ComponentGem
-      dependencies: null
-      createdAt: '2024-04-18 12:29:38'
     gems/MultiFieldExpression:
       name: MultiFieldExpression
       category: Transform
@@ -267,18 +298,6 @@ gemContainer:
         exclusions: []
         editable: true
       createdAt: '2024-04-24 13:34:51'
-    gems/Reformat:
-      name: Reformat
-      category: Transform
-      subCategory: ''
-      description: null
-      author: abhinav@prophecy.io
-      mode: batch
-      files:
-      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/Reformat.scala
-      gemType: ComponentGem
-      dependencies: []
-      createdAt: '2024-05-17 09:43:00'
     gems/SQLStatement:
       name: SQLStatement
       category: Custom
@@ -291,29 +310,42 @@ gemContainer:
       gemType: ComponentGem
       dependencies: null
       createdAt: '2024-05-17 11:34:51'
-    gems/mongodb:
-      name: mongodb
+    gems/redshift:
+      name: redshift
       category: Source/Target
       subCategory: Warehouse
       description: null
       author: abhinav@prophecy.io
       mode: batch
       files:
-      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/mongodb.scala
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/redshift.scala
       gemType: DatasetGem
-      dependencies:
-      - type: coordinates
-        modifiedAt: '2024-06-03T12:20:52.796Z'
-        coordinates: com.databricks:dbutils-api_2.12:0.0.6
-        name: dbutils
-        description: ''
-        enabled: true
-        id: 0oFILcFBdQSWpvox10NOT
-        createdAt: '2024-06-03T12:20:52.796Z'
-        entity: Gem
-        exclusions: []
-        editable: true
-      createdAt: '2024-06-03 14:06:03'
+      dependencies: []
+      createdAt: '2024-06-03 20:13:33'
+    gems/Reformat:
+      name: Reformat
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/Reformat.scala
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-07-04 11:18:20'
+    gems/TestGem:
+      name: TestGem
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav@prophecy.io
+      mode: batch
+      files:
+      - src/main/scala/abhinavprophecyioteam/scalamigtestinggit/gems/testGem.scala
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-07-15 05:31:20'
   dependencies: null
 functions:
   author: null
@@ -358,11 +390,11 @@ sqlUnreferencedSources: {}
 sqlPipeline: null
 dependencies:
 - type: plibMaven
-  modifiedAt: '2024-06-03T08:37:16.405622Z'
+  modifiedAt: '2024-06-14T09:37:11.207379Z'
   name: plibMaven
-  version: 8.0.4
-  id: '148767315'
-  createdAt: '2024-06-03T08:37:16.405552Z'
+  version: 8.0.11
+  id: '722381653'
+  createdAt: '2024-06-14T09:37:11.207141Z'
 projectDependencies:
   '39':
     projectUID: 39
@@ -372,6 +404,14 @@ projectDependencies:
     isDefault: true
     author: null
     createdAt: '2024-05-27 14:48:56'
+  '40':
+    projectUID: 40
+    projectName: ProphecyWarehouseScala
+    repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_40.git&subPath=
+    version: 0.0.5.dev2
+    isDefault: false
+    author: null
+    createdAt: '2024-06-05 14:18:27'
 flags:
   shouldAddDefaultDependenciesIfAbsent: false
 pipelineConfigurations: {}

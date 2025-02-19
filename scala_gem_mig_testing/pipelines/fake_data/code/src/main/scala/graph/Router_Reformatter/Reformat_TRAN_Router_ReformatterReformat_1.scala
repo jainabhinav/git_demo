@@ -782,284 +782,49 @@ object Reformat_TRAN_Router_ReformatterReformat_1 {
       ).as("openrtb_req_subdomain")
     )
 
-  def seller_revenue_seller_currency(context: Context) = {
+  def buyer_spend_buyer_currency(context: Context) = {
     val spark  = context.spark
     val Config = context.config
-    coalesce(
-      when(
-        f_should_zero_seller_revenue(
-          col("log_dw_bid"),
-          col("imp_type").cast(IntegerType),
-          col("log_dw_bid.revenue_type").cast(IntegerType),
-          col("seller_member_id").cast(IntegerType),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_revenue_microcents"
-          ).cast(LongType)
-        ).cast(BooleanType),
-        lit(0)
-      ).cast(DoubleType),
-      ((when(
-        is_not_null(col("buyer_member_id").cast(IntegerType))
-          .and(is_not_null(col("seller_member_id").cast(IntegerType)))
-          .and(
-            col("buyer_member_id").cast(IntegerType) =!= col("seller_member_id")
-              .cast(IntegerType)
+    ((when(
+      is_not_null(col("buyer_member_id").cast(IntegerType))
+        .and(is_not_null(col("seller_member_id").cast(IntegerType)))
+        .and(
+          col("buyer_member_id").cast(IntegerType) =!= col("seller_member_id")
+            .cast(IntegerType)
+        )
+        .and(
+          col("log_dw_bid.payment_type").isNull.or(
+            is_not_null(col("log_dw_bid.payment_type").cast(IntegerType))
+              .and(col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(1))
+              .and(col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(2))
           )
-          .and(
-            col("log_dw_bid.payment_type").isNull.or(
-              is_not_null(col("log_dw_bid.payment_type").cast(IntegerType))
-                .and(
-                  col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(1)
-                )
-                .and(
-                  col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(2)
-                )
-            )
-          ),
-        coalesce(
-          f_get_transaction_event_pricing(
-            col("log_impbus_impressions_pricing.impression_event_pricing"),
-            col("log_impbus_auction_event.auction_event_pricing"),
-            col("log_impbus_impressions_pricing.buyer_charges"),
-            col("log_impbus_impressions_pricing.seller_charges"),
-            f_should_process_views(
-              col("log_dw_view"),
-              f_transaction_event(
-                col("log_impbus_impressions.seller_transaction_def"),
-                col("log_impbus_preempt.seller_transaction_def")
-              ).cast(IntegerType),
-              f_transaction_event(
-                col("log_impbus_impressions.buyer_transaction_def"),
-                col("log_impbus_preempt.buyer_transaction_def")
-              ).cast(IntegerType)
+        ),
+      coalesce(
+        f_get_transaction_event_pricing(
+          col("log_impbus_impressions_pricing.impression_event_pricing"),
+          col("log_impbus_auction_event.auction_event_pricing"),
+          col("log_impbus_impressions_pricing.buyer_charges"),
+          col("log_impbus_impressions_pricing.seller_charges"),
+          f_should_process_views(
+            col("log_dw_view"),
+            f_transaction_event(
+              col("log_impbus_impressions.seller_transaction_def"),
+              col("log_impbus_preempt.seller_transaction_def")
+            ).cast(IntegerType),
+            f_transaction_event(
+              col("log_impbus_impressions.buyer_transaction_def"),
+              col("log_impbus_preempt.buyer_transaction_def")
             ).cast(IntegerType)
-          ).getField("seller_revenue_microcents"),
-          lit(0)
-        )
-      ).otherwise(lit(0)).cast(DoubleType) / lit(100000))
-        .cast(DoubleType) * coalesce(
-        col("log_impbus_impressions.seller_exchange_rate"),
+          ).cast(IntegerType)
+        ).getField("gross_payment_value_microcents"),
         lit(0)
-      ).cast(DoubleType)).cast(DoubleType)
-    )
-  }
-
-  def creative_overage_fees(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    when(
-      is_not_null(
-        f_get_pricing_term(
-          lit(11),
-          when(
-            is_not_null(
-              f_get_impression_transaction_event_pricing(
-                col("log_impbus_impressions_pricing.impression_event_pricing"),
-                col("log_impbus_impressions_pricing.buyer_charges"),
-                col("log_impbus_impressions_pricing.seller_charges")
-              ).getField("buyer_charges").getField("pricing_terms")
-            ),
-            f_get_impression_transaction_event_pricing(
-              col("log_impbus_impressions_pricing.impression_event_pricing"),
-              col("log_impbus_impressions_pricing.buyer_charges"),
-              col("log_impbus_impressions_pricing.seller_charges")
-            ).getField("buyer_charges").getField("pricing_terms")
-          ).otherwise(
-            lit(null).cast(
-              ArrayType(
-                StructType(
-                  Array(
-                    StructField("term_id",                 IntegerType, true),
-                    StructField("amount",                  DoubleType,  true),
-                    StructField("rate",                    DoubleType,  true),
-                    StructField("is_deduction",            ByteType,    true),
-                    StructField("is_media_cost_dependent", ByteType,    true),
-                    StructField("data_member_id",          IntegerType, true)
-                  )
-                ),
-                true
-              )
-            )
-          )
-        ).getField("amount")
-      ).and(
-        f_get_pricing_term(
-          lit(11),
-          when(
-            is_not_null(
-              f_get_impression_transaction_event_pricing(
-                col("log_impbus_impressions_pricing.impression_event_pricing"),
-                col("log_impbus_impressions_pricing.buyer_charges"),
-                col("log_impbus_impressions_pricing.seller_charges")
-              ).getField("buyer_charges").getField("pricing_terms")
-            ),
-            f_get_impression_transaction_event_pricing(
-              col("log_impbus_impressions_pricing.impression_event_pricing"),
-              col("log_impbus_impressions_pricing.buyer_charges"),
-              col("log_impbus_impressions_pricing.seller_charges")
-            ).getField("buyer_charges").getField("pricing_terms")
-          ).otherwise(
-            lit(null).cast(
-              ArrayType(
-                StructType(
-                  Array(
-                    StructField("term_id",                 IntegerType, true),
-                    StructField("amount",                  DoubleType,  true),
-                    StructField("rate",                    DoubleType,  true),
-                    StructField("is_deduction",            ByteType,    true),
-                    StructField("is_media_cost_dependent", ByteType,    true),
-                    StructField("data_member_id",          IntegerType, true)
-                  )
-                ),
-                true
-              )
-            )
-          )
-        ).getField("amount") > lit(0)
-      ),
-      f_get_pricing_term(
-        lit(11),
-        when(
-          is_not_null(
-            f_get_impression_transaction_event_pricing(
-              col("log_impbus_impressions_pricing.impression_event_pricing"),
-              col("log_impbus_impressions_pricing.buyer_charges"),
-              col("log_impbus_impressions_pricing.seller_charges")
-            ).getField("buyer_charges").getField("pricing_terms")
-          ),
-          f_get_impression_transaction_event_pricing(
-            col("log_impbus_impressions_pricing.impression_event_pricing"),
-            col("log_impbus_impressions_pricing.buyer_charges"),
-            col("log_impbus_impressions_pricing.seller_charges")
-          ).getField("buyer_charges").getField("pricing_terms")
-        ).otherwise(
-          lit(null).cast(
-            ArrayType(
-              StructType(
-                Array(
-                  StructField("term_id",                 IntegerType, true),
-                  StructField("amount",                  DoubleType,  true),
-                  StructField("rate",                    DoubleType,  true),
-                  StructField("is_deduction",            ByteType,    true),
-                  StructField("is_media_cost_dependent", ByteType,    true),
-                  StructField("data_member_id",          IntegerType, true)
-                )
-              ),
-              true
-            )
-          )
-        )
-      ).getField("amount") / lit(1000)
-    ).otherwise(lit(0)).cast(DoubleType)
-  }
-
-  def discrepancy_allowance(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    when(
-      is_not_null(
-        f_get_pricing_term(
-          lit(51),
-          when(
-            is_not_null(
-              f_get_impression_transaction_event_pricing(
-                col("log_impbus_impressions_pricing.impression_event_pricing"),
-                col("log_impbus_impressions_pricing.buyer_charges"),
-                col("log_impbus_impressions_pricing.seller_charges")
-              ).getField("buyer_charges").getField("pricing_terms")
-            ),
-            f_get_impression_transaction_event_pricing(
-              col("log_impbus_impressions_pricing.impression_event_pricing"),
-              col("log_impbus_impressions_pricing.buyer_charges"),
-              col("log_impbus_impressions_pricing.seller_charges")
-            ).getField("buyer_charges").getField("pricing_terms")
-          ).otherwise(
-            lit(null).cast(
-              ArrayType(
-                StructType(
-                  Array(
-                    StructField("term_id",                 IntegerType, true),
-                    StructField("amount",                  DoubleType,  true),
-                    StructField("rate",                    DoubleType,  true),
-                    StructField("is_deduction",            ByteType,    true),
-                    StructField("is_media_cost_dependent", ByteType,    true),
-                    StructField("data_member_id",          IntegerType, true)
-                  )
-                ),
-                true
-              )
-            )
-          )
-        ).getField("amount")
-      ).and(
-        f_get_pricing_term(
-          lit(51),
-          when(
-            is_not_null(
-              f_get_impression_transaction_event_pricing(
-                col("log_impbus_impressions_pricing.impression_event_pricing"),
-                col("log_impbus_impressions_pricing.buyer_charges"),
-                col("log_impbus_impressions_pricing.seller_charges")
-              ).getField("buyer_charges").getField("pricing_terms")
-            ),
-            f_get_impression_transaction_event_pricing(
-              col("log_impbus_impressions_pricing.impression_event_pricing"),
-              col("log_impbus_impressions_pricing.buyer_charges"),
-              col("log_impbus_impressions_pricing.seller_charges")
-            ).getField("buyer_charges").getField("pricing_terms")
-          ).otherwise(
-            lit(null).cast(
-              ArrayType(
-                StructType(
-                  Array(
-                    StructField("term_id",                 IntegerType, true),
-                    StructField("amount",                  DoubleType,  true),
-                    StructField("rate",                    DoubleType,  true),
-                    StructField("is_deduction",            ByteType,    true),
-                    StructField("is_media_cost_dependent", ByteType,    true),
-                    StructField("data_member_id",          IntegerType, true)
-                  )
-                ),
-                true
-              )
-            )
-          )
-        ).getField("amount") > lit(0)
-      ),
-      f_get_pricing_term(
-        lit(51),
-        when(
-          is_not_null(
-            f_get_impression_transaction_event_pricing(
-              col("log_impbus_impressions_pricing.impression_event_pricing"),
-              col("log_impbus_impressions_pricing.buyer_charges"),
-              col("log_impbus_impressions_pricing.seller_charges")
-            ).getField("buyer_charges").getField("pricing_terms")
-          ),
-          f_get_impression_transaction_event_pricing(
-            col("log_impbus_impressions_pricing.impression_event_pricing"),
-            col("log_impbus_impressions_pricing.buyer_charges"),
-            col("log_impbus_impressions_pricing.seller_charges")
-          ).getField("buyer_charges").getField("pricing_terms")
-        ).otherwise(
-          lit(null).cast(
-            ArrayType(
-              StructType(
-                Array(
-                  StructField("term_id",                 IntegerType, true),
-                  StructField("amount",                  DoubleType,  true),
-                  StructField("rate",                    DoubleType,  true),
-                  StructField("is_deduction",            ByteType,    true),
-                  StructField("is_media_cost_dependent", ByteType,    true),
-                  StructField("data_member_id",          IntegerType, true)
-                )
-              ),
-              true
-            )
-          )
-        )
-      ).getField("amount") / lit(1000)
-    ).otherwise(lit(0)).cast(DoubleType)
+      )
+    ).otherwise(lit(0)).cast(DoubleType) / lit(100000))
+      .cast(DoubleType) * coalesce(
+      col("log_impbus_preempt.buyer_exchange_rate"),
+      col("log_impbus_impressions.buyer_exchange_rate"),
+      lit(0)
+    ).cast(DoubleType)).cast(DoubleType)
   }
 
   def auction_service_deduction(context: Context) = {
@@ -1246,6 +1011,262 @@ object Reformat_TRAN_Router_ReformatterReformat_1 {
     ).otherwise(lit(0)).cast(DoubleType)
   }
 
+  def seller_revenue(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    coalesce(
+      when(
+        f_should_zero_seller_revenue(
+          col("log_dw_bid"),
+          col("imp_type").cast(IntegerType),
+          col("log_dw_bid.revenue_type").cast(IntegerType),
+          col("seller_member_id").cast(IntegerType),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_revenue_microcents"
+          ).cast(LongType)
+        ).cast(BooleanType),
+        lit(0)
+      ).cast(DoubleType),
+      (when(
+        is_not_null(col("buyer_member_id").cast(IntegerType))
+          .and(is_not_null(col("seller_member_id").cast(IntegerType)))
+          .and(
+            col("buyer_member_id").cast(IntegerType) =!= col("seller_member_id")
+              .cast(IntegerType)
+          )
+          .and(
+            col("log_dw_bid.payment_type").isNull.or(
+              is_not_null(col("log_dw_bid.payment_type").cast(IntegerType))
+                .and(
+                  col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(1)
+                )
+                .and(
+                  col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(2)
+                )
+            )
+          ),
+        coalesce(
+          f_get_transaction_event_pricing(
+            col("log_impbus_impressions_pricing.impression_event_pricing"),
+            col("log_impbus_auction_event.auction_event_pricing"),
+            col("log_impbus_impressions_pricing.buyer_charges"),
+            col("log_impbus_impressions_pricing.seller_charges"),
+            f_should_process_views(
+              col("log_dw_view"),
+              f_transaction_event(
+                col("log_impbus_impressions.seller_transaction_def"),
+                col("log_impbus_preempt.seller_transaction_def")
+              ).cast(IntegerType),
+              f_transaction_event(
+                col("log_impbus_impressions.buyer_transaction_def"),
+                col("log_impbus_preempt.buyer_transaction_def")
+              ).cast(IntegerType)
+            ).cast(IntegerType)
+          ).getField("seller_revenue_microcents"),
+          lit(0)
+        )
+      ).otherwise(lit(0)).cast(DoubleType) / lit(100000)).cast(DoubleType)
+    )
+  }
+
+  def creative_overage_fees(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    when(
+      is_not_null(
+        f_get_pricing_term(
+          lit(11),
+          when(
+            is_not_null(
+              f_get_impression_transaction_event_pricing(
+                col("log_impbus_impressions_pricing.impression_event_pricing"),
+                col("log_impbus_impressions_pricing.buyer_charges"),
+                col("log_impbus_impressions_pricing.seller_charges")
+              ).getField("buyer_charges").getField("pricing_terms")
+            ),
+            f_get_impression_transaction_event_pricing(
+              col("log_impbus_impressions_pricing.impression_event_pricing"),
+              col("log_impbus_impressions_pricing.buyer_charges"),
+              col("log_impbus_impressions_pricing.seller_charges")
+            ).getField("buyer_charges").getField("pricing_terms")
+          ).otherwise(
+            lit(null).cast(
+              ArrayType(
+                StructType(
+                  Array(
+                    StructField("term_id",                 IntegerType, true),
+                    StructField("amount",                  DoubleType,  true),
+                    StructField("rate",                    DoubleType,  true),
+                    StructField("is_deduction",            ByteType,    true),
+                    StructField("is_media_cost_dependent", ByteType,    true),
+                    StructField("data_member_id",          IntegerType, true)
+                  )
+                ),
+                true
+              )
+            )
+          )
+        ).getField("amount")
+      ).and(
+        f_get_pricing_term(
+          lit(11),
+          when(
+            is_not_null(
+              f_get_impression_transaction_event_pricing(
+                col("log_impbus_impressions_pricing.impression_event_pricing"),
+                col("log_impbus_impressions_pricing.buyer_charges"),
+                col("log_impbus_impressions_pricing.seller_charges")
+              ).getField("buyer_charges").getField("pricing_terms")
+            ),
+            f_get_impression_transaction_event_pricing(
+              col("log_impbus_impressions_pricing.impression_event_pricing"),
+              col("log_impbus_impressions_pricing.buyer_charges"),
+              col("log_impbus_impressions_pricing.seller_charges")
+            ).getField("buyer_charges").getField("pricing_terms")
+          ).otherwise(
+            lit(null).cast(
+              ArrayType(
+                StructType(
+                  Array(
+                    StructField("term_id",                 IntegerType, true),
+                    StructField("amount",                  DoubleType,  true),
+                    StructField("rate",                    DoubleType,  true),
+                    StructField("is_deduction",            ByteType,    true),
+                    StructField("is_media_cost_dependent", ByteType,    true),
+                    StructField("data_member_id",          IntegerType, true)
+                  )
+                ),
+                true
+              )
+            )
+          )
+        ).getField("amount") > lit(0)
+      ),
+      f_get_pricing_term(
+        lit(11),
+        when(
+          is_not_null(
+            f_get_impression_transaction_event_pricing(
+              col("log_impbus_impressions_pricing.impression_event_pricing"),
+              col("log_impbus_impressions_pricing.buyer_charges"),
+              col("log_impbus_impressions_pricing.seller_charges")
+            ).getField("buyer_charges").getField("pricing_terms")
+          ),
+          f_get_impression_transaction_event_pricing(
+            col("log_impbus_impressions_pricing.impression_event_pricing"),
+            col("log_impbus_impressions_pricing.buyer_charges"),
+            col("log_impbus_impressions_pricing.seller_charges")
+          ).getField("buyer_charges").getField("pricing_terms")
+        ).otherwise(
+          lit(null).cast(
+            ArrayType(
+              StructType(
+                Array(
+                  StructField("term_id",                 IntegerType, true),
+                  StructField("amount",                  DoubleType,  true),
+                  StructField("rate",                    DoubleType,  true),
+                  StructField("is_deduction",            ByteType,    true),
+                  StructField("is_media_cost_dependent", ByteType,    true),
+                  StructField("data_member_id",          IntegerType, true)
+                )
+              ),
+              true
+            )
+          )
+        )
+      ).getField("amount") / lit(1000)
+    ).otherwise(lit(0)).cast(DoubleType)
+  }
+
+  def buyer_charges(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    struct(
+      coalesce(
+        col(
+          "log_impbus_auction_event.auction_event_pricing.buyer_charges.rate_card_id"
+        ).cast(IntegerType),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.rate_card_id"
+        ).cast(IntegerType),
+        col("log_impbus_impressions_pricing.buyer_charges.rate_card_id").cast(
+          IntegerType
+        )
+      ).as("rate_card_id"),
+      coalesce(
+        col(
+          "log_impbus_auction_event.auction_event_pricing.buyer_charges.member_id"
+        ).cast(IntegerType),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.member_id"
+        ).cast(IntegerType),
+        col("log_impbus_impressions_pricing.buyer_charges.member_id").cast(
+          IntegerType
+        )
+      ).as("member_id"),
+      coalesce(
+        col(
+          "log_impbus_auction_event.auction_event_pricing.buyer_charges.is_dw"
+        ).cast(ByteType),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.is_dw"
+        ).cast(ByteType),
+        col("log_impbus_impressions_pricing.buyer_charges.is_dw").cast(ByteType)
+      ).as("is_dw"),
+      coalesce(
+        col(
+          "log_impbus_auction_event.auction_event_pricing.buyer_charges.fx_margin_rate_id"
+        ).cast(IntegerType),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.fx_margin_rate_id"
+        ).cast(IntegerType),
+        col("log_impbus_impressions_pricing.buyer_charges.fx_margin_rate_id")
+          .cast(IntegerType)
+      ).as("fx_margin_rate_id"),
+      coalesce(
+        col(
+          "log_impbus_auction_event.auction_event_pricing.buyer_charges.marketplace_owner_id"
+        ).cast(IntegerType),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.marketplace_owner_id"
+        ).cast(IntegerType),
+        col("log_impbus_impressions_pricing.buyer_charges.marketplace_owner_id")
+          .cast(IntegerType)
+      ).as("marketplace_owner_id"),
+      coalesce(
+        col(
+          "log_impbus_auction_event.auction_event_pricing.buyer_charges.virtual_marketplace_id"
+        ).cast(IntegerType),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.virtual_marketplace_id"
+        ).cast(IntegerType),
+        col(
+          "log_impbus_impressions_pricing.buyer_charges.virtual_marketplace_id"
+        ).cast(IntegerType)
+      ).as("virtual_marketplace_id"),
+      coalesce(
+        col(
+          "log_impbus_auction_event.auction_event_pricing.buyer_charges.amino_enabled"
+        ).cast(ByteType),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.amino_enabled"
+        ).cast(ByteType),
+        col("log_impbus_impressions_pricing.buyer_charges.amino_enabled").cast(
+          ByteType
+        )
+      ).as("amino_enabled"),
+      coalesce(
+        col(
+          "log_impbus_auction_event.auction_event_pricing.buyer_charges.pricing_terms"
+        ),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.pricing_terms"
+        ),
+        buyer_charges_pricing_terms()
+      ).as("pricing_terms")
+    )
+  }
+
   def is_unit_of_buyer_trx(context: Context) = {
     val spark  = context.spark
     val Config = context.config
@@ -1404,6 +1425,68 @@ object Reformat_TRAN_Router_ReformatterReformat_1 {
         )
       )
       .cast(ByteType)
+  }
+
+  def seller_revenue_seller_currency(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    coalesce(
+      when(
+        f_should_zero_seller_revenue(
+          col("log_dw_bid"),
+          col("imp_type").cast(IntegerType),
+          col("log_dw_bid.revenue_type").cast(IntegerType),
+          col("seller_member_id").cast(IntegerType),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_revenue_microcents"
+          ).cast(LongType)
+        ).cast(BooleanType),
+        lit(0)
+      ).cast(DoubleType),
+      ((when(
+        is_not_null(col("buyer_member_id").cast(IntegerType))
+          .and(is_not_null(col("seller_member_id").cast(IntegerType)))
+          .and(
+            col("buyer_member_id").cast(IntegerType) =!= col("seller_member_id")
+              .cast(IntegerType)
+          )
+          .and(
+            col("log_dw_bid.payment_type").isNull.or(
+              is_not_null(col("log_dw_bid.payment_type").cast(IntegerType))
+                .and(
+                  col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(1)
+                )
+                .and(
+                  col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(2)
+                )
+            )
+          ),
+        coalesce(
+          f_get_transaction_event_pricing(
+            col("log_impbus_impressions_pricing.impression_event_pricing"),
+            col("log_impbus_auction_event.auction_event_pricing"),
+            col("log_impbus_impressions_pricing.buyer_charges"),
+            col("log_impbus_impressions_pricing.seller_charges"),
+            f_should_process_views(
+              col("log_dw_view"),
+              f_transaction_event(
+                col("log_impbus_impressions.seller_transaction_def"),
+                col("log_impbus_preempt.seller_transaction_def")
+              ).cast(IntegerType),
+              f_transaction_event(
+                col("log_impbus_impressions.buyer_transaction_def"),
+                col("log_impbus_preempt.buyer_transaction_def")
+              ).cast(IntegerType)
+            ).cast(IntegerType)
+          ).getField("seller_revenue_microcents"),
+          lit(0)
+        )
+      ).otherwise(lit(0)).cast(DoubleType) / lit(100000))
+        .cast(DoubleType) * coalesce(
+        col("log_impbus_impressions.seller_exchange_rate"),
+        lit(0)
+      ).cast(DoubleType)).cast(DoubleType)
+    )
   }
 
   def seller_charges(context: Context) = {
@@ -1740,196 +1823,113 @@ object Reformat_TRAN_Router_ReformatterReformat_1 {
     ).otherwise(lit(0)).cast(DoubleType)
   }
 
-  def buyer_charges(context: Context) = {
+  def discrepancy_allowance(context: Context) = {
     val spark  = context.spark
     val Config = context.config
-    struct(
-      coalesce(
-        col(
-          "log_impbus_auction_event.auction_event_pricing.buyer_charges.rate_card_id"
-        ).cast(IntegerType),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.rate_card_id"
-        ).cast(IntegerType),
-        col("log_impbus_impressions_pricing.buyer_charges.rate_card_id").cast(
-          IntegerType
-        )
-      ).as("rate_card_id"),
-      coalesce(
-        col(
-          "log_impbus_auction_event.auction_event_pricing.buyer_charges.member_id"
-        ).cast(IntegerType),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.member_id"
-        ).cast(IntegerType),
-        col("log_impbus_impressions_pricing.buyer_charges.member_id").cast(
-          IntegerType
-        )
-      ).as("member_id"),
-      coalesce(
-        col(
-          "log_impbus_auction_event.auction_event_pricing.buyer_charges.is_dw"
-        ).cast(ByteType),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.is_dw"
-        ).cast(ByteType),
-        col("log_impbus_impressions_pricing.buyer_charges.is_dw").cast(ByteType)
-      ).as("is_dw"),
-      coalesce(
-        col(
-          "log_impbus_auction_event.auction_event_pricing.buyer_charges.fx_margin_rate_id"
-        ).cast(IntegerType),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.fx_margin_rate_id"
-        ).cast(IntegerType),
-        col("log_impbus_impressions_pricing.buyer_charges.fx_margin_rate_id")
-          .cast(IntegerType)
-      ).as("fx_margin_rate_id"),
-      coalesce(
-        col(
-          "log_impbus_auction_event.auction_event_pricing.buyer_charges.marketplace_owner_id"
-        ).cast(IntegerType),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.marketplace_owner_id"
-        ).cast(IntegerType),
-        col("log_impbus_impressions_pricing.buyer_charges.marketplace_owner_id")
-          .cast(IntegerType)
-      ).as("marketplace_owner_id"),
-      coalesce(
-        col(
-          "log_impbus_auction_event.auction_event_pricing.buyer_charges.virtual_marketplace_id"
-        ).cast(IntegerType),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.virtual_marketplace_id"
-        ).cast(IntegerType),
-        col(
-          "log_impbus_impressions_pricing.buyer_charges.virtual_marketplace_id"
-        ).cast(IntegerType)
-      ).as("virtual_marketplace_id"),
-      coalesce(
-        col(
-          "log_impbus_auction_event.auction_event_pricing.buyer_charges.amino_enabled"
-        ).cast(ByteType),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.amino_enabled"
-        ).cast(ByteType),
-        col("log_impbus_impressions_pricing.buyer_charges.amino_enabled").cast(
-          ByteType
-        )
-      ).as("amino_enabled"),
-      coalesce(
-        col(
-          "log_impbus_auction_event.auction_event_pricing.buyer_charges.pricing_terms"
-        ),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.pricing_terms"
-        ),
-        buyer_charges_pricing_terms()
-      ).as("pricing_terms")
-    )
-  }
-
-  def seller_revenue(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    coalesce(
-      when(
-        f_should_zero_seller_revenue(
-          col("log_dw_bid"),
-          col("imp_type").cast(IntegerType),
-          col("log_dw_bid.revenue_type").cast(IntegerType),
-          col("seller_member_id").cast(IntegerType),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_revenue_microcents"
-          ).cast(LongType)
-        ).cast(BooleanType),
-        lit(0)
-      ).cast(DoubleType),
-      (when(
-        is_not_null(col("buyer_member_id").cast(IntegerType))
-          .and(is_not_null(col("seller_member_id").cast(IntegerType)))
-          .and(
-            col("buyer_member_id").cast(IntegerType) =!= col("seller_member_id")
-              .cast(IntegerType)
-          )
-          .and(
-            col("log_dw_bid.payment_type").isNull.or(
-              is_not_null(col("log_dw_bid.payment_type").cast(IntegerType))
-                .and(
-                  col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(1)
-                )
-                .and(
-                  col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(2)
-                )
+    when(
+      is_not_null(
+        f_get_pricing_term(
+          lit(51),
+          when(
+            is_not_null(
+              f_get_impression_transaction_event_pricing(
+                col("log_impbus_impressions_pricing.impression_event_pricing"),
+                col("log_impbus_impressions_pricing.buyer_charges"),
+                col("log_impbus_impressions_pricing.seller_charges")
+              ).getField("buyer_charges").getField("pricing_terms")
+            ),
+            f_get_impression_transaction_event_pricing(
+              col("log_impbus_impressions_pricing.impression_event_pricing"),
+              col("log_impbus_impressions_pricing.buyer_charges"),
+              col("log_impbus_impressions_pricing.seller_charges")
+            ).getField("buyer_charges").getField("pricing_terms")
+          ).otherwise(
+            lit(null).cast(
+              ArrayType(
+                StructType(
+                  Array(
+                    StructField("term_id",                 IntegerType, true),
+                    StructField("amount",                  DoubleType,  true),
+                    StructField("rate",                    DoubleType,  true),
+                    StructField("is_deduction",            ByteType,    true),
+                    StructField("is_media_cost_dependent", ByteType,    true),
+                    StructField("data_member_id",          IntegerType, true)
+                  )
+                ),
+                true
+              )
             )
-          ),
-        coalesce(
-          f_get_transaction_event_pricing(
-            col("log_impbus_impressions_pricing.impression_event_pricing"),
-            col("log_impbus_auction_event.auction_event_pricing"),
-            col("log_impbus_impressions_pricing.buyer_charges"),
-            col("log_impbus_impressions_pricing.seller_charges"),
-            f_should_process_views(
-              col("log_dw_view"),
-              f_transaction_event(
-                col("log_impbus_impressions.seller_transaction_def"),
-                col("log_impbus_preempt.seller_transaction_def")
-              ).cast(IntegerType),
-              f_transaction_event(
-                col("log_impbus_impressions.buyer_transaction_def"),
-                col("log_impbus_preempt.buyer_transaction_def")
-              ).cast(IntegerType)
-            ).cast(IntegerType)
-          ).getField("seller_revenue_microcents"),
-          lit(0)
-        )
-      ).otherwise(lit(0)).cast(DoubleType) / lit(100000)).cast(DoubleType)
-    )
-  }
-
-  def buyer_spend_buyer_currency(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    ((when(
-      is_not_null(col("buyer_member_id").cast(IntegerType))
-        .and(is_not_null(col("seller_member_id").cast(IntegerType)))
-        .and(
-          col("buyer_member_id").cast(IntegerType) =!= col("seller_member_id")
-            .cast(IntegerType)
-        )
-        .and(
-          col("log_dw_bid.payment_type").isNull.or(
-            is_not_null(col("log_dw_bid.payment_type").cast(IntegerType))
-              .and(col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(1))
-              .and(col("log_dw_bid.payment_type").cast(IntegerType) =!= lit(2))
           )
-        ),
-      coalesce(
-        f_get_transaction_event_pricing(
-          col("log_impbus_impressions_pricing.impression_event_pricing"),
-          col("log_impbus_auction_event.auction_event_pricing"),
-          col("log_impbus_impressions_pricing.buyer_charges"),
-          col("log_impbus_impressions_pricing.seller_charges"),
-          f_should_process_views(
-            col("log_dw_view"),
-            f_transaction_event(
-              col("log_impbus_impressions.seller_transaction_def"),
-              col("log_impbus_preempt.seller_transaction_def")
-            ).cast(IntegerType),
-            f_transaction_event(
-              col("log_impbus_impressions.buyer_transaction_def"),
-              col("log_impbus_preempt.buyer_transaction_def")
-            ).cast(IntegerType)
-          ).cast(IntegerType)
-        ).getField("gross_payment_value_microcents"),
-        lit(0)
-      )
-    ).otherwise(lit(0)).cast(DoubleType) / lit(100000))
-      .cast(DoubleType) * coalesce(
-      col("log_impbus_preempt.buyer_exchange_rate"),
-      col("log_impbus_impressions.buyer_exchange_rate"),
-      lit(0)
-    ).cast(DoubleType)).cast(DoubleType)
+        ).getField("amount")
+      ).and(
+        f_get_pricing_term(
+          lit(51),
+          when(
+            is_not_null(
+              f_get_impression_transaction_event_pricing(
+                col("log_impbus_impressions_pricing.impression_event_pricing"),
+                col("log_impbus_impressions_pricing.buyer_charges"),
+                col("log_impbus_impressions_pricing.seller_charges")
+              ).getField("buyer_charges").getField("pricing_terms")
+            ),
+            f_get_impression_transaction_event_pricing(
+              col("log_impbus_impressions_pricing.impression_event_pricing"),
+              col("log_impbus_impressions_pricing.buyer_charges"),
+              col("log_impbus_impressions_pricing.seller_charges")
+            ).getField("buyer_charges").getField("pricing_terms")
+          ).otherwise(
+            lit(null).cast(
+              ArrayType(
+                StructType(
+                  Array(
+                    StructField("term_id",                 IntegerType, true),
+                    StructField("amount",                  DoubleType,  true),
+                    StructField("rate",                    DoubleType,  true),
+                    StructField("is_deduction",            ByteType,    true),
+                    StructField("is_media_cost_dependent", ByteType,    true),
+                    StructField("data_member_id",          IntegerType, true)
+                  )
+                ),
+                true
+              )
+            )
+          )
+        ).getField("amount") > lit(0)
+      ),
+      f_get_pricing_term(
+        lit(51),
+        when(
+          is_not_null(
+            f_get_impression_transaction_event_pricing(
+              col("log_impbus_impressions_pricing.impression_event_pricing"),
+              col("log_impbus_impressions_pricing.buyer_charges"),
+              col("log_impbus_impressions_pricing.seller_charges")
+            ).getField("buyer_charges").getField("pricing_terms")
+          ),
+          f_get_impression_transaction_event_pricing(
+            col("log_impbus_impressions_pricing.impression_event_pricing"),
+            col("log_impbus_impressions_pricing.buyer_charges"),
+            col("log_impbus_impressions_pricing.seller_charges")
+          ).getField("buyer_charges").getField("pricing_terms")
+        ).otherwise(
+          lit(null).cast(
+            ArrayType(
+              StructType(
+                Array(
+                  StructField("term_id",                 IntegerType, true),
+                  StructField("amount",                  DoubleType,  true),
+                  StructField("rate",                    DoubleType,  true),
+                  StructField("is_deduction",            ByteType,    true),
+                  StructField("is_media_cost_dependent", ByteType,    true),
+                  StructField("data_member_id",          IntegerType, true)
+                )
+              ),
+              true
+            )
+          )
+        )
+      ).getField("amount") / lit(1000)
+    ).otherwise(lit(0)).cast(DoubleType)
   }
 
 }

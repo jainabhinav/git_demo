@@ -59,6 +59,310 @@ object Reformat_select_log_dw_bid {
       col("video_slot")
     )
 
+  def campaign_group_id(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    when(
+      is_not_null(col("log_impbus_preempt"))
+        .and(
+          is_not_null(
+            col("log_impbus_preempt.buyer_member_id").cast(IntegerType)
+          )
+        )
+        .and(
+          is_not_null(col("log_impbus_preempt.creative_id").cast(IntegerType))
+        ),
+      when(
+        is_not_null(col("log_dw_bid"))
+          .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
+          .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
+        when(
+          (col("log_impbus_preempt.buyer_member_id").cast(IntegerType) === col(
+            "log_dw_bid.member_id"
+          ).cast(IntegerType)).and(
+            col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+              "log_dw_bid.creative_id"
+            ).cast(IntegerType)
+          ),
+          col("log_dw_bid").getField("campaign_group_id")
+        ).when(
+            is_not_null(col("log_dw_bid_last"))
+              .and(
+                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+              )
+              .and(
+                is_not_null(
+                  col("log_dw_bid_last.creative_id").cast(IntegerType)
+                )
+              ),
+            when(
+              (col("log_impbus_preempt.buyer_member_id").cast(
+                IntegerType
+              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+                  "log_dw_bid_last.creative_id"
+                ).cast(IntegerType)
+              ),
+              col("log_dw_bid_last").getField("campaign_group_id")
+            ).otherwise(lit(null).cast(IntegerType))
+          )
+          .otherwise(lit(null).cast(IntegerType))
+      ).when(
+          is_not_null(col("log_dw_bid_last"))
+            .and(
+              is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+            )
+            .and(
+              is_not_null(col("log_dw_bid_last.creative_id").cast(IntegerType))
+            ),
+          when(
+            (col("log_impbus_preempt.buyer_member_id").cast(
+              IntegerType
+            ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+              col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+                "log_dw_bid_last.creative_id"
+              ).cast(IntegerType)
+            ),
+            col("log_dw_bid_last").getField("campaign_group_id")
+          ).otherwise(lit(null).cast(IntegerType))
+        )
+        .otherwise(lit(null).cast(IntegerType))
+    ).when(
+        is_not_null(col("log_impbus_impressions"))
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.is_delivered").cast(IntegerType)
+            )
+          )
+          .and(
+            col("log_impbus_impressions.is_delivered")
+              .cast(IntegerType) === lit(1)
+          )
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.buyer_member_id").cast(IntegerType)
+            )
+          )
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.creative_id").cast(IntegerType)
+            )
+          ),
+        when(
+          is_not_null(col("log_dw_bid"))
+            .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
+            .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
+          when(
+            (col("log_impbus_impressions.buyer_member_id").cast(
+              IntegerType
+            ) === col("log_dw_bid.member_id").cast(IntegerType)).and(
+              col("log_impbus_impressions.creative_id").cast(
+                IntegerType
+              ) === col("log_dw_bid.creative_id").cast(IntegerType)
+            ),
+            col("log_dw_bid").getField("campaign_group_id")
+          ).when(
+              is_not_null(col("log_dw_bid_last"))
+                .and(
+                  is_not_null(
+                    col("log_dw_bid_last.member_id").cast(IntegerType)
+                  )
+                )
+                .and(
+                  is_not_null(
+                    col("log_dw_bid_last.creative_id").cast(IntegerType)
+                  )
+                ),
+              when(
+                (col("log_impbus_impressions.buyer_member_id").cast(
+                  IntegerType
+                ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                  col("log_impbus_impressions.creative_id").cast(
+                    IntegerType
+                  ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
+                ),
+                col("log_dw_bid_last").getField("campaign_group_id")
+              ).otherwise(lit(null).cast(IntegerType))
+            )
+            .otherwise(lit(null).cast(IntegerType))
+        ).when(
+            is_not_null(col("log_dw_bid_last"))
+              .and(
+                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+              )
+              .and(
+                is_not_null(
+                  col("log_dw_bid_last.creative_id").cast(IntegerType)
+                )
+              ),
+            when(
+              (col("log_impbus_impressions.buyer_member_id").cast(
+                IntegerType
+              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                col("log_impbus_impressions.creative_id").cast(
+                  IntegerType
+                ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
+              ),
+              col("log_dw_bid_last").getField("campaign_group_id")
+            ).otherwise(lit(null).cast(IntegerType))
+          )
+          .otherwise(lit(null).cast(IntegerType))
+      )
+      .otherwise(lit(null).cast(IntegerType))
+  }
+
+  def advertiser_id(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    when(
+      is_not_null(col("log_impbus_preempt"))
+        .and(
+          is_not_null(
+            col("log_impbus_preempt.buyer_member_id").cast(IntegerType)
+          )
+        )
+        .and(
+          is_not_null(col("log_impbus_preempt.creative_id").cast(IntegerType))
+        ),
+      when(
+        is_not_null(col("log_dw_bid"))
+          .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
+          .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
+        when(
+          (col("log_impbus_preempt.buyer_member_id").cast(IntegerType) === col(
+            "log_dw_bid.member_id"
+          ).cast(IntegerType)).and(
+            col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+              "log_dw_bid.creative_id"
+            ).cast(IntegerType)
+          ),
+          col("log_dw_bid").getField("advertiser_id")
+        ).when(
+            is_not_null(col("log_dw_bid_last"))
+              .and(
+                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+              )
+              .and(
+                is_not_null(
+                  col("log_dw_bid_last.creative_id").cast(IntegerType)
+                )
+              ),
+            when(
+              (col("log_impbus_preempt.buyer_member_id").cast(
+                IntegerType
+              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+                  "log_dw_bid_last.creative_id"
+                ).cast(IntegerType)
+              ),
+              col("log_dw_bid_last").getField("advertiser_id")
+            ).otherwise(lit(null).cast(IntegerType))
+          )
+          .otherwise(lit(null).cast(IntegerType))
+      ).when(
+          is_not_null(col("log_dw_bid_last"))
+            .and(
+              is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+            )
+            .and(
+              is_not_null(col("log_dw_bid_last.creative_id").cast(IntegerType))
+            ),
+          when(
+            (col("log_impbus_preempt.buyer_member_id").cast(
+              IntegerType
+            ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+              col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+                "log_dw_bid_last.creative_id"
+              ).cast(IntegerType)
+            ),
+            col("log_dw_bid_last").getField("advertiser_id")
+          ).otherwise(lit(null).cast(IntegerType))
+        )
+        .otherwise(lit(null).cast(IntegerType))
+    ).when(
+        is_not_null(col("log_impbus_impressions"))
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.is_delivered").cast(IntegerType)
+            )
+          )
+          .and(
+            col("log_impbus_impressions.is_delivered")
+              .cast(IntegerType) === lit(1)
+          )
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.buyer_member_id").cast(IntegerType)
+            )
+          )
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.creative_id").cast(IntegerType)
+            )
+          ),
+        when(
+          is_not_null(col("log_dw_bid"))
+            .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
+            .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
+          when(
+            (col("log_impbus_impressions.buyer_member_id").cast(
+              IntegerType
+            ) === col("log_dw_bid.member_id").cast(IntegerType)).and(
+              col("log_impbus_impressions.creative_id").cast(
+                IntegerType
+              ) === col("log_dw_bid.creative_id").cast(IntegerType)
+            ),
+            col("log_dw_bid").getField("advertiser_id")
+          ).when(
+              is_not_null(col("log_dw_bid_last"))
+                .and(
+                  is_not_null(
+                    col("log_dw_bid_last.member_id").cast(IntegerType)
+                  )
+                )
+                .and(
+                  is_not_null(
+                    col("log_dw_bid_last.creative_id").cast(IntegerType)
+                  )
+                ),
+              when(
+                (col("log_impbus_impressions.buyer_member_id").cast(
+                  IntegerType
+                ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                  col("log_impbus_impressions.creative_id").cast(
+                    IntegerType
+                  ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
+                ),
+                col("log_dw_bid_last").getField("advertiser_id")
+              ).otherwise(lit(null).cast(IntegerType))
+            )
+            .otherwise(lit(null).cast(IntegerType))
+        ).when(
+            is_not_null(col("log_dw_bid_last"))
+              .and(
+                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+              )
+              .and(
+                is_not_null(
+                  col("log_dw_bid_last.creative_id").cast(IntegerType)
+                )
+              ),
+            when(
+              (col("log_impbus_impressions.buyer_member_id").cast(
+                IntegerType
+              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                col("log_impbus_impressions.creative_id").cast(
+                  IntegerType
+                ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
+              ),
+              col("log_dw_bid_last").getField("advertiser_id")
+            ).otherwise(lit(null).cast(IntegerType))
+          )
+          .otherwise(lit(null).cast(IntegerType))
+      )
+      .otherwise(lit(null).cast(IntegerType))
+  }
+
   def log_dw_bid(context: Context) = {
     val spark  = context.spark
     val Config = context.config
@@ -3448,462 +3752,6 @@ object Reformat_select_log_dw_bid {
                 ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
               ),
               col("log_dw_bid_last").getField("campaign_id")
-            ).otherwise(lit(null).cast(IntegerType))
-          )
-          .otherwise(lit(null).cast(IntegerType))
-      )
-      .otherwise(lit(null).cast(IntegerType))
-  }
-
-  def insertion_order_id(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    when(
-      is_not_null(col("log_impbus_preempt"))
-        .and(
-          is_not_null(
-            col("log_impbus_preempt.buyer_member_id").cast(IntegerType)
-          )
-        )
-        .and(
-          is_not_null(col("log_impbus_preempt.creative_id").cast(IntegerType))
-        ),
-      when(
-        is_not_null(col("log_dw_bid"))
-          .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
-          .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
-        when(
-          (col("log_impbus_preempt.buyer_member_id").cast(IntegerType) === col(
-            "log_dw_bid.member_id"
-          ).cast(IntegerType)).and(
-            col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-              "log_dw_bid.creative_id"
-            ).cast(IntegerType)
-          ),
-          col("log_dw_bid").getField("insertion_order_id")
-        ).when(
-            is_not_null(col("log_dw_bid_last"))
-              .and(
-                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-              )
-              .and(
-                is_not_null(
-                  col("log_dw_bid_last.creative_id").cast(IntegerType)
-                )
-              ),
-            when(
-              (col("log_impbus_preempt.buyer_member_id").cast(
-                IntegerType
-              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-                  "log_dw_bid_last.creative_id"
-                ).cast(IntegerType)
-              ),
-              col("log_dw_bid_last").getField("insertion_order_id")
-            ).otherwise(lit(null).cast(IntegerType))
-          )
-          .otherwise(lit(null).cast(IntegerType))
-      ).when(
-          is_not_null(col("log_dw_bid_last"))
-            .and(
-              is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-            )
-            .and(
-              is_not_null(col("log_dw_bid_last.creative_id").cast(IntegerType))
-            ),
-          when(
-            (col("log_impbus_preempt.buyer_member_id").cast(
-              IntegerType
-            ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-              col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-                "log_dw_bid_last.creative_id"
-              ).cast(IntegerType)
-            ),
-            col("log_dw_bid_last").getField("insertion_order_id")
-          ).otherwise(lit(null).cast(IntegerType))
-        )
-        .otherwise(lit(null).cast(IntegerType))
-    ).when(
-        is_not_null(col("log_impbus_impressions"))
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.is_delivered").cast(IntegerType)
-            )
-          )
-          .and(
-            col("log_impbus_impressions.is_delivered")
-              .cast(IntegerType) === lit(1)
-          )
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.buyer_member_id").cast(IntegerType)
-            )
-          )
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.creative_id").cast(IntegerType)
-            )
-          ),
-        when(
-          is_not_null(col("log_dw_bid"))
-            .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
-            .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
-          when(
-            (col("log_impbus_impressions.buyer_member_id").cast(
-              IntegerType
-            ) === col("log_dw_bid.member_id").cast(IntegerType)).and(
-              col("log_impbus_impressions.creative_id").cast(
-                IntegerType
-              ) === col("log_dw_bid.creative_id").cast(IntegerType)
-            ),
-            col("log_dw_bid").getField("insertion_order_id")
-          ).when(
-              is_not_null(col("log_dw_bid_last"))
-                .and(
-                  is_not_null(
-                    col("log_dw_bid_last.member_id").cast(IntegerType)
-                  )
-                )
-                .and(
-                  is_not_null(
-                    col("log_dw_bid_last.creative_id").cast(IntegerType)
-                  )
-                ),
-              when(
-                (col("log_impbus_impressions.buyer_member_id").cast(
-                  IntegerType
-                ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                  col("log_impbus_impressions.creative_id").cast(
-                    IntegerType
-                  ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
-                ),
-                col("log_dw_bid_last").getField("insertion_order_id")
-              ).otherwise(lit(null).cast(IntegerType))
-            )
-            .otherwise(lit(null).cast(IntegerType))
-        ).when(
-            is_not_null(col("log_dw_bid_last"))
-              .and(
-                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-              )
-              .and(
-                is_not_null(
-                  col("log_dw_bid_last.creative_id").cast(IntegerType)
-                )
-              ),
-            when(
-              (col("log_impbus_impressions.buyer_member_id").cast(
-                IntegerType
-              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                col("log_impbus_impressions.creative_id").cast(
-                  IntegerType
-                ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
-              ),
-              col("log_dw_bid_last").getField("insertion_order_id")
-            ).otherwise(lit(null).cast(IntegerType))
-          )
-          .otherwise(lit(null).cast(IntegerType))
-      )
-      .otherwise(lit(null).cast(IntegerType))
-  }
-
-  def campaign_group_id(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    when(
-      is_not_null(col("log_impbus_preempt"))
-        .and(
-          is_not_null(
-            col("log_impbus_preempt.buyer_member_id").cast(IntegerType)
-          )
-        )
-        .and(
-          is_not_null(col("log_impbus_preempt.creative_id").cast(IntegerType))
-        ),
-      when(
-        is_not_null(col("log_dw_bid"))
-          .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
-          .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
-        when(
-          (col("log_impbus_preempt.buyer_member_id").cast(IntegerType) === col(
-            "log_dw_bid.member_id"
-          ).cast(IntegerType)).and(
-            col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-              "log_dw_bid.creative_id"
-            ).cast(IntegerType)
-          ),
-          col("log_dw_bid").getField("campaign_group_id")
-        ).when(
-            is_not_null(col("log_dw_bid_last"))
-              .and(
-                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-              )
-              .and(
-                is_not_null(
-                  col("log_dw_bid_last.creative_id").cast(IntegerType)
-                )
-              ),
-            when(
-              (col("log_impbus_preempt.buyer_member_id").cast(
-                IntegerType
-              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-                  "log_dw_bid_last.creative_id"
-                ).cast(IntegerType)
-              ),
-              col("log_dw_bid_last").getField("campaign_group_id")
-            ).otherwise(lit(null).cast(IntegerType))
-          )
-          .otherwise(lit(null).cast(IntegerType))
-      ).when(
-          is_not_null(col("log_dw_bid_last"))
-            .and(
-              is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-            )
-            .and(
-              is_not_null(col("log_dw_bid_last.creative_id").cast(IntegerType))
-            ),
-          when(
-            (col("log_impbus_preempt.buyer_member_id").cast(
-              IntegerType
-            ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-              col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-                "log_dw_bid_last.creative_id"
-              ).cast(IntegerType)
-            ),
-            col("log_dw_bid_last").getField("campaign_group_id")
-          ).otherwise(lit(null).cast(IntegerType))
-        )
-        .otherwise(lit(null).cast(IntegerType))
-    ).when(
-        is_not_null(col("log_impbus_impressions"))
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.is_delivered").cast(IntegerType)
-            )
-          )
-          .and(
-            col("log_impbus_impressions.is_delivered")
-              .cast(IntegerType) === lit(1)
-          )
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.buyer_member_id").cast(IntegerType)
-            )
-          )
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.creative_id").cast(IntegerType)
-            )
-          ),
-        when(
-          is_not_null(col("log_dw_bid"))
-            .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
-            .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
-          when(
-            (col("log_impbus_impressions.buyer_member_id").cast(
-              IntegerType
-            ) === col("log_dw_bid.member_id").cast(IntegerType)).and(
-              col("log_impbus_impressions.creative_id").cast(
-                IntegerType
-              ) === col("log_dw_bid.creative_id").cast(IntegerType)
-            ),
-            col("log_dw_bid").getField("campaign_group_id")
-          ).when(
-              is_not_null(col("log_dw_bid_last"))
-                .and(
-                  is_not_null(
-                    col("log_dw_bid_last.member_id").cast(IntegerType)
-                  )
-                )
-                .and(
-                  is_not_null(
-                    col("log_dw_bid_last.creative_id").cast(IntegerType)
-                  )
-                ),
-              when(
-                (col("log_impbus_impressions.buyer_member_id").cast(
-                  IntegerType
-                ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                  col("log_impbus_impressions.creative_id").cast(
-                    IntegerType
-                  ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
-                ),
-                col("log_dw_bid_last").getField("campaign_group_id")
-              ).otherwise(lit(null).cast(IntegerType))
-            )
-            .otherwise(lit(null).cast(IntegerType))
-        ).when(
-            is_not_null(col("log_dw_bid_last"))
-              .and(
-                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-              )
-              .and(
-                is_not_null(
-                  col("log_dw_bid_last.creative_id").cast(IntegerType)
-                )
-              ),
-            when(
-              (col("log_impbus_impressions.buyer_member_id").cast(
-                IntegerType
-              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                col("log_impbus_impressions.creative_id").cast(
-                  IntegerType
-                ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
-              ),
-              col("log_dw_bid_last").getField("campaign_group_id")
-            ).otherwise(lit(null).cast(IntegerType))
-          )
-          .otherwise(lit(null).cast(IntegerType))
-      )
-      .otherwise(lit(null).cast(IntegerType))
-  }
-
-  def advertiser_id(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    when(
-      is_not_null(col("log_impbus_preempt"))
-        .and(
-          is_not_null(
-            col("log_impbus_preempt.buyer_member_id").cast(IntegerType)
-          )
-        )
-        .and(
-          is_not_null(col("log_impbus_preempt.creative_id").cast(IntegerType))
-        ),
-      when(
-        is_not_null(col("log_dw_bid"))
-          .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
-          .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
-        when(
-          (col("log_impbus_preempt.buyer_member_id").cast(IntegerType) === col(
-            "log_dw_bid.member_id"
-          ).cast(IntegerType)).and(
-            col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-              "log_dw_bid.creative_id"
-            ).cast(IntegerType)
-          ),
-          col("log_dw_bid").getField("advertiser_id")
-        ).when(
-            is_not_null(col("log_dw_bid_last"))
-              .and(
-                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-              )
-              .and(
-                is_not_null(
-                  col("log_dw_bid_last.creative_id").cast(IntegerType)
-                )
-              ),
-            when(
-              (col("log_impbus_preempt.buyer_member_id").cast(
-                IntegerType
-              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-                  "log_dw_bid_last.creative_id"
-                ).cast(IntegerType)
-              ),
-              col("log_dw_bid_last").getField("advertiser_id")
-            ).otherwise(lit(null).cast(IntegerType))
-          )
-          .otherwise(lit(null).cast(IntegerType))
-      ).when(
-          is_not_null(col("log_dw_bid_last"))
-            .and(
-              is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-            )
-            .and(
-              is_not_null(col("log_dw_bid_last.creative_id").cast(IntegerType))
-            ),
-          when(
-            (col("log_impbus_preempt.buyer_member_id").cast(
-              IntegerType
-            ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-              col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
-                "log_dw_bid_last.creative_id"
-              ).cast(IntegerType)
-            ),
-            col("log_dw_bid_last").getField("advertiser_id")
-          ).otherwise(lit(null).cast(IntegerType))
-        )
-        .otherwise(lit(null).cast(IntegerType))
-    ).when(
-        is_not_null(col("log_impbus_impressions"))
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.is_delivered").cast(IntegerType)
-            )
-          )
-          .and(
-            col("log_impbus_impressions.is_delivered")
-              .cast(IntegerType) === lit(1)
-          )
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.buyer_member_id").cast(IntegerType)
-            )
-          )
-          .and(
-            is_not_null(
-              col("log_impbus_impressions.creative_id").cast(IntegerType)
-            )
-          ),
-        when(
-          is_not_null(col("log_dw_bid"))
-            .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
-            .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
-          when(
-            (col("log_impbus_impressions.buyer_member_id").cast(
-              IntegerType
-            ) === col("log_dw_bid.member_id").cast(IntegerType)).and(
-              col("log_impbus_impressions.creative_id").cast(
-                IntegerType
-              ) === col("log_dw_bid.creative_id").cast(IntegerType)
-            ),
-            col("log_dw_bid").getField("advertiser_id")
-          ).when(
-              is_not_null(col("log_dw_bid_last"))
-                .and(
-                  is_not_null(
-                    col("log_dw_bid_last.member_id").cast(IntegerType)
-                  )
-                )
-                .and(
-                  is_not_null(
-                    col("log_dw_bid_last.creative_id").cast(IntegerType)
-                  )
-                ),
-              when(
-                (col("log_impbus_impressions.buyer_member_id").cast(
-                  IntegerType
-                ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                  col("log_impbus_impressions.creative_id").cast(
-                    IntegerType
-                  ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
-                ),
-                col("log_dw_bid_last").getField("advertiser_id")
-              ).otherwise(lit(null).cast(IntegerType))
-            )
-            .otherwise(lit(null).cast(IntegerType))
-        ).when(
-            is_not_null(col("log_dw_bid_last"))
-              .and(
-                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
-              )
-              .and(
-                is_not_null(
-                  col("log_dw_bid_last.creative_id").cast(IntegerType)
-                )
-              ),
-            when(
-              (col("log_impbus_impressions.buyer_member_id").cast(
-                IntegerType
-              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
-                col("log_impbus_impressions.creative_id").cast(
-                  IntegerType
-                ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
-              ),
-              col("log_dw_bid_last").getField("advertiser_id")
             ).otherwise(lit(null).cast(IntegerType))
           )
           .otherwise(lit(null).cast(IntegerType))
@@ -9231,6 +9079,158 @@ object Reformat_select_log_dw_bid {
           )
         )
       )
+  }
+
+  def insertion_order_id(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    when(
+      is_not_null(col("log_impbus_preempt"))
+        .and(
+          is_not_null(
+            col("log_impbus_preempt.buyer_member_id").cast(IntegerType)
+          )
+        )
+        .and(
+          is_not_null(col("log_impbus_preempt.creative_id").cast(IntegerType))
+        ),
+      when(
+        is_not_null(col("log_dw_bid"))
+          .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
+          .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
+        when(
+          (col("log_impbus_preempt.buyer_member_id").cast(IntegerType) === col(
+            "log_dw_bid.member_id"
+          ).cast(IntegerType)).and(
+            col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+              "log_dw_bid.creative_id"
+            ).cast(IntegerType)
+          ),
+          col("log_dw_bid").getField("insertion_order_id")
+        ).when(
+            is_not_null(col("log_dw_bid_last"))
+              .and(
+                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+              )
+              .and(
+                is_not_null(
+                  col("log_dw_bid_last.creative_id").cast(IntegerType)
+                )
+              ),
+            when(
+              (col("log_impbus_preempt.buyer_member_id").cast(
+                IntegerType
+              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+                  "log_dw_bid_last.creative_id"
+                ).cast(IntegerType)
+              ),
+              col("log_dw_bid_last").getField("insertion_order_id")
+            ).otherwise(lit(null).cast(IntegerType))
+          )
+          .otherwise(lit(null).cast(IntegerType))
+      ).when(
+          is_not_null(col("log_dw_bid_last"))
+            .and(
+              is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+            )
+            .and(
+              is_not_null(col("log_dw_bid_last.creative_id").cast(IntegerType))
+            ),
+          when(
+            (col("log_impbus_preempt.buyer_member_id").cast(
+              IntegerType
+            ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+              col("log_impbus_preempt.creative_id").cast(IntegerType) === col(
+                "log_dw_bid_last.creative_id"
+              ).cast(IntegerType)
+            ),
+            col("log_dw_bid_last").getField("insertion_order_id")
+          ).otherwise(lit(null).cast(IntegerType))
+        )
+        .otherwise(lit(null).cast(IntegerType))
+    ).when(
+        is_not_null(col("log_impbus_impressions"))
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.is_delivered").cast(IntegerType)
+            )
+          )
+          .and(
+            col("log_impbus_impressions.is_delivered")
+              .cast(IntegerType) === lit(1)
+          )
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.buyer_member_id").cast(IntegerType)
+            )
+          )
+          .and(
+            is_not_null(
+              col("log_impbus_impressions.creative_id").cast(IntegerType)
+            )
+          ),
+        when(
+          is_not_null(col("log_dw_bid"))
+            .and(is_not_null(col("log_dw_bid.member_id").cast(IntegerType)))
+            .and(is_not_null(col("log_dw_bid.creative_id").cast(IntegerType))),
+          when(
+            (col("log_impbus_impressions.buyer_member_id").cast(
+              IntegerType
+            ) === col("log_dw_bid.member_id").cast(IntegerType)).and(
+              col("log_impbus_impressions.creative_id").cast(
+                IntegerType
+              ) === col("log_dw_bid.creative_id").cast(IntegerType)
+            ),
+            col("log_dw_bid").getField("insertion_order_id")
+          ).when(
+              is_not_null(col("log_dw_bid_last"))
+                .and(
+                  is_not_null(
+                    col("log_dw_bid_last.member_id").cast(IntegerType)
+                  )
+                )
+                .and(
+                  is_not_null(
+                    col("log_dw_bid_last.creative_id").cast(IntegerType)
+                  )
+                ),
+              when(
+                (col("log_impbus_impressions.buyer_member_id").cast(
+                  IntegerType
+                ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                  col("log_impbus_impressions.creative_id").cast(
+                    IntegerType
+                  ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
+                ),
+                col("log_dw_bid_last").getField("insertion_order_id")
+              ).otherwise(lit(null).cast(IntegerType))
+            )
+            .otherwise(lit(null).cast(IntegerType))
+        ).when(
+            is_not_null(col("log_dw_bid_last"))
+              .and(
+                is_not_null(col("log_dw_bid_last.member_id").cast(IntegerType))
+              )
+              .and(
+                is_not_null(
+                  col("log_dw_bid_last.creative_id").cast(IntegerType)
+                )
+              ),
+            when(
+              (col("log_impbus_impressions.buyer_member_id").cast(
+                IntegerType
+              ) === col("log_dw_bid_last.member_id").cast(IntegerType)).and(
+                col("log_impbus_impressions.creative_id").cast(
+                  IntegerType
+                ) === col("log_dw_bid_last.creative_id").cast(IntegerType)
+              ),
+              col("log_dw_bid_last").getField("insertion_order_id")
+            ).otherwise(lit(null).cast(IntegerType))
+          )
+          .otherwise(lit(null).cast(IntegerType))
+      )
+      .otherwise(lit(null).cast(IntegerType))
   }
 
 }

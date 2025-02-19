@@ -51,197 +51,6 @@ object Merge_UnionAll_normalize_schema_0 {
       log_impbus_preempt_dup(context).as("log_impbus_preempt_dup")
     )
 
-  def log_impbus_preempt_dup(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    struct(
-      col("log_impbus_preempt_dup.date_time").as("date_time"),
-      col("log_impbus_preempt_dup.auction_id_64").as("auction_id_64"),
-      col("log_impbus_preempt_dup.imp_transacted").as("imp_transacted"),
-      col("log_impbus_preempt_dup.buyer_spend").as("buyer_spend"),
-      col("log_impbus_preempt_dup.seller_revenue").as("seller_revenue"),
-      col("log_impbus_preempt_dup.bidder_fees").as("bidder_fees"),
-      col("log_impbus_preempt_dup.instance_id").as("instance_id"),
-      col("log_impbus_preempt_dup.fold_position").as("fold_position"),
-      col("log_impbus_preempt_dup.seller_deduction").as("seller_deduction"),
-      col("log_impbus_preempt_dup.buyer_member_id").as("buyer_member_id"),
-      col("log_impbus_preempt_dup.creative_id").as("creative_id"),
-      col("log_impbus_preempt_dup.cleared_direct").as("cleared_direct"),
-      col("log_impbus_preempt_dup.buyer_currency").as("buyer_currency"),
-      col("log_impbus_preempt_dup.buyer_exchange_rate").as(
-        "buyer_exchange_rate"
-      ),
-      col("log_impbus_preempt_dup.width").as("width"),
-      col("log_impbus_preempt_dup.height").as("height"),
-      col("log_impbus_preempt_dup.brand_id").as("brand_id"),
-      col("log_impbus_preempt_dup.creative_audit_status").as(
-        "creative_audit_status"
-      ),
-      col("log_impbus_preempt_dup.is_creative_hosted").as("is_creative_hosted"),
-      col("log_impbus_preempt_dup.vp_expose_domains").as("vp_expose_domains"),
-      col("log_impbus_preempt_dup.vp_expose_categories").as(
-        "vp_expose_categories"
-      ),
-      col("log_impbus_preempt_dup.vp_expose_pubs").as("vp_expose_pubs"),
-      col("log_impbus_preempt_dup.vp_expose_tag").as("vp_expose_tag"),
-      col("log_impbus_preempt_dup.bidder_id").as("bidder_id"),
-      col("log_impbus_preempt_dup.deal_id").as("deal_id"),
-      col("log_impbus_preempt_dup.imp_type").as("imp_type"),
-      col("log_impbus_preempt_dup.is_dw").as("is_dw"),
-      col("log_impbus_preempt_dup.vp_bitmap").as("vp_bitmap"),
-      col("log_impbus_preempt_dup.ttl").as("ttl"),
-      col("log_impbus_preempt_dup.view_detection_enabled").as(
-        "view_detection_enabled"
-      ),
-      col("log_impbus_preempt_dup.media_type").as("media_type"),
-      col("log_impbus_preempt_dup.auction_timestamp").as("auction_timestamp"),
-      col("log_impbus_preempt_dup.spend_protection").as("spend_protection"),
-      col("log_impbus_preempt_dup.viewdef_definition_id_buyer_member").as(
-        "viewdef_definition_id_buyer_member"
-      ),
-      col("log_impbus_preempt_dup.deal_type").as("deal_type"),
-      col("log_impbus_preempt_dup.ym_floor_id").as("ym_floor_id"),
-      col("log_impbus_preempt_dup.ym_bias_id").as("ym_bias_id"),
-      col("log_impbus_preempt_dup.bid_price_type").as("bid_price_type"),
-      col("log_impbus_preempt_dup.spend_protection_pixel_id").as(
-        "spend_protection_pixel_id"
-      ),
-      col("log_impbus_preempt_dup.ip_address").as("ip_address"),
-      struct(
-        col("log_impbus_preempt_dup.buyer_transaction_def.transaction_event")
-          .as("transaction_event"),
-        col(
-          "log_impbus_preempt_dup.buyer_transaction_def.transaction_event_type_id"
-        ).as("transaction_event_type_id")
-      ).as("buyer_transaction_def"),
-      struct(
-        col("log_impbus_preempt_dup.seller_transaction_def.transaction_event")
-          .as("transaction_event"),
-        col(
-          "log_impbus_preempt_dup.seller_transaction_def.transaction_event_type_id"
-        ).as("transaction_event_type_id")
-      ).as("seller_transaction_def"),
-      col("log_impbus_preempt_dup.buyer_bid").as("buyer_bid"),
-      col("log_impbus_preempt_dup.expected_events").as("expected_events"),
-      col("log_impbus_preempt_dup.accept_timestamp").as("accept_timestamp"),
-      col("log_impbus_preempt_dup.external_creative_id").as(
-        "external_creative_id"
-      ),
-      col("log_impbus_preempt_dup.seat_id").as("seat_id"),
-      col("log_impbus_preempt_dup.is_prebid_server").as("is_prebid_server"),
-      col("log_impbus_preempt_dup.curated_deal_id").as("curated_deal_id"),
-      col("log_impbus_preempt_dup.external_campaign_id").as(
-        "external_campaign_id"
-      ),
-      col("log_impbus_preempt_dup.trust_id").as("trust_id"),
-      struct(
-        col("log_impbus_preempt_dup.log_product_ads.product_feed_id").as(
-          "product_feed_id"
-        ),
-        col("log_impbus_preempt_dup.log_product_ads.item_selection_strategy_id")
-          .as("item_selection_strategy_id"),
-        col("log_impbus_preempt_dup.log_product_ads.product_uuid").as(
-          "product_uuid"
-        )
-      ).as("log_product_ads"),
-      col("log_impbus_preempt_dup.external_bidrequest_id").as(
-        "external_bidrequest_id"
-      ),
-      col("log_impbus_preempt_dup.external_bidrequest_imp_id").as(
-        "external_bidrequest_imp_id"
-      ),
-      col("log_impbus_preempt_dup.creative_media_subtype_id").as(
-        "creative_media_subtype_id"
-      )
-    ).cast(
-      StructType(
-        Array(
-          StructField("date_time",                          LongType,    true),
-          StructField("auction_id_64",                      LongType,    true),
-          StructField("imp_transacted",                     IntegerType, true),
-          StructField("buyer_spend",                        DoubleType,  true),
-          StructField("seller_revenue",                     DoubleType,  true),
-          StructField("bidder_fees",                        DoubleType,  true),
-          StructField("instance_id",                        IntegerType, true),
-          StructField("fold_position",                      IntegerType, true),
-          StructField("seller_deduction",                   DoubleType,  true),
-          StructField("buyer_member_id",                    IntegerType, true),
-          StructField("creative_id",                        IntegerType, true),
-          StructField("cleared_direct",                     IntegerType, true),
-          StructField("buyer_currency",                     StringType,  true),
-          StructField("buyer_exchange_rate",                DoubleType,  true),
-          StructField("width",                              IntegerType, true),
-          StructField("height",                             IntegerType, true),
-          StructField("brand_id",                           IntegerType, true),
-          StructField("creative_audit_status",              IntegerType, true),
-          StructField("is_creative_hosted",                 IntegerType, true),
-          StructField("vp_expose_domains",                  IntegerType, true),
-          StructField("vp_expose_categories",               IntegerType, true),
-          StructField("vp_expose_pubs",                     IntegerType, true),
-          StructField("vp_expose_tag",                      IntegerType, true),
-          StructField("bidder_id",                          IntegerType, true),
-          StructField("deal_id",                            IntegerType, true),
-          StructField("imp_type",                           IntegerType, true),
-          StructField("is_dw",                              IntegerType, true),
-          StructField("vp_bitmap",                          LongType,    true),
-          StructField("ttl",                                IntegerType, true),
-          StructField("view_detection_enabled",             IntegerType, true),
-          StructField("media_type",                         IntegerType, true),
-          StructField("auction_timestamp",                  LongType,    true),
-          StructField("spend_protection",                   IntegerType, true),
-          StructField("viewdef_definition_id_buyer_member", IntegerType, true),
-          StructField("deal_type",                          IntegerType, true),
-          StructField("ym_floor_id",                        IntegerType, true),
-          StructField("ym_bias_id",                         IntegerType, true),
-          StructField("bid_price_type",                     IntegerType, true),
-          StructField("spend_protection_pixel_id",          IntegerType, true),
-          StructField("ip_address",                         StringType,  true),
-          StructField(
-            "buyer_transaction_def",
-            StructType(
-              Array(StructField("transaction_event",         IntegerType, true),
-                    StructField("transaction_event_type_id", IntegerType, true)
-              )
-            ),
-            true
-          ),
-          StructField(
-            "seller_transaction_def",
-            StructType(
-              Array(StructField("transaction_event",         IntegerType, true),
-                    StructField("transaction_event_type_id", IntegerType, true)
-              )
-            ),
-            true
-          ),
-          StructField("buyer_bid",            DoubleType,  true),
-          StructField("expected_events",      IntegerType, true),
-          StructField("accept_timestamp",     LongType,    true),
-          StructField("external_creative_id", StringType,  true),
-          StructField("seat_id",              IntegerType, true),
-          StructField("is_prebid_server",     ByteType,    true),
-          StructField("curated_deal_id",      IntegerType, true),
-          StructField("external_campaign_id", StringType,  true),
-          StructField("trust_id",             StringType,  true),
-          StructField(
-            "log_product_ads",
-            StructType(
-              Array(
-                StructField("product_feed_id",            IntegerType, true),
-                StructField("item_selection_strategy_id", IntegerType, true),
-                StructField("product_uuid",               StringType,  true)
-              )
-            ),
-            true
-          ),
-          StructField("external_bidrequest_id",     LongType,    true),
-          StructField("external_bidrequest_imp_id", LongType,    true),
-          StructField("creative_media_subtype_id",  IntegerType, true)
-        )
-      )
-    )
-  }
-
   def log_impbus_impressions(context: Context) = {
     val spark  = context.spark
     val Config = context.config
@@ -1163,6 +972,197 @@ object Merge_UnionAll_normalize_schema_0 {
           StructField("counterparty_ruleset_type", IntegerType, true),
           StructField("estimated_audience_imps",   DoubleType,  true),
           StructField("audience_imps",             DoubleType,  true)
+        )
+      )
+    )
+  }
+
+  def log_impbus_preempt_dup(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    struct(
+      col("log_impbus_preempt_dup.date_time").as("date_time"),
+      col("log_impbus_preempt_dup.auction_id_64").as("auction_id_64"),
+      col("log_impbus_preempt_dup.imp_transacted").as("imp_transacted"),
+      col("log_impbus_preempt_dup.buyer_spend").as("buyer_spend"),
+      col("log_impbus_preempt_dup.seller_revenue").as("seller_revenue"),
+      col("log_impbus_preempt_dup.bidder_fees").as("bidder_fees"),
+      col("log_impbus_preempt_dup.instance_id").as("instance_id"),
+      col("log_impbus_preempt_dup.fold_position").as("fold_position"),
+      col("log_impbus_preempt_dup.seller_deduction").as("seller_deduction"),
+      col("log_impbus_preempt_dup.buyer_member_id").as("buyer_member_id"),
+      col("log_impbus_preempt_dup.creative_id").as("creative_id"),
+      col("log_impbus_preempt_dup.cleared_direct").as("cleared_direct"),
+      col("log_impbus_preempt_dup.buyer_currency").as("buyer_currency"),
+      col("log_impbus_preempt_dup.buyer_exchange_rate").as(
+        "buyer_exchange_rate"
+      ),
+      col("log_impbus_preempt_dup.width").as("width"),
+      col("log_impbus_preempt_dup.height").as("height"),
+      col("log_impbus_preempt_dup.brand_id").as("brand_id"),
+      col("log_impbus_preempt_dup.creative_audit_status").as(
+        "creative_audit_status"
+      ),
+      col("log_impbus_preempt_dup.is_creative_hosted").as("is_creative_hosted"),
+      col("log_impbus_preempt_dup.vp_expose_domains").as("vp_expose_domains"),
+      col("log_impbus_preempt_dup.vp_expose_categories").as(
+        "vp_expose_categories"
+      ),
+      col("log_impbus_preempt_dup.vp_expose_pubs").as("vp_expose_pubs"),
+      col("log_impbus_preempt_dup.vp_expose_tag").as("vp_expose_tag"),
+      col("log_impbus_preempt_dup.bidder_id").as("bidder_id"),
+      col("log_impbus_preempt_dup.deal_id").as("deal_id"),
+      col("log_impbus_preempt_dup.imp_type").as("imp_type"),
+      col("log_impbus_preempt_dup.is_dw").as("is_dw"),
+      col("log_impbus_preempt_dup.vp_bitmap").as("vp_bitmap"),
+      col("log_impbus_preempt_dup.ttl").as("ttl"),
+      col("log_impbus_preempt_dup.view_detection_enabled").as(
+        "view_detection_enabled"
+      ),
+      col("log_impbus_preempt_dup.media_type").as("media_type"),
+      col("log_impbus_preempt_dup.auction_timestamp").as("auction_timestamp"),
+      col("log_impbus_preempt_dup.spend_protection").as("spend_protection"),
+      col("log_impbus_preempt_dup.viewdef_definition_id_buyer_member").as(
+        "viewdef_definition_id_buyer_member"
+      ),
+      col("log_impbus_preempt_dup.deal_type").as("deal_type"),
+      col("log_impbus_preempt_dup.ym_floor_id").as("ym_floor_id"),
+      col("log_impbus_preempt_dup.ym_bias_id").as("ym_bias_id"),
+      col("log_impbus_preempt_dup.bid_price_type").as("bid_price_type"),
+      col("log_impbus_preempt_dup.spend_protection_pixel_id").as(
+        "spend_protection_pixel_id"
+      ),
+      col("log_impbus_preempt_dup.ip_address").as("ip_address"),
+      struct(
+        col("log_impbus_preempt_dup.buyer_transaction_def.transaction_event")
+          .as("transaction_event"),
+        col(
+          "log_impbus_preempt_dup.buyer_transaction_def.transaction_event_type_id"
+        ).as("transaction_event_type_id")
+      ).as("buyer_transaction_def"),
+      struct(
+        col("log_impbus_preempt_dup.seller_transaction_def.transaction_event")
+          .as("transaction_event"),
+        col(
+          "log_impbus_preempt_dup.seller_transaction_def.transaction_event_type_id"
+        ).as("transaction_event_type_id")
+      ).as("seller_transaction_def"),
+      col("log_impbus_preempt_dup.buyer_bid").as("buyer_bid"),
+      col("log_impbus_preempt_dup.expected_events").as("expected_events"),
+      col("log_impbus_preempt_dup.accept_timestamp").as("accept_timestamp"),
+      col("log_impbus_preempt_dup.external_creative_id").as(
+        "external_creative_id"
+      ),
+      col("log_impbus_preempt_dup.seat_id").as("seat_id"),
+      col("log_impbus_preempt_dup.is_prebid_server").as("is_prebid_server"),
+      col("log_impbus_preempt_dup.curated_deal_id").as("curated_deal_id"),
+      col("log_impbus_preempt_dup.external_campaign_id").as(
+        "external_campaign_id"
+      ),
+      col("log_impbus_preempt_dup.trust_id").as("trust_id"),
+      struct(
+        col("log_impbus_preempt_dup.log_product_ads.product_feed_id").as(
+          "product_feed_id"
+        ),
+        col("log_impbus_preempt_dup.log_product_ads.item_selection_strategy_id")
+          .as("item_selection_strategy_id"),
+        col("log_impbus_preempt_dup.log_product_ads.product_uuid").as(
+          "product_uuid"
+        )
+      ).as("log_product_ads"),
+      col("log_impbus_preempt_dup.external_bidrequest_id").as(
+        "external_bidrequest_id"
+      ),
+      col("log_impbus_preempt_dup.external_bidrequest_imp_id").as(
+        "external_bidrequest_imp_id"
+      ),
+      col("log_impbus_preempt_dup.creative_media_subtype_id").as(
+        "creative_media_subtype_id"
+      )
+    ).cast(
+      StructType(
+        Array(
+          StructField("date_time",                          LongType,    true),
+          StructField("auction_id_64",                      LongType,    true),
+          StructField("imp_transacted",                     IntegerType, true),
+          StructField("buyer_spend",                        DoubleType,  true),
+          StructField("seller_revenue",                     DoubleType,  true),
+          StructField("bidder_fees",                        DoubleType,  true),
+          StructField("instance_id",                        IntegerType, true),
+          StructField("fold_position",                      IntegerType, true),
+          StructField("seller_deduction",                   DoubleType,  true),
+          StructField("buyer_member_id",                    IntegerType, true),
+          StructField("creative_id",                        IntegerType, true),
+          StructField("cleared_direct",                     IntegerType, true),
+          StructField("buyer_currency",                     StringType,  true),
+          StructField("buyer_exchange_rate",                DoubleType,  true),
+          StructField("width",                              IntegerType, true),
+          StructField("height",                             IntegerType, true),
+          StructField("brand_id",                           IntegerType, true),
+          StructField("creative_audit_status",              IntegerType, true),
+          StructField("is_creative_hosted",                 IntegerType, true),
+          StructField("vp_expose_domains",                  IntegerType, true),
+          StructField("vp_expose_categories",               IntegerType, true),
+          StructField("vp_expose_pubs",                     IntegerType, true),
+          StructField("vp_expose_tag",                      IntegerType, true),
+          StructField("bidder_id",                          IntegerType, true),
+          StructField("deal_id",                            IntegerType, true),
+          StructField("imp_type",                           IntegerType, true),
+          StructField("is_dw",                              IntegerType, true),
+          StructField("vp_bitmap",                          LongType,    true),
+          StructField("ttl",                                IntegerType, true),
+          StructField("view_detection_enabled",             IntegerType, true),
+          StructField("media_type",                         IntegerType, true),
+          StructField("auction_timestamp",                  LongType,    true),
+          StructField("spend_protection",                   IntegerType, true),
+          StructField("viewdef_definition_id_buyer_member", IntegerType, true),
+          StructField("deal_type",                          IntegerType, true),
+          StructField("ym_floor_id",                        IntegerType, true),
+          StructField("ym_bias_id",                         IntegerType, true),
+          StructField("bid_price_type",                     IntegerType, true),
+          StructField("spend_protection_pixel_id",          IntegerType, true),
+          StructField("ip_address",                         StringType,  true),
+          StructField(
+            "buyer_transaction_def",
+            StructType(
+              Array(StructField("transaction_event",         IntegerType, true),
+                    StructField("transaction_event_type_id", IntegerType, true)
+              )
+            ),
+            true
+          ),
+          StructField(
+            "seller_transaction_def",
+            StructType(
+              Array(StructField("transaction_event",         IntegerType, true),
+                    StructField("transaction_event_type_id", IntegerType, true)
+              )
+            ),
+            true
+          ),
+          StructField("buyer_bid",            DoubleType,  true),
+          StructField("expected_events",      IntegerType, true),
+          StructField("accept_timestamp",     LongType,    true),
+          StructField("external_creative_id", StringType,  true),
+          StructField("seat_id",              IntegerType, true),
+          StructField("is_prebid_server",     ByteType,    true),
+          StructField("curated_deal_id",      IntegerType, true),
+          StructField("external_campaign_id", StringType,  true),
+          StructField("trust_id",             StringType,  true),
+          StructField(
+            "log_product_ads",
+            StructType(
+              Array(
+                StructField("product_feed_id",            IntegerType, true),
+                StructField("item_selection_strategy_id", IntegerType, true),
+                StructField("product_uuid",               StringType,  true)
+              )
+            ),
+            true
+          ),
+          StructField("external_bidrequest_id",     LongType,    true),
+          StructField("external_bidrequest_imp_id", LongType,    true),
+          StructField("creative_media_subtype_id",  IntegerType, true)
         )
       )
     )

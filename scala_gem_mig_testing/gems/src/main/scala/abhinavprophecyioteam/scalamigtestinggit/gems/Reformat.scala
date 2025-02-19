@@ -63,17 +63,15 @@ class Reformat extends ComponentSpec {
           "content"
         )
         .addColumn(
-          ExpTable("Reformat Expression")
+          ExpTable("Reformat Expression", Column("Target Column", "target", Some(TextBox("", ignoreTitle = true)), filter=Some(ColumnFilter(FilterType.search)), width = "30%"),
+            Column(
+            "Expression",
+            "expression.expression",
+            Some(ExpressionBox(ignoreTitle = true).bindPlaceholders().withSchemaSuggestions()),
+              filter=Some(ColumnFilter(FilterType.search))
+          ))
             .withRowId()
-            .bindProperty("expressions")
-            .withCopilotEnabledExpressions(
-              CopilotSpec(
-                method = "copilot/getExpression",
-                methodType = Some("CopilotProjectionExpressionRequest"),
-                copilotProps = CopilotPromptTypeProps(buttonLabel = "Ask AI")
-              )
-            )
-            .allowCopilotExpressionsFix(),
+            .bindProperty("expressions"),
           "5fr"
         )
     )

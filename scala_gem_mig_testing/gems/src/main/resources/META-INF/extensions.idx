@@ -1,7 +1,7 @@
-io.prophecy.scalagems.transform.RenameColumns
 abhinavprophecyioteam.scalamigtestinggit.gems.SQLStatement
+io.prophecy.warehousegems.dataset.redshift
 abhinavprophecyioteam.scalamigtestinggit.gems.Repartition
 abhinavprophecyioteam.scalamigtestinggit.gems.ProtobufTest
+abhinavprophecyioteam.scalamigtestinggit.gems.TestGem
 io.prophecy.scalagems.transform.MultiFieldExpression
 abhinavprophecyioteam.scalamigtestinggit.gems.Reformat
-abhinavprophecyioteam.scalamigtestinggit.gems.mongodb

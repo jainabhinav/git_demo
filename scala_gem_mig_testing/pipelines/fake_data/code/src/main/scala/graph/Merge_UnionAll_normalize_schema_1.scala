@@ -51,1091 +51,6 @@ object Merge_UnionAll_normalize_schema_1 {
       log_impbus_preempt_dup(context).as("log_impbus_preempt_dup")
     )
 
-  def log_impbus_preempt(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    struct(
-      col("log_impbus_preempt.date_time").as("date_time"),
-      col("log_impbus_preempt.auction_id_64").as("auction_id_64"),
-      col("log_impbus_preempt.imp_transacted").as("imp_transacted"),
-      col("log_impbus_preempt.buyer_spend").as("buyer_spend"),
-      col("log_impbus_preempt.seller_revenue").as("seller_revenue"),
-      col("log_impbus_preempt.bidder_fees").as("bidder_fees"),
-      col("log_impbus_preempt.instance_id").as("instance_id"),
-      col("log_impbus_preempt.fold_position").as("fold_position"),
-      col("log_impbus_preempt.seller_deduction").as("seller_deduction"),
-      col("log_impbus_preempt.buyer_member_id").as("buyer_member_id"),
-      col("log_impbus_preempt.creative_id").as("creative_id"),
-      col("log_impbus_preempt.cleared_direct").as("cleared_direct"),
-      col("log_impbus_preempt.buyer_currency").as("buyer_currency"),
-      col("log_impbus_preempt.buyer_exchange_rate").as("buyer_exchange_rate"),
-      col("log_impbus_preempt.width").as("width"),
-      col("log_impbus_preempt.height").as("height"),
-      col("log_impbus_preempt.brand_id").as("brand_id"),
-      col("log_impbus_preempt.creative_audit_status").as(
-        "creative_audit_status"
-      ),
-      col("log_impbus_preempt.is_creative_hosted").as("is_creative_hosted"),
-      col("log_impbus_preempt.vp_expose_domains").as("vp_expose_domains"),
-      col("log_impbus_preempt.vp_expose_categories").as("vp_expose_categories"),
-      col("log_impbus_preempt.vp_expose_pubs").as("vp_expose_pubs"),
-      col("log_impbus_preempt.vp_expose_tag").as("vp_expose_tag"),
-      col("log_impbus_preempt.bidder_id").as("bidder_id"),
-      col("log_impbus_preempt.deal_id").as("deal_id"),
-      col("log_impbus_preempt.imp_type").as("imp_type"),
-      col("log_impbus_preempt.is_dw").as("is_dw"),
-      col("log_impbus_preempt.vp_bitmap").as("vp_bitmap"),
-      col("log_impbus_preempt.ttl").as("ttl"),
-      col("log_impbus_preempt.view_detection_enabled").as(
-        "view_detection_enabled"
-      ),
-      col("log_impbus_preempt.media_type").as("media_type"),
-      col("log_impbus_preempt.auction_timestamp").as("auction_timestamp"),
-      col("log_impbus_preempt.spend_protection").as("spend_protection"),
-      col("log_impbus_preempt.viewdef_definition_id_buyer_member").as(
-        "viewdef_definition_id_buyer_member"
-      ),
-      col("log_impbus_preempt.deal_type").as("deal_type"),
-      col("log_impbus_preempt.ym_floor_id").as("ym_floor_id"),
-      col("log_impbus_preempt.ym_bias_id").as("ym_bias_id"),
-      col("log_impbus_preempt.bid_price_type").as("bid_price_type"),
-      col("log_impbus_preempt.spend_protection_pixel_id").as(
-        "spend_protection_pixel_id"
-      ),
-      col("log_impbus_preempt.ip_address").as("ip_address"),
-      struct(
-        col("log_impbus_preempt.buyer_transaction_def.transaction_event").as(
-          "transaction_event"
-        ),
-        col(
-          "log_impbus_preempt.buyer_transaction_def.transaction_event_type_id"
-        ).as("transaction_event_type_id")
-      ).as("buyer_transaction_def"),
-      struct(
-        col("log_impbus_preempt.seller_transaction_def.transaction_event").as(
-          "transaction_event"
-        ),
-        col(
-          "log_impbus_preempt.seller_transaction_def.transaction_event_type_id"
-        ).as("transaction_event_type_id")
-      ).as("seller_transaction_def"),
-      col("log_impbus_preempt.buyer_bid").as("buyer_bid"),
-      col("log_impbus_preempt.expected_events").as("expected_events"),
-      col("log_impbus_preempt.accept_timestamp").as("accept_timestamp"),
-      col("log_impbus_preempt.external_creative_id").as("external_creative_id"),
-      col("log_impbus_preempt.seat_id").as("seat_id"),
-      col("log_impbus_preempt.is_prebid_server").as("is_prebid_server"),
-      col("log_impbus_preempt.curated_deal_id").as("curated_deal_id"),
-      col("log_impbus_preempt.external_campaign_id").as("external_campaign_id"),
-      col("log_impbus_preempt.trust_id").as("trust_id"),
-      struct(
-        col("log_impbus_preempt.log_product_ads.product_feed_id").as(
-          "product_feed_id"
-        ),
-        col("log_impbus_preempt.log_product_ads.item_selection_strategy_id").as(
-          "item_selection_strategy_id"
-        ),
-        col("log_impbus_preempt.log_product_ads.product_uuid").as(
-          "product_uuid"
-        )
-      ).as("log_product_ads"),
-      col("log_impbus_preempt.external_bidrequest_id").as(
-        "external_bidrequest_id"
-      ),
-      col("log_impbus_preempt.external_bidrequest_imp_id").as(
-        "external_bidrequest_imp_id"
-      ),
-      col("log_impbus_preempt.creative_media_subtype_id").as(
-        "creative_media_subtype_id"
-      )
-    ).cast(
-      StructType(
-        Array(
-          StructField("date_time",                          LongType,    true),
-          StructField("auction_id_64",                      LongType,    true),
-          StructField("imp_transacted",                     IntegerType, true),
-          StructField("buyer_spend",                        DoubleType,  true),
-          StructField("seller_revenue",                     DoubleType,  true),
-          StructField("bidder_fees",                        DoubleType,  true),
-          StructField("instance_id",                        IntegerType, true),
-          StructField("fold_position",                      IntegerType, true),
-          StructField("seller_deduction",                   DoubleType,  true),
-          StructField("buyer_member_id",                    IntegerType, true),
-          StructField("creative_id",                        IntegerType, true),
-          StructField("cleared_direct",                     IntegerType, true),
-          StructField("buyer_currency",                     StringType,  true),
-          StructField("buyer_exchange_rate",                DoubleType,  true),
-          StructField("width",                              IntegerType, true),
-          StructField("height",                             IntegerType, true),
-          StructField("brand_id",                           IntegerType, true),
-          StructField("creative_audit_status",              IntegerType, true),
-          StructField("is_creative_hosted",                 IntegerType, true),
-          StructField("vp_expose_domains",                  IntegerType, true),
-          StructField("vp_expose_categories",               IntegerType, true),
-          StructField("vp_expose_pubs",                     IntegerType, true),
-          StructField("vp_expose_tag",                      IntegerType, true),
-          StructField("bidder_id",                          IntegerType, true),
-          StructField("deal_id",                            IntegerType, true),
-          StructField("imp_type",                           IntegerType, true),
-          StructField("is_dw",                              IntegerType, true),
-          StructField("vp_bitmap",                          LongType,    true),
-          StructField("ttl",                                IntegerType, true),
-          StructField("view_detection_enabled",             IntegerType, true),
-          StructField("media_type",                         IntegerType, true),
-          StructField("auction_timestamp",                  LongType,    true),
-          StructField("spend_protection",                   IntegerType, true),
-          StructField("viewdef_definition_id_buyer_member", IntegerType, true),
-          StructField("deal_type",                          IntegerType, true),
-          StructField("ym_floor_id",                        IntegerType, true),
-          StructField("ym_bias_id",                         IntegerType, true),
-          StructField("bid_price_type",                     IntegerType, true),
-          StructField("spend_protection_pixel_id",          IntegerType, true),
-          StructField("ip_address",                         StringType,  true),
-          StructField(
-            "buyer_transaction_def",
-            StructType(
-              Array(StructField("transaction_event",         IntegerType, true),
-                    StructField("transaction_event_type_id", IntegerType, true)
-              )
-            ),
-            true
-          ),
-          StructField(
-            "seller_transaction_def",
-            StructType(
-              Array(StructField("transaction_event",         IntegerType, true),
-                    StructField("transaction_event_type_id", IntegerType, true)
-              )
-            ),
-            true
-          ),
-          StructField("buyer_bid",            DoubleType,  true),
-          StructField("expected_events",      IntegerType, true),
-          StructField("accept_timestamp",     LongType,    true),
-          StructField("external_creative_id", StringType,  true),
-          StructField("seat_id",              IntegerType, true),
-          StructField("is_prebid_server",     ByteType,    true),
-          StructField("curated_deal_id",      IntegerType, true),
-          StructField("external_campaign_id", StringType,  true),
-          StructField("trust_id",             StringType,  true),
-          StructField(
-            "log_product_ads",
-            StructType(
-              Array(
-                StructField("product_feed_id",            IntegerType, true),
-                StructField("item_selection_strategy_id", IntegerType, true),
-                StructField("product_uuid",               StringType,  true)
-              )
-            ),
-            true
-          ),
-          StructField("external_bidrequest_id",     LongType,    true),
-          StructField("external_bidrequest_imp_id", LongType,    true),
-          StructField("creative_media_subtype_id",  IntegerType, true)
-        )
-      )
-    )
-  }
-
-  def log_impbus_impressions_pricing(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    struct(
-      col("log_impbus_impressions_pricing.date_time").as("date_time"),
-      col("log_impbus_impressions_pricing.auction_id_64").as("auction_id_64"),
-      struct(
-        col("log_impbus_impressions_pricing.buyer_charges.rate_card_id").as(
-          "rate_card_id"
-        ),
-        col("log_impbus_impressions_pricing.buyer_charges.member_id").as(
-          "member_id"
-        ),
-        col("log_impbus_impressions_pricing.buyer_charges.is_dw").as("is_dw"),
-        col("log_impbus_impressions_pricing.buyer_charges.pricing_terms").as(
-          "pricing_terms"
-        ),
-        col("log_impbus_impressions_pricing.buyer_charges.fx_margin_rate_id")
-          .as("fx_margin_rate_id"),
-        col("log_impbus_impressions_pricing.buyer_charges.marketplace_owner_id")
-          .as("marketplace_owner_id"),
-        col(
-          "log_impbus_impressions_pricing.buyer_charges.virtual_marketplace_id"
-        ).as("virtual_marketplace_id"),
-        col("log_impbus_impressions_pricing.buyer_charges.amino_enabled").as(
-          "amino_enabled"
-        )
-      ).as("buyer_charges"),
-      struct(
-        col("log_impbus_impressions_pricing.seller_charges.rate_card_id").as(
-          "rate_card_id"
-        ),
-        col("log_impbus_impressions_pricing.seller_charges.member_id").as(
-          "member_id"
-        ),
-        col("log_impbus_impressions_pricing.seller_charges.is_dw").as("is_dw"),
-        col("log_impbus_impressions_pricing.seller_charges.pricing_terms").as(
-          "pricing_terms"
-        ),
-        col("log_impbus_impressions_pricing.seller_charges.fx_margin_rate_id")
-          .as("fx_margin_rate_id"),
-        col(
-          "log_impbus_impressions_pricing.seller_charges.marketplace_owner_id"
-        ).as("marketplace_owner_id"),
-        col(
-          "log_impbus_impressions_pricing.seller_charges.virtual_marketplace_id"
-        ).as("virtual_marketplace_id"),
-        col("log_impbus_impressions_pricing.seller_charges.amino_enabled").as(
-          "amino_enabled"
-        )
-      ).as("seller_charges"),
-      col("log_impbus_impressions_pricing.buyer_spend").as("buyer_spend"),
-      col("log_impbus_impressions_pricing.seller_revenue").as("seller_revenue"),
-      col("log_impbus_impressions_pricing.rate_card_auction_type").as(
-        "rate_card_auction_type"
-      ),
-      col("log_impbus_impressions_pricing.rate_card_media_type").as(
-        "rate_card_media_type"
-      ),
-      col("log_impbus_impressions_pricing.direct_clear").as("direct_clear"),
-      col("log_impbus_impressions_pricing.auction_timestamp").as(
-        "auction_timestamp"
-      ),
-      col("log_impbus_impressions_pricing.instance_id").as("instance_id"),
-      col("log_impbus_impressions_pricing.two_phase_reduction_applied").as(
-        "two_phase_reduction_applied"
-      ),
-      col("log_impbus_impressions_pricing.trade_agreement_id").as(
-        "trade_agreement_id"
-      ),
-      col("log_impbus_impressions_pricing.log_timestamp").as("log_timestamp"),
-      struct(
-        col(
-          "log_impbus_impressions_pricing.trade_agreement_info.applied_term_id"
-        ).as("applied_term_id"),
-        col(
-          "log_impbus_impressions_pricing.trade_agreement_info.applied_term_type"
-        ).as("applied_term_type"),
-        col(
-          "log_impbus_impressions_pricing.trade_agreement_info.targeted_term_ids"
-        ).as("targeted_term_ids")
-      ).as("trade_agreement_info"),
-      col("log_impbus_impressions_pricing.is_buy_it_now").as("is_buy_it_now"),
-      col("log_impbus_impressions_pricing.net_buyer_spend").as(
-        "net_buyer_spend"
-      ),
-      struct(
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.gross_payment_value_microcents"
-        ).as("gross_payment_value_microcents"),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.net_payment_value_microcents"
-        ).as("net_payment_value_microcents"),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.seller_revenue_microcents"
-        ).as("seller_revenue_microcents"),
-        struct(
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.rate_card_id"
-          ).as("rate_card_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.member_id"
-          ).as("member_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.is_dw"
-          ).as("is_dw"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.pricing_terms"
-          ).as("pricing_terms"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.fx_margin_rate_id"
-          ).as("fx_margin_rate_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.marketplace_owner_id"
-          ).as("marketplace_owner_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.virtual_marketplace_id"
-          ).as("virtual_marketplace_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.amino_enabled"
-          ).as("amino_enabled")
-        ).as("buyer_charges"),
-        struct(
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.rate_card_id"
-          ).as("rate_card_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.member_id"
-          ).as("member_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.is_dw"
-          ).as("is_dw"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.pricing_terms"
-          ).as("pricing_terms"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.fx_margin_rate_id"
-          ).as("fx_margin_rate_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.marketplace_owner_id"
-          ).as("marketplace_owner_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.virtual_marketplace_id"
-          ).as("virtual_marketplace_id"),
-          col(
-            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.amino_enabled"
-          ).as("amino_enabled")
-        ).as("seller_charges"),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.buyer_transacted"
-        ).as("buyer_transacted"),
-        col(
-          "log_impbus_impressions_pricing.impression_event_pricing.seller_transacted"
-        ).as("seller_transacted")
-      ).as("impression_event_pricing"),
-      col("log_impbus_impressions_pricing.counterparty_ruleset_type").as(
-        "counterparty_ruleset_type"
-      ),
-      col("log_impbus_impressions_pricing.estimated_audience_imps").as(
-        "estimated_audience_imps"
-      ),
-      col("log_impbus_impressions_pricing.audience_imps").as("audience_imps")
-    ).cast(
-      StructType(
-        Array(
-          StructField("date_time",     LongType, true),
-          StructField("auction_id_64", LongType, true),
-          StructField(
-            "buyer_charges",
-            StructType(
-              Array(
-                StructField("rate_card_id", IntegerType, true),
-                StructField("member_id",    IntegerType, true),
-                StructField("is_dw",        ByteType,    true),
-                StructField(
-                  "pricing_terms",
-                  ArrayType(
-                    StructType(
-                      Array(
-                        StructField("term_id",                 IntegerType, true),
-                        StructField("amount",                  DoubleType,  true),
-                        StructField("rate",                    DoubleType,  true),
-                        StructField("is_deduction",            ByteType,    true),
-                        StructField("is_media_cost_dependent", ByteType,    true),
-                        StructField("data_member_id",          IntegerType, true)
-                      )
-                    ),
-                    true
-                  ),
-                  true
-                ),
-                StructField("fx_margin_rate_id",      IntegerType, true),
-                StructField("marketplace_owner_id",   IntegerType, true),
-                StructField("virtual_marketplace_id", IntegerType, true),
-                StructField("amino_enabled",          ByteType,    true)
-              )
-            ),
-            true
-          ),
-          StructField(
-            "seller_charges",
-            StructType(
-              Array(
-                StructField("rate_card_id", IntegerType, true),
-                StructField("member_id",    IntegerType, true),
-                StructField("is_dw",        ByteType,    true),
-                StructField(
-                  "pricing_terms",
-                  ArrayType(
-                    StructType(
-                      Array(
-                        StructField("term_id",                 IntegerType, true),
-                        StructField("amount",                  DoubleType,  true),
-                        StructField("rate",                    DoubleType,  true),
-                        StructField("is_deduction",            ByteType,    true),
-                        StructField("is_media_cost_dependent", ByteType,    true),
-                        StructField("data_member_id",          IntegerType, true)
-                      )
-                    ),
-                    true
-                  ),
-                  true
-                ),
-                StructField("fx_margin_rate_id",      IntegerType, true),
-                StructField("marketplace_owner_id",   IntegerType, true),
-                StructField("virtual_marketplace_id", IntegerType, true),
-                StructField("amino_enabled",          ByteType,    true)
-              )
-            ),
-            true
-          ),
-          StructField("buyer_spend",                 DoubleType,  true),
-          StructField("seller_revenue",              DoubleType,  true),
-          StructField("rate_card_auction_type",      IntegerType, true),
-          StructField("rate_card_media_type",        IntegerType, true),
-          StructField("direct_clear",                ByteType,    true),
-          StructField("auction_timestamp",           LongType,    true),
-          StructField("instance_id",                 IntegerType, true),
-          StructField("two_phase_reduction_applied", ByteType,    true),
-          StructField("trade_agreement_id",          IntegerType, true),
-          StructField("log_timestamp",               LongType,    true),
-          StructField(
-            "trade_agreement_info",
-            StructType(
-              Array(
-                StructField("applied_term_id",   IntegerType, true),
-                StructField("applied_term_type", IntegerType, true),
-                StructField("targeted_term_ids",
-                            ArrayType(IntegerType, true),
-                            true
-                )
-              )
-            ),
-            true
-          ),
-          StructField("is_buy_it_now",   ByteType,   true),
-          StructField("net_buyer_spend", DoubleType, true),
-          StructField(
-            "impression_event_pricing",
-            StructType(
-              Array(
-                StructField("gross_payment_value_microcents", LongType, true),
-                StructField("net_payment_value_microcents",   LongType, true),
-                StructField("seller_revenue_microcents",      LongType, true),
-                StructField(
-                  "buyer_charges",
-                  StructType(
-                    Array(
-                      StructField("rate_card_id", IntegerType, true),
-                      StructField("member_id",    IntegerType, true),
-                      StructField("is_dw",        ByteType,    true),
-                      StructField(
-                        "pricing_terms",
-                        ArrayType(
-                          StructType(
-                            Array(
-                              StructField("term_id",      IntegerType, true),
-                              StructField("amount",       DoubleType,  true),
-                              StructField("rate",         DoubleType,  true),
-                              StructField("is_deduction", ByteType,    true),
-                              StructField("is_media_cost_dependent",
-                                          ByteType,
-                                          true
-                              ),
-                              StructField("data_member_id", IntegerType, true)
-                            )
-                          ),
-                          true
-                        ),
-                        true
-                      ),
-                      StructField("fx_margin_rate_id",      IntegerType, true),
-                      StructField("marketplace_owner_id",   IntegerType, true),
-                      StructField("virtual_marketplace_id", IntegerType, true),
-                      StructField("amino_enabled",          ByteType,    true)
-                    )
-                  ),
-                  true
-                ),
-                StructField(
-                  "seller_charges",
-                  StructType(
-                    Array(
-                      StructField("rate_card_id", IntegerType, true),
-                      StructField("member_id",    IntegerType, true),
-                      StructField("is_dw",        ByteType,    true),
-                      StructField(
-                        "pricing_terms",
-                        ArrayType(
-                          StructType(
-                            Array(
-                              StructField("term_id",      IntegerType, true),
-                              StructField("amount",       DoubleType,  true),
-                              StructField("rate",         DoubleType,  true),
-                              StructField("is_deduction", ByteType,    true),
-                              StructField("is_media_cost_dependent",
-                                          ByteType,
-                                          true
-                              ),
-                              StructField("data_member_id", IntegerType, true)
-                            )
-                          ),
-                          true
-                        ),
-                        true
-                      ),
-                      StructField("fx_margin_rate_id",      IntegerType, true),
-                      StructField("marketplace_owner_id",   IntegerType, true),
-                      StructField("virtual_marketplace_id", IntegerType, true),
-                      StructField("amino_enabled",          ByteType,    true)
-                    )
-                  ),
-                  true
-                ),
-                StructField("buyer_transacted",  ByteType, true),
-                StructField("seller_transacted", ByteType, true)
-              )
-            ),
-            true
-          ),
-          StructField("counterparty_ruleset_type", IntegerType, true),
-          StructField("estimated_audience_imps",   DoubleType,  true),
-          StructField("audience_imps",             DoubleType,  true)
-        )
-      )
-    )
-  }
-
-  def log_impbus_preempt_dup(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    struct(
-      col("log_impbus_preempt_dup.date_time").as("date_time"),
-      col("log_impbus_preempt_dup.auction_id_64").as("auction_id_64"),
-      col("log_impbus_preempt_dup.imp_transacted").as("imp_transacted"),
-      col("log_impbus_preempt_dup.buyer_spend").as("buyer_spend"),
-      col("log_impbus_preempt_dup.seller_revenue").as("seller_revenue"),
-      col("log_impbus_preempt_dup.bidder_fees").as("bidder_fees"),
-      col("log_impbus_preempt_dup.instance_id").as("instance_id"),
-      col("log_impbus_preempt_dup.fold_position").as("fold_position"),
-      col("log_impbus_preempt_dup.seller_deduction").as("seller_deduction"),
-      col("log_impbus_preempt_dup.buyer_member_id").as("buyer_member_id"),
-      col("log_impbus_preempt_dup.creative_id").as("creative_id"),
-      col("log_impbus_preempt_dup.cleared_direct").as("cleared_direct"),
-      col("log_impbus_preempt_dup.buyer_currency").as("buyer_currency"),
-      col("log_impbus_preempt_dup.buyer_exchange_rate").as(
-        "buyer_exchange_rate"
-      ),
-      col("log_impbus_preempt_dup.width").as("width"),
-      col("log_impbus_preempt_dup.height").as("height"),
-      col("log_impbus_preempt_dup.brand_id").as("brand_id"),
-      col("log_impbus_preempt_dup.creative_audit_status").as(
-        "creative_audit_status"
-      ),
-      col("log_impbus_preempt_dup.is_creative_hosted").as("is_creative_hosted"),
-      col("log_impbus_preempt_dup.vp_expose_domains").as("vp_expose_domains"),
-      col("log_impbus_preempt_dup.vp_expose_categories").as(
-        "vp_expose_categories"
-      ),
-      col("log_impbus_preempt_dup.vp_expose_pubs").as("vp_expose_pubs"),
-      col("log_impbus_preempt_dup.vp_expose_tag").as("vp_expose_tag"),
-      col("log_impbus_preempt_dup.bidder_id").as("bidder_id"),
-      col("log_impbus_preempt_dup.deal_id").as("deal_id"),
-      col("log_impbus_preempt_dup.imp_type").as("imp_type"),
-      col("log_impbus_preempt_dup.is_dw").as("is_dw"),
-      col("log_impbus_preempt_dup.vp_bitmap").as("vp_bitmap"),
-      col("log_impbus_preempt_dup.ttl").as("ttl"),
-      col("log_impbus_preempt_dup.view_detection_enabled").as(
-        "view_detection_enabled"
-      ),
-      col("log_impbus_preempt_dup.media_type").as("media_type"),
-      col("log_impbus_preempt_dup.auction_timestamp").as("auction_timestamp"),
-      col("log_impbus_preempt_dup.spend_protection").as("spend_protection"),
-      col("log_impbus_preempt_dup.viewdef_definition_id_buyer_member").as(
-        "viewdef_definition_id_buyer_member"
-      ),
-      col("log_impbus_preempt_dup.deal_type").as("deal_type"),
-      col("log_impbus_preempt_dup.ym_floor_id").as("ym_floor_id"),
-      col("log_impbus_preempt_dup.ym_bias_id").as("ym_bias_id"),
-      col("log_impbus_preempt_dup.bid_price_type").as("bid_price_type"),
-      col("log_impbus_preempt_dup.spend_protection_pixel_id").as(
-        "spend_protection_pixel_id"
-      ),
-      col("log_impbus_preempt_dup.ip_address").as("ip_address"),
-      struct(
-        col("log_impbus_preempt_dup.buyer_transaction_def.transaction_event")
-          .as("transaction_event"),
-        col(
-          "log_impbus_preempt_dup.buyer_transaction_def.transaction_event_type_id"
-        ).as("transaction_event_type_id")
-      ).as("buyer_transaction_def"),
-      struct(
-        col("log_impbus_preempt_dup.seller_transaction_def.transaction_event")
-          .as("transaction_event"),
-        col(
-          "log_impbus_preempt_dup.seller_transaction_def.transaction_event_type_id"
-        ).as("transaction_event_type_id")
-      ).as("seller_transaction_def"),
-      col("log_impbus_preempt_dup.buyer_bid").as("buyer_bid"),
-      col("log_impbus_preempt_dup.expected_events").as("expected_events"),
-      col("log_impbus_preempt_dup.accept_timestamp").as("accept_timestamp"),
-      col("log_impbus_preempt_dup.external_creative_id").as(
-        "external_creative_id"
-      ),
-      col("log_impbus_preempt_dup.seat_id").as("seat_id"),
-      col("log_impbus_preempt_dup.is_prebid_server").as("is_prebid_server"),
-      col("log_impbus_preempt_dup.curated_deal_id").as("curated_deal_id"),
-      col("log_impbus_preempt_dup.external_campaign_id").as(
-        "external_campaign_id"
-      ),
-      col("log_impbus_preempt_dup.trust_id").as("trust_id"),
-      struct(
-        col("log_impbus_preempt_dup.log_product_ads.product_feed_id").as(
-          "product_feed_id"
-        ),
-        col("log_impbus_preempt_dup.log_product_ads.item_selection_strategy_id")
-          .as("item_selection_strategy_id"),
-        col("log_impbus_preempt_dup.log_product_ads.product_uuid").as(
-          "product_uuid"
-        )
-      ).as("log_product_ads"),
-      col("log_impbus_preempt_dup.external_bidrequest_id").as(
-        "external_bidrequest_id"
-      ),
-      col("log_impbus_preempt_dup.external_bidrequest_imp_id").as(
-        "external_bidrequest_imp_id"
-      ),
-      col("log_impbus_preempt_dup.creative_media_subtype_id").as(
-        "creative_media_subtype_id"
-      )
-    ).cast(
-      StructType(
-        Array(
-          StructField("date_time",                          LongType,    true),
-          StructField("auction_id_64",                      LongType,    true),
-          StructField("imp_transacted",                     IntegerType, true),
-          StructField("buyer_spend",                        DoubleType,  true),
-          StructField("seller_revenue",                     DoubleType,  true),
-          StructField("bidder_fees",                        DoubleType,  true),
-          StructField("instance_id",                        IntegerType, true),
-          StructField("fold_position",                      IntegerType, true),
-          StructField("seller_deduction",                   DoubleType,  true),
-          StructField("buyer_member_id",                    IntegerType, true),
-          StructField("creative_id",                        IntegerType, true),
-          StructField("cleared_direct",                     IntegerType, true),
-          StructField("buyer_currency",                     StringType,  true),
-          StructField("buyer_exchange_rate",                DoubleType,  true),
-          StructField("width",                              IntegerType, true),
-          StructField("height",                             IntegerType, true),
-          StructField("brand_id",                           IntegerType, true),
-          StructField("creative_audit_status",              IntegerType, true),
-          StructField("is_creative_hosted",                 IntegerType, true),
-          StructField("vp_expose_domains",                  IntegerType, true),
-          StructField("vp_expose_categories",               IntegerType, true),
-          StructField("vp_expose_pubs",                     IntegerType, true),
-          StructField("vp_expose_tag",                      IntegerType, true),
-          StructField("bidder_id",                          IntegerType, true),
-          StructField("deal_id",                            IntegerType, true),
-          StructField("imp_type",                           IntegerType, true),
-          StructField("is_dw",                              IntegerType, true),
-          StructField("vp_bitmap",                          LongType,    true),
-          StructField("ttl",                                IntegerType, true),
-          StructField("view_detection_enabled",             IntegerType, true),
-          StructField("media_type",                         IntegerType, true),
-          StructField("auction_timestamp",                  LongType,    true),
-          StructField("spend_protection",                   IntegerType, true),
-          StructField("viewdef_definition_id_buyer_member", IntegerType, true),
-          StructField("deal_type",                          IntegerType, true),
-          StructField("ym_floor_id",                        IntegerType, true),
-          StructField("ym_bias_id",                         IntegerType, true),
-          StructField("bid_price_type",                     IntegerType, true),
-          StructField("spend_protection_pixel_id",          IntegerType, true),
-          StructField("ip_address",                         StringType,  true),
-          StructField(
-            "buyer_transaction_def",
-            StructType(
-              Array(StructField("transaction_event",         IntegerType, true),
-                    StructField("transaction_event_type_id", IntegerType, true)
-              )
-            ),
-            true
-          ),
-          StructField(
-            "seller_transaction_def",
-            StructType(
-              Array(StructField("transaction_event",         IntegerType, true),
-                    StructField("transaction_event_type_id", IntegerType, true)
-              )
-            ),
-            true
-          ),
-          StructField("buyer_bid",            DoubleType,  true),
-          StructField("expected_events",      IntegerType, true),
-          StructField("accept_timestamp",     LongType,    true),
-          StructField("external_creative_id", StringType,  true),
-          StructField("seat_id",              IntegerType, true),
-          StructField("is_prebid_server",     ByteType,    true),
-          StructField("curated_deal_id",      IntegerType, true),
-          StructField("external_campaign_id", StringType,  true),
-          StructField("trust_id",             StringType,  true),
-          StructField(
-            "log_product_ads",
-            StructType(
-              Array(
-                StructField("product_feed_id",            IntegerType, true),
-                StructField("item_selection_strategy_id", IntegerType, true),
-                StructField("product_uuid",               StringType,  true)
-              )
-            ),
-            true
-          ),
-          StructField("external_bidrequest_id",     LongType,    true),
-          StructField("external_bidrequest_imp_id", LongType,    true),
-          StructField("creative_media_subtype_id",  IntegerType, true)
-        )
-      )
-    )
-  }
-
-  def log_impbus_impressions_pricing_dup(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    struct(
-      col("log_impbus_impressions_pricing_dup.date_time").as("date_time"),
-      col("log_impbus_impressions_pricing_dup.auction_id_64").as(
-        "auction_id_64"
-      ),
-      struct(
-        col("log_impbus_impressions_pricing_dup.buyer_charges.rate_card_id").as(
-          "rate_card_id"
-        ),
-        col("log_impbus_impressions_pricing_dup.buyer_charges.member_id").as(
-          "member_id"
-        ),
-        col("log_impbus_impressions_pricing_dup.buyer_charges.is_dw").as(
-          "is_dw"
-        ),
-        col("log_impbus_impressions_pricing_dup.buyer_charges.pricing_terms")
-          .as("pricing_terms"),
-        col(
-          "log_impbus_impressions_pricing_dup.buyer_charges.fx_margin_rate_id"
-        ).as("fx_margin_rate_id"),
-        col(
-          "log_impbus_impressions_pricing_dup.buyer_charges.marketplace_owner_id"
-        ).as("marketplace_owner_id"),
-        col(
-          "log_impbus_impressions_pricing_dup.buyer_charges.virtual_marketplace_id"
-        ).as("virtual_marketplace_id"),
-        col("log_impbus_impressions_pricing_dup.buyer_charges.amino_enabled")
-          .as("amino_enabled")
-      ).as("buyer_charges"),
-      struct(
-        col("log_impbus_impressions_pricing_dup.seller_charges.rate_card_id")
-          .as("rate_card_id"),
-        col("log_impbus_impressions_pricing_dup.seller_charges.member_id").as(
-          "member_id"
-        ),
-        col("log_impbus_impressions_pricing_dup.seller_charges.is_dw").as(
-          "is_dw"
-        ),
-        col("log_impbus_impressions_pricing_dup.seller_charges.pricing_terms")
-          .as("pricing_terms"),
-        col(
-          "log_impbus_impressions_pricing_dup.seller_charges.fx_margin_rate_id"
-        ).as("fx_margin_rate_id"),
-        col(
-          "log_impbus_impressions_pricing_dup.seller_charges.marketplace_owner_id"
-        ).as("marketplace_owner_id"),
-        col(
-          "log_impbus_impressions_pricing_dup.seller_charges.virtual_marketplace_id"
-        ).as("virtual_marketplace_id"),
-        col("log_impbus_impressions_pricing_dup.seller_charges.amino_enabled")
-          .as("amino_enabled")
-      ).as("seller_charges"),
-      col("log_impbus_impressions_pricing_dup.buyer_spend").as("buyer_spend"),
-      col("log_impbus_impressions_pricing_dup.seller_revenue").as(
-        "seller_revenue"
-      ),
-      col("log_impbus_impressions_pricing_dup.rate_card_auction_type").as(
-        "rate_card_auction_type"
-      ),
-      col("log_impbus_impressions_pricing_dup.rate_card_media_type").as(
-        "rate_card_media_type"
-      ),
-      col("log_impbus_impressions_pricing_dup.direct_clear").as("direct_clear"),
-      col("log_impbus_impressions_pricing_dup.auction_timestamp").as(
-        "auction_timestamp"
-      ),
-      col("log_impbus_impressions_pricing_dup.instance_id").as("instance_id"),
-      col("log_impbus_impressions_pricing_dup.two_phase_reduction_applied").as(
-        "two_phase_reduction_applied"
-      ),
-      col("log_impbus_impressions_pricing_dup.trade_agreement_id").as(
-        "trade_agreement_id"
-      ),
-      col("log_impbus_impressions_pricing_dup.log_timestamp").as(
-        "log_timestamp"
-      ),
-      struct(
-        col(
-          "log_impbus_impressions_pricing_dup.trade_agreement_info.applied_term_id"
-        ).as("applied_term_id"),
-        col(
-          "log_impbus_impressions_pricing_dup.trade_agreement_info.applied_term_type"
-        ).as("applied_term_type"),
-        col(
-          "log_impbus_impressions_pricing_dup.trade_agreement_info.targeted_term_ids"
-        ).as("targeted_term_ids")
-      ).as("trade_agreement_info"),
-      col("log_impbus_impressions_pricing_dup.is_buy_it_now").as(
-        "is_buy_it_now"
-      ),
-      col("log_impbus_impressions_pricing_dup.net_buyer_spend").as(
-        "net_buyer_spend"
-      ),
-      struct(
-        col(
-          "log_impbus_impressions_pricing_dup.impression_event_pricing.gross_payment_value_microcents"
-        ).as("gross_payment_value_microcents"),
-        col(
-          "log_impbus_impressions_pricing_dup.impression_event_pricing.net_payment_value_microcents"
-        ).as("net_payment_value_microcents"),
-        col(
-          "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_revenue_microcents"
-        ).as("seller_revenue_microcents"),
-        struct(
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.rate_card_id"
-          ).as("rate_card_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.member_id"
-          ).as("member_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.is_dw"
-          ).as("is_dw"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.pricing_terms"
-          ).as("pricing_terms"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.fx_margin_rate_id"
-          ).as("fx_margin_rate_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.marketplace_owner_id"
-          ).as("marketplace_owner_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.virtual_marketplace_id"
-          ).as("virtual_marketplace_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.amino_enabled"
-          ).as("amino_enabled")
-        ).as("buyer_charges"),
-        struct(
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.rate_card_id"
-          ).as("rate_card_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.member_id"
-          ).as("member_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.is_dw"
-          ).as("is_dw"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.pricing_terms"
-          ).as("pricing_terms"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.fx_margin_rate_id"
-          ).as("fx_margin_rate_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.marketplace_owner_id"
-          ).as("marketplace_owner_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.virtual_marketplace_id"
-          ).as("virtual_marketplace_id"),
-          col(
-            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.amino_enabled"
-          ).as("amino_enabled")
-        ).as("seller_charges"),
-        col(
-          "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_transacted"
-        ).as("buyer_transacted"),
-        col(
-          "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_transacted"
-        ).as("seller_transacted")
-      ).as("impression_event_pricing"),
-      col("log_impbus_impressions_pricing_dup.counterparty_ruleset_type").as(
-        "counterparty_ruleset_type"
-      ),
-      col("log_impbus_impressions_pricing_dup.estimated_audience_imps").as(
-        "estimated_audience_imps"
-      ),
-      col("log_impbus_impressions_pricing_dup.audience_imps").as(
-        "audience_imps"
-      )
-    ).cast(
-      StructType(
-        Array(
-          StructField("date_time",     LongType, true),
-          StructField("auction_id_64", LongType, true),
-          StructField(
-            "buyer_charges",
-            StructType(
-              Array(
-                StructField("rate_card_id", IntegerType, true),
-                StructField("member_id",    IntegerType, true),
-                StructField("is_dw",        ByteType,    true),
-                StructField(
-                  "pricing_terms",
-                  ArrayType(
-                    StructType(
-                      Array(
-                        StructField("term_id",                 IntegerType, true),
-                        StructField("amount",                  DoubleType,  true),
-                        StructField("rate",                    DoubleType,  true),
-                        StructField("is_deduction",            ByteType,    true),
-                        StructField("is_media_cost_dependent", ByteType,    true),
-                        StructField("data_member_id",          IntegerType, true)
-                      )
-                    ),
-                    true
-                  ),
-                  true
-                ),
-                StructField("fx_margin_rate_id",      IntegerType, true),
-                StructField("marketplace_owner_id",   IntegerType, true),
-                StructField("virtual_marketplace_id", IntegerType, true),
-                StructField("amino_enabled",          ByteType,    true)
-              )
-            ),
-            true
-          ),
-          StructField(
-            "seller_charges",
-            StructType(
-              Array(
-                StructField("rate_card_id", IntegerType, true),
-                StructField("member_id",    IntegerType, true),
-                StructField("is_dw",        ByteType,    true),
-                StructField(
-                  "pricing_terms",
-                  ArrayType(
-                    StructType(
-                      Array(
-                        StructField("term_id",                 IntegerType, true),
-                        StructField("amount",                  DoubleType,  true),
-                        StructField("rate",                    DoubleType,  true),
-                        StructField("is_deduction",            ByteType,    true),
-                        StructField("is_media_cost_dependent", ByteType,    true),
-                        StructField("data_member_id",          IntegerType, true)
-                      )
-                    ),
-                    true
-                  ),
-                  true
-                ),
-                StructField("fx_margin_rate_id",      IntegerType, true),
-                StructField("marketplace_owner_id",   IntegerType, true),
-                StructField("virtual_marketplace_id", IntegerType, true),
-                StructField("amino_enabled",          ByteType,    true)
-              )
-            ),
-            true
-          ),
-          StructField("buyer_spend",                 DoubleType,  true),
-          StructField("seller_revenue",              DoubleType,  true),
-          StructField("rate_card_auction_type",      IntegerType, true),
-          StructField("rate_card_media_type",        IntegerType, true),
-          StructField("direct_clear",                ByteType,    true),
-          StructField("auction_timestamp",           LongType,    true),
-          StructField("instance_id",                 IntegerType, true),
-          StructField("two_phase_reduction_applied", ByteType,    true),
-          StructField("trade_agreement_id",          IntegerType, true),
-          StructField("log_timestamp",               LongType,    true),
-          StructField(
-            "trade_agreement_info",
-            StructType(
-              Array(
-                StructField("applied_term_id",   IntegerType, true),
-                StructField("applied_term_type", IntegerType, true),
-                StructField("targeted_term_ids",
-                            ArrayType(IntegerType, true),
-                            true
-                )
-              )
-            ),
-            true
-          ),
-          StructField("is_buy_it_now",   ByteType,   true),
-          StructField("net_buyer_spend", DoubleType, true),
-          StructField(
-            "impression_event_pricing",
-            StructType(
-              Array(
-                StructField("gross_payment_value_microcents", LongType, true),
-                StructField("net_payment_value_microcents",   LongType, true),
-                StructField("seller_revenue_microcents",      LongType, true),
-                StructField(
-                  "buyer_charges",
-                  StructType(
-                    Array(
-                      StructField("rate_card_id", IntegerType, true),
-                      StructField("member_id",    IntegerType, true),
-                      StructField("is_dw",        ByteType,    true),
-                      StructField(
-                        "pricing_terms",
-                        ArrayType(
-                          StructType(
-                            Array(
-                              StructField("term_id",      IntegerType, true),
-                              StructField("amount",       DoubleType,  true),
-                              StructField("rate",         DoubleType,  true),
-                              StructField("is_deduction", ByteType,    true),
-                              StructField("is_media_cost_dependent",
-                                          ByteType,
-                                          true
-                              ),
-                              StructField("data_member_id", IntegerType, true)
-                            )
-                          ),
-                          true
-                        ),
-                        true
-                      ),
-                      StructField("fx_margin_rate_id",      IntegerType, true),
-                      StructField("marketplace_owner_id",   IntegerType, true),
-                      StructField("virtual_marketplace_id", IntegerType, true),
-                      StructField("amino_enabled",          ByteType,    true)
-                    )
-                  ),
-                  true
-                ),
-                StructField(
-                  "seller_charges",
-                  StructType(
-                    Array(
-                      StructField("rate_card_id", IntegerType, true),
-                      StructField("member_id",    IntegerType, true),
-                      StructField("is_dw",        ByteType,    true),
-                      StructField(
-                        "pricing_terms",
-                        ArrayType(
-                          StructType(
-                            Array(
-                              StructField("term_id",      IntegerType, true),
-                              StructField("amount",       DoubleType,  true),
-                              StructField("rate",         DoubleType,  true),
-                              StructField("is_deduction", ByteType,    true),
-                              StructField("is_media_cost_dependent",
-                                          ByteType,
-                                          true
-                              ),
-                              StructField("data_member_id", IntegerType, true)
-                            )
-                          ),
-                          true
-                        ),
-                        true
-                      ),
-                      StructField("fx_margin_rate_id",      IntegerType, true),
-                      StructField("marketplace_owner_id",   IntegerType, true),
-                      StructField("virtual_marketplace_id", IntegerType, true),
-                      StructField("amino_enabled",          ByteType,    true)
-                    )
-                  ),
-                  true
-                ),
-                StructField("buyer_transacted",  ByteType, true),
-                StructField("seller_transacted", ByteType, true)
-              )
-            ),
-            true
-          ),
-          StructField("counterparty_ruleset_type", IntegerType, true),
-          StructField("estimated_audience_imps",   DoubleType,  true),
-          StructField("audience_imps",             DoubleType,  true)
-        )
-      )
-    )
-  }
-
   def log_impbus_impressions(context: Context) = {
     val spark  = context.spark
     val Config = context.config
@@ -1697,6 +612,1091 @@ object Merge_UnionAll_normalize_schema_1 {
           StructField("private_auction_eligible",  ByteType,    true),
           StructField("client_request_id",         StringType,  true),
           StructField("chrome_traffic_label",      IntegerType, true)
+        )
+      )
+    )
+  }
+
+  def log_impbus_preempt_dup(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    struct(
+      col("log_impbus_preempt_dup.date_time").as("date_time"),
+      col("log_impbus_preempt_dup.auction_id_64").as("auction_id_64"),
+      col("log_impbus_preempt_dup.imp_transacted").as("imp_transacted"),
+      col("log_impbus_preempt_dup.buyer_spend").as("buyer_spend"),
+      col("log_impbus_preempt_dup.seller_revenue").as("seller_revenue"),
+      col("log_impbus_preempt_dup.bidder_fees").as("bidder_fees"),
+      col("log_impbus_preempt_dup.instance_id").as("instance_id"),
+      col("log_impbus_preempt_dup.fold_position").as("fold_position"),
+      col("log_impbus_preempt_dup.seller_deduction").as("seller_deduction"),
+      col("log_impbus_preempt_dup.buyer_member_id").as("buyer_member_id"),
+      col("log_impbus_preempt_dup.creative_id").as("creative_id"),
+      col("log_impbus_preempt_dup.cleared_direct").as("cleared_direct"),
+      col("log_impbus_preempt_dup.buyer_currency").as("buyer_currency"),
+      col("log_impbus_preempt_dup.buyer_exchange_rate").as(
+        "buyer_exchange_rate"
+      ),
+      col("log_impbus_preempt_dup.width").as("width"),
+      col("log_impbus_preempt_dup.height").as("height"),
+      col("log_impbus_preempt_dup.brand_id").as("brand_id"),
+      col("log_impbus_preempt_dup.creative_audit_status").as(
+        "creative_audit_status"
+      ),
+      col("log_impbus_preempt_dup.is_creative_hosted").as("is_creative_hosted"),
+      col("log_impbus_preempt_dup.vp_expose_domains").as("vp_expose_domains"),
+      col("log_impbus_preempt_dup.vp_expose_categories").as(
+        "vp_expose_categories"
+      ),
+      col("log_impbus_preempt_dup.vp_expose_pubs").as("vp_expose_pubs"),
+      col("log_impbus_preempt_dup.vp_expose_tag").as("vp_expose_tag"),
+      col("log_impbus_preempt_dup.bidder_id").as("bidder_id"),
+      col("log_impbus_preempt_dup.deal_id").as("deal_id"),
+      col("log_impbus_preempt_dup.imp_type").as("imp_type"),
+      col("log_impbus_preempt_dup.is_dw").as("is_dw"),
+      col("log_impbus_preempt_dup.vp_bitmap").as("vp_bitmap"),
+      col("log_impbus_preempt_dup.ttl").as("ttl"),
+      col("log_impbus_preempt_dup.view_detection_enabled").as(
+        "view_detection_enabled"
+      ),
+      col("log_impbus_preempt_dup.media_type").as("media_type"),
+      col("log_impbus_preempt_dup.auction_timestamp").as("auction_timestamp"),
+      col("log_impbus_preempt_dup.spend_protection").as("spend_protection"),
+      col("log_impbus_preempt_dup.viewdef_definition_id_buyer_member").as(
+        "viewdef_definition_id_buyer_member"
+      ),
+      col("log_impbus_preempt_dup.deal_type").as("deal_type"),
+      col("log_impbus_preempt_dup.ym_floor_id").as("ym_floor_id"),
+      col("log_impbus_preempt_dup.ym_bias_id").as("ym_bias_id"),
+      col("log_impbus_preempt_dup.bid_price_type").as("bid_price_type"),
+      col("log_impbus_preempt_dup.spend_protection_pixel_id").as(
+        "spend_protection_pixel_id"
+      ),
+      col("log_impbus_preempt_dup.ip_address").as("ip_address"),
+      struct(
+        col("log_impbus_preempt_dup.buyer_transaction_def.transaction_event")
+          .as("transaction_event"),
+        col(
+          "log_impbus_preempt_dup.buyer_transaction_def.transaction_event_type_id"
+        ).as("transaction_event_type_id")
+      ).as("buyer_transaction_def"),
+      struct(
+        col("log_impbus_preempt_dup.seller_transaction_def.transaction_event")
+          .as("transaction_event"),
+        col(
+          "log_impbus_preempt_dup.seller_transaction_def.transaction_event_type_id"
+        ).as("transaction_event_type_id")
+      ).as("seller_transaction_def"),
+      col("log_impbus_preempt_dup.buyer_bid").as("buyer_bid"),
+      col("log_impbus_preempt_dup.expected_events").as("expected_events"),
+      col("log_impbus_preempt_dup.accept_timestamp").as("accept_timestamp"),
+      col("log_impbus_preempt_dup.external_creative_id").as(
+        "external_creative_id"
+      ),
+      col("log_impbus_preempt_dup.seat_id").as("seat_id"),
+      col("log_impbus_preempt_dup.is_prebid_server").as("is_prebid_server"),
+      col("log_impbus_preempt_dup.curated_deal_id").as("curated_deal_id"),
+      col("log_impbus_preempt_dup.external_campaign_id").as(
+        "external_campaign_id"
+      ),
+      col("log_impbus_preempt_dup.trust_id").as("trust_id"),
+      struct(
+        col("log_impbus_preempt_dup.log_product_ads.product_feed_id").as(
+          "product_feed_id"
+        ),
+        col("log_impbus_preempt_dup.log_product_ads.item_selection_strategy_id")
+          .as("item_selection_strategy_id"),
+        col("log_impbus_preempt_dup.log_product_ads.product_uuid").as(
+          "product_uuid"
+        )
+      ).as("log_product_ads"),
+      col("log_impbus_preempt_dup.external_bidrequest_id").as(
+        "external_bidrequest_id"
+      ),
+      col("log_impbus_preempt_dup.external_bidrequest_imp_id").as(
+        "external_bidrequest_imp_id"
+      ),
+      col("log_impbus_preempt_dup.creative_media_subtype_id").as(
+        "creative_media_subtype_id"
+      )
+    ).cast(
+      StructType(
+        Array(
+          StructField("date_time",                          LongType,    true),
+          StructField("auction_id_64",                      LongType,    true),
+          StructField("imp_transacted",                     IntegerType, true),
+          StructField("buyer_spend",                        DoubleType,  true),
+          StructField("seller_revenue",                     DoubleType,  true),
+          StructField("bidder_fees",                        DoubleType,  true),
+          StructField("instance_id",                        IntegerType, true),
+          StructField("fold_position",                      IntegerType, true),
+          StructField("seller_deduction",                   DoubleType,  true),
+          StructField("buyer_member_id",                    IntegerType, true),
+          StructField("creative_id",                        IntegerType, true),
+          StructField("cleared_direct",                     IntegerType, true),
+          StructField("buyer_currency",                     StringType,  true),
+          StructField("buyer_exchange_rate",                DoubleType,  true),
+          StructField("width",                              IntegerType, true),
+          StructField("height",                             IntegerType, true),
+          StructField("brand_id",                           IntegerType, true),
+          StructField("creative_audit_status",              IntegerType, true),
+          StructField("is_creative_hosted",                 IntegerType, true),
+          StructField("vp_expose_domains",                  IntegerType, true),
+          StructField("vp_expose_categories",               IntegerType, true),
+          StructField("vp_expose_pubs",                     IntegerType, true),
+          StructField("vp_expose_tag",                      IntegerType, true),
+          StructField("bidder_id",                          IntegerType, true),
+          StructField("deal_id",                            IntegerType, true),
+          StructField("imp_type",                           IntegerType, true),
+          StructField("is_dw",                              IntegerType, true),
+          StructField("vp_bitmap",                          LongType,    true),
+          StructField("ttl",                                IntegerType, true),
+          StructField("view_detection_enabled",             IntegerType, true),
+          StructField("media_type",                         IntegerType, true),
+          StructField("auction_timestamp",                  LongType,    true),
+          StructField("spend_protection",                   IntegerType, true),
+          StructField("viewdef_definition_id_buyer_member", IntegerType, true),
+          StructField("deal_type",                          IntegerType, true),
+          StructField("ym_floor_id",                        IntegerType, true),
+          StructField("ym_bias_id",                         IntegerType, true),
+          StructField("bid_price_type",                     IntegerType, true),
+          StructField("spend_protection_pixel_id",          IntegerType, true),
+          StructField("ip_address",                         StringType,  true),
+          StructField(
+            "buyer_transaction_def",
+            StructType(
+              Array(StructField("transaction_event",         IntegerType, true),
+                    StructField("transaction_event_type_id", IntegerType, true)
+              )
+            ),
+            true
+          ),
+          StructField(
+            "seller_transaction_def",
+            StructType(
+              Array(StructField("transaction_event",         IntegerType, true),
+                    StructField("transaction_event_type_id", IntegerType, true)
+              )
+            ),
+            true
+          ),
+          StructField("buyer_bid",            DoubleType,  true),
+          StructField("expected_events",      IntegerType, true),
+          StructField("accept_timestamp",     LongType,    true),
+          StructField("external_creative_id", StringType,  true),
+          StructField("seat_id",              IntegerType, true),
+          StructField("is_prebid_server",     ByteType,    true),
+          StructField("curated_deal_id",      IntegerType, true),
+          StructField("external_campaign_id", StringType,  true),
+          StructField("trust_id",             StringType,  true),
+          StructField(
+            "log_product_ads",
+            StructType(
+              Array(
+                StructField("product_feed_id",            IntegerType, true),
+                StructField("item_selection_strategy_id", IntegerType, true),
+                StructField("product_uuid",               StringType,  true)
+              )
+            ),
+            true
+          ),
+          StructField("external_bidrequest_id",     LongType,    true),
+          StructField("external_bidrequest_imp_id", LongType,    true),
+          StructField("creative_media_subtype_id",  IntegerType, true)
+        )
+      )
+    )
+  }
+
+  def log_impbus_preempt(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    struct(
+      col("log_impbus_preempt.date_time").as("date_time"),
+      col("log_impbus_preempt.auction_id_64").as("auction_id_64"),
+      col("log_impbus_preempt.imp_transacted").as("imp_transacted"),
+      col("log_impbus_preempt.buyer_spend").as("buyer_spend"),
+      col("log_impbus_preempt.seller_revenue").as("seller_revenue"),
+      col("log_impbus_preempt.bidder_fees").as("bidder_fees"),
+      col("log_impbus_preempt.instance_id").as("instance_id"),
+      col("log_impbus_preempt.fold_position").as("fold_position"),
+      col("log_impbus_preempt.seller_deduction").as("seller_deduction"),
+      col("log_impbus_preempt.buyer_member_id").as("buyer_member_id"),
+      col("log_impbus_preempt.creative_id").as("creative_id"),
+      col("log_impbus_preempt.cleared_direct").as("cleared_direct"),
+      col("log_impbus_preempt.buyer_currency").as("buyer_currency"),
+      col("log_impbus_preempt.buyer_exchange_rate").as("buyer_exchange_rate"),
+      col("log_impbus_preempt.width").as("width"),
+      col("log_impbus_preempt.height").as("height"),
+      col("log_impbus_preempt.brand_id").as("brand_id"),
+      col("log_impbus_preempt.creative_audit_status").as(
+        "creative_audit_status"
+      ),
+      col("log_impbus_preempt.is_creative_hosted").as("is_creative_hosted"),
+      col("log_impbus_preempt.vp_expose_domains").as("vp_expose_domains"),
+      col("log_impbus_preempt.vp_expose_categories").as("vp_expose_categories"),
+      col("log_impbus_preempt.vp_expose_pubs").as("vp_expose_pubs"),
+      col("log_impbus_preempt.vp_expose_tag").as("vp_expose_tag"),
+      col("log_impbus_preempt.bidder_id").as("bidder_id"),
+      col("log_impbus_preempt.deal_id").as("deal_id"),
+      col("log_impbus_preempt.imp_type").as("imp_type"),
+      col("log_impbus_preempt.is_dw").as("is_dw"),
+      col("log_impbus_preempt.vp_bitmap").as("vp_bitmap"),
+      col("log_impbus_preempt.ttl").as("ttl"),
+      col("log_impbus_preempt.view_detection_enabled").as(
+        "view_detection_enabled"
+      ),
+      col("log_impbus_preempt.media_type").as("media_type"),
+      col("log_impbus_preempt.auction_timestamp").as("auction_timestamp"),
+      col("log_impbus_preempt.spend_protection").as("spend_protection"),
+      col("log_impbus_preempt.viewdef_definition_id_buyer_member").as(
+        "viewdef_definition_id_buyer_member"
+      ),
+      col("log_impbus_preempt.deal_type").as("deal_type"),
+      col("log_impbus_preempt.ym_floor_id").as("ym_floor_id"),
+      col("log_impbus_preempt.ym_bias_id").as("ym_bias_id"),
+      col("log_impbus_preempt.bid_price_type").as("bid_price_type"),
+      col("log_impbus_preempt.spend_protection_pixel_id").as(
+        "spend_protection_pixel_id"
+      ),
+      col("log_impbus_preempt.ip_address").as("ip_address"),
+      struct(
+        col("log_impbus_preempt.buyer_transaction_def.transaction_event").as(
+          "transaction_event"
+        ),
+        col(
+          "log_impbus_preempt.buyer_transaction_def.transaction_event_type_id"
+        ).as("transaction_event_type_id")
+      ).as("buyer_transaction_def"),
+      struct(
+        col("log_impbus_preempt.seller_transaction_def.transaction_event").as(
+          "transaction_event"
+        ),
+        col(
+          "log_impbus_preempt.seller_transaction_def.transaction_event_type_id"
+        ).as("transaction_event_type_id")
+      ).as("seller_transaction_def"),
+      col("log_impbus_preempt.buyer_bid").as("buyer_bid"),
+      col("log_impbus_preempt.expected_events").as("expected_events"),
+      col("log_impbus_preempt.accept_timestamp").as("accept_timestamp"),
+      col("log_impbus_preempt.external_creative_id").as("external_creative_id"),
+      col("log_impbus_preempt.seat_id").as("seat_id"),
+      col("log_impbus_preempt.is_prebid_server").as("is_prebid_server"),
+      col("log_impbus_preempt.curated_deal_id").as("curated_deal_id"),
+      col("log_impbus_preempt.external_campaign_id").as("external_campaign_id"),
+      col("log_impbus_preempt.trust_id").as("trust_id"),
+      struct(
+        col("log_impbus_preempt.log_product_ads.product_feed_id").as(
+          "product_feed_id"
+        ),
+        col("log_impbus_preempt.log_product_ads.item_selection_strategy_id").as(
+          "item_selection_strategy_id"
+        ),
+        col("log_impbus_preempt.log_product_ads.product_uuid").as(
+          "product_uuid"
+        )
+      ).as("log_product_ads"),
+      col("log_impbus_preempt.external_bidrequest_id").as(
+        "external_bidrequest_id"
+      ),
+      col("log_impbus_preempt.external_bidrequest_imp_id").as(
+        "external_bidrequest_imp_id"
+      ),
+      col("log_impbus_preempt.creative_media_subtype_id").as(
+        "creative_media_subtype_id"
+      )
+    ).cast(
+      StructType(
+        Array(
+          StructField("date_time",                          LongType,    true),
+          StructField("auction_id_64",                      LongType,    true),
+          StructField("imp_transacted",                     IntegerType, true),
+          StructField("buyer_spend",                        DoubleType,  true),
+          StructField("seller_revenue",                     DoubleType,  true),
+          StructField("bidder_fees",                        DoubleType,  true),
+          StructField("instance_id",                        IntegerType, true),
+          StructField("fold_position",                      IntegerType, true),
+          StructField("seller_deduction",                   DoubleType,  true),
+          StructField("buyer_member_id",                    IntegerType, true),
+          StructField("creative_id",                        IntegerType, true),
+          StructField("cleared_direct",                     IntegerType, true),
+          StructField("buyer_currency",                     StringType,  true),
+          StructField("buyer_exchange_rate",                DoubleType,  true),
+          StructField("width",                              IntegerType, true),
+          StructField("height",                             IntegerType, true),
+          StructField("brand_id",                           IntegerType, true),
+          StructField("creative_audit_status",              IntegerType, true),
+          StructField("is_creative_hosted",                 IntegerType, true),
+          StructField("vp_expose_domains",                  IntegerType, true),
+          StructField("vp_expose_categories",               IntegerType, true),
+          StructField("vp_expose_pubs",                     IntegerType, true),
+          StructField("vp_expose_tag",                      IntegerType, true),
+          StructField("bidder_id",                          IntegerType, true),
+          StructField("deal_id",                            IntegerType, true),
+          StructField("imp_type",                           IntegerType, true),
+          StructField("is_dw",                              IntegerType, true),
+          StructField("vp_bitmap",                          LongType,    true),
+          StructField("ttl",                                IntegerType, true),
+          StructField("view_detection_enabled",             IntegerType, true),
+          StructField("media_type",                         IntegerType, true),
+          StructField("auction_timestamp",                  LongType,    true),
+          StructField("spend_protection",                   IntegerType, true),
+          StructField("viewdef_definition_id_buyer_member", IntegerType, true),
+          StructField("deal_type",                          IntegerType, true),
+          StructField("ym_floor_id",                        IntegerType, true),
+          StructField("ym_bias_id",                         IntegerType, true),
+          StructField("bid_price_type",                     IntegerType, true),
+          StructField("spend_protection_pixel_id",          IntegerType, true),
+          StructField("ip_address",                         StringType,  true),
+          StructField(
+            "buyer_transaction_def",
+            StructType(
+              Array(StructField("transaction_event",         IntegerType, true),
+                    StructField("transaction_event_type_id", IntegerType, true)
+              )
+            ),
+            true
+          ),
+          StructField(
+            "seller_transaction_def",
+            StructType(
+              Array(StructField("transaction_event",         IntegerType, true),
+                    StructField("transaction_event_type_id", IntegerType, true)
+              )
+            ),
+            true
+          ),
+          StructField("buyer_bid",            DoubleType,  true),
+          StructField("expected_events",      IntegerType, true),
+          StructField("accept_timestamp",     LongType,    true),
+          StructField("external_creative_id", StringType,  true),
+          StructField("seat_id",              IntegerType, true),
+          StructField("is_prebid_server",     ByteType,    true),
+          StructField("curated_deal_id",      IntegerType, true),
+          StructField("external_campaign_id", StringType,  true),
+          StructField("trust_id",             StringType,  true),
+          StructField(
+            "log_product_ads",
+            StructType(
+              Array(
+                StructField("product_feed_id",            IntegerType, true),
+                StructField("item_selection_strategy_id", IntegerType, true),
+                StructField("product_uuid",               StringType,  true)
+              )
+            ),
+            true
+          ),
+          StructField("external_bidrequest_id",     LongType,    true),
+          StructField("external_bidrequest_imp_id", LongType,    true),
+          StructField("creative_media_subtype_id",  IntegerType, true)
+        )
+      )
+    )
+  }
+
+  def log_impbus_impressions_pricing_dup(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    struct(
+      col("log_impbus_impressions_pricing_dup.date_time").as("date_time"),
+      col("log_impbus_impressions_pricing_dup.auction_id_64").as(
+        "auction_id_64"
+      ),
+      struct(
+        col("log_impbus_impressions_pricing_dup.buyer_charges.rate_card_id").as(
+          "rate_card_id"
+        ),
+        col("log_impbus_impressions_pricing_dup.buyer_charges.member_id").as(
+          "member_id"
+        ),
+        col("log_impbus_impressions_pricing_dup.buyer_charges.is_dw").as(
+          "is_dw"
+        ),
+        col("log_impbus_impressions_pricing_dup.buyer_charges.pricing_terms")
+          .as("pricing_terms"),
+        col(
+          "log_impbus_impressions_pricing_dup.buyer_charges.fx_margin_rate_id"
+        ).as("fx_margin_rate_id"),
+        col(
+          "log_impbus_impressions_pricing_dup.buyer_charges.marketplace_owner_id"
+        ).as("marketplace_owner_id"),
+        col(
+          "log_impbus_impressions_pricing_dup.buyer_charges.virtual_marketplace_id"
+        ).as("virtual_marketplace_id"),
+        col("log_impbus_impressions_pricing_dup.buyer_charges.amino_enabled")
+          .as("amino_enabled")
+      ).as("buyer_charges"),
+      struct(
+        col("log_impbus_impressions_pricing_dup.seller_charges.rate_card_id")
+          .as("rate_card_id"),
+        col("log_impbus_impressions_pricing_dup.seller_charges.member_id").as(
+          "member_id"
+        ),
+        col("log_impbus_impressions_pricing_dup.seller_charges.is_dw").as(
+          "is_dw"
+        ),
+        col("log_impbus_impressions_pricing_dup.seller_charges.pricing_terms")
+          .as("pricing_terms"),
+        col(
+          "log_impbus_impressions_pricing_dup.seller_charges.fx_margin_rate_id"
+        ).as("fx_margin_rate_id"),
+        col(
+          "log_impbus_impressions_pricing_dup.seller_charges.marketplace_owner_id"
+        ).as("marketplace_owner_id"),
+        col(
+          "log_impbus_impressions_pricing_dup.seller_charges.virtual_marketplace_id"
+        ).as("virtual_marketplace_id"),
+        col("log_impbus_impressions_pricing_dup.seller_charges.amino_enabled")
+          .as("amino_enabled")
+      ).as("seller_charges"),
+      col("log_impbus_impressions_pricing_dup.buyer_spend").as("buyer_spend"),
+      col("log_impbus_impressions_pricing_dup.seller_revenue").as(
+        "seller_revenue"
+      ),
+      col("log_impbus_impressions_pricing_dup.rate_card_auction_type").as(
+        "rate_card_auction_type"
+      ),
+      col("log_impbus_impressions_pricing_dup.rate_card_media_type").as(
+        "rate_card_media_type"
+      ),
+      col("log_impbus_impressions_pricing_dup.direct_clear").as("direct_clear"),
+      col("log_impbus_impressions_pricing_dup.auction_timestamp").as(
+        "auction_timestamp"
+      ),
+      col("log_impbus_impressions_pricing_dup.instance_id").as("instance_id"),
+      col("log_impbus_impressions_pricing_dup.two_phase_reduction_applied").as(
+        "two_phase_reduction_applied"
+      ),
+      col("log_impbus_impressions_pricing_dup.trade_agreement_id").as(
+        "trade_agreement_id"
+      ),
+      col("log_impbus_impressions_pricing_dup.log_timestamp").as(
+        "log_timestamp"
+      ),
+      struct(
+        col(
+          "log_impbus_impressions_pricing_dup.trade_agreement_info.applied_term_id"
+        ).as("applied_term_id"),
+        col(
+          "log_impbus_impressions_pricing_dup.trade_agreement_info.applied_term_type"
+        ).as("applied_term_type"),
+        col(
+          "log_impbus_impressions_pricing_dup.trade_agreement_info.targeted_term_ids"
+        ).as("targeted_term_ids")
+      ).as("trade_agreement_info"),
+      col("log_impbus_impressions_pricing_dup.is_buy_it_now").as(
+        "is_buy_it_now"
+      ),
+      col("log_impbus_impressions_pricing_dup.net_buyer_spend").as(
+        "net_buyer_spend"
+      ),
+      struct(
+        col(
+          "log_impbus_impressions_pricing_dup.impression_event_pricing.gross_payment_value_microcents"
+        ).as("gross_payment_value_microcents"),
+        col(
+          "log_impbus_impressions_pricing_dup.impression_event_pricing.net_payment_value_microcents"
+        ).as("net_payment_value_microcents"),
+        col(
+          "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_revenue_microcents"
+        ).as("seller_revenue_microcents"),
+        struct(
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.rate_card_id"
+          ).as("rate_card_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.member_id"
+          ).as("member_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.is_dw"
+          ).as("is_dw"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.pricing_terms"
+          ).as("pricing_terms"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.fx_margin_rate_id"
+          ).as("fx_margin_rate_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.marketplace_owner_id"
+          ).as("marketplace_owner_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.virtual_marketplace_id"
+          ).as("virtual_marketplace_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_charges.amino_enabled"
+          ).as("amino_enabled")
+        ).as("buyer_charges"),
+        struct(
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.rate_card_id"
+          ).as("rate_card_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.member_id"
+          ).as("member_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.is_dw"
+          ).as("is_dw"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.pricing_terms"
+          ).as("pricing_terms"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.fx_margin_rate_id"
+          ).as("fx_margin_rate_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.marketplace_owner_id"
+          ).as("marketplace_owner_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.virtual_marketplace_id"
+          ).as("virtual_marketplace_id"),
+          col(
+            "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_charges.amino_enabled"
+          ).as("amino_enabled")
+        ).as("seller_charges"),
+        col(
+          "log_impbus_impressions_pricing_dup.impression_event_pricing.buyer_transacted"
+        ).as("buyer_transacted"),
+        col(
+          "log_impbus_impressions_pricing_dup.impression_event_pricing.seller_transacted"
+        ).as("seller_transacted")
+      ).as("impression_event_pricing"),
+      col("log_impbus_impressions_pricing_dup.counterparty_ruleset_type").as(
+        "counterparty_ruleset_type"
+      ),
+      col("log_impbus_impressions_pricing_dup.estimated_audience_imps").as(
+        "estimated_audience_imps"
+      ),
+      col("log_impbus_impressions_pricing_dup.audience_imps").as(
+        "audience_imps"
+      )
+    ).cast(
+      StructType(
+        Array(
+          StructField("date_time",     LongType, true),
+          StructField("auction_id_64", LongType, true),
+          StructField(
+            "buyer_charges",
+            StructType(
+              Array(
+                StructField("rate_card_id", IntegerType, true),
+                StructField("member_id",    IntegerType, true),
+                StructField("is_dw",        ByteType,    true),
+                StructField(
+                  "pricing_terms",
+                  ArrayType(
+                    StructType(
+                      Array(
+                        StructField("term_id",                 IntegerType, true),
+                        StructField("amount",                  DoubleType,  true),
+                        StructField("rate",                    DoubleType,  true),
+                        StructField("is_deduction",            ByteType,    true),
+                        StructField("is_media_cost_dependent", ByteType,    true),
+                        StructField("data_member_id",          IntegerType, true)
+                      )
+                    ),
+                    true
+                  ),
+                  true
+                ),
+                StructField("fx_margin_rate_id",      IntegerType, true),
+                StructField("marketplace_owner_id",   IntegerType, true),
+                StructField("virtual_marketplace_id", IntegerType, true),
+                StructField("amino_enabled",          ByteType,    true)
+              )
+            ),
+            true
+          ),
+          StructField(
+            "seller_charges",
+            StructType(
+              Array(
+                StructField("rate_card_id", IntegerType, true),
+                StructField("member_id",    IntegerType, true),
+                StructField("is_dw",        ByteType,    true),
+                StructField(
+                  "pricing_terms",
+                  ArrayType(
+                    StructType(
+                      Array(
+                        StructField("term_id",                 IntegerType, true),
+                        StructField("amount",                  DoubleType,  true),
+                        StructField("rate",                    DoubleType,  true),
+                        StructField("is_deduction",            ByteType,    true),
+                        StructField("is_media_cost_dependent", ByteType,    true),
+                        StructField("data_member_id",          IntegerType, true)
+                      )
+                    ),
+                    true
+                  ),
+                  true
+                ),
+                StructField("fx_margin_rate_id",      IntegerType, true),
+                StructField("marketplace_owner_id",   IntegerType, true),
+                StructField("virtual_marketplace_id", IntegerType, true),
+                StructField("amino_enabled",          ByteType,    true)
+              )
+            ),
+            true
+          ),
+          StructField("buyer_spend",                 DoubleType,  true),
+          StructField("seller_revenue",              DoubleType,  true),
+          StructField("rate_card_auction_type",      IntegerType, true),
+          StructField("rate_card_media_type",        IntegerType, true),
+          StructField("direct_clear",                ByteType,    true),
+          StructField("auction_timestamp",           LongType,    true),
+          StructField("instance_id",                 IntegerType, true),
+          StructField("two_phase_reduction_applied", ByteType,    true),
+          StructField("trade_agreement_id",          IntegerType, true),
+          StructField("log_timestamp",               LongType,    true),
+          StructField(
+            "trade_agreement_info",
+            StructType(
+              Array(
+                StructField("applied_term_id",   IntegerType, true),
+                StructField("applied_term_type", IntegerType, true),
+                StructField("targeted_term_ids",
+                            ArrayType(IntegerType, true),
+                            true
+                )
+              )
+            ),
+            true
+          ),
+          StructField("is_buy_it_now",   ByteType,   true),
+          StructField("net_buyer_spend", DoubleType, true),
+          StructField(
+            "impression_event_pricing",
+            StructType(
+              Array(
+                StructField("gross_payment_value_microcents", LongType, true),
+                StructField("net_payment_value_microcents",   LongType, true),
+                StructField("seller_revenue_microcents",      LongType, true),
+                StructField(
+                  "buyer_charges",
+                  StructType(
+                    Array(
+                      StructField("rate_card_id", IntegerType, true),
+                      StructField("member_id",    IntegerType, true),
+                      StructField("is_dw",        ByteType,    true),
+                      StructField(
+                        "pricing_terms",
+                        ArrayType(
+                          StructType(
+                            Array(
+                              StructField("term_id",      IntegerType, true),
+                              StructField("amount",       DoubleType,  true),
+                              StructField("rate",         DoubleType,  true),
+                              StructField("is_deduction", ByteType,    true),
+                              StructField("is_media_cost_dependent",
+                                          ByteType,
+                                          true
+                              ),
+                              StructField("data_member_id", IntegerType, true)
+                            )
+                          ),
+                          true
+                        ),
+                        true
+                      ),
+                      StructField("fx_margin_rate_id",      IntegerType, true),
+                      StructField("marketplace_owner_id",   IntegerType, true),
+                      StructField("virtual_marketplace_id", IntegerType, true),
+                      StructField("amino_enabled",          ByteType,    true)
+                    )
+                  ),
+                  true
+                ),
+                StructField(
+                  "seller_charges",
+                  StructType(
+                    Array(
+                      StructField("rate_card_id", IntegerType, true),
+                      StructField("member_id",    IntegerType, true),
+                      StructField("is_dw",        ByteType,    true),
+                      StructField(
+                        "pricing_terms",
+                        ArrayType(
+                          StructType(
+                            Array(
+                              StructField("term_id",      IntegerType, true),
+                              StructField("amount",       DoubleType,  true),
+                              StructField("rate",         DoubleType,  true),
+                              StructField("is_deduction", ByteType,    true),
+                              StructField("is_media_cost_dependent",
+                                          ByteType,
+                                          true
+                              ),
+                              StructField("data_member_id", IntegerType, true)
+                            )
+                          ),
+                          true
+                        ),
+                        true
+                      ),
+                      StructField("fx_margin_rate_id",      IntegerType, true),
+                      StructField("marketplace_owner_id",   IntegerType, true),
+                      StructField("virtual_marketplace_id", IntegerType, true),
+                      StructField("amino_enabled",          ByteType,    true)
+                    )
+                  ),
+                  true
+                ),
+                StructField("buyer_transacted",  ByteType, true),
+                StructField("seller_transacted", ByteType, true)
+              )
+            ),
+            true
+          ),
+          StructField("counterparty_ruleset_type", IntegerType, true),
+          StructField("estimated_audience_imps",   DoubleType,  true),
+          StructField("audience_imps",             DoubleType,  true)
+        )
+      )
+    )
+  }
+
+  def log_impbus_impressions_pricing(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    struct(
+      col("log_impbus_impressions_pricing.date_time").as("date_time"),
+      col("log_impbus_impressions_pricing.auction_id_64").as("auction_id_64"),
+      struct(
+        col("log_impbus_impressions_pricing.buyer_charges.rate_card_id").as(
+          "rate_card_id"
+        ),
+        col("log_impbus_impressions_pricing.buyer_charges.member_id").as(
+          "member_id"
+        ),
+        col("log_impbus_impressions_pricing.buyer_charges.is_dw").as("is_dw"),
+        col("log_impbus_impressions_pricing.buyer_charges.pricing_terms").as(
+          "pricing_terms"
+        ),
+        col("log_impbus_impressions_pricing.buyer_charges.fx_margin_rate_id")
+          .as("fx_margin_rate_id"),
+        col("log_impbus_impressions_pricing.buyer_charges.marketplace_owner_id")
+          .as("marketplace_owner_id"),
+        col(
+          "log_impbus_impressions_pricing.buyer_charges.virtual_marketplace_id"
+        ).as("virtual_marketplace_id"),
+        col("log_impbus_impressions_pricing.buyer_charges.amino_enabled").as(
+          "amino_enabled"
+        )
+      ).as("buyer_charges"),
+      struct(
+        col("log_impbus_impressions_pricing.seller_charges.rate_card_id").as(
+          "rate_card_id"
+        ),
+        col("log_impbus_impressions_pricing.seller_charges.member_id").as(
+          "member_id"
+        ),
+        col("log_impbus_impressions_pricing.seller_charges.is_dw").as("is_dw"),
+        col("log_impbus_impressions_pricing.seller_charges.pricing_terms").as(
+          "pricing_terms"
+        ),
+        col("log_impbus_impressions_pricing.seller_charges.fx_margin_rate_id")
+          .as("fx_margin_rate_id"),
+        col(
+          "log_impbus_impressions_pricing.seller_charges.marketplace_owner_id"
+        ).as("marketplace_owner_id"),
+        col(
+          "log_impbus_impressions_pricing.seller_charges.virtual_marketplace_id"
+        ).as("virtual_marketplace_id"),
+        col("log_impbus_impressions_pricing.seller_charges.amino_enabled").as(
+          "amino_enabled"
+        )
+      ).as("seller_charges"),
+      col("log_impbus_impressions_pricing.buyer_spend").as("buyer_spend"),
+      col("log_impbus_impressions_pricing.seller_revenue").as("seller_revenue"),
+      col("log_impbus_impressions_pricing.rate_card_auction_type").as(
+        "rate_card_auction_type"
+      ),
+      col("log_impbus_impressions_pricing.rate_card_media_type").as(
+        "rate_card_media_type"
+      ),
+      col("log_impbus_impressions_pricing.direct_clear").as("direct_clear"),
+      col("log_impbus_impressions_pricing.auction_timestamp").as(
+        "auction_timestamp"
+      ),
+      col("log_impbus_impressions_pricing.instance_id").as("instance_id"),
+      col("log_impbus_impressions_pricing.two_phase_reduction_applied").as(
+        "two_phase_reduction_applied"
+      ),
+      col("log_impbus_impressions_pricing.trade_agreement_id").as(
+        "trade_agreement_id"
+      ),
+      col("log_impbus_impressions_pricing.log_timestamp").as("log_timestamp"),
+      struct(
+        col(
+          "log_impbus_impressions_pricing.trade_agreement_info.applied_term_id"
+        ).as("applied_term_id"),
+        col(
+          "log_impbus_impressions_pricing.trade_agreement_info.applied_term_type"
+        ).as("applied_term_type"),
+        col(
+          "log_impbus_impressions_pricing.trade_agreement_info.targeted_term_ids"
+        ).as("targeted_term_ids")
+      ).as("trade_agreement_info"),
+      col("log_impbus_impressions_pricing.is_buy_it_now").as("is_buy_it_now"),
+      col("log_impbus_impressions_pricing.net_buyer_spend").as(
+        "net_buyer_spend"
+      ),
+      struct(
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.gross_payment_value_microcents"
+        ).as("gross_payment_value_microcents"),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.net_payment_value_microcents"
+        ).as("net_payment_value_microcents"),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.seller_revenue_microcents"
+        ).as("seller_revenue_microcents"),
+        struct(
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.rate_card_id"
+          ).as("rate_card_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.member_id"
+          ).as("member_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.is_dw"
+          ).as("is_dw"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.pricing_terms"
+          ).as("pricing_terms"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.fx_margin_rate_id"
+          ).as("fx_margin_rate_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.marketplace_owner_id"
+          ).as("marketplace_owner_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.virtual_marketplace_id"
+          ).as("virtual_marketplace_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.buyer_charges.amino_enabled"
+          ).as("amino_enabled")
+        ).as("buyer_charges"),
+        struct(
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.rate_card_id"
+          ).as("rate_card_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.member_id"
+          ).as("member_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.is_dw"
+          ).as("is_dw"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.pricing_terms"
+          ).as("pricing_terms"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.fx_margin_rate_id"
+          ).as("fx_margin_rate_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.marketplace_owner_id"
+          ).as("marketplace_owner_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.virtual_marketplace_id"
+          ).as("virtual_marketplace_id"),
+          col(
+            "log_impbus_impressions_pricing.impression_event_pricing.seller_charges.amino_enabled"
+          ).as("amino_enabled")
+        ).as("seller_charges"),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.buyer_transacted"
+        ).as("buyer_transacted"),
+        col(
+          "log_impbus_impressions_pricing.impression_event_pricing.seller_transacted"
+        ).as("seller_transacted")
+      ).as("impression_event_pricing"),
+      col("log_impbus_impressions_pricing.counterparty_ruleset_type").as(
+        "counterparty_ruleset_type"
+      ),
+      col("log_impbus_impressions_pricing.estimated_audience_imps").as(
+        "estimated_audience_imps"
+      ),
+      col("log_impbus_impressions_pricing.audience_imps").as("audience_imps")
+    ).cast(
+      StructType(
+        Array(
+          StructField("date_time",     LongType, true),
+          StructField("auction_id_64", LongType, true),
+          StructField(
+            "buyer_charges",
+            StructType(
+              Array(
+                StructField("rate_card_id", IntegerType, true),
+                StructField("member_id",    IntegerType, true),
+                StructField("is_dw",        ByteType,    true),
+                StructField(
+                  "pricing_terms",
+                  ArrayType(
+                    StructType(
+                      Array(
+                        StructField("term_id",                 IntegerType, true),
+                        StructField("amount",                  DoubleType,  true),
+                        StructField("rate",                    DoubleType,  true),
+                        StructField("is_deduction",            ByteType,    true),
+                        StructField("is_media_cost_dependent", ByteType,    true),
+                        StructField("data_member_id",          IntegerType, true)
+                      )
+                    ),
+                    true
+                  ),
+                  true
+                ),
+                StructField("fx_margin_rate_id",      IntegerType, true),
+                StructField("marketplace_owner_id",   IntegerType, true),
+                StructField("virtual_marketplace_id", IntegerType, true),
+                StructField("amino_enabled",          ByteType,    true)
+              )
+            ),
+            true
+          ),
+          StructField(
+            "seller_charges",
+            StructType(
+              Array(
+                StructField("rate_card_id", IntegerType, true),
+                StructField("member_id",    IntegerType, true),
+                StructField("is_dw",        ByteType,    true),
+                StructField(
+                  "pricing_terms",
+                  ArrayType(
+                    StructType(
+                      Array(
+                        StructField("term_id",                 IntegerType, true),
+                        StructField("amount",                  DoubleType,  true),
+                        StructField("rate",                    DoubleType,  true),
+                        StructField("is_deduction",            ByteType,    true),
+                        StructField("is_media_cost_dependent", ByteType,    true),
+                        StructField("data_member_id",          IntegerType, true)
+                      )
+                    ),
+                    true
+                  ),
+                  true
+                ),
+                StructField("fx_margin_rate_id",      IntegerType, true),
+                StructField("marketplace_owner_id",   IntegerType, true),
+                StructField("virtual_marketplace_id", IntegerType, true),
+                StructField("amino_enabled",          ByteType,    true)
+              )
+            ),
+            true
+          ),
+          StructField("buyer_spend",                 DoubleType,  true),
+          StructField("seller_revenue",              DoubleType,  true),
+          StructField("rate_card_auction_type",      IntegerType, true),
+          StructField("rate_card_media_type",        IntegerType, true),
+          StructField("direct_clear",                ByteType,    true),
+          StructField("auction_timestamp",           LongType,    true),
+          StructField("instance_id",                 IntegerType, true),
+          StructField("two_phase_reduction_applied", ByteType,    true),
+          StructField("trade_agreement_id",          IntegerType, true),
+          StructField("log_timestamp",               LongType,    true),
+          StructField(
+            "trade_agreement_info",
+            StructType(
+              Array(
+                StructField("applied_term_id",   IntegerType, true),
+                StructField("applied_term_type", IntegerType, true),
+                StructField("targeted_term_ids",
+                            ArrayType(IntegerType, true),
+                            true
+                )
+              )
+            ),
+            true
+          ),
+          StructField("is_buy_it_now",   ByteType,   true),
+          StructField("net_buyer_spend", DoubleType, true),
+          StructField(
+            "impression_event_pricing",
+            StructType(
+              Array(
+                StructField("gross_payment_value_microcents", LongType, true),
+                StructField("net_payment_value_microcents",   LongType, true),
+                StructField("seller_revenue_microcents",      LongType, true),
+                StructField(
+                  "buyer_charges",
+                  StructType(
+                    Array(
+                      StructField("rate_card_id", IntegerType, true),
+                      StructField("member_id",    IntegerType, true),
+                      StructField("is_dw",        ByteType,    true),
+                      StructField(
+                        "pricing_terms",
+                        ArrayType(
+                          StructType(
+                            Array(
+                              StructField("term_id",      IntegerType, true),
+                              StructField("amount",       DoubleType,  true),
+                              StructField("rate",         DoubleType,  true),
+                              StructField("is_deduction", ByteType,    true),
+                              StructField("is_media_cost_dependent",
+                                          ByteType,
+                                          true
+                              ),
+                              StructField("data_member_id", IntegerType, true)
+                            )
+                          ),
+                          true
+                        ),
+                        true
+                      ),
+                      StructField("fx_margin_rate_id",      IntegerType, true),
+                      StructField("marketplace_owner_id",   IntegerType, true),
+                      StructField("virtual_marketplace_id", IntegerType, true),
+                      StructField("amino_enabled",          ByteType,    true)
+                    )
+                  ),
+                  true
+                ),
+                StructField(
+                  "seller_charges",
+                  StructType(
+                    Array(
+                      StructField("rate_card_id", IntegerType, true),
+                      StructField("member_id",    IntegerType, true),
+                      StructField("is_dw",        ByteType,    true),
+                      StructField(
+                        "pricing_terms",
+                        ArrayType(
+                          StructType(
+                            Array(
+                              StructField("term_id",      IntegerType, true),
+                              StructField("amount",       DoubleType,  true),
+                              StructField("rate",         DoubleType,  true),
+                              StructField("is_deduction", ByteType,    true),
+                              StructField("is_media_cost_dependent",
+                                          ByteType,
+                                          true
+                              ),
+                              StructField("data_member_id", IntegerType, true)
+                            )
+                          ),
+                          true
+                        ),
+                        true
+                      ),
+                      StructField("fx_margin_rate_id",      IntegerType, true),
+                      StructField("marketplace_owner_id",   IntegerType, true),
+                      StructField("virtual_marketplace_id", IntegerType, true),
+                      StructField("amino_enabled",          ByteType,    true)
+                    )
+                  ),
+                  true
+                ),
+                StructField("buyer_transacted",  ByteType, true),
+                StructField("seller_transacted", ByteType, true)
+              )
+            ),
+            true
+          ),
+          StructField("counterparty_ruleset_type", IntegerType, true),
+          StructField("estimated_audience_imps",   DoubleType,  true),
+          StructField("audience_imps",             DoubleType,  true)
         )
       )
     )

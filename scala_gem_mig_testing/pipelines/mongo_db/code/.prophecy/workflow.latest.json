@@ -24,7 +24,7 @@
       "language" : "scala",
       "udfs" : [ ],
       "functionPackageName" : "abhinavprophecyioteam.scalamigtestinggit.functions",
-      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions" ]
+      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions", "io.prophecy.warehousegems.functions" ]
     },
     "udafs" : {
       "language" : "scala",
@@ -62,6 +62,10 @@
     "dependentProjectExternalDependencies" : [ {
       "projectUID" : "39",
       "projectName" : "ProphecySparkBasicsScala",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "40",
+      "projectName" : "ProphecyWarehouseScala",
       "externalDependencies" : [ ]
     } ],
     "isImported" : false,
@@ -285,7 +289,7 @@
     "autoUpdateOnRun" : false
   },
   "diagnostics" : [ {
-    "property" : "$.workflow.processes.xVua3Ohhjqs11Q4b6-ad1$$BqQmhtAnyWqKxk13FltL2.properties.secretPassword",
+    "property" : "$.workflow.processes.xVua3Ohhjqs11Q4b6-ad1$$BqQmhtAnyWqKxk13FltL2.properties.format",
     "range" : {
       "start" : {
         "line" : 0,
@@ -297,7 +301,7 @@
       }
     },
     "severity" : 1,
-    "message" : "Storing plain-text passwords poses a security risk and is not recommended. Please see https://docs.prophecy.io/low-code-spark/best-practices/use-dbx-secrets for suggested alternatives",
+    "message" : "format: mongodb not supported",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1
@@ -319,7 +323,7 @@
     "relatedInformation" : [ ],
     "diagnosticType" : 1
   }, {
-    "property" : "$.workflow.processes.HSa5v4o5Kq9fRAz1k2SEs$$royi8Zlk0a9Xv4-3N-yjy.properties.secretPassword",
+    "property" : "$.workflow.processes.qJiIX2vF1gTIeh3cwnXqY$$yGziEe3rlnmu4IDMPzxLs.properties.format",
     "range" : {
       "start" : {
         "line" : 0,
@@ -331,12 +335,12 @@
       }
     },
     "severity" : 1,
-    "message" : "Password field cannot be empty [Location]",
+    "message" : "format: mongodb not supported",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1
   }, {
-    "property" : "$.workflow.processes.HSa5v4o5Kq9fRAz1k2SEs$$royi8Zlk0a9Xv4-3N-yjy.properties.secretUsername",
+    "property" : "$.workflow.processes.HSa5v4o5Kq9fRAz1k2SEs$$royi8Zlk0a9Xv4-3N-yjy.properties.format",
     "range" : {
       "start" : {
         "line" : 0,
@@ -348,7 +352,7 @@
       }
     },
     "severity" : 1,
-    "message" : "Username field cannot be empty [Location]",
+    "message" : "format: mongodb not supported",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1
@@ -370,7 +374,7 @@
     "relatedInformation" : [ ],
     "diagnosticType" : 1
   }, {
-    "property" : "$.workflow.processes.o2uRfAA3HGff8dTVsV9vc$$sLQFpLBsXsoH_--GeoEc1.properties.secretPassword",
+    "property" : "$.workflow.processes.o2uRfAA3HGff8dTVsV9vc$$sLQFpLBsXsoH_--GeoEc1.properties.format",
     "range" : {
       "start" : {
         "line" : 0,
@@ -382,12 +386,12 @@
       }
     },
     "severity" : 1,
-    "message" : "Storing plain-text passwords poses a security risk and is not recommended. Please see https://docs.prophecy.io/low-code-spark/best-practices/use-dbx-secrets for suggested alternatives",
+    "message" : "format: mongodb not supported",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1
   }, {
-    "property" : "$.workflow.processes.Zi0wFu-u0_AetDE1pj980$$spfqdQ3vrV-bO9WMlIMaR.properties.dataset.schema",
+    "property" : "$.workflow.processes.Zi0wFu-u0_AetDE1pj980$$spfqdQ3vrV-bO9WMlIMaR.properties.format",
     "range" : {
       "start" : {
         "line" : 0,
@@ -398,8 +402,8 @@
         "character" : 0
       }
     },
-    "severity" : 2,
-    "message" : "Missing Schema. Please infer schema or provide it manually.",
+    "severity" : 1,
+    "message" : "format: mongodb not supported",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1
@@ -421,7 +425,7 @@
     "relatedInformation" : [ ],
     "diagnosticType" : 1
   }, {
-    "property" : "$.workflow.processes.ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y.properties.secretPassword",
+    "property" : "$.workflow.processes.ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y.properties.format",
     "range" : {
       "start" : {
         "line" : 0,
@@ -433,24 +437,7 @@
       }
     },
     "severity" : 2,
-    "message" : "Password field cannot be empty [Location]",
-    "tags" : [ ],
-    "relatedInformation" : [ ],
-    "diagnosticType" : 1
-  }, {
-    "property" : "$.workflow.processes.ZgTPyHncKKwL6qLiAOKz_$$kUZWyGTFAPL8rVDhVsW0Y.properties.secretUsername",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 2,
-    "message" : "Username field cannot be empty [Location]",
+    "message" : "format: mongodb not supported",
     "tags" : [ ],
     "relatedInformation" : [ ],
     "diagnosticType" : 1

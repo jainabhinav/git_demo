@@ -208,98 +208,6 @@ object Rollup_log_impbus_impressions_pricing {
     )
   }
 
-  def log_impbus_preempt(context: Context) = {
-    val spark  = context.spark
-    val Config = context.config
-    lit(null).cast(
-      StructType(
-        Array(
-          StructField("date_time",                          LongType,    true),
-          StructField("auction_id_64",                      LongType,    true),
-          StructField("imp_transacted",                     IntegerType, true),
-          StructField("buyer_spend",                        DoubleType,  true),
-          StructField("seller_revenue",                     DoubleType,  true),
-          StructField("bidder_fees",                        DoubleType,  true),
-          StructField("instance_id",                        IntegerType, true),
-          StructField("fold_position",                      IntegerType, true),
-          StructField("seller_deduction",                   DoubleType,  true),
-          StructField("buyer_member_id",                    IntegerType, true),
-          StructField("creative_id",                        IntegerType, true),
-          StructField("cleared_direct",                     IntegerType, true),
-          StructField("buyer_currency",                     StringType,  true),
-          StructField("buyer_exchange_rate",                DoubleType,  true),
-          StructField("width",                              IntegerType, true),
-          StructField("height",                             IntegerType, true),
-          StructField("brand_id",                           IntegerType, true),
-          StructField("creative_audit_status",              IntegerType, true),
-          StructField("is_creative_hosted",                 IntegerType, true),
-          StructField("vp_expose_domains",                  IntegerType, true),
-          StructField("vp_expose_categories",               IntegerType, true),
-          StructField("vp_expose_pubs",                     IntegerType, true),
-          StructField("vp_expose_tag",                      IntegerType, true),
-          StructField("bidder_id",                          IntegerType, true),
-          StructField("deal_id",                            IntegerType, true),
-          StructField("imp_type",                           IntegerType, true),
-          StructField("is_dw",                              IntegerType, true),
-          StructField("vp_bitmap",                          LongType,    true),
-          StructField("ttl",                                IntegerType, true),
-          StructField("view_detection_enabled",             IntegerType, true),
-          StructField("media_type",                         IntegerType, true),
-          StructField("auction_timestamp",                  LongType,    true),
-          StructField("spend_protection",                   IntegerType, true),
-          StructField("viewdef_definition_id_buyer_member", IntegerType, true),
-          StructField("deal_type",                          IntegerType, true),
-          StructField("ym_floor_id",                        IntegerType, true),
-          StructField("ym_bias_id",                         IntegerType, true),
-          StructField("bid_price_type",                     IntegerType, true),
-          StructField("spend_protection_pixel_id",          IntegerType, true),
-          StructField("ip_address",                         StringType,  true),
-          StructField(
-            "buyer_transaction_def",
-            StructType(
-              Array(StructField("transaction_event",         IntegerType, true),
-                    StructField("transaction_event_type_id", IntegerType, true)
-              )
-            ),
-            true
-          ),
-          StructField(
-            "seller_transaction_def",
-            StructType(
-              Array(StructField("transaction_event",         IntegerType, true),
-                    StructField("transaction_event_type_id", IntegerType, true)
-              )
-            ),
-            true
-          ),
-          StructField("buyer_bid",            DoubleType,  true),
-          StructField("expected_events",      IntegerType, true),
-          StructField("accept_timestamp",     LongType,    true),
-          StructField("external_creative_id", StringType,  true),
-          StructField("seat_id",              IntegerType, true),
-          StructField("is_prebid_server",     ByteType,    true),
-          StructField("curated_deal_id",      IntegerType, true),
-          StructField("external_campaign_id", StringType,  true),
-          StructField("trust_id",             StringType,  true),
-          StructField(
-            "log_product_ads",
-            StructType(
-              Array(
-                StructField("product_feed_id",            IntegerType, true),
-                StructField("item_selection_strategy_id", IntegerType, true),
-                StructField("product_uuid",               StringType,  true)
-              )
-            ),
-            true
-          ),
-          StructField("external_bidrequest_id",     LongType,    true),
-          StructField("external_bidrequest_imp_id", LongType,    true),
-          StructField("creative_media_subtype_id",  IntegerType, true)
-        )
-      )
-    )
-  }
-
   def log_impbus_impressions(context: Context) = {
     val spark  = context.spark
     val Config = context.config
@@ -578,6 +486,98 @@ object Rollup_log_impbus_impressions_pricing {
           StructField("private_auction_eligible",  ByteType,    true),
           StructField("client_request_id",         StringType,  true),
           StructField("chrome_traffic_label",      IntegerType, true)
+        )
+      )
+    )
+  }
+
+  def log_impbus_preempt(context: Context) = {
+    val spark  = context.spark
+    val Config = context.config
+    lit(null).cast(
+      StructType(
+        Array(
+          StructField("date_time",                          LongType,    true),
+          StructField("auction_id_64",                      LongType,    true),
+          StructField("imp_transacted",                     IntegerType, true),
+          StructField("buyer_spend",                        DoubleType,  true),
+          StructField("seller_revenue",                     DoubleType,  true),
+          StructField("bidder_fees",                        DoubleType,  true),
+          StructField("instance_id",                        IntegerType, true),
+          StructField("fold_position",                      IntegerType, true),
+          StructField("seller_deduction",                   DoubleType,  true),
+          StructField("buyer_member_id",                    IntegerType, true),
+          StructField("creative_id",                        IntegerType, true),
+          StructField("cleared_direct",                     IntegerType, true),
+          StructField("buyer_currency",                     StringType,  true),
+          StructField("buyer_exchange_rate",                DoubleType,  true),
+          StructField("width",                              IntegerType, true),
+          StructField("height",                             IntegerType, true),
+          StructField("brand_id",                           IntegerType, true),
+          StructField("creative_audit_status",              IntegerType, true),
+          StructField("is_creative_hosted",                 IntegerType, true),
+          StructField("vp_expose_domains",                  IntegerType, true),
+          StructField("vp_expose_categories",               IntegerType, true),
+          StructField("vp_expose_pubs",                     IntegerType, true),
+          StructField("vp_expose_tag",                      IntegerType, true),
+          StructField("bidder_id",                          IntegerType, true),
+          StructField("deal_id",                            IntegerType, true),
+          StructField("imp_type",                           IntegerType, true),
+          StructField("is_dw",                              IntegerType, true),
+          StructField("vp_bitmap",                          LongType,    true),
+          StructField("ttl",                                IntegerType, true),
+          StructField("view_detection_enabled",             IntegerType, true),
+          StructField("media_type",                         IntegerType, true),
+          StructField("auction_timestamp",                  LongType,    true),
+          StructField("spend_protection",                   IntegerType, true),
+          StructField("viewdef_definition_id_buyer_member", IntegerType, true),
+          StructField("deal_type",                          IntegerType, true),
+          StructField("ym_floor_id",                        IntegerType, true),
+          StructField("ym_bias_id",                         IntegerType, true),
+          StructField("bid_price_type",                     IntegerType, true),
+          StructField("spend_protection_pixel_id",          IntegerType, true),
+          StructField("ip_address",                         StringType,  true),
+          StructField(
+            "buyer_transaction_def",
+            StructType(
+              Array(StructField("transaction_event",         IntegerType, true),
+                    StructField("transaction_event_type_id", IntegerType, true)
+              )
+            ),
+            true
+          ),
+          StructField(
+            "seller_transaction_def",
+            StructType(
+              Array(StructField("transaction_event",         IntegerType, true),
+                    StructField("transaction_event_type_id", IntegerType, true)
+              )
+            ),
+            true
+          ),
+          StructField("buyer_bid",            DoubleType,  true),
+          StructField("expected_events",      IntegerType, true),
+          StructField("accept_timestamp",     LongType,    true),
+          StructField("external_creative_id", StringType,  true),
+          StructField("seat_id",              IntegerType, true),
+          StructField("is_prebid_server",     ByteType,    true),
+          StructField("curated_deal_id",      IntegerType, true),
+          StructField("external_campaign_id", StringType,  true),
+          StructField("trust_id",             StringType,  true),
+          StructField(
+            "log_product_ads",
+            StructType(
+              Array(
+                StructField("product_feed_id",            IntegerType, true),
+                StructField("item_selection_strategy_id", IntegerType, true),
+                StructField("product_uuid",               StringType,  true)
+              )
+            ),
+            true
+          ),
+          StructField("external_bidrequest_id",     LongType,    true),
+          StructField("external_bidrequest_imp_id", LongType,    true),
+          StructField("creative_media_subtype_id",  IntegerType, true)
         )
       )
     )

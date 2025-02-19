@@ -11,18 +11,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <scalaBaseVersion>2.12</scalaBaseVersion>
         <scalaVersion>2.12.15</scalaVersion>
         <sparkVersion>3.3.0</sparkVersion>
-        <prophecyLibsVersion>8.0.4</prophecyLibsVersion>
+        <prophecyLibsVersion>8.8.1-SNAPSHOT</prophecyLibsVersion>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-protobuf_2.12</artifactId>
             <version>3.5.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.databricks</groupId>
-            <artifactId>dbutils-api_2.12</artifactId>
-            <version>0.0.6</version>
         </dependency>
         <dependency>
             <groupId>org.pf4j</groupId>
@@ -63,6 +58,16 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
             <groupId>io.prophecy</groupId>
             <artifactId>prophecy-scala-gem-libs_2.12</artifactId>
             <version>1.1.14</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.hadoop</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.scalatest</groupId>
@@ -73,6 +78,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
             <groupId>com.holdenkarau</groupId>
             <artifactId>spark-testing-base_${scalaBaseVersion}</artifactId>
             <version>3.0.1_1.1.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.scalameta</groupId>

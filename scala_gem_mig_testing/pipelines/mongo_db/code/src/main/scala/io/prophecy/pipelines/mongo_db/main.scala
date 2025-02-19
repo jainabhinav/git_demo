@@ -15,13 +15,7 @@ import java.time._
 object Main {
 
   def apply(context: Context): Unit = {
-    val df_mongodb_old_us_ps = mongodb_old_us_ps(context)
-    mongodb_old_db_sec_1(context)
-    val df_customers          = customers(context)
-    val df_mongodb_old_config = mongodb_old_config(context)
-    mongodb_old_us_ps_1(context)
-    val df_mongodb_old_db_sec = mongodb_old_db_sec(context)
-    mongodb_old_config_1(context, df_mongodb_old_config)
+    val df_customers = customers(context)
   }
 
   def main(args: Array[String]): Unit = {

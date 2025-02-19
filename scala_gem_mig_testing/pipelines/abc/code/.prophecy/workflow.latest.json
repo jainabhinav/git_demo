@@ -23,7 +23,7 @@
       "language" : "scala",
       "udfs" : [ ],
       "functionPackageName" : "abhinavprophecyioteam.scalamigtestinggit.functions",
-      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions" ]
+      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions", "io.prophecy.warehousegems.functions" ]
     },
     "udafs" : {
       "language" : "scala",
@@ -88,6 +88,10 @@
     "dependentProjectExternalDependencies" : [ {
       "projectUID" : "39",
       "projectName" : "ProphecySparkBasicsScala",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "40",
+      "projectName" : "ProphecyWarehouseScala",
       "externalDependencies" : [ ]
     } ],
     "isImported" : false,
