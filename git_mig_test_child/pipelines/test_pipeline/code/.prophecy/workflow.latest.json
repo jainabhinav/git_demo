@@ -73,8 +73,8 @@
       "projectName" : "ProphecyWarehouseScala",
       "externalDependencies" : [ ]
     }, {
-      "projectUID" : "22092",
-      "projectName" : "git_parent_test_mig",
+      "projectUID" : "22094",
+      "projectName" : "git_parent_test_mig_new",
       "externalDependencies" : [ {
         "type" : "plibMaven",
         "modifiedAt" : "2025-03-10T05:04:34.719746Z",
@@ -103,21 +103,21 @@
     "target" : "TKB_CqnkUAKstxN284beh$$SaJBqyz5fXwvzuGr0pV1J",
     "targetPort" : "bpdP2Vctw0LB-4vXtt8Bp$$3HcXDb3GGACYxqh27g4Ky"
   }, {
-    "id" : "8iRHhODLIkExF9ZngPaer$$wmqzHwQN7P-q_u07gHWIw",
-    "source" : "zU0QtgOq1lCT6BScVLrYv$$fqiYqSZFt-077rHa0SmXd",
-    "sourcePort" : "A4-p6W3jdZ-emNPwDLRVO$$buzzVqBJgZTa4LqKta4vr",
-    "target" : "ZTPaxuA1IJ1XEUCRrxi5K$$m51ZZFYCPW81TOlRxnAT3",
-    "targetPort" : "6U3FQR92ggcrGhJHgpw27$$Fc_ZPg68SWpeCRh58zlZ6"
+    "id" : "jPww3dvxWaPIi6lH55eeZ",
+    "source" : "eWPgauo_YT_CyG2DuY2Bj$$LeYTPrITExoJl_Vkis5WM",
+    "sourcePort" : "jXuytvxzz6GeVup-AGHnh$$wR_gwuHia9dUnj5_Jg21W",
+    "target" : "rEwE2TUZY9fVPMJ_y1PrD$$zbxxgcH-AORg4P1IWFRwS",
+    "targetPort" : "bMdh4Brq4QGvIM8xS9tEW$$TJP9QD6nM-ZV6C2yLZbiX"
   } ],
   "processes" : {
-    "FduUOO8DnfIVLFY8ULnLO$$7xZf-shynqNynQhQuF4q_" : {
-      "id" : "FduUOO8DnfIVLFY8ULnLO$$7xZf-shynqNynQhQuF4q_",
+    "eWPgauo_YT_CyG2DuY2Bj$$LeYTPrITExoJl_Vkis5WM" : {
+      "id" : "eWPgauo_YT_CyG2DuY2Bj$$LeYTPrITExoJl_Vkis5WM",
       "component" : "Source",
       "metadata" : {
-        "label" : "csv_child_basics",
-        "slug" : "csv_child_basics",
-        "x" : -540,
-        "y" : -140,
+        "label" : "csv_child_proj_new",
+        "slug" : "csv_child_proj_new",
+        "x" : -520,
+        "y" : 40,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -126,7 +126,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "1pH-KO-SY3CUYAatCbFsK$$l3ZiJhGGdvA2YRUVEoHkY",
+          "id" : "jXuytvxzz6GeVup-AGHnh$$wR_gwuHia9dUnj5_Jg21W",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -134,7 +134,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "datasets/csv_child_basics"
+        "datasetId" : "datasets/csv_child_proj_new"
       }
     },
     "TKB_CqnkUAKstxN284beh$$SaJBqyz5fXwvzuGr0pV1J" : {
@@ -198,40 +198,13 @@
         "projectName" : "ProphecySparkBasicsScala"
       }
     },
-    "zU0QtgOq1lCT6BScVLrYv$$fqiYqSZFt-077rHa0SmXd" : {
-      "id" : "zU0QtgOq1lCT6BScVLrYv$$fqiYqSZFt-077rHa0SmXd",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "csv_child_proj",
-        "slug" : "csv_child_proj",
-        "x" : -480,
-        "y" : 40,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "A4-p6W3jdZ-emNPwDLRVO$$buzzVqBJgZTa4LqKta4vr",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/csv_child_proj"
-      }
-    },
-    "ZTPaxuA1IJ1XEUCRrxi5K$$m51ZZFYCPW81TOlRxnAT3" : {
-      "id" : "ZTPaxuA1IJ1XEUCRrxi5K$$m51ZZFYCPW81TOlRxnAT3",
+    "rEwE2TUZY9fVPMJ_y1PrD$$zbxxgcH-AORg4P1IWFRwS" : {
+      "id" : "rEwE2TUZY9fVPMJ_y1PrD$$zbxxgcH-AORg4P1IWFRwS",
       "component" : "Filter",
       "metadata" : {
-        "label" : "Filter_2",
-        "slug" : "Filter_2",
-        "x" : -300,
+        "label" : "Filter_3",
+        "slug" : "Filter_3",
+        "x" : -380,
         "y" : 40,
         "phase" : 0,
         "cache" : false,
@@ -240,7 +213,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "6U3FQR92ggcrGhJHgpw27$$Fc_ZPg68SWpeCRh58zlZ6",
+          "id" : "bMdh4Brq4QGvIM8xS9tEW$$TJP9QD6nM-ZV6C2yLZbiX",
           "slug" : "in",
           "schema" : {
             "type" : "struct",
@@ -254,7 +227,7 @@
                 "tags" : [ ]
               }
             }, {
-              "name" : "s",
+              "name" : "b",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -267,7 +240,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "2szfqvO74XonnOlM_v8Mf$$Fj9vRp8buWs4uv1grF_3G",
+          "id" : "5DXyaqTk02RcVCNZa7zIR$$pkhTBdOI_ZMP3udc63ZVj",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -282,8 +255,35 @@
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=https://github.com/jainabhinav/test_git&subPath=/git_parent_test_mig&tag=git_parent_test_mig/0.4&projectSubscriptionProjectId=22092&path=gems/Filter",
-        "projectName" : "git_parent_test_mig"
+        "gemId" : "gitUri=https://github.com/jainabhinav/git_demo&subPath=/git_parent_test_mig&tag=git_parent_test_mig_new/1.8&projectSubscriptionProjectId=22094&path=gems/Filter",
+        "projectName" : "git_parent_test_mig_new"
+      }
+    },
+    "FduUOO8DnfIVLFY8ULnLO$$7xZf-shynqNynQhQuF4q_" : {
+      "id" : "FduUOO8DnfIVLFY8ULnLO$$7xZf-shynqNynQhQuF4q_",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "csv_child_basics",
+        "slug" : "csv_child_basics",
+        "x" : -540,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "1pH-KO-SY3CUYAatCbFsK$$l3ZiJhGGdvA2YRUVEoHkY",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/csv_child_basics"
       }
     }
   },

@@ -22,7 +22,7 @@ pipelines:
     datasets:
       inputs:
       - datasets/csv_child_basics
-      - datasets/csv_child_proj
+      - datasets/csv_child_proj_new
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -53,6 +53,19 @@ datasets:
         description: ''
         author: admin@prophecy.io
         createdAt: '2025-03-10 08:47:05'
+  datasets/csv_child_proj_new:
+    name: csv_child_proj_new
+    description: ''
+    author: admin@prophecy.io
+    createdAt: '2025-03-10 14:24:59'
+    mode: batch
+    physicalDatasets:
+      dev1:
+        fabricId: 1842
+        datasetType: File
+        description: ''
+        author: admin@prophecy.io
+        createdAt: '2025-03-10 14:24:59'
 templates: {}
 jobs: {}
 gemContainer:
@@ -101,14 +114,14 @@ projectDependencies:
     isDefault: true
     author: null
     createdAt: '2025-03-10 08:44:24'
-  '22092':
-    projectUID: 22092
-    projectName: git_parent_test_mig
-    repositoryPath: gitUri=https://github.com/jainabhinav/test_git&subPath=/git_parent_test_mig
-    version: git_parent_test_mig/0.4
+  '22094':
+    projectUID: 22094
+    projectName: git_parent_test_mig_new
+    repositoryPath: gitUri=https://github.com/jainabhinav/git_demo&subPath=/git_parent_test_mig
+    version: git_parent_test_mig_new/1.8
     isDefault: false
     author: null
-    createdAt: '2025-03-10 08:45:34'
+    createdAt: '2025-03-10 14:15:22'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

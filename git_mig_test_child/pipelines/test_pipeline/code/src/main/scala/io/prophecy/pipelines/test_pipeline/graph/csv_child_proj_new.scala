@@ -9,7 +9,7 @@ import org.apache.spark.sql.types._
 import org.apache.spark.sql.expressions._
 import java.time._
 
-object csv_child_proj {
+object csv_child_proj_new {
 
   def apply(context: Context): DataFrame =
     context.spark.read
@@ -19,10 +19,10 @@ object csv_child_proj {
       .schema(
         StructType(
           Array(StructField("a", StringType, true),
-                StructField("s", StringType, true)
+                StructField("b", StringType, true)
           )
         )
       )
-      .load("asdasd")
+      .load("asdas")
 
 }
