@@ -1,0 +1,114 @@
+name: git_mig_test_child
+description: ''
+version: 0.0.1
+author: admin@prophecy.io
+language: scala
+buildSystem: ''
+buildSystemDetails:
+  artefactID: gitmigtestchild
+  parentArtefactID: adminprophecyioteam
+  buildSystem: maven
+  author: null
+  createdAt: '2025-03-10 08:45:13'
+pipelines:
+  pipelines/test_pipeline:
+    name: test_pipeline
+    description: ''
+    author: admin@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2025-03-10 08:45:46'
+    datasets:
+      inputs:
+      - datasets/csv_child_basics
+      - datasets/csv_child_proj
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+datasets:
+  datasets/csv_child_basics:
+    name: csv_child_basics
+    description: ''
+    author: admin@prophecy.io
+    createdAt: '2025-03-10 08:46:36'
+    mode: batch
+    physicalDatasets:
+      dev1:
+        fabricId: 1842
+        datasetType: File
+        description: ''
+        author: admin@prophecy.io
+        createdAt: '2025-03-10 08:46:36'
+  datasets/csv_child_proj:
+    name: csv_child_proj
+    description: ''
+    author: admin@prophecy.io
+    createdAt: '2025-03-10 08:47:05'
+    mode: batch
+    physicalDatasets:
+      dev1:
+        fabricId: 1842
+        datasetType: File
+        description: ''
+        author: admin@prophecy.io
+        createdAt: '2025-03-10 08:47:05'
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: 2.12.15
+  gemLibsVersion: 1.1.26
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2025-03-10 08:45:13'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs: {}
+sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline: null
+dependencies:
+- modifiedAt: '2025-03-10T08:45:13.715286Z'
+  name: plibMaven
+  version: 8.8.2
+  id: '1534977425'
+  createdAt: '2025-03-10T08:45:13.715286Z'
+  type: plibMaven
+projectDependencies:
+  '39':
+    projectUID: 39
+    projectName: ProphecySparkBasicsScala
+    repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_39.git&subPath=
+    version: 0.2.6.2.dev1
+    isDefault: true
+    author: null
+    createdAt: '2025-03-10 08:44:24'
+  '40':
+    projectUID: 40
+    projectName: ProphecyWarehouseScala
+    repositoryPath: gitUri=http://gitserver:3000/9gt3CHHz_team_9/pJIIcs5r_project_40.git&subPath=
+    version: 0.0.6
+    isDefault: true
+    author: null
+    createdAt: '2025-03-10 08:44:24'
+  '22092':
+    projectUID: 22092
+    projectName: git_parent_test_mig
+    repositoryPath: gitUri=https://github.com/jainabhinav/test_git&subPath=/git_parent_test_mig
+    version: git_parent_test_mig/0.4
+    isDefault: false
+    author: null
+    createdAt: '2025-03-10 08:45:34'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}
