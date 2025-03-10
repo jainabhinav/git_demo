@@ -231,8 +231,8 @@
       "metadata" : {
         "label" : "Filter_1",
         "slug" : "Filter_1",
-        "x" : -120,
-        "y" : -240,
+        "x" : -80,
+        "y" : -260,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -283,7 +283,7 @@
       },
       "componentInfo" : {
         "gemId" : "gems/Filter",
-        "projectName" : "git_parent_test_mig"
+        "projectName" : "git_parent_test_mig_new"
       }
     }
   },
