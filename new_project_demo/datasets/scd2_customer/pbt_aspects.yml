@@ -1,0 +1,91 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: customer_id
+    type: integer
+    nullable: true
+    metadata:
+      description: Unique identifier for each customer
+      mappings: []
+      tags: []
+  - name: first_name
+    type: string
+    nullable: true
+    metadata:
+      description: The first name of the customer
+      mappings: []
+      tags: []
+  - name: last_name
+    type: string
+    nullable: true
+    metadata:
+      description: The last name of the customer
+      mappings: []
+      tags: []
+  - name: phone
+    type: string
+    nullable: true
+    metadata:
+      description: Contact phone number of the customer
+      mappings: []
+      tags: []
+  - name: email
+    type: string
+    nullable: true
+    metadata:
+      description: Email address of the customer
+      mappings: []
+      tags: []
+  - name: country_code
+    type: string
+    nullable: true
+    metadata:
+      description: Code representing the customer's country
+      mappings: []
+      tags: []
+  - name: account_open_date
+    type: date
+    nullable: true
+    metadata:
+      description: The date when the customer account was opened
+      mappings: []
+      tags: []
+  - name: account_flags
+    type: string
+    nullable: true
+    metadata:
+      description: Flags indicating the status or characteristics of the customer
+        account
+      mappings: []
+      tags: []
+  - name: from_timestamp
+    type: timestamp
+    nullable: true
+    metadata:
+      description: Timestamp indicating when the customer record became effective.
+      mappings: []
+      tags: []
+  - name: to_timestamp
+    type: timestamp
+    nullable: true
+    metadata:
+      description: The timestamp indicating when the customer's record was last updated
+        or became inactive.
+      mappings: []
+      tags: []
+  - name: is_min
+    type: integer
+    nullable: true
+    metadata:
+      description: Indicates if this record is the minimum version for the customer
+      mappings: []
+      tags: []
+  - name: is_max
+    type: integer
+    nullable: true
+    metadata:
+      description: Indicator showing if this record is the most recent version of
+        the customer data.
+      mappings: []
+      tags: []

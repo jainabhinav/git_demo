@@ -5,6 +5,7 @@ setup(
     version = '0.0.1',
     packages = packages_to_include,
     description = '',
-    install_requires = [],
+    install_requires = [
+'pandas', ],
     data_files = ["resources/extensions.idx"]
 )

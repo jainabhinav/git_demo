@@ -20,27 +20,11 @@ pipelines:
     language: python
     createdAt: '2023-09-12 13:22:36'
     datasets:
-      inputs:
-      - datasets/asd
-      - datasets/new_kafka
-      outputs:
-      - datasets/write_kafka
+      inputs: []
+      outputs: []
     subgraphs: []
     dependencies: {}
 datasets:
-  datasets/asd:
-    name: asd
-    description: ''
-    author: abhinav+demo@prophecy.io
-    createdAt: '2024-07-24 11:31:52'
-    mode: batch
-    physicalDatasets:
-      unity_fabric:
-        fabricId: 2121
-        datasetType: File
-        description: ''
-        author: abhinav+demo@prophecy.io
-        createdAt: '2024-07-24 11:31:52'
   datasets/new_kafka:
     name: new_kafka
     description: ''
@@ -54,19 +38,6 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2024-07-24 11:43:46'
-  datasets/asfdasf:
-    name: asfdasf
-    description: ''
-    author: abhinav+demo@prophecy.io
-    createdAt: '2024-07-24 13:13:50'
-    mode: batch
-    physicalDatasets:
-      unity_fabric:
-        fabricId: 2121
-        datasetType: Warehouse
-        description: ''
-        author: abhinav+demo@prophecy.io
-        createdAt: '2024-07-24 13:13:50'
   datasets/write_kafka:
     name: write_kafka
     description: ''
@@ -80,6 +51,32 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2024-07-31 21:33:36'
+  datasets/csv_test:
+    name: csv_test
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-11-27 07:55:10'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-11-27 07:55:10'
+  datasets/scd2_customer:
+    name: scd2_customer
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-12-19 07:31:12'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-12-19 07:31:12'
 templates: {}
 jobs: {}
 gemContainer:
@@ -122,6 +119,65 @@ gemContainer:
       gemType: DatasetGem
       dependencies: []
       createdAt: '2024-08-09 07:07:19'
+    gems/Sanitizer:
+      name: Sanitizer
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - abhinavdemoprophecyio_team_first_project/gems/Sanitizer.py
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2024-12-19 07:27:57'
+    gems/abcd:
+      name: abcd
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - abhinavdemoprophecyio_team_first_project/gems/abcd.py
+      gemType: DatasetGem
+      dependencies:
+      - type: pypi
+        modifiedAt: '2025-01-06T11:09:22.644Z'
+        package: pandas
+        name: pandas
+        description: ''
+        enabled: true
+        id: Xqhw6FF6dafR5QtaGhUK_
+        createdAt: '2025-01-06T11:09:22.644Z'
+        entity: Gem
+        addToPipeline: true
+        editable: true
+      createdAt: '2025-01-06 11:08:22'
+    gems/DataQualityCheck:
+      name: DataQualityCheck
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - abhinavdemoprophecyio_team_first_project/gems/DataQualityCheck.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2025-01-30 06:06:40'
+    gems/DownloadOperation:
+      name: DownloadOperation
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - abhinavdemoprophecyio_team_first_project/gems/DownloadOperator.py
+      gemType: ComponentGem
+      dependencies: []
+      createdAt: '2025-03-12 21:19:43'
   dependencies: null
 functions:
   author: null
@@ -130,15 +186,7 @@ functions:
   udafs: {}
   expressions: {}
   airflowFunctions: {}
-  businessRules:
-    businessRules/new_rule:
-      name: new_rule
-      description: ''
-      tags: []
-      inputs: []
-      outputs: []
-      author: abhinav+demo@prophecy.io
-      createdAt: '2022-12-15 18:04:50'
+  businessRules: {}
 subgraphs: {}
 sqlModels: {}
 sqlSnapshots: {}
@@ -152,24 +200,31 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-07-24T09:30:21.898428Z'
   name: plibMaven
-  version: 8.0.29
+  version: 8.8.2
   id: '2082112976'
   createdAt: '2024-07-24T09:30:21.898378Z'
+  enabled: true
+  entity: Project
 - type: plibPypi
-  modifiedAt: '2024-07-24T09:30:21.898496Z'
-  name: plibPypi
-  version: 1.9.9
+  modifiedAt: '2025-01-30T08:51:32.917Z'
+  name: ProphecyLibsPython
+  version: 1.9.36
   id: '1921516960'
   createdAt: '2024-07-24T09:30:21.898484Z'
+  enabled: true
+  entity: Project
+  description: Default dependency for Prophecy Libs
+  scope: Project
+  editable: true
 projectDependencies:
   '12654':
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.26
+    version: 0.2.40
     isDefault: true
     author: null
-    createdAt: '2024-08-26 13:14:13'
+    createdAt: '2025-03-18 11:49:54'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
