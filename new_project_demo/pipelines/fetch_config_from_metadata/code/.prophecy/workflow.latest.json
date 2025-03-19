@@ -15,6 +15,7 @@
     },
     "id" : "1",
     "uri" : "pipelines/fetch_config_from_metadata",
+    "sourceSuggestions" : [ ],
     "pipelineSettingsInfo" : {
       "applicationName" : "fetch_config_from_metadata",
       "hasApplication" : true,
@@ -41,7 +42,25 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "date_filter",
+          "kind" : {
+            "type" : "string",
+            "value" : "2001-01-01"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "process_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "process1"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -85,8 +104,295 @@
     "configTopLevelPackage" : "fetch_config_from_metadata",
     "configurationVersion" : "v2"
   },
-  "connections" : [ ],
-  "processes" : { },
+  "connections" : [ {
+    "id" : "XKLmc-B22RqRIOtUTADzM$$341rjOPmcFKTS_8rz56S7",
+    "source" : "PMaPDEOgTTjtePAujXYcj$$dsd2ELJOXIShmdIgYzBgk",
+    "sourcePort" : "vsBIlThZx_HK04BGZg4qz$$cKt6t5TXr6ln33OcYfmxm",
+    "target" : "2_Oz2_JTofJ0DiXsun4j3$$hALGjaDbeX0S7OfD3g9Gz",
+    "targetPort" : "3bpEpBztl_JkJAvQFhIq7$$SfPmpx5qs9nF_-WZpTyfS"
+  }, {
+    "id" : "8Aq-fs_iDOmw3s9Mel05h$$6snzVd4qC1PHdsVagldwF",
+    "source" : "2_Oz2_JTofJ0DiXsun4j3$$hALGjaDbeX0S7OfD3g9Gz",
+    "sourcePort" : "bva5r0-u6qVt6hZl_KoMk$$czjy35KZr6tmdtR7AcbYa",
+    "target" : "CsFsk6sezMs1kLsKyvcCJ$$xqDWHiDVoRlEz_ZjJFERd",
+    "targetPort" : "eg0jxq_Lt4Bz_NKVK1FRF$$JDUCVBdbEfVax0a7Oz4RG"
+  }, {
+    "id" : "FkACqCMYwrjVb_50vRBE8",
+    "source" : "PMaPDEOgTTjtePAujXYcj$$dsd2ELJOXIShmdIgYzBgk",
+    "sourcePort" : "vsBIlThZx_HK04BGZg4qz$$cKt6t5TXr6ln33OcYfmxm",
+    "target" : "M9grNl82c70_WVFXJhuX4$$LZ5WFNBHkHsDx0qRFj5sd",
+    "targetPort" : "NtxPvpUjlYdj7u_OL8f1n$$yIBI9ChUjhKI640do2k6E"
+  }, {
+    "id" : "jSXTnJt0uVddGWdOW2bGd$$2NVXyZqepfMpFN2IwxMsF",
+    "source" : "M9grNl82c70_WVFXJhuX4$$LZ5WFNBHkHsDx0qRFj5sd",
+    "sourcePort" : "rhcFLucaba1qholVS1tYQ$$gTFX7uADBm4DmPgGPMT66",
+    "target" : "6ysMXJgViPx7JwU4NPbXZ$$ihcDTnHi1Rrj7a3P9Ierx",
+    "targetPort" : "Tjmofq_CgbVG16HxU6fEG$$x6icVIzdhs5of-BKbxZGe"
+  } ],
+  "processes" : {
+    "2_Oz2_JTofJ0DiXsun4j3$$hALGjaDbeX0S7OfD3g9Gz" : {
+      "id" : "2_Oz2_JTofJ0DiXsun4j3$$hALGjaDbeX0S7OfD3g9Gz",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "filter_by_process_name",
+        "slug" : "filter_by_process_name",
+        "x" : -180,
+        "y" : -180,
+        "phase" : -1,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "autoUpdateComment" : true,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "3bpEpBztl_JkJAvQFhIq7$$SfPmpx5qs9nF_-WZpTyfS",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "process_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "date_filter",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "bva5r0-u6qVt6hZl_KoMk$$czjy35KZr6tmdtR7AcbYa",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "process_name == '$process_name'"
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "PMaPDEOgTTjtePAujXYcj$$dsd2ELJOXIShmdIgYzBgk" : {
+      "id" : "PMaPDEOgTTjtePAujXYcj$$dsd2ELJOXIShmdIgYzBgk",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "metadata_date_filter",
+        "slug" : "metadata_date_filter",
+        "x" : -360,
+        "y" : -180,
+        "phase" : -1,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Retrieves metadata from a specified table for analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "vsBIlThZx_HK04BGZg4qz$$cKt6t5TXr6ln33OcYfmxm",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/metadata_date_filter"
+      }
+    },
+    "M9grNl82c70_WVFXJhuX4$$LZ5WFNBHkHsDx0qRFj5sd" : {
+      "id" : "M9grNl82c70_WVFXJhuX4$$LZ5WFNBHkHsDx0qRFj5sd",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "filter_by_date",
+        "slug" : "filter_by_date",
+        "x" : -180,
+        "y" : 0,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Filters records based on a specified date, ensuring only relevant and timely data is analyzed.",
+        "autoUpdateComment" : true,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "NtxPvpUjlYdj7u_OL8f1n$$yIBI9ChUjhKI640do2k6E",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "process_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "date_filter",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "rhcFLucaba1qholVS1tYQ$$gTFX7uADBm4DmPgGPMT66",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "NtxPvpUjlYdj7u_OL8f1n$$yIBI9ChUjhKI640do2k6E##date_filter" ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "date_filter > '$date_filter'"
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "6ysMXJgViPx7JwU4NPbXZ$$ihcDTnHi1Rrj7a3P9Ierx" : {
+      "id" : "6ysMXJgViPx7JwU4NPbXZ$$ihcDTnHi1Rrj7a3P9Ierx",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "metadata_date_filter_output_dummy",
+        "slug" : "metadata_date_filter_output_dummy",
+        "x" : 0,
+        "y" : 0,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Stores processed data in a structured format for easy access and analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Tjmofq_CgbVG16HxU6fEG$$x6icVIzdhs5of-BKbxZGe",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "process_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "date_filter",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/metadata_date_filter_output_dummy"
+      }
+    },
+    "CsFsk6sezMs1kLsKyvcCJ$$xqDWHiDVoRlEz_ZjJFERd" : {
+      "id" : "CsFsk6sezMs1kLsKyvcCJ$$xqDWHiDVoRlEz_ZjJFERd",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "update_date_filter",
+        "slug" : "update_date_filter",
+        "x" : 0,
+        "y" : -180,
+        "phase" : -1,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Updates the date filter configuration based on the latest data, ensuring that analyses reflect the most current time frame.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "eg0jxq_Lt4Bz_NKVK1FRF$$JDUCVBdbEfVax0a7Oz4RG",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "process_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "date_filter",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "print(\"initial value of date filter: \" + Config.date_filter)\n\ndate_filter_from_df = str(in0.select(\"date_filter\").collect()[0][0])\nConfig.date_filter = date_filter_from_df\n\nprint(\"override value of date filter: \" + Config.date_filter)\n",
+        "scriptMethodHeader" : "def Script(spark: SparkSession, in0: DataFrame) -> None:",
+        "scriptMethodFooter" : "    return "
+      }
+    }
+  },
   "ports" : {
     "inputs" : [ ],
     "outputs" : [ ],
