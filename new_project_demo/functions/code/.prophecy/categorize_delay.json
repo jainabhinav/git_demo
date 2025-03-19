@@ -1,0 +1,1 @@
+{"initCode":"","code":"@udf(returnType=StringType()) \ndef categorize_delay(arrival_delay: int):\n    if arrival_delay < 0:\n        return \"Early\"\n    elif 0 <= arrival_delay <= 15:\n        return \"On Time\"\n    elif 16 <= arrival_delay <= 60:\n        return \"Slight Delay\"\n    else:\n        return \"Major Delay\""}
