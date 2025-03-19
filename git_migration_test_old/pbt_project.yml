@@ -1,0 +1,93 @@
+name: git_migration_test_old
+description: ''
+version: '1.5'
+author: abhinav+demo@prophecy.io
+language: scala
+buildSystem: ''
+buildSystemDetails:
+  artefactID: gitmigrationtestold
+  parentArtefactID: abhinavdemoprophecyioteam
+  buildSystem: maven
+  author: null
+  createdAt: '2025-02-03 09:22:21'
+pipelines:
+  pipelines/test_pipeline:
+    name: test_pipeline
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: scala
+    createdAt: '2025-02-03 09:46:56'
+    datasets:
+      inputs:
+      - datasets/csv_test_old
+      - gitUri=https://github.com/jainabhinav/test_git_mig.git&subPath=/scala_proj&tag=demo_scala_project/1.6&projectSubscriptionProjectId=12135&path=datasets/customers
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+datasets:
+  datasets/csv_test_old:
+    name: csv_test_old
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-02-03 10:16:33'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-02-03 10:16:33'
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: 2.12.15
+  gemLibsVersion: 1.1.26
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2025-02-03 09:22:21'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs: {}
+sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline: null
+dependencies:
+- modifiedAt: '2025-02-03T09:22:21.121532Z'
+  name: plibMaven
+  version: 8.7.1
+  id: '1883497580'
+  createdAt: '2025-02-03T09:22:21.121532Z'
+  type: plibMaven
+projectDependencies:
+  '12651':
+    projectUID: 12651
+    projectName: ProphecySparkBasicsScala
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12651.git&subPath=
+    version: 0.2.6
+    isDefault: true
+    author: null
+    createdAt: '2025-02-03 09:20:48'
+  '12135':
+    projectUID: 12135
+    projectName: demo_scala_project
+    repositoryPath: gitUri=https://github.com/jainabhinav/test_git_mig.git&subPath=/scala_proj
+    version: demo_scala_project/1.6
+    isDefault: false
+    author: null
+    createdAt: '2025-02-03 12:05:13'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: false
+pipelineConfigurations: {}

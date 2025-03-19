@@ -1,0 +1,18 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: a
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: d
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

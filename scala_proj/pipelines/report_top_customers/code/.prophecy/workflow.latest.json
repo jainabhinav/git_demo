@@ -1,0 +1,415 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.7.1"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/report_top_customers",
+    "pipelineSettingsInfo" : {
+      "isNullValuesInUnitTestsEnabled" : true
+    },
+    "language" : "scala",
+    "fabricId" : "18961",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "scala",
+      "udfs" : [ ],
+      "functionPackageName" : "demo_team_abhinav.demo_scala_project.functions",
+      "sharedFunctionPackageNames" : [ "io.prophecy.scalagems.functions", "io.prophecy.warehousegems.functions" ]
+    },
+    "udafs" : {
+      "language" : "scala",
+      "code" : "package udfs\n\nimport org.apache.spark.sql.expressions._\nimport org.apache.spark.sql.types._\nimport org.apache.spark.sql._\n\n/**\n  * Here you can define your custom aggregate functions.\n  *\n  * Make sure to register your `udafs` in the register_udafs function below.\n  *\n  * Example:\n  *\n  * object GeometricMean extends UserDefinedAggregateFunction {\n  *   // This is the input fields for your aggregate function.\n  *   override def inputSchema: org.apache.spark.sql.types.StructType =\n  *     StructType(StructField(\"value\", DoubleType) :: Nil)\n  *\n  *   // This is the internal fields you keep for computing your aggregate.\n  *   override def bufferSchema: StructType = StructType(\n  *     StructField(\"count\", LongType) ::\n  *     StructField(\"product\", DoubleType) :: Nil\n  *   )\n  *\n  *   // This is the output type of your aggregatation function.\n  *   override def dataType: DataType = DoubleType\n  *\n  *   override def deterministic: Boolean = true\n  *\n  *   // This is the initial value for your buffer schema.\n  *   override def initialize(buffer: MutableAggregationBuffer): Unit = {\n  *     buffer(0) = 0L\n  *     buffer(1) = 1.0\n  *   }\n  *\n  *   // This is how to update your buffer schema given an input.\n  *   override def update(buffer: MutableAggregationBuffer, input: Row): Unit = {\n  *     buffer(0) = buffer.getAs[Long](0) + 1\n  *     buffer(1) = buffer.getAs[Double](1) * input.getAs[Double](0)\n  *   }\n  *\n  *   // This is how to merge two objects with the bufferSchema type.\n  *   override def merge(buffer1: MutableAggregationBuffer, buffer2: Row): Unit = {\n  *     buffer1(0) = buffer1.getAs[Long](0) + buffer2.getAs[Long](0)\n  *     buffer1(1) = buffer1.getAs[Double](1) * buffer2.getAs[Double](1)\n  *   }\n  *\n  *   // This is where you output the final value, given the final value of your bufferSchema.\n  *   override def evaluate(buffer: Row): Any = {\n  *     math.pow(buffer.getDouble(1), 1.toDouble / buffer.getLong(0))\n  *   }\n  * }\n  *\n  */\n\n\nobject UDAFs {\n  /**\n    * Registers UDAFs with Spark SQL\n    */\n  def registerUDAFs(spark: SparkSession): Unit = {\n    /**\n      * Example:\n      *\n      * spark.udf.register(\"gm\", GeometricMean)\n      *\n      */\n\n\n  }\n}\n"
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "flow_flag",
+          "kind" : {
+            "type" : "string",
+            "value" : "lower"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12651",
+      "projectName" : "ProphecySparkBasicsScala",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12652",
+      "projectName" : "ProphecyWarehouseScala",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "io.prophecy.pipelines.report_top_customers",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "RhbTKcKlTLep551HizB85$$i_uJFkwZxBDDxePnIC9y8",
+    "source" : "q3lmxW2dNKEJUTGDX87QJ$$Fd0JrLJBxXDE7gcCdIoKH",
+    "sourcePort" : "cqYDwW-ZgLeEke8Op1Hvm$$DaJA0sHulxe_fTUGh8N5Q",
+    "target" : "0lguBVtu-Ix_XHv6Mh1O3$$cI04oeflo3B0Kf2t1g90g",
+    "targetPort" : "q0yjy75GB2olpYghTrLEQ$$u3XiSIfhjPIvZrPWd1y-M"
+  }, {
+    "id" : "zNtBLQIBwtwYrDi2xeAmA",
+    "source" : "q3lmxW2dNKEJUTGDX87QJ$$Fd0JrLJBxXDE7gcCdIoKH",
+    "sourcePort" : "cqYDwW-ZgLeEke8Op1Hvm$$DaJA0sHulxe_fTUGh8N5Q",
+    "target" : "fFP1iuTTW7lDBVcKGprz_$$gOKC77872VYySIk5tEihp",
+    "targetPort" : "Kj4QEcnEjj-hRsgIClER-$$6unc5mhHgV9RC4BWKThLM"
+  }, {
+    "id" : "DBvl4jDDRHMSBS_KGAZBz$$aGyTyIhs1kug9OJzpEIt3",
+    "source" : "0lguBVtu-Ix_XHv6Mh1O3$$cI04oeflo3B0Kf2t1g90g",
+    "sourcePort" : "Wm-A-M4n8O3-dfSa3KVmF$$6aS7UJg237zLeg8Zk3PyO",
+    "target" : "dzvkqNj8HWiK6jOqjwCkE$$XZs5H6cxXX3zqD_Aod04K",
+    "targetPort" : "ObqDydT4VGJkV3LoKl63E$$B-4gaTYj38SRxqVjJ7S-_"
+  }, {
+    "id" : "SJpPzzm2J-6XwoKIYUwO_$$oH7arYnN1my6WwCBcd9Uf",
+    "source" : "fFP1iuTTW7lDBVcKGprz_$$gOKC77872VYySIk5tEihp",
+    "sourcePort" : "_DXy9EPAeXB3bPlQ2nXyc$$JyBNiwQFGTAY8uJhGExA7",
+    "target" : "J6rDaGAPMx85oTQDZZ_bo$$Lbp60cmHWXWJtgn--4zGV",
+    "targetPort" : "Y1UtjtMimVkoc-Gy2L9yt$$ln-o-3XwbhUy5FDMOuj34"
+  } ],
+  "processes" : {
+    "dzvkqNj8HWiK6jOqjwCkE$$XZs5H6cxXX3zqD_Aod04K" : {
+      "id" : "dzvkqNj8HWiK6jOqjwCkE$$XZs5H6cxXX3zqD_Aod04K",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "Filter_1",
+        "slug" : "Filter_1",
+        "x" : 180,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ObqDydT4VGJkV3LoKl63E$$B-4gaTYj38SRxqVjJ7S-_",
+          "slug" : "in",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "b",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "1FcpazQiqijAGjdmjF9hz$$KiujqT0R-oEcA49OzmKPO",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "true"
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12651.git&subPath=&tag=0.2.6&projectSubscriptionProjectId=12651&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsScala"
+      }
+    },
+    "J6rDaGAPMx85oTQDZZ_bo$$Lbp60cmHWXWJtgn--4zGV" : {
+      "id" : "J6rDaGAPMx85oTQDZZ_bo$$Lbp60cmHWXWJtgn--4zGV",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "Filter_2",
+        "slug" : "Filter_2",
+        "x" : 180,
+        "y" : 60,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Y1UtjtMimVkoc-Gy2L9yt$$ln-o-3XwbhUy5FDMOuj34",
+          "slug" : "in",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "c",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "hDh9fgvmB78EnFjCvESX5$$xBKuSe3mqbDl-K8gAX9FE",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "condition" : {
+          "format" : "sql",
+          "expression" : "true"
+        }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12651.git&subPath=&tag=0.2.6&projectSubscriptionProjectId=12651&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsScala"
+      }
+    },
+    "fFP1iuTTW7lDBVcKGprz_$$gOKC77872VYySIk5tEihp" : {
+      "id" : "fFP1iuTTW7lDBVcKGprz_$$gOKC77872VYySIk5tEihp",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformat_columns_1",
+        "slug" : "reformat_columns_1",
+        "x" : 0,
+        "y" : 60,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reformats data by selecting specific columns and adding a constant value for better clarity in reporting.",
+        "autoUpdateComment" : true,
+        "removalCondition" : "context.config.flow_flag == \"lower\""
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Kj4QEcnEjj-hRsgIClER-$$6unc5mhHgV9RC4BWKThLM",
+          "slug" : "in",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "_DXy9EPAeXB3bPlQ2nXyc$$JyBNiwQFGTAY8uJhGExA7",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "Kj4QEcnEjj-hRsgIClER-$$6unc5mhHgV9RC4BWKThLM##a" ],
+        "expressions" : [ {
+          "target" : "a",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "a"
+          },
+          "description" : ""
+        }, {
+          "target" : "c",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "'c'"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12651.git&subPath=&tag=0.2.6&projectSubscriptionProjectId=12651&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsScala"
+      }
+    },
+    "q3lmxW2dNKEJUTGDX87QJ$$Fd0JrLJBxXDE7gcCdIoKH" : {
+      "id" : "q3lmxW2dNKEJUTGDX87QJ$$Fd0JrLJBxXDE7gcCdIoKH",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "update_flow_flag",
+        "slug" : "update_flow_flag",
+        "x" : -180,
+        "y" : -60,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Updates a configuration flag within a given context, potentially altering the flow of data processing.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "cqYDwW-ZgLeEke8Op1Hvm$$DaJA0sHulxe_fTUGh8N5Q",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "script" : "print(Config.flow_flag)\nConfig.flow_flag = \"lower\" // write your logic here\nprint(Config.flow_flag)\n\nval out0 = spark.sql(\"select 1 as a\")",
+        "scriptMethodHeader" : "def apply(spark: SparkSession): DataFrame = {",
+        "scriptMethodFooter" : "    out0\n}"
+      }
+    },
+    "0lguBVtu-Ix_XHv6Mh1O3$$cI04oeflo3B0Kf2t1g90g" : {
+      "id" : "0lguBVtu-Ix_XHv6Mh1O3$$cI04oeflo3B0Kf2t1g90g",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformat_columns",
+        "slug" : "reformat_columns",
+        "x" : 0,
+        "y" : -140,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reformats data by selecting specific columns and adding a constant value for better clarity in reporting.",
+        "autoUpdateComment" : true,
+        "removalCondition" : "context.config.flow_flag == \"upper\""
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "q0yjy75GB2olpYghTrLEQ$$u3XiSIfhjPIvZrPWd1y-M",
+          "slug" : "in",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "a",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Wm-A-M4n8O3-dfSa3KVmF$$6aS7UJg237zLeg8Zk3PyO",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "q0yjy75GB2olpYghTrLEQ$$u3XiSIfhjPIvZrPWd1y-M##a" ],
+        "expressions" : [ {
+          "target" : "a",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "a"
+          },
+          "description" : ""
+        }, {
+          "target" : "b",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "'b'"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12651.git&subPath=&tag=0.2.6&projectSubscriptionProjectId=12651&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsScala"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

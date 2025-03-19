@@ -1,0 +1,472 @@
+name: custom_gem_demos_new
+description: ''
+version: '1.7'
+author: abhinav+demo@prophecy.io
+language: python
+buildSystem: ''
+buildSystemDetails:
+  artefactID: customgemdemosnew
+  parentArtefactID: demoteamabhinav
+  buildSystem: wheel
+  author: null
+  createdAt: '2024-07-21 07:30:16'
+pipelines:
+  pipelines/gem_testing:
+    name: gem_testing
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-07-21 07:30:16'
+    datasets:
+      inputs:
+      - datasets/customers
+      outputs:
+      - datasets/customer_catalog_scd2
+    subgraphs: []
+    dependencies: {}
+  pipelines/sharepoint:
+    name: sharepoint
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-09-30 10:43:39'
+    datasets:
+      inputs:
+      - datasets/sharepoint_customers_csv
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+  pipelines/metadata_select:
+    name: metadata_select
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-01-08 21:29:36'
+    datasets:
+      inputs:
+      - datasets/customers
+      - datasets/customers_metadata_target
+      - datasets/metadata_columns
+      outputs:
+      - datasets/customers_metadata_target
+    subgraphs: []
+    dependencies: {}
+  pipelines/excel_testing:
+    name: excel_testing
+    description: ''
+    author: abhinav+demo@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2025-01-23 14:08:18'
+    datasets:
+      inputs:
+      - datasets/customers
+      - datasets/xlsx_test
+      - datasets/xlsx_test_sheet2
+      outputs:
+      - datasets/xlsx_target_test
+    subgraphs: []
+    dependencies: {}
+datasets:
+  datasets/customers:
+    name: customers
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-07-21 20:10:33'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-07-21 20:10:33'
+  datasets/customer_catalog_scd2:
+    name: customer_catalog_scd2
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-07-30 21:02:58'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-07-30 21:02:58'
+  datasets/sharepoint_customers_csv:
+    name: sharepoint_customers_csv
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2024-09-30 10:45:33'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2024-09-30 10:45:33'
+  datasets/metadata_columns:
+    name: metadata_columns
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-08 22:06:41'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-08 22:06:41'
+  datasets/customers_metadata_target:
+    name: customers_metadata_target
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-08 22:11:01'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-08 22:11:01'
+  datasets/xlsx_test:
+    name: xlsx_test
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-23 14:09:01'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-23 14:09:01'
+  datasets/xlsx_target_test:
+    name: xlsx_target_test
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-23 14:09:27'
+    mode: batch
+    physicalDatasets:
+      unity_fabric:
+        fabricId: 2121
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-23 14:09:27'
+  datasets/xlsx_test_sheet2:
+    name: xlsx_test_sheet2
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-23 16:33:14'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-23 16:33:14'
+  datasets/crealytics_target_xlsx:
+    name: crealytics_target_xlsx
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-27 15:08:37'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-27 15:08:37'
+  datasets/crealytics_source:
+    name: crealytics_source
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-01-27 15:45:11'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: File
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-01-27 15:45:11'
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: '3.10'
+  gemLibsVersion: 1.3.4.0
+  gems:
+    gems/SchemaTransform:
+      name: SchemaTransform
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/SchemaTransform.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-07-21 07:33:27'
+    gems/MaskColumns:
+      name: MaskColumns
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/MaskColumns.py
+      gemType: ComponentGem
+      dependencies:
+      - type: pypi
+        modifiedAt: '2024-10-29T17:33:36.134Z'
+        package: pyhocon
+        name: pyhocon
+        description: ''
+        enabled: true
+        id: ymIbpUxpEMq8QYNHrhl5Q
+        createdAt: '2024-10-29T17:33:36.134Z'
+        entity: Gem
+        editable: true
+      createdAt: '2024-07-21 19:23:42'
+    gems/catalogTable:
+      name: catalogTable
+      category: Source/Target
+      subCategory: Database
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/CatalogTable.py
+      gemType: DatasetGem
+      dependencies: []
+      createdAt: '2024-07-30 21:00:41'
+    gems/NewGem:
+      name: NewGem
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/NewGem.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-08-08 14:35:19'
+    gems/NewDataset:
+      name: NewDataset
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/NewDataset.py
+      gemType: DatasetGem
+      dependencies: null
+      createdAt: '2024-08-22 08:21:17'
+    gems/csv:
+      name: csv
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/csv.py
+      gemType: DatasetGem
+      dependencies: null
+      createdAt: '2024-09-30 10:43:52'
+    gems/SFTPCopy:
+      name: SFTPCopy
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/SFTPCopy.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-09-30 21:07:01'
+    gems/newDemoGem:
+      name: newDemoGem
+      category: Transform
+      subCategory: null
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/newDemoGem.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-10-29 17:11:33'
+    gems/newSourceDemo:
+      name: newSourceDemo
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/newSourceDemo.py
+      gemType: DatasetGem
+      dependencies: null
+      createdAt: '2024-10-29 17:36:09'
+    gems/jdbc_update:
+      name: jdbc_update
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/jdbc_update.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-11-21 09:29:17'
+    gems/CaptureMetrics:
+      name: CaptureMetrics
+      category: Custom
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/CaptureMetrics.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2024-12-05 17:03:16'
+    gems/MetadataReformat:
+      name: MetadataReformat
+      category: Transform
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/MetadataReformat.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2025-01-08 21:30:58'
+    gems/xlsx:
+      name: xlsx
+      category: Source/Target
+      subCategory: File
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - demoteamabhinav_customgemdemosnew/gems/xlsx.py
+      gemType: DatasetGem
+      dependencies: []
+      createdAt: '2025-01-28 14:17:32'
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2024-07-21 07:30:16'
+  udfs:
+    udfs/categorize_delay:
+      name: categorize_delay
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav+demo@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
+    udfs/square:
+      name: square
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: abhinav+demo@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+  businessRules: {}
+subgraphs:
+  subgraphs/reusable_subgraph:
+    name: reusable_subgraph
+    description: ''
+    author: abhinav+demo@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-07-22 11:05:29'
+sqlModels: {}
+sqlSnapshots: {}
+sqlTests: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline: null
+dependencies:
+- modifiedAt: '2024-07-21T07:30:16.129693Z'
+  name: plibMaven
+  version: 8.8.0
+  id: '848385427'
+  createdAt: '2024-07-21T07:30:16.129693Z'
+  type: plibMaven
+  enabled: true
+  entity: Project
+- modifiedAt: '2024-12-11T07:41:57.169Z'
+  name: ProphecyLibsPython
+  version: 1.9.33
+  id: '1875097243'
+  createdAt: '2024-07-21T07:30:16.129693Z'
+  type: plibPypi
+  enabled: true
+  entity: Project
+  description: Default dependency for Prophecy Libs
+  scope: Project
+  editable: true
+- description: ''
+  id: TQDUzgWG43xWmTWFD6fdZ
+  editable: true
+  enabled: true
+  type: pypi
+  name: sftp
+  scope: Project
+  package: paramiko
+  entity: Project
+  modifiedAt: '2024-11-11T09:57:24.549Z'
+  createdAt: '2024-11-11T09:57:24.549Z'
+projectDependencies:
+  '12654':
+    projectUID: 12654
+    projectName: ProphecySparkBasicsPython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
+    version: 0.2.40
+    isDefault: true
+    author: null
+    createdAt: '2025-02-05 06:49:09'
+  '12655':
+    projectUID: 12655
+    projectName: ProphecyWarehousePython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=
+    version: 0.0.8
+    isDefault: true
+    author: null
+    createdAt: '2024-07-21 07:29:17'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}

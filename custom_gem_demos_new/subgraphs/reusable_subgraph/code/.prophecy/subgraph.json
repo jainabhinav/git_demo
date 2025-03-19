@@ -1,0 +1,111 @@
+{
+  "id" : "R85BGQ6TUIa7lPF6HpFUF",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false,
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "properties" : {
+    "packageName" : "test_package"
+  },
+  "connections" : [ {
+    "id" : "N4-x4MPKmCLLK4hO9twkY$$dLyeItSFBl6-iQXcqWuoE",
+    "source" : "YNOQ4afZCYuIo6hOqlnaW",
+    "sourcePort" : "Lai_asLm0rSQclJ0GuqCw",
+    "target" : "SN1RaeQe4MswyNOBaLgTQ",
+    "targetPort" : "Piq1PBoJZpdis0n92rZmI"
+  } ],
+  "processes" : {
+    "YNOQ4afZCYuIo6hOqlnaW" : {
+      "id" : "YNOQ4afZCYuIo6hOqlnaW",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "select_1",
+        "slug" : "select_1",
+        "x" : -200,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Selects the value 1 from a Spark SQL table.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Lai_asLm0rSQclJ0GuqCw",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "out0 = spark.sql(\"select 1\")",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "SN1RaeQe4MswyNOBaLgTQ" : {
+      "id" : "SN1RaeQe4MswyNOBaLgTQ",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "Limit_1",
+        "slug" : "Limit_1",
+        "x" : -60,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Piq1PBoJZpdis0n92rZmI",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "Rev17Ve9YLaiAdl2gEokS",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "limit" : "10"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.25&projectSubscriptionProjectId=12654&path=gems/Limit",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.25"
+      }
+    }
+  }
+}
