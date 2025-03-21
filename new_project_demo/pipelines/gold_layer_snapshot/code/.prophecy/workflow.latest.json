@@ -1,0 +1,1066 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1",
+      "unitTestNullDataMigrated" : true
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "8.8.2",
+        "pyPiVersion" : "1.9.36"
+      },
+      "sparkConfigJinjaEnabled" : true
+    },
+    "id" : "1",
+    "uri" : "pipelines/gold_layer_snapshot",
+    "sourceSuggestions" : [ {
+      "sourceLabel" : "db2_orders_1",
+      "sourceDatasetId" : "datasets/db2_orders",
+      "canJoinWith" : [ {
+        "processLabel" : "db1_orders",
+        "processId" : "Wrz9oukPzdVKRoLTLrQyk$$GZOE-o5nSCao3Hm09U_I7",
+        "joinColumns" : [ "customer_id", "order_id", "order_amount" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "order_id", "order_amount" ],
+          "conditions" : [ {
+            "alias" : "db2_orders_1",
+            "expression" : "(((db1_orders.customer_id = db2_orders_1.customer_id) AND (db1_orders.order_amount = db2_orders_1.order_amount)) AND (db1_orders.order_id = db2_orders_1.order_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "db1_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db1_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db1_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db1_orders.order_date"
+          } ],
+          "headAlias" : "datasets/db2_orders"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "orders_snapshot_1",
+      "sourceDatasetId" : "datasets/orders_snapshot",
+      "canJoinWith" : [ {
+        "processLabel" : "db1_orders",
+        "processId" : "Wrz9oukPzdVKRoLTLrQyk$$GZOE-o5nSCao3Hm09U_I7",
+        "joinColumns" : [ "customer_id", "order_id", "order_amount" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "order_id", "order_amount" ],
+          "conditions" : [ {
+            "alias" : "orders_snapshot_1",
+            "expression" : "(((db1_orders.customer_id = orders_snapshot_1.customer_id) AND (db1_orders.order_amount = orders_snapshot_1.order_amount)) AND (db1_orders.order_id = orders_snapshot_1.order_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "db1_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db1_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db1_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db1_orders.order_date"
+          } ],
+          "headAlias" : "datasets/orders_snapshot"
+        }
+      }, {
+        "processLabel" : "db2_orders",
+        "processId" : "knMLwYDsBy85mNejxi6Bh$$5dq_5pjbDFU2elqojkBIo",
+        "joinColumns" : [ "customer_id", "order_id", "order_amount" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "order_id", "order_amount" ],
+          "conditions" : [ {
+            "alias" : "orders_snapshot_1",
+            "expression" : "(((db2_orders.customer_id = orders_snapshot_1.customer_id) AND (db2_orders.order_amount = orders_snapshot_1.order_amount)) AND (db2_orders.order_id = orders_snapshot_1.order_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "db2_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db2_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db2_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db2_orders.order_date"
+          } ],
+          "headAlias" : "datasets/orders_snapshot"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "abhinav_demo_cust_ord_demo1",
+      "sourceDatasetId" : "datasets/abhinav_demo_cust_ord_demo1",
+      "canJoinWith" : [ {
+        "processLabel" : "db1_orders",
+        "processId" : "Wrz9oukPzdVKRoLTLrQyk$$GZOE-o5nSCao3Hm09U_I7",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "abhinav_demo_cust_ord_demo1",
+            "expression" : "(db1_orders.customer_id = abhinav_demo_cust_ord_demo1.customer_id)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "orders",
+            "expression" : "abhinav_demo_cust_ord_demo1.orders"
+          }, {
+            "alias" : "amounts",
+            "expression" : "abhinav_demo_cust_ord_demo1.amounts"
+          }, {
+            "alias" : "account_length_days",
+            "expression" : "abhinav_demo_cust_ord_demo1.account_length_days"
+          }, {
+            "alias" : "order_id",
+            "expression" : "db1_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db1_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db1_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db1_orders.order_date"
+          } ],
+          "headAlias" : "datasets/abhinav_demo_cust_ord_demo1"
+        }
+      }, {
+        "processLabel" : "db2_orders",
+        "processId" : "knMLwYDsBy85mNejxi6Bh$$5dq_5pjbDFU2elqojkBIo",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "abhinav_demo_cust_ord_demo1",
+            "expression" : "(db2_orders.customer_id = abhinav_demo_cust_ord_demo1.customer_id)",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "orders",
+            "expression" : "abhinav_demo_cust_ord_demo1.orders"
+          }, {
+            "alias" : "amounts",
+            "expression" : "abhinav_demo_cust_ord_demo1.amounts"
+          }, {
+            "alias" : "account_length_days",
+            "expression" : "abhinav_demo_cust_ord_demo1.account_length_days"
+          }, {
+            "alias" : "order_id",
+            "expression" : "db2_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db2_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db2_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db2_orders.order_date"
+          } ],
+          "headAlias" : "datasets/abhinav_demo_cust_ord_demo1"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "orders_latest_1",
+      "sourceDatasetId" : "datasets/orders_latest",
+      "canJoinWith" : [ {
+        "processLabel" : "db1_orders",
+        "processId" : "Wrz9oukPzdVKRoLTLrQyk$$GZOE-o5nSCao3Hm09U_I7",
+        "joinColumns" : [ "customer_id", "order_id", "order_amount" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "order_id", "order_amount" ],
+          "conditions" : [ {
+            "alias" : "orders_latest_1",
+            "expression" : "(((db1_orders.customer_id = orders_latest_1.customer_id) AND (db1_orders.order_amount = orders_latest_1.order_amount)) AND (db1_orders.order_id = orders_latest_1.order_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "db1_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db1_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db1_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db1_orders.order_date"
+          } ],
+          "headAlias" : "datasets/orders_latest"
+        }
+      }, {
+        "processLabel" : "db2_orders",
+        "processId" : "knMLwYDsBy85mNejxi6Bh$$5dq_5pjbDFU2elqojkBIo",
+        "joinColumns" : [ "customer_id", "order_id", "order_amount" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "order_id", "order_amount" ],
+          "conditions" : [ {
+            "alias" : "orders_latest_1",
+            "expression" : "(((db2_orders.customer_id = orders_latest_1.customer_id) AND (db2_orders.order_amount = orders_latest_1.order_amount)) AND (db2_orders.order_id = orders_latest_1.order_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "db2_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db2_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db2_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db2_orders.order_date"
+          } ],
+          "headAlias" : "datasets/orders_latest"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "configurable_orders",
+      "sourceDatasetId" : "datasets/configurable_orders",
+      "canJoinWith" : [ {
+        "processLabel" : "db1_orders",
+        "processId" : "Wrz9oukPzdVKRoLTLrQyk$$GZOE-o5nSCao3Hm09U_I7",
+        "joinColumns" : [ "customer_id", "order_id", "order_amount" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "order_id", "order_amount" ],
+          "conditions" : [ {
+            "alias" : "configurable_orders",
+            "expression" : "(((db1_orders.customer_id = configurable_orders.customer_id) AND (db1_orders.order_amount = configurable_orders.order_amount)) AND (db1_orders.order_id = configurable_orders.order_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "db1_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db1_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db1_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db1_orders.order_date"
+          } ],
+          "headAlias" : "datasets/configurable_orders"
+        }
+      }, {
+        "processLabel" : "db2_orders",
+        "processId" : "knMLwYDsBy85mNejxi6Bh$$5dq_5pjbDFU2elqojkBIo",
+        "joinColumns" : [ "customer_id", "order_id", "order_amount" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "order_id", "order_amount" ],
+          "conditions" : [ {
+            "alias" : "configurable_orders",
+            "expression" : "(((db2_orders.customer_id = configurable_orders.customer_id) AND (db2_orders.order_amount = configurable_orders.order_amount)) AND (db2_orders.order_id = configurable_orders.order_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "db2_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db2_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db2_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db2_orders.order_date"
+          } ],
+          "headAlias" : "datasets/configurable_orders"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "db1_orders_1",
+      "sourceDatasetId" : "datasets/db1_orders",
+      "canJoinWith" : [ {
+        "processLabel" : "db2_orders",
+        "processId" : "knMLwYDsBy85mNejxi6Bh$$5dq_5pjbDFU2elqojkBIo",
+        "joinColumns" : [ "customer_id", "order_id", "order_amount" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "order_id", "order_amount" ],
+          "conditions" : [ {
+            "alias" : "db1_orders_1",
+            "expression" : "(((db2_orders.customer_id = db1_orders_1.customer_id) AND (db2_orders.order_amount = db1_orders_1.order_amount)) AND (db2_orders.order_id = db1_orders_1.order_id))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "db2_orders.order_id"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "db2_orders.customer_id"
+          }, {
+            "alias" : "order_amount",
+            "expression" : "db2_orders.order_amount"
+          }, {
+            "alias" : "order_date",
+            "expression" : "db2_orders.order_date"
+          } ],
+          "headAlias" : "datasets/db1_orders"
+        }
+      } ]
+    } ],
+    "pipelineSettingsInfo" : {
+      "applicationName" : "gold_layer_snapshot",
+      "hasApplication" : true,
+      "isFunctionsPackageDirDefined" : true,
+      "isNullValuesInUnitTestsEnabled" : true,
+      "sparkConfigOptions" : {
+        "disableSparkCreationTimeConfigGeneration" : true
+      }
+    },
+    "language" : "python",
+    "fabricId" : "2122",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "abhinavdemoprophecy.io_team.first_project.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "current_snapshot",
+          "kind" : {
+            "type" : "string",
+            "value" : "1"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "count_threshold",
+          "kind" : {
+            "type" : "string",
+            "value" : "0"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "null_fk_threshold",
+          "kind" : {
+            "type" : "string",
+            "value" : "0"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "update_view",
+          "kind" : {
+            "type" : "boolean",
+            "value" : false
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "db_name",
+          "kind" : {
+            "type" : "string",
+            "value" : "abhinav_demo"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ {
+      "name" : "spark.default.parallelism",
+      "value" : "4"
+    }, {
+      "name" : "spark.sql.legacy.allowUntypedScalaUDF",
+      "value" : "true"
+    } ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "gold_layer_snapshot",
+    "configTopLevelPackage" : "gold_layer_snapshot",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "QUXT6jI-F2aCE9-_lX1Mr$$S1_CpDJQ_1wWPiyp6IzQr",
+    "source" : "l40V6_l79_Gh3531J4ANL$$qrO_ROH6N53ZfTEHCECm3",
+    "sourcePort" : "4O1GMY4XgQGDOP4vi9OQb$$WSXoOpcMFmrxDZcMEiKLh",
+    "target" : "iulJpKxVEtlQa_QeFUXF-$$IpCCwHLJtVSaH_NnQ2l7H",
+    "targetPort" : "lNWZ13-xzPPHCv11Mh5Ff$$UxUESpJpPy3B7NGKg9I0d"
+  }, {
+    "id" : "zyXSXadZkMaij3Qly6dQ7$$-aZX2Vd6MH-u9RN-JzIW7",
+    "source" : "XozGyxkstqHuyFT_Kadnq$$knn6KV4F9FH9cKPconjGf",
+    "sourcePort" : "5oqD8GCZs4glrsIDj1AMy$$MLpR2UtNbI9b7mypJm-tz",
+    "target" : "giIdGw19OvbaRJlVS4wrG$$_tMMdQd-8Y_U47p3rhFqt",
+    "targetPort" : "OQI0TCNyImQDw3iGrNdyn$$A0kM4nQbLoM5QzdotCOI8"
+  }, {
+    "id" : "AN8TSYLAbYTsEhNasMfXS$$ua_QBwAyyBFlAKNQlUs0-",
+    "source" : "iulJpKxVEtlQa_QeFUXF-$$IpCCwHLJtVSaH_NnQ2l7H",
+    "sourcePort" : "ny2xIKuX8zCSBnPe_PeVs$$e4eXe2dI7gCi1TTGX0QEr",
+    "target" : "HRxBwo2nfZf539UmR8nq0$$kGfL1mZS2lzRzZNt0V5Un",
+    "targetPort" : "DUWhBHqFaTldTl9bN3zvQ$$mhOCA4AXEAHDf5LVjC_Nx"
+  }, {
+    "id" : "MNwy4W6uXKhrWNZYz9vCt$$UcgnNgE3rNwJAB9JLe4OP",
+    "source" : "giIdGw19OvbaRJlVS4wrG$$_tMMdQd-8Y_U47p3rhFqt",
+    "sourcePort" : "-KEOfT5C1GKgcs0PYNxRS$$JXAmknuIUU0G4ZP5XJtU8",
+    "target" : "HRxBwo2nfZf539UmR8nq0$$kGfL1mZS2lzRzZNt0V5Un",
+    "targetPort" : "iLz5UhiSKUDa76izccF_k$$3dlsmcIiWtcHQIppGpWIo"
+  }, {
+    "id" : "3VmqS3NyR21XKAlrGQJuZ$$g2Y0z0a58d1UcC8HbtWsi",
+    "source" : "HRxBwo2nfZf539UmR8nq0$$kGfL1mZS2lzRzZNt0V5Un",
+    "sourcePort" : "9je6MbVuq1UOytRFDo13o$$PCrls-e-6DqPQSWxpTMMc",
+    "target" : "0pX4TYBhO16K3ldCyc0Zv$$hz89m_rPUmZ-4ibUwcuOR",
+    "targetPort" : "TqhADP68nUsYJnoqDUc25$$FYozstFc7abk7dRA84bOC"
+  }, {
+    "id" : "KiZwDDouLUmqhlLg9v9MJ",
+    "source" : "cUvr4HemTn_hBRUoNU6H6$$PfJwcD1fO0VThd5eQN6sL",
+    "sourcePort" : "YAy5_IJKXHJiD_sqm4as4$$llXPTLHVtkxfmi5YFWEq4",
+    "target" : "eNlRZGbpbHvsgkGb9Gi2C$$Xj_kxH3X26lONo_oReVuN",
+    "targetPort" : "paOCmDnyt7cncpOe23Ntv$$gBAa2SqFRzLw39nEFpPWm"
+  } ],
+  "processes" : {
+    "knMLwYDsBy85mNejxi6Bh$$5dq_5pjbDFU2elqojkBIo" : {
+      "id" : "knMLwYDsBy85mNejxi6Bh$$5dq_5pjbDFU2elqojkBIo",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "db2_orders",
+        "slug" : "db2_orders",
+        "x" : -1680,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "j7BvLzVlCyOsIdTWsWBns$$MXP5U2DXmrz1xk4a6p2PL",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/db2_orders"
+      }
+    },
+    "0pX4TYBhO16K3ldCyc0Zv$$hz89m_rPUmZ-4ibUwcuOR" : {
+      "id" : "0pX4TYBhO16K3ldCyc0Zv$$hz89m_rPUmZ-4ibUwcuOR",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "snapshot_counts",
+        "slug" : "snapshot_counts",
+        "x" : -820,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Evaluates whether to update a data view based on changes in snapshot counts and null foreign key occurrences, ensuring data accuracy and relevance.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "TqhADP68nUsYJnoqDUc25$$FYozstFc7abk7dRA84bOC",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "latest_count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "null_fk_count",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "snapshot_count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "collect_arr = in0.collect()[0]\n\nsnapshot_count = collect_arr[0]\nnull_fk_count = collect_arr[1]\nlatest_count = collect_arr[2]\n\ncount_comp = (latest_count - snapshot_count)/snapshot_count\n\nnull_fk_comp = null_fk_count/latest_count\n\nif (count_comp <= float(Config.count_threshold) and null_fk_comp <= float(Config.null_fk_threshold)):\n    print(\"view would be updated to latest\")\n    Config.current_snapshot = str(spark.sql(\"select max(version) from (describe history abhinav_demo.orders_snapshot)\").collect()[0][0])\n    # if you use db then something like below can be done where db_name becomes configurable based on checks passing vs not\n    # spark.sql(f\"\"\"CREATE OR REPLACE VIEW orders_snapshot_view as select * from abhinav_demo.orders_snapshot version as of {Config.current_snapshot}\"\"\")\n\n    # code to update snaphot in metadat table\n\nelse:\n    print(\"view would not be updated\")\n\n\n\n\n",
+        "scriptMethodHeader" : "def Script(spark: SparkSession, in0: DataFrame) -> None:",
+        "scriptMethodFooter" : "    return "
+      }
+    },
+    "iulJpKxVEtlQa_QeFUXF-$$IpCCwHLJtVSaH_NnQ2l7H" : {
+      "id" : "iulJpKxVEtlQa_QeFUXF-$$IpCCwHLJtVSaH_NnQ2l7H",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "total_count",
+        "slug" : "total_count",
+        "x" : -1220,
+        "y" : -80,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Calculates the total number of records and identifies missing customer IDs in the dataset.",
+        "autoUpdateComment" : true,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "lNWZ13-xzPPHCv11Mh5Ff$$UxUESpJpPy3B7NGKg9I0d",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_amount",
+              "type" : "decimal(10,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order placed by the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "ny2xIKuX8zCSBnPe_PeVs$$e4eXe2dI7gCi1TTGX0QEr",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "latest_count",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "count(1)"
+          },
+          "description" : "",
+          "_row_id" : "tjb7_aaoxI"
+        }, {
+          "target" : "null_fk_count",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "sum(case when customer_id is null then 1 else 0 end)"
+          },
+          "description" : "",
+          "_row_id" : "op8-MaeMAW"
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "lNWZ13-xzPPHCv11Mh5Ff$$UxUESpJpPy3B7NGKg9I0d##customer_id" ],
+        "groupBy" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "l40V6_l79_Gh3531J4ANL$$qrO_ROH6N53ZfTEHCECm3" : {
+      "id" : "l40V6_l79_Gh3531J4ANL$$qrO_ROH6N53ZfTEHCECm3",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders_latest",
+        "slug" : "orders_latest",
+        "x" : -1420,
+        "y" : -80,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "4O1GMY4XgQGDOP4vi9OQb$$WSXoOpcMFmrxDZcMEiKLh",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/orders_latest"
+      }
+    },
+    "eNlRZGbpbHvsgkGb9Gi2C$$Xj_kxH3X26lONo_oReVuN" : {
+      "id" : "eNlRZGbpbHvsgkGb9Gi2C$$Xj_kxH3X26lONo_oReVuN",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "update_config_from_dataframe",
+        "slug" : "update_config_from_dataframe",
+        "x" : -1220,
+        "y" : -360,
+        "phase" : -1,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Updates configuration settings based on values from a provided data source, ensuring that the application operates with the latest parameters.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "paOCmDnyt7cncpOe23Ntv$$gBAa2SqFRzLw39nEFpPWm",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "table_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "count_diff_threshold",
+              "type" : "decimal(10,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "null_fk_threshold",
+              "type" : "decimal(10,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "current_snapshot",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "collect_arr = in0.collect()[0]\nprint(\"current_snapshot: \" + Config.current_snapshot)\nprint(\"count_threshold: \" + Config.count_threshold)\nprint(\"null_fk_threshold: \" + Config.null_fk_threshold)\n\nConfig.count_threshold = str(collect_arr[1])\nConfig.null_fk_threshold = str(collect_arr[2])\nConfig.current_snapshot = str(collect_arr[3])\n\nprint(\"current_snapshot: \" + Config.current_snapshot)\nprint(\"count_threshold: \" + Config.count_threshold)\nprint(\"null_fk_threshold: \" + Config.null_fk_threshold)",
+        "scriptMethodHeader" : "def Script(spark: SparkSession, in0: DataFrame) -> None:",
+        "scriptMethodFooter" : "    return "
+      }
+    },
+    "giIdGw19OvbaRJlVS4wrG$$_tMMdQd-8Y_U47p3rhFqt" : {
+      "id" : "giIdGw19OvbaRJlVS4wrG$$_tMMdQd-8Y_U47p3rhFqt",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "count_records",
+        "slug" : "count_records",
+        "x" : -1220,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Counts the total number of records in a dataset for reporting or analysis purposes.",
+        "autoUpdateComment" : true,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "OQI0TCNyImQDw3iGrNdyn$$A0kM4nQbLoM5QzdotCOI8",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_amount",
+              "type" : "decimal(10,2)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order placed by the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "-KEOfT5C1GKgcs0PYNxRS$$JXAmknuIUU0G4ZP5XJtU8",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "snapshot_count",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "count(1)"
+          },
+          "description" : "",
+          "_row_id" : "DxG_bTLnUi"
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "XozGyxkstqHuyFT_Kadnq$$knn6KV4F9FH9cKPconjGf" : {
+      "id" : "XozGyxkstqHuyFT_Kadnq$$knn6KV4F9FH9cKPconjGf",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders_snapshot",
+        "slug" : "orders_snapshot",
+        "x" : -1420,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Retrieves the latest snapshot of order data for analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "5oqD8GCZs4glrsIDj1AMy$$MLpR2UtNbI9b7mypJm-tz",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/orders_snapshot"
+      }
+    },
+    "Wrz9oukPzdVKRoLTLrQyk$$GZOE-o5nSCao3Hm09U_I7" : {
+      "id" : "Wrz9oukPzdVKRoLTLrQyk$$GZOE-o5nSCao3Hm09U_I7",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "db1_orders",
+        "slug" : "db1_orders",
+        "x" : -1680,
+        "y" : -180,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Retrieves order data from the specified database.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "yzWPVE2gVKZZ5nlQO9VKf$$5lPHHNCxkTiPSXkX2ZNou",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/db1_orders"
+      }
+    },
+    "HRxBwo2nfZf539UmR8nq0$$kGfL1mZS2lzRzZNt0V5Un" : {
+      "id" : "HRxBwo2nfZf539UmR8nq0$$kGfL1mZS2lzRzZNt0V5Un",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "full_cross_join",
+        "slug" : "full_cross_join",
+        "x" : -1000,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Creates a comprehensive combination of two datasets, allowing for detailed analysis of all possible interactions between them.",
+        "autoUpdateComment" : true,
+        "dataPreview" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "DUWhBHqFaTldTl9bN3zvQ$$mhOCA4AXEAHDf5LVjC_Nx",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "latest_count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "null_fk_count",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "iLz5UhiSKUDa76izccF_k$$3dlsmcIiWtcHQIppGpWIo",
+          "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "snapshot_count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "9je6MbVuq1UOytRFDo13o$$PCrls-e-6DqPQSWxpTMMc",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "true"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ ],
+        "hints" : [ {
+          "id" : "DUWhBHqFaTldTl9bN3zvQ$$mhOCA4AXEAHDf5LVjC_Nx",
+          "alias" : "in0",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "iLz5UhiSKUDa76izccF_k$$3dlsmcIiWtcHQIppGpWIo",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "in0"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "cUvr4HemTn_hBRUoNU6H6$$PfJwcD1fO0VThd5eQN6sL" : {
+      "id" : "cUvr4HemTn_hBRUoNU6H6$$PfJwcD1fO0VThd5eQN6sL",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders_threshold",
+        "slug" : "orders_threshold",
+        "x" : -1420,
+        "y" : -360,
+        "phase" : -1,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Retrieves order data from a specified database for analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "YAy5_IJKXHJiD_sqm4as4$$llXPTLHVtkxfmi5YFWEq4",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/orders_threshold"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

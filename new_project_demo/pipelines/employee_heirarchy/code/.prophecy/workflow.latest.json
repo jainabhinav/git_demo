@@ -15,6 +15,7 @@
     },
     "id" : "1",
     "uri" : "pipelines/employee_heirarchy",
+    "sourceSuggestions" : [ ],
     "pipelineSettingsInfo" : {
       "applicationName" : "employee_heirarchy",
       "hasApplication" : true,
@@ -219,25 +220,140 @@
     "targetPort" : "mO6i422QGRio9M1pvAbZi$$1s4EbelSPXXuVf_P_DQru"
   } ],
   "processes" : {
-    "JLEVSYv0TADwwmaOEcVTY$$FJBnEgnXdefAWooOyzxRv" : {
-      "id" : "JLEVSYv0TADwwmaOEcVTY$$FJBnEgnXdefAWooOyzxRv",
-      "component" : "Source",
+    "ccCHjL8fQr8yjSzHNaiPX$$H6PDkdx5Y6LWHCcO9FUZl" : {
+      "id" : "ccCHjL8fQr8yjSzHNaiPX$$H6PDkdx5Y6LWHCcO9FUZl",
+      "component" : "Reformat",
       "metadata" : {
-        "label" : "employee",
-        "slug" : "employee",
-        "x" : -980,
+        "label" : "reformatted_hierarchy_data",
+        "slug" : "reformatted_hierarchy_data",
+        "x" : 40,
         "y" : -120,
         "phase" : 0,
-        "cache" : true,
+        "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Loads employee data from a CSV file, enabling analysis of workforce metrics and performance.",
-        "autoUpdateComment" : true
+        "comment" : "Reformats hierarchical data to provide a clear view of employee positions and their details across multiple levels.",
+        "autoUpdateComment" : true,
+        "dataPreview" : false
       },
       "ports" : {
-        "inputs" : [ ],
+        "inputs" : [ {
+          "id" : "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "AUX_SRC_SYS",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Identifier for the source system of the employee data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AUX_INS_DTM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Timestamp indicating when the employee record was inserted",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AUX_SRC_STATUS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Status of the data source for the employee record",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "POS_NUM",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique number assigned to the position within the organization",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "POS_TITLE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Title of the employee's position",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "EM_POS_NUM",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The position number assigned to the employee.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "HEIRARCHY_ARR",
+              "type" : {
+                "type" : "array",
+                "elementType" : {
+                  "type" : "struct",
+                  "fields" : [ {
+                    "name" : "POS_NUM",
+                    "type" : "integer",
+                    "nullable" : true,
+                    "metadata" : {
+                      "description" : "The unique number assigned to the position within the organization",
+                      "mappings" : [ ],
+                      "tags" : [ ]
+                    }
+                  }, {
+                    "name" : "POS_TITLE",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : {
+                      "description" : "Title of the employee's position",
+                      "mappings" : [ ],
+                      "tags" : [ ]
+                    }
+                  }, {
+                    "name" : "EMPL_ID",
+                    "type" : "integer",
+                    "nullable" : true,
+                    "metadata" : {
+                      "description" : "Unique identifier for each employee",
+                      "mappings" : [ ],
+                      "tags" : [ ]
+                    }
+                  }, {
+                    "name" : "EMPL_NAME",
+                    "type" : "string",
+                    "nullable" : true,
+                    "metadata" : {
+                      "description" : "The name of the employee",
+                      "mappings" : [ ],
+                      "tags" : [ ]
+                    }
+                  } ]
+                },
+                "containsNull" : false
+              },
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
         "outputs" : [ {
-          "id" : "HVrE5YYTl-29lL6QBxWQw$$yqT-yPPQ9i_CQzWAjcTY8",
+          "id" : "FvdxSYKQtt5E3U7Cp9kaO$$UtqSSWBcCDuUJRwPwQ23s",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -245,7 +361,624 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "datasets/employee"
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "AUX_SRC_SYS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "AUX_SRC_SYS"
+          },
+          "description" : ""
+        }, {
+          "target" : "AUX_INS_DTM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "AUX_INS_DTM"
+          },
+          "description" : ""
+        }, {
+          "target" : "AUX_SRC_STATUS",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "AUX_SRC_STATUS"
+          },
+          "description" : ""
+        }, {
+          "target" : "POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "POS_NUM"
+          },
+          "description" : ""
+        }, {
+          "target" : "POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "POS_TITLE"
+          },
+          "description" : ""
+        }, {
+          "target" : "EM_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "EM_POS_NUM"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_0_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[0]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_0_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[0]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_0_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[0]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_0_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[0]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_1_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[1]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_1_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[1]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_1_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[1]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_1_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[1]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_2_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[2]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_2_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[2]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_2_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[2]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_2_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[2]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_3_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[3]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_3_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[3]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_3_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[3]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_3_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[3]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_4_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[4]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_4_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[4]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_4_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[4]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_4_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[4]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_5_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[5]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_5_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[5]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_5_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[5]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_5_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[5]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_6_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[6]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_6_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[6]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_6_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[6]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_6_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[6]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_7_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[7]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_7_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[7]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_7_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[7]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_7_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[7]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_8_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[8]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_8_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[8]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_8_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[8]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_8_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[8]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_9_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[9]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_9_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[9]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_9_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[9]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_9_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[9]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_10_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[10]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_10_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[10]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_10_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[10]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_10_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[10]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_11_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[11]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_11_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[11]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_11_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[11]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_11_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[11]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_12_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[12]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_12_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[12]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_12_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[12]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_12_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[12]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_13_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[13]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_13_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[13]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_13_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[13]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_13_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[13]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_14_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[14]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_14_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[14]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_14_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[14]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_14_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[14]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_15_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[15]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_15_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[15]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_15_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[15]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_15_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[15]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_16_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[16]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_16_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[16]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_16_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[16]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_16_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[16]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_17_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[17]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_17_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[17]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_17_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[17]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_17_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[17]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_18_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[18]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_18_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[18]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_18_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[18]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_18_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[18]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_19_POS_NUM",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[19]['POS_NUM']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_19_POS_TITLE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[19]['POS_TITLE']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_19_EMPL_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[19]['EMPL_ID']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LEVEL_19_EMPL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "HEIRARCHY_ARR[19]['EMPL_NAME']"
+          },
+          "description" : ""
+        }, {
+          "target" : "LAYER",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "size(HEIRARCHY_ARR) - 1"
+          },
+          "description" : ""
+        } ],
+        "importString" : "AUX_SRC_SYS,AUX_SRC_SYS\nAUX_INS_DTM,AUX_INS_DTM\nAUX_SRC_STATUS,AUX_SRC_STATUS\nPOS_NUM,POS_NUM\nPOS_TITLE,POS_TITLE\nEM_POS_NUM,EM_POS_NUM\nLEVEL_0_POS_NUM,HEIRARCHY_ARR[0]['POS_NUM']\nLEVEL_0_POS_TITLE,HEIRARCHY_ARR[0]['POS_TITLE']\nLEVEL_0_EMPL_ID,HEIRARCHY_ARR[0]['EMPL_ID']\nLEVEL_0_EMPL_NAME,HEIRARCHY_ARR[0]['EMPL_NAME']\nLEVEL_1_POS_NUM,HEIRARCHY_ARR[1]['POS_NUM']\nLEVEL_1_POS_TITLE,HEIRARCHY_ARR[1]['POS_TITLE']\nLEVEL_1_EMPL_ID,HEIRARCHY_ARR[1]['EMPL_ID']\nLEVEL_1_EMPL_NAME,HEIRARCHY_ARR[1]['EMPL_NAME']\nLEVEL_2_POS_NUM,HEIRARCHY_ARR[2]['POS_NUM']\nLEVEL_2_POS_TITLE,HEIRARCHY_ARR[2]['POS_TITLE']\nLEVEL_2_EMPL_ID,HEIRARCHY_ARR[2]['EMPL_ID']\nLEVEL_2_EMPL_NAME,HEIRARCHY_ARR[2]['EMPL_NAME']\nLEVEL_3_POS_NUM,HEIRARCHY_ARR[3]['POS_NUM']\nLEVEL_3_POS_TITLE,HEIRARCHY_ARR[3]['POS_TITLE']\nLEVEL_3_EMPL_ID,HEIRARCHY_ARR[3]['EMPL_ID']\nLEVEL_3_EMPL_NAME,HEIRARCHY_ARR[3]['EMPL_NAME']\nLEVEL_4_POS_NUM,HEIRARCHY_ARR[4]['POS_NUM']\nLEVEL_4_POS_TITLE,HEIRARCHY_ARR[4]['POS_TITLE']\nLEVEL_4_EMPL_ID,HEIRARCHY_ARR[4]['EMPL_ID']\nLEVEL_4_EMPL_NAME,HEIRARCHY_ARR[4]['EMPL_NAME']\nLEVEL_5_POS_NUM,HEIRARCHY_ARR[5]['POS_NUM']\nLEVEL_5_POS_TITLE,HEIRARCHY_ARR[5]['POS_TITLE']\nLEVEL_5_EMPL_ID,HEIRARCHY_ARR[5]['EMPL_ID']\nLEVEL_5_EMPL_NAME,HEIRARCHY_ARR[5]['EMPL_NAME']\nLEVEL_6_POS_NUM,HEIRARCHY_ARR[6]['POS_NUM']\nLEVEL_6_POS_TITLE,HEIRARCHY_ARR[6]['POS_TITLE']\nLEVEL_6_EMPL_ID,HEIRARCHY_ARR[6]['EMPL_ID']\nLEVEL_6_EMPL_NAME,HEIRARCHY_ARR[6]['EMPL_NAME']\nLEVEL_7_POS_NUM,HEIRARCHY_ARR[7]['POS_NUM']\nLEVEL_7_POS_TITLE,HEIRARCHY_ARR[7]['POS_TITLE']\nLEVEL_7_EMPL_ID,HEIRARCHY_ARR[7]['EMPL_ID']\nLEVEL_7_EMPL_NAME,HEIRARCHY_ARR[7]['EMPL_NAME']\nLEVEL_8_POS_NUM,HEIRARCHY_ARR[8]['POS_NUM']\nLEVEL_8_POS_TITLE,HEIRARCHY_ARR[8]['POS_TITLE']\nLEVEL_8_EMPL_ID,HEIRARCHY_ARR[8]['EMPL_ID']\nLEVEL_8_EMPL_NAME,HEIRARCHY_ARR[8]['EMPL_NAME']\nLEVEL_9_POS_NUM,HEIRARCHY_ARR[9]['POS_NUM']\nLEVEL_9_POS_TITLE,HEIRARCHY_ARR[9]['POS_TITLE']\nLEVEL_9_EMPL_ID,HEIRARCHY_ARR[9]['EMPL_ID']\nLEVEL_9_EMPL_NAME,HEIRARCHY_ARR[9]['EMPL_NAME']\nLEVEL_10_POS_NUM,HEIRARCHY_ARR[10]['POS_NUM']\nLEVEL_10_POS_TITLE,HEIRARCHY_ARR[10]['POS_TITLE']\nLEVEL_10_EMPL_ID,HEIRARCHY_ARR[10]['EMPL_ID']\nLEVEL_10_EMPL_NAME,HEIRARCHY_ARR[10]['EMPL_NAME']\nLEVEL_11_POS_NUM,HEIRARCHY_ARR[11]['POS_NUM']\nLEVEL_11_POS_TITLE,HEIRARCHY_ARR[11]['POS_TITLE']\nLEVEL_11_EMPL_ID,HEIRARCHY_ARR[11]['EMPL_ID']\nLEVEL_11_EMPL_NAME,HEIRARCHY_ARR[11]['EMPL_NAME']\nLEVEL_12_POS_NUM,HEIRARCHY_ARR[12]['POS_NUM']\nLEVEL_12_POS_TITLE,HEIRARCHY_ARR[12]['POS_TITLE']\nLEVEL_12_EMPL_ID,HEIRARCHY_ARR[12]['EMPL_ID']\nLEVEL_12_EMPL_NAME,HEIRARCHY_ARR[12]['EMPL_NAME']\nLEVEL_13_POS_NUM,HEIRARCHY_ARR[13]['POS_NUM']\nLEVEL_13_POS_TITLE,HEIRARCHY_ARR[13]['POS_TITLE']\nLEVEL_13_EMPL_ID,HEIRARCHY_ARR[13]['EMPL_ID']\nLEVEL_13_EMPL_NAME,HEIRARCHY_ARR[13]['EMPL_NAME']\nLEVEL_14_POS_NUM,HEIRARCHY_ARR[14]['POS_NUM']\nLEVEL_14_POS_TITLE,HEIRARCHY_ARR[14]['POS_TITLE']\nLEVEL_14_EMPL_ID,HEIRARCHY_ARR[14]['EMPL_ID']\nLEVEL_14_EMPL_NAME,HEIRARCHY_ARR[14]['EMPL_NAME']\nLEVEL_15_POS_NUM,HEIRARCHY_ARR[15]['POS_NUM']\nLEVEL_15_POS_TITLE,HEIRARCHY_ARR[15]['POS_TITLE']\nLEVEL_15_EMPL_ID,HEIRARCHY_ARR[15]['EMPL_ID']\nLEVEL_15_EMPL_NAME,HEIRARCHY_ARR[15]['EMPL_NAME']\nLEVEL_16_POS_NUM,HEIRARCHY_ARR[16]['POS_NUM']\nLEVEL_16_POS_TITLE,HEIRARCHY_ARR[16]['POS_TITLE']\nLEVEL_16_EMPL_ID,HEIRARCHY_ARR[16]['EMPL_ID']\nLEVEL_16_EMPL_NAME,HEIRARCHY_ARR[16]['EMPL_NAME']\nLEVEL_17_POS_NUM,HEIRARCHY_ARR[17]['POS_NUM']\nLEVEL_17_POS_TITLE,HEIRARCHY_ARR[17]['POS_TITLE']\nLEVEL_17_EMPL_ID,HEIRARCHY_ARR[17]['EMPL_ID']\nLEVEL_17_EMPL_NAME,HEIRARCHY_ARR[17]['EMPL_NAME']\nLEVEL_18_POS_NUM,HEIRARCHY_ARR[18]['POS_NUM']\nLEVEL_18_POS_TITLE,HEIRARCHY_ARR[18]['POS_TITLE']\nLEVEL_18_EMPL_ID,HEIRARCHY_ARR[18]['EMPL_ID']\nLEVEL_18_EMPL_NAME,HEIRARCHY_ARR[18]['EMPL_NAME']\nLEVEL_19_POS_NUM,HEIRARCHY_ARR[19]['POS_NUM']\nLEVEL_19_POS_TITLE,HEIRARCHY_ARR[19]['POS_TITLE']\nLEVEL_19_EMPL_ID,HEIRARCHY_ARR[19]['EMPL_ID']\nLEVEL_19_EMPL_NAME,HEIRARCHY_ARR[19]['EMPL_NAME']",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##HEIRARCHY_ARR", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##AUX_SRC_SYS", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##AUX_SRC_STATUS", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##POS_NUM", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##AUX_INS_DTM", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##POS_TITLE", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##EM_POS_NUM" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "M0ydBXLBG0U3ARQ_M9LAD$$GyL9UmJQtwtROJeV1jGvR" : {
@@ -3789,7 +4522,7 @@
         } ],
         "allIn1" : null,
         "activeTab" : "expressions",
-        "columnsSelector" : [ "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##EM_USER_ID", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##EM_USER_ID", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##EM_USER_ID", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##USER_ID", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##EM_USER_ID", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##EM_USER_ID", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##USER_ID", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##EM_USER_ID", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##EM_USER_ID", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##EM_USER_ID", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##EM_USER_ID", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##USER_ID", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##USER_ID", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##EM_USER_ID", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##EM_USER_ID", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##EM_USER_ID", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##USER_ID", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##USER_ID", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##EM_USER_ID", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##USER_ID", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##USER_ID", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##EM_USER_ID", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##EM_USER_ID", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##EM_USER_ID", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##EM_USER_ID", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##USER_ID", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##USER_ID", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##USER_ID", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##USER_ID", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##EM_USER_ID", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##USER_ID", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##USER_ID", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##USER_ID", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##USER_ID", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##USER_ID", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##EM_USER_ID", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##USER_ID", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##USER_ID", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##EMPL_ID", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##POS_TITLE", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##POS_NUM", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##EMPL_NAME", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##EMPL_NAME", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##EMPL_ID", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##EMPL_NAME", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##POS_TITLE", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##AUX_SRC_SYS", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##EMPL_NAME", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##POS_NUM", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##EMPL_ID", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##POS_TITLE", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##POS_NUM", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##POS_NUM", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##EM_POS_NUM", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##POS_TITLE", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##POS_NUM", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##EMPL_NAME", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##POS_NUM", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##POS_TITLE", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##POS_NUM", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##POS_NUM", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##POS_NUM", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##EMPL_NAME", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##EMPL_ID", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##EMPL_ID", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##EMPL_NAME", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##POS_NUM", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##EMPL_NAME", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##POS_NUM", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##EMPL_NAME", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##POS_NUM", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##EMPL_ID", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##EMPL_NAME", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##EMPL_ID", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##EMPL_ID", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##POS_NUM", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##POS_NUM", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##POS_TITLE", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##POS_TITLE", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##EMPL_ID", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##EMPL_ID", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##EMPL_NAME", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##POS_TITLE", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##POS_NUM", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##POS_TITLE", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##EMPL_NAME", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##EMPL_NAME", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##EMPL_ID", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##POS_TITLE", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##EMPL_ID", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##POS_TITLE", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##EMPL_ID", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##POS_TITLE", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##EMPL_ID", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##EMPL_ID", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##POS_NUM", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##EMPL_ID", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##POS_TITLE", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##EMPL_ID", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##POS_TITLE", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##EMPL_NAME", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##EMPL_NAME", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##EMPL_NAME", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##EMPL_ID", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##POS_NUM", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##EMPL_NAME", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##POS_TITLE", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##POS_TITLE", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##POS_TITLE", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##POS_TITLE", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##POS_NUM", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##POS_TITLE", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##EMPL_ID", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##AUX_SRC_STATUS", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##EMPL_ID", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##EMPL_NAME", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##AUX_INS_DTM", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##EMPL_NAME", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##POS_NUM", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##POS_NUM", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##EMPL_NAME", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##POS_TITLE" ],
+        "columnsSelector" : [ "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##USER_ID", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##EM_USER_ID", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##USER_ID", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##USER_ID", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##EM_USER_ID", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##EM_USER_ID", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##EM_USER_ID", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##EM_USER_ID", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##EM_USER_ID", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##USER_ID", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##USER_ID", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##USER_ID", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##USER_ID", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##EM_USER_ID", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##EM_USER_ID", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##EM_USER_ID", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##USER_ID", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##USER_ID", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##USER_ID", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##USER_ID", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##USER_ID", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##EM_USER_ID", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##EM_USER_ID", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##USER_ID", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##USER_ID", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##EM_USER_ID", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##EM_USER_ID", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##USER_ID", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##EM_USER_ID", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##EM_USER_ID", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##EM_USER_ID", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##EM_USER_ID", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##USER_ID", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##USER_ID", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##EM_USER_ID", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##USER_ID", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##USER_ID", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##EM_USER_ID", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##POS_TITLE", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##POS_NUM", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##POS_TITLE", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##EMPL_NAME", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##EMPL_NAME", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##POS_TITLE", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##AUX_SRC_STATUS", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##EMPL_ID", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##POS_NUM", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##EMPL_NAME", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##EMPL_ID", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##POS_NUM", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##EMPL_ID", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##EMPL_ID", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##EMPL_ID", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##POS_NUM", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##EMPL_NAME", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##POS_TITLE", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##EMPL_NAME", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##EMPL_ID", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##EMPL_NAME", "1_MZ-Dvt8M_hunt_6ZHiP$$hVD6lSQZQJzu4DAvIgUKh##POS_TITLE", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##EMPL_NAME", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##EMPL_ID", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##EMPL_NAME", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##POS_TITLE", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##POS_TITLE", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##POS_NUM", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##POS_NUM", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##EMPL_ID", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##POS_TITLE", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##POS_NUM", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##EMPL_ID", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##EMPL_ID", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##EMPL_NAME", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##POS_TITLE", "PtzcOHU0PhBSPFfgwGcPW$$ZR8Ba1bJtK3HrM-p4AQs3##POS_NUM", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##POS_TITLE", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##POS_TITLE", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##EMPL_NAME", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##EMPL_NAME", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##EMPL_NAME", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##EMPL_NAME", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##POS_TITLE", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##EMPL_NAME", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##POS_TITLE", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##POS_TITLE", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##POS_NUM", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##POS_NUM", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##POS_NUM", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##EMPL_ID", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##EMPL_NAME", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##EMPL_NAME", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##POS_NUM", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##POS_NUM", "FAAzuF7ACIfwspZYXN8DQ$$bWDC_Ng1e30mr7kACVJBI##POS_NUM", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##AUX_SRC_SYS", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##EMPL_ID", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##EMPL_ID", "5kecr9rUgFJsO4jXGrklR$$dkBdWC3ZxHvVckjxgxhRf##EMPL_ID", "cTNHvOzm8gCyPLvl_mAB0$$Qm32OqUogT-j9BsIFCALe##POS_TITLE", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##EM_POS_NUM", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##EMPL_ID", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##AUX_INS_DTM", "NSryiUKxRGqgIcSS_rvyr$$RUDFWPBW8wmNYocMJntp2##POS_TITLE", "49RO6GM0AJC5PZcMqLTAi$$IfiBPyvPutPHVRFUI5X_S##POS_NUM", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##POS_TITLE", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##EMPL_ID", "QRYDu4w1tvv4m9K0SqjJh$$QQlaybwWyD_Q6zooApM28##EMPL_ID", "UvHzlRfl9DhvFSTKuCX6H$$BYD8yODBsfb2hKfPAnAdS##EMPL_NAME", "YeXbdpx4QcLE7kdrhsoJk$$P6M1AvQIe63t0JgoSoKq9##EMPL_ID", "26bwQzOg42hz9Xahzwwff$$8V2l6pSCFviWSvaz4k8HY##EMPL_ID", "a2AJzrbvOJkOErTqpTw3a$$802MOuVrRCdN3ZL2Ul11E##POS_NUM", "R7qN-WGzTOfMXhT7lV4F8$$7rNeSOEgotUa9a2xW8wjD##POS_TITLE", "kUFBwO33AOAE9xpMqu33H$$RSWLQcTfYr2hxFIdDrrSy##POS_NUM", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##EMPL_ID", "RlGBdz3HylSB33rIg1P64$$KLbBfWHxsPa-dxQIIcbXJ##EMPL_NAME", "UpxNXINh3rdQ0RN-nMgFI$$lEZSUarQiippRYl5HJHei##POS_NUM", "MRYDbXE974GZdMGIJ6uFs$$l1fnnmZ7BUkM_Kyzz0JDV##POS_TITLE", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##EMPL_NAME", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##POS_NUM", "qpgyT-Vgzi-ux6-QF_NR4$$jS2WlKjA2VLgUSpGgcjGp##POS_NUM", "pJkxc78y-BHpfUQ4q1E7D$$5Bbgn8eEyvs_3nXBTsLyS##POS_TITLE", "WMOQNU3hMEFN-cwrQCwMV$$FJbiad3wBpLpcK06dXvFi##EMPL_NAME" ],
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
@@ -3799,140 +4532,25 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "ccCHjL8fQr8yjSzHNaiPX$$H6PDkdx5Y6LWHCcO9FUZl" : {
-      "id" : "ccCHjL8fQr8yjSzHNaiPX$$H6PDkdx5Y6LWHCcO9FUZl",
-      "component" : "Reformat",
+    "JLEVSYv0TADwwmaOEcVTY$$FJBnEgnXdefAWooOyzxRv" : {
+      "id" : "JLEVSYv0TADwwmaOEcVTY$$FJBnEgnXdefAWooOyzxRv",
+      "component" : "Source",
       "metadata" : {
-        "label" : "reformatted_hierarchy_data",
-        "slug" : "reformatted_hierarchy_data",
-        "x" : 40,
+        "label" : "employee",
+        "slug" : "employee",
+        "x" : -1020,
         "y" : -120,
         "phase" : 0,
-        "cache" : false,
+        "cache" : true,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Reformats hierarchical data to provide a clear view of employee positions and their details across multiple levels.",
-        "autoUpdateComment" : true,
-        "dataPreview" : false
+        "comment" : "Loads employee data from a CSV file, enabling analysis of workforce metrics and performance.",
+        "autoUpdateComment" : true
       },
       "ports" : {
-        "inputs" : [ {
-          "id" : "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk",
-          "slug" : "in0",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "AUX_SRC_SYS",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Identifier for the source system of the employee data",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "AUX_INS_DTM",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Timestamp indicating when the employee record was inserted",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "AUX_SRC_STATUS",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Status of the data source for the employee record",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "POS_NUM",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The unique number assigned to the position within the organization",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "POS_TITLE",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Title of the employee's position",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "EM_POS_NUM",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The position number assigned to the employee.",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "HEIRARCHY_ARR",
-              "type" : {
-                "type" : "array",
-                "elementType" : {
-                  "type" : "struct",
-                  "fields" : [ {
-                    "name" : "POS_NUM",
-                    "type" : "integer",
-                    "nullable" : true,
-                    "metadata" : {
-                      "description" : "The unique number assigned to the position within the organization",
-                      "mappings" : [ ],
-                      "tags" : [ ]
-                    }
-                  }, {
-                    "name" : "POS_TITLE",
-                    "type" : "string",
-                    "nullable" : true,
-                    "metadata" : {
-                      "description" : "Title of the employee's position",
-                      "mappings" : [ ],
-                      "tags" : [ ]
-                    }
-                  }, {
-                    "name" : "EMPL_ID",
-                    "type" : "integer",
-                    "nullable" : true,
-                    "metadata" : {
-                      "description" : "Unique identifier for each employee",
-                      "mappings" : [ ],
-                      "tags" : [ ]
-                    }
-                  }, {
-                    "name" : "EMPL_NAME",
-                    "type" : "string",
-                    "nullable" : true,
-                    "metadata" : {
-                      "description" : "The name of the employee",
-                      "mappings" : [ ],
-                      "tags" : [ ]
-                    }
-                  } ]
-                },
-                "containsNull" : false
-              },
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
+        "inputs" : [ ],
         "outputs" : [ {
-          "id" : "FvdxSYKQtt5E3U7Cp9kaO$$UtqSSWBcCDuUJRwPwQ23s",
+          "id" : "HVrE5YYTl-29lL6QBxWQw$$yqT-yPPQ9i_CQzWAjcTY8",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -3940,624 +4558,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
-        "expressions" : [ {
-          "target" : "AUX_SRC_SYS",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "AUX_SRC_SYS"
-          },
-          "description" : ""
-        }, {
-          "target" : "AUX_INS_DTM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "AUX_INS_DTM"
-          },
-          "description" : ""
-        }, {
-          "target" : "AUX_SRC_STATUS",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "AUX_SRC_STATUS"
-          },
-          "description" : ""
-        }, {
-          "target" : "POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "POS_NUM"
-          },
-          "description" : ""
-        }, {
-          "target" : "POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "POS_TITLE"
-          },
-          "description" : ""
-        }, {
-          "target" : "EM_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "EM_POS_NUM"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_0_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[0]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_0_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[0]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_0_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[0]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_0_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[0]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_1_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[1]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_1_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[1]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_1_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[1]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_1_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[1]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_2_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[2]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_2_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[2]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_2_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[2]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_2_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[2]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_3_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[3]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_3_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[3]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_3_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[3]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_3_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[3]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_4_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[4]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_4_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[4]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_4_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[4]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_4_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[4]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_5_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[5]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_5_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[5]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_5_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[5]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_5_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[5]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_6_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[6]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_6_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[6]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_6_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[6]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_6_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[6]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_7_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[7]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_7_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[7]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_7_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[7]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_7_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[7]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_8_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[8]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_8_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[8]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_8_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[8]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_8_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[8]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_9_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[9]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_9_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[9]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_9_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[9]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_9_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[9]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_10_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[10]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_10_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[10]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_10_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[10]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_10_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[10]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_11_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[11]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_11_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[11]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_11_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[11]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_11_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[11]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_12_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[12]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_12_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[12]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_12_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[12]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_12_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[12]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_13_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[13]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_13_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[13]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_13_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[13]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_13_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[13]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_14_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[14]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_14_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[14]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_14_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[14]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_14_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[14]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_15_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[15]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_15_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[15]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_15_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[15]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_15_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[15]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_16_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[16]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_16_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[16]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_16_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[16]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_16_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[16]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_17_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[17]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_17_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[17]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_17_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[17]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_17_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[17]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_18_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[18]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_18_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[18]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_18_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[18]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_18_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[18]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_19_POS_NUM",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[19]['POS_NUM']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_19_POS_TITLE",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[19]['POS_TITLE']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_19_EMPL_ID",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[19]['EMPL_ID']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LEVEL_19_EMPL_NAME",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "HEIRARCHY_ARR[19]['EMPL_NAME']"
-          },
-          "description" : ""
-        }, {
-          "target" : "LAYER",
-          "expression" : {
-            "format" : "sql",
-            "expression" : "size(HEIRARCHY_ARR) - 1"
-          },
-          "description" : ""
-        } ],
-        "importString" : "AUX_SRC_SYS,AUX_SRC_SYS\nAUX_INS_DTM,AUX_INS_DTM\nAUX_SRC_STATUS,AUX_SRC_STATUS\nPOS_NUM,POS_NUM\nPOS_TITLE,POS_TITLE\nEM_POS_NUM,EM_POS_NUM\nLEVEL_0_POS_NUM,HEIRARCHY_ARR[0]['POS_NUM']\nLEVEL_0_POS_TITLE,HEIRARCHY_ARR[0]['POS_TITLE']\nLEVEL_0_EMPL_ID,HEIRARCHY_ARR[0]['EMPL_ID']\nLEVEL_0_EMPL_NAME,HEIRARCHY_ARR[0]['EMPL_NAME']\nLEVEL_1_POS_NUM,HEIRARCHY_ARR[1]['POS_NUM']\nLEVEL_1_POS_TITLE,HEIRARCHY_ARR[1]['POS_TITLE']\nLEVEL_1_EMPL_ID,HEIRARCHY_ARR[1]['EMPL_ID']\nLEVEL_1_EMPL_NAME,HEIRARCHY_ARR[1]['EMPL_NAME']\nLEVEL_2_POS_NUM,HEIRARCHY_ARR[2]['POS_NUM']\nLEVEL_2_POS_TITLE,HEIRARCHY_ARR[2]['POS_TITLE']\nLEVEL_2_EMPL_ID,HEIRARCHY_ARR[2]['EMPL_ID']\nLEVEL_2_EMPL_NAME,HEIRARCHY_ARR[2]['EMPL_NAME']\nLEVEL_3_POS_NUM,HEIRARCHY_ARR[3]['POS_NUM']\nLEVEL_3_POS_TITLE,HEIRARCHY_ARR[3]['POS_TITLE']\nLEVEL_3_EMPL_ID,HEIRARCHY_ARR[3]['EMPL_ID']\nLEVEL_3_EMPL_NAME,HEIRARCHY_ARR[3]['EMPL_NAME']\nLEVEL_4_POS_NUM,HEIRARCHY_ARR[4]['POS_NUM']\nLEVEL_4_POS_TITLE,HEIRARCHY_ARR[4]['POS_TITLE']\nLEVEL_4_EMPL_ID,HEIRARCHY_ARR[4]['EMPL_ID']\nLEVEL_4_EMPL_NAME,HEIRARCHY_ARR[4]['EMPL_NAME']\nLEVEL_5_POS_NUM,HEIRARCHY_ARR[5]['POS_NUM']\nLEVEL_5_POS_TITLE,HEIRARCHY_ARR[5]['POS_TITLE']\nLEVEL_5_EMPL_ID,HEIRARCHY_ARR[5]['EMPL_ID']\nLEVEL_5_EMPL_NAME,HEIRARCHY_ARR[5]['EMPL_NAME']\nLEVEL_6_POS_NUM,HEIRARCHY_ARR[6]['POS_NUM']\nLEVEL_6_POS_TITLE,HEIRARCHY_ARR[6]['POS_TITLE']\nLEVEL_6_EMPL_ID,HEIRARCHY_ARR[6]['EMPL_ID']\nLEVEL_6_EMPL_NAME,HEIRARCHY_ARR[6]['EMPL_NAME']\nLEVEL_7_POS_NUM,HEIRARCHY_ARR[7]['POS_NUM']\nLEVEL_7_POS_TITLE,HEIRARCHY_ARR[7]['POS_TITLE']\nLEVEL_7_EMPL_ID,HEIRARCHY_ARR[7]['EMPL_ID']\nLEVEL_7_EMPL_NAME,HEIRARCHY_ARR[7]['EMPL_NAME']\nLEVEL_8_POS_NUM,HEIRARCHY_ARR[8]['POS_NUM']\nLEVEL_8_POS_TITLE,HEIRARCHY_ARR[8]['POS_TITLE']\nLEVEL_8_EMPL_ID,HEIRARCHY_ARR[8]['EMPL_ID']\nLEVEL_8_EMPL_NAME,HEIRARCHY_ARR[8]['EMPL_NAME']\nLEVEL_9_POS_NUM,HEIRARCHY_ARR[9]['POS_NUM']\nLEVEL_9_POS_TITLE,HEIRARCHY_ARR[9]['POS_TITLE']\nLEVEL_9_EMPL_ID,HEIRARCHY_ARR[9]['EMPL_ID']\nLEVEL_9_EMPL_NAME,HEIRARCHY_ARR[9]['EMPL_NAME']\nLEVEL_10_POS_NUM,HEIRARCHY_ARR[10]['POS_NUM']\nLEVEL_10_POS_TITLE,HEIRARCHY_ARR[10]['POS_TITLE']\nLEVEL_10_EMPL_ID,HEIRARCHY_ARR[10]['EMPL_ID']\nLEVEL_10_EMPL_NAME,HEIRARCHY_ARR[10]['EMPL_NAME']\nLEVEL_11_POS_NUM,HEIRARCHY_ARR[11]['POS_NUM']\nLEVEL_11_POS_TITLE,HEIRARCHY_ARR[11]['POS_TITLE']\nLEVEL_11_EMPL_ID,HEIRARCHY_ARR[11]['EMPL_ID']\nLEVEL_11_EMPL_NAME,HEIRARCHY_ARR[11]['EMPL_NAME']\nLEVEL_12_POS_NUM,HEIRARCHY_ARR[12]['POS_NUM']\nLEVEL_12_POS_TITLE,HEIRARCHY_ARR[12]['POS_TITLE']\nLEVEL_12_EMPL_ID,HEIRARCHY_ARR[12]['EMPL_ID']\nLEVEL_12_EMPL_NAME,HEIRARCHY_ARR[12]['EMPL_NAME']\nLEVEL_13_POS_NUM,HEIRARCHY_ARR[13]['POS_NUM']\nLEVEL_13_POS_TITLE,HEIRARCHY_ARR[13]['POS_TITLE']\nLEVEL_13_EMPL_ID,HEIRARCHY_ARR[13]['EMPL_ID']\nLEVEL_13_EMPL_NAME,HEIRARCHY_ARR[13]['EMPL_NAME']\nLEVEL_14_POS_NUM,HEIRARCHY_ARR[14]['POS_NUM']\nLEVEL_14_POS_TITLE,HEIRARCHY_ARR[14]['POS_TITLE']\nLEVEL_14_EMPL_ID,HEIRARCHY_ARR[14]['EMPL_ID']\nLEVEL_14_EMPL_NAME,HEIRARCHY_ARR[14]['EMPL_NAME']\nLEVEL_15_POS_NUM,HEIRARCHY_ARR[15]['POS_NUM']\nLEVEL_15_POS_TITLE,HEIRARCHY_ARR[15]['POS_TITLE']\nLEVEL_15_EMPL_ID,HEIRARCHY_ARR[15]['EMPL_ID']\nLEVEL_15_EMPL_NAME,HEIRARCHY_ARR[15]['EMPL_NAME']\nLEVEL_16_POS_NUM,HEIRARCHY_ARR[16]['POS_NUM']\nLEVEL_16_POS_TITLE,HEIRARCHY_ARR[16]['POS_TITLE']\nLEVEL_16_EMPL_ID,HEIRARCHY_ARR[16]['EMPL_ID']\nLEVEL_16_EMPL_NAME,HEIRARCHY_ARR[16]['EMPL_NAME']\nLEVEL_17_POS_NUM,HEIRARCHY_ARR[17]['POS_NUM']\nLEVEL_17_POS_TITLE,HEIRARCHY_ARR[17]['POS_TITLE']\nLEVEL_17_EMPL_ID,HEIRARCHY_ARR[17]['EMPL_ID']\nLEVEL_17_EMPL_NAME,HEIRARCHY_ARR[17]['EMPL_NAME']\nLEVEL_18_POS_NUM,HEIRARCHY_ARR[18]['POS_NUM']\nLEVEL_18_POS_TITLE,HEIRARCHY_ARR[18]['POS_TITLE']\nLEVEL_18_EMPL_ID,HEIRARCHY_ARR[18]['EMPL_ID']\nLEVEL_18_EMPL_NAME,HEIRARCHY_ARR[18]['EMPL_NAME']\nLEVEL_19_POS_NUM,HEIRARCHY_ARR[19]['POS_NUM']\nLEVEL_19_POS_TITLE,HEIRARCHY_ARR[19]['POS_TITLE']\nLEVEL_19_EMPL_ID,HEIRARCHY_ARR[19]['EMPL_ID']\nLEVEL_19_EMPL_NAME,HEIRARCHY_ARR[19]['EMPL_NAME']",
-        "activeTab" : "expressions",
-        "columnsSelector" : [ "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##AUX_INS_DTM", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##HEIRARCHY_ARR", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##POS_NUM", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##POS_TITLE", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##AUX_SRC_SYS", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##EM_POS_NUM", "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk##AUX_SRC_STATUS" ]
-      },
-      "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.40&projectSubscriptionProjectId=12654&path=gems/Reformat",
-        "projectName" : "ProphecySparkBasicsPython"
+        "datasetId" : "datasets/employee"
       }
     },
     "LKR8tZOZQG891BCD_XiT_$$kzFO8gHS2ySP9nz1J1jik" : {
@@ -4566,12 +4567,14 @@
       "metadata" : {
         "label" : "employee_heirarchy",
         "slug" : "employee_heirarchy",
-        "x" : 200,
+        "x" : 240,
         "y" : -120,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Saves employee hierarchy data to a structured table for better organization and accessibility.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {

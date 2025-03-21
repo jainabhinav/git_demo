@@ -1,1 +1,0 @@
-from .gold_layer_validation import *

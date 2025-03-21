@@ -1,0 +1,25 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: schema_name
+    type: string
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: record_count
+    type: long
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: null_fk_count
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

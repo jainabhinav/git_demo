@@ -11,7 +11,7 @@
   }, {
     "PipelineComponent" : {
       "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/fetch_config_from_metadata-1.0-py3-none-any.whl",
-      "nodeName" : "fetch_config_from_metadata",
+      "nodeName" : "config2",
       "id" : "6NsgasSeqbwWNvuhnJ1OS",
       "language" : "python",
       "pipelineId" : "pipelines/fetch_config_from_metadata"
@@ -36,7 +36,7 @@
           "spark.prophecy.metadata.is.interactive.run" : "false",
           "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
           "spark.prophecy.metadata.user.id" : "2632",
-          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWSkstSc6IT87PS8tMj08rys+Nz00tSUxJLElUslIqyCxIzcnMSy3Wx6OsFgBteJ8RRQAAAA==",
+          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWSs7PS8tMN1KyUirILEjNycxLLdZPSy1JzoiHyMSnFeXnxuemliSmJJYkKunANMQTraUWAK9HuRplAAAA",
           "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
           "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
           "spark.prophecy.execution.metrics.disabled" : "true",
@@ -68,7 +68,7 @@
       },
       "email_notifications" : { }
     }, {
-      "task_key" : "fetch_config_from_metadata",
+      "task_key" : "config2",
       "depends_on" : [ {
         "task_key" : "set_params"
       } ],
@@ -102,5 +102,5 @@
     "clusterMode" : "Single"
   },
   "secret_scope" : "prophecy_jobs_4057",
-  "sorted_processes" : [ "m-WbvmTR7v2PlVqz94kvr$$Ela5xq2pNO3rYT_WwTNX3", "6NsgasSeqbwWNvuhnJ1OS" ]
+  "sorted_processes" : [ "m-WbvmTR7v2PlVqz94kvr$$Ela5xq2pNO3rYT_WwTNX3", "6NsgasSeqbwWNvuhnJ1OS", "Je6tlm9lNboOgwXJ9h1m4" ]
 }

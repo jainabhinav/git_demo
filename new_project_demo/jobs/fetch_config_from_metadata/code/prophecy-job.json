@@ -33,14 +33,49 @@
     }
   },
   "processes" : {
+    "m-WbvmTR7v2PlVqz94kvr$$Ela5xq2pNO3rYT_WwTNX3" : {
+      "id" : "m-WbvmTR7v2PlVqz94kvr$$Ela5xq2pNO3rYT_WwTNX3",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "set_params",
+        "slug" : "set_params",
+        "x" : -520,
+        "y" : 0
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "xtU_FiSuQPh9fJj4vHWnK$$HGn8S0AsF-msvq2espMZ4",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "aD7F1DNxlsa3AWZqrqNFq$$vboOxLJ8a-vTKRqUWCxTD",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        },
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      },
+      "properties" : {
+        "code" : "from pyspark.sql.functions import *\ndf = spark.read.table(\"`hive_metastore`.`abhinav_demo`.`date_filter_table`\").filter((col(\"process_name\") > lit(\"process2\")))\ndate_filter_from_df = str(df.select(\"date_filter\").collect()[0][0])\ndbutils.jobs.taskValues.set(key = \"date_filter_from_df\", value = date_filter_from_df)"
+      }
+    },
     "6NsgasSeqbwWNvuhnJ1OS" : {
       "id" : "6NsgasSeqbwWNvuhnJ1OS",
       "component" : "Pipeline",
       "metadata" : {
-        "label" : "fetch_config_from_metadata",
-        "slug" : "fetch_config_from_metadata",
-        "x" : 100,
-        "y" : 100
+        "label" : "config2",
+        "slug" : "config2",
+        "x" : -340,
+        "y" : 0
       },
       "ports" : {
         "inputs" : [ {
@@ -96,45 +131,10 @@
         },
         "projectId" : "11770"
       }
-    },
-    "m-WbvmTR7v2PlVqz94kvr$$Ela5xq2pNO3rYT_WwTNX3" : {
-      "id" : "m-WbvmTR7v2PlVqz94kvr$$Ela5xq2pNO3rYT_WwTNX3",
-      "component" : "Script",
-      "metadata" : {
-        "label" : "set_params",
-        "slug" : "set_params",
-        "x" : -100,
-        "y" : 100
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "xtU_FiSuQPh9fJj4vHWnK$$HGn8S0AsF-msvq2espMZ4",
-          "slug" : ""
-        } ],
-        "outputs" : [ {
-          "id" : "aD7F1DNxlsa3AWZqrqNFq$$vboOxLJ8a-vTKRqUWCxTD",
-          "slug" : ""
-        } ]
-      },
-      "settings" : {
-        "alerting" : {
-          "emails" : "",
-          "onStart" : false,
-          "onSuccess" : false,
-          "onFailure" : false
-        },
-        "emails" : "",
-        "onStart" : false,
-        "onSuccess" : false,
-        "onFailure" : false
-      },
-      "properties" : {
-        "code" : "from pyspark.sql.functions import *\ndf = spark.read.table(\"`hive_metastore`.`abhinav_demo`.`date_filter_table`\").filter((col(\"process_name\") > lit(\"process2\")))\ndate_filter_from_df = str(df.select(\"date_filter\").collect()[0][0])\ndbutils.jobs.taskValues.set(key = \"date_filter_from_df\", value = date_filter_from_df)"
-      }
     }
   },
   "connections" : [ {
-    "id" : "-aLOQcC9UYnsfYKr8Y5VS$$n9-xVcELxqgJ6nA6sl29s",
+    "id" : "s3lz_Ak2JvMbw8nCtmpqZ$$sndQmq8bUdbkRY7P8ktxZ",
     "source" : "m-WbvmTR7v2PlVqz94kvr$$Ela5xq2pNO3rYT_WwTNX3",
     "target" : "6NsgasSeqbwWNvuhnJ1OS",
     "sourcePort" : "aD7F1DNxlsa3AWZqrqNFq$$vboOxLJ8a-vTKRqUWCxTD",

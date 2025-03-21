@@ -41,16 +41,21 @@ pipelines:
       - datasets/metadata_date_filter_output_dummy
     subgraphs: []
     dependencies: {}
-  pipelines/gold_layer_validation:
-    name: gold_layer_validation
+  pipelines/gold_layer_snapshot:
+    name: gold_layer_snapshot
     description: ''
     author: abhinav+demo@prophecy.io
     mode: batch
     artefactID: ''
     language: python
-    createdAt: '2025-03-19 08:47:04'
+    createdAt: '2025-03-19 10:19:06'
     datasets:
-      inputs: []
+      inputs:
+      - datasets/db1_orders
+      - datasets/db2_orders
+      - datasets/orders_latest
+      - datasets/orders_snapshot
+      - datasets/orders_threshold
       outputs: []
     subgraphs: []
     dependencies: {}
@@ -107,6 +112,136 @@ datasets:
         description: ''
         author: abhinav+demo@prophecy.io
         createdAt: '2025-03-19 08:17:16'
+  datasets/db1_orders:
+    name: db1_orders
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 10:01:18'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 10:01:18'
+  datasets/db2_orders:
+    name: db2_orders
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 10:01:48'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 10:01:48'
+  datasets/configurable_orders:
+    name: configurable_orders
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 10:02:55'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 10:02:55'
+  datasets/orders_metadata:
+    name: orders_metadata
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 10:09:12'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 10:09:12'
+  datasets/orders_threshold:
+    name: orders_threshold
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 10:26:49'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 10:26:49'
+  datasets/orders_snapshot:
+    name: orders_snapshot
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 10:27:40'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 10:27:40'
+  datasets/orders_latest:
+    name: orders_latest
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 10:37:12'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 10:37:12'
+  datasets/new_dataset:
+    name: new_dataset
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 12:36:20'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 12:36:20'
+  datasets/abhinav_demo_employees:
+    name: abhinav_demo_employees
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 12:37:18'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 12:37:18'
+  datasets/abhinav_demo_cust_ord_demo1:
+    name: abhinav_demo_cust_ord_demo1
+    description: ''
+    author: abhinav+demo@prophecy.io
+    createdAt: '2025-03-19 12:49:20'
+    mode: batch
+    physicalDatasets:
+      non_unity_fabric:
+        fabricId: 2122
+        datasetType: Database
+        description: ''
+        author: abhinav+demo@prophecy.io
+        createdAt: '2025-03-19 12:49:20'
 templates: {}
 jobs:
   jobs/fetch_config_from_metadata:
@@ -138,7 +273,31 @@ jobs:
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0
-  gems: {}
+  gems:
+    gems/catalogTable:
+      name: catalogTable
+      category: Source/Target
+      subCategory: Database
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - abhinavdemoprophecyio_team_first_project/gems/catalogTable.py
+      gemType: DatasetGem
+      dependencies: []
+      createdAt: '2025-03-19 10:41:10'
+    gems/RowDistributor:
+      name: RowDistributor
+      category: Join/Split
+      subCategory: ''
+      description: null
+      author: abhinav+demo@prophecy.io
+      mode: batch
+      files:
+      - abhinavdemoprophecyio_team_first_project/gems/RowDistributor.py
+      gemType: ComponentGem
+      dependencies: null
+      createdAt: '2025-03-19 12:53:48'
   dependencies: null
 functions:
   author: null

@@ -1,0 +1,7 @@
+version: 1
+pipelineVersion:
+  version: '2'
+configurations:
+- table1
+- table2
+- default

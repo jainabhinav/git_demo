@@ -1,0 +1,44 @@
+{
+  "unitTests" : [ {
+    "data" : {
+      "mkkq6JRKFPjgO8TqaSbri$$2cPWxWCOQFnGfYu7plofk" : {
+        "values" : [ [ "2" ], [ "2" ], [ "2" ], [ "2" ], [ "2" ], [ "2" ], [ "2" ], [ "2" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "AUX_SRC_SYS",
+            "type" : "integer",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "predicates" : [ ]
+      },
+      "FvdxSYKQtt5E3U7Cp9kaO$$UtqSSWBcCDuUJRwPwQ23s" : {
+        "values" : [ [ "2" ], [ "2" ], [ "2" ], [ "2" ], [ "2" ], [ "2" ], [ "2" ], [ "2" ] ],
+        "schema" : {
+          "type" : "struct",
+          "fields" : [ {
+            "name" : "AUX_SRC_SYS",
+            "type" : "integer",
+            "nullable" : true,
+            "metadata" : {
+              "description" : "",
+              "mappings" : [ ],
+              "tags" : [ ]
+            }
+          } ]
+        },
+        "predicates" : [ ]
+      }
+    },
+    "name" : "Unit Test ",
+    "testType" : "outputRow",
+    "language" : "python"
+  } ],
+  "language" : "python"
+}

@@ -7,4 +7,4 @@ from employee_heirarchy.config.ConfigStore import *
 from employee_heirarchy.functions import *
 
 def employee_heirarchy(spark: SparkSession, in0: DataFrame):
-    in0.write.format("delta").mode("overwrite").saveAsTable("`abhinav_demo`.`employee_heirarchy`")
+    in0.write.format("delta").mode("overwrite").saveAsTable("`abhinav_demo`.`employee_heirarchy_new_table`")

@@ -1,0 +1,32 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: customer_id
+    type: integer
+    nullable: true
+    metadata:
+      description: Unique identifier for each customer
+      mappings: []
+      tags: []
+  - name: orders
+    type: long
+    nullable: true
+    metadata:
+      description: Total number of orders placed by the customer
+      mappings: []
+      tags: []
+  - name: amounts
+    type: double
+    nullable: true
+    metadata:
+      description: Total monetary value of customer orders
+      mappings: []
+      tags: []
+  - name: account_length_days
+    type: integer
+    nullable: true
+    metadata:
+      description: The total number of days the customer has maintained their account
+      mappings: []
+      tags: []

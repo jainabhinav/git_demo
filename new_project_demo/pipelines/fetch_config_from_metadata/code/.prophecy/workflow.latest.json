@@ -182,7 +182,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "3bpEpBztl_JkJAvQFhIq7$$SfPmpx5qs9nF_-WZpTyfS##process_name" ],
         "condition" : {
           "format" : "sql",
           "expression" : "process_name == '$process_name'"
@@ -199,7 +199,7 @@
       "metadata" : {
         "label" : "metadata_date_filter",
         "slug" : "metadata_date_filter",
-        "x" : -360,
+        "x" : -460,
         "y" : -180,
         "phase" : -1,
         "cache" : false,
@@ -228,7 +228,7 @@
       "metadata" : {
         "label" : "filter_by_date",
         "slug" : "filter_by_date",
-        "x" : -180,
+        "x" : -160,
         "y" : 0,
         "phase" : 0,
         "cache" : false,
@@ -292,7 +292,7 @@
       "metadata" : {
         "label" : "metadata_date_filter_output_dummy",
         "slug" : "metadata_date_filter_output_dummy",
-        "x" : 0,
+        "x" : 80,
         "y" : 0,
         "phase" : 0,
         "cache" : false,
@@ -344,7 +344,7 @@
       "metadata" : {
         "label" : "update_date_filter",
         "slug" : "update_date_filter",
-        "x" : 0,
+        "x" : 80,
         "y" : -180,
         "phase" : -1,
         "cache" : false,

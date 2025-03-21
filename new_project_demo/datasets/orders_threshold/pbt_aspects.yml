@@ -1,0 +1,32 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: table_name
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: count_diff_threshold
+    type: decimal(10,2)
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: null_fk_threshold
+    type: decimal(10,2)
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: current_snapshot
+    type: integer
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
